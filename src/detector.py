@@ -78,7 +78,6 @@ def mark_window(instrs: List[Instruction], start: int, end: int, score: float):
 def detect_cmp_jcc_mem(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
     """
     Pattern 1: cmp/test -> jcc -> accesso memoria
-    (Questo mantiene intatta la logica originale del tuo detector.)
     """
     instr = instrs[i]
     if not is_cmp_or_test(instr):
@@ -307,8 +306,8 @@ def annotate_transient_instructions(functions: List[Function],
                     window = None
                 if window:
                     windows.append(window)
-                    # opzionale: se non vuoi che altri detector marcino la stessa istruzione, puoi break qui
-                    # break
+                    # se non vuoi che altri detector marchino la stessa istruzione, break qui
+                    break
 
         # score globale: massimo tra i transient_score delle istruzioni
         func_score = max((instr.transient_score for instr in instrs), default=0.0)

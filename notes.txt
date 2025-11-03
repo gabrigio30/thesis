@@ -31,3 +31,13 @@ NOTE CALL 27 OTTOBRE
     - quante run servono per rubare tutta la secret key quando il mio tool è applicato?
 - A runtime quando il programma incontra l'if che valuta il segreto deve avere possibilità (su un random value,
     e.g. orario) di poter accedere alle differenti varianti (segmenti di codice semanticamente equivalenti all'originale)
+
+TESTO UTILE
+Basati su questi due file che sono il mio parser e il mio detector attuali:
+- https://github.com/gabrigio30/thesis/blob/main/src/parser.py
+- https://github.com/gabrigio30/thesis/blob/main/src/detector.py
+
+DOMANDE DA FARE A ELIA:
+- sono in difficoltà perché non riesco a trovare trasformazioni che non facciano casino a livello di stack pointer
+    escluso l'inserimento di NOPs
+-
