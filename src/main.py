@@ -1,5 +1,6 @@
 from src.parser import load_functions, write_functions
 from src.detector import annotate_transient_instructions, get_windows_text_report
+from src.variant_generator import generate_variants_for_results
 
 '''
 def main():
@@ -24,7 +25,7 @@ def main():
 '''
 
 def main():
-    funcs = load_functions('Ctests/spectre.s')
+    funcs = load_functions('Ctests/test6.s')
     results = annotate_transient_instructions(funcs, window_size=4)
 
     #write_functions(funcs, 'Ctests/out.s')
@@ -32,8 +33,8 @@ def main():
     for r in results:
         print(r)
 
-    # Per debug visuale di una funzione specifica:
-    print(get_windows_text_report(funcs[1]))
+    #Per debug visuale di una funzione specifica:
+    #print(get_windows_text_report(funcs[0]))
 
 if __name__ == "__main__":
     main()
