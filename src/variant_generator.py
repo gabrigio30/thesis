@@ -52,7 +52,8 @@ def is_label_instr(instr) -> bool:
     Rileva se un'Instruction rappresenta una label (es. 'LBB0_2:' o '.Lfoo:').
     Supporta sia oggetti Instruction (con .text) sia raw string.
     """
-    txt = instr.text if hasattr(instr, "text") else str(instr)
+    txt = instr.raw_line
+    #print(txt)
     return bool(re.match(r'^\s*[A-Za-z0-9_.]+:\s*$', txt))
 
 def get_label_text(instr) -> str:
@@ -98,7 +99,7 @@ def transform_dummy_read(instrs, dummy_label=".L_dummy_buf"):
     out.insert(1, Instruction(f"    movzbl  (%rax), %eax    ## dummy read"))
     return out
 
-# Puoi aggiungere ulteriori trasformazioni qui (es. micro-reorder, padding differente, ecc.)
+# Poi aggiungere ulteriori trasformazioni qui (es. micro-reorder, branch --> cmov, ecc.)
 
 # ---------------------- Core: generazione varianti ---------------------- #
 
@@ -109,15 +110,49 @@ def generate_variants_for_results(functions, results,
                                   max_nops_for_fallback=6,
                                   seed=None):
     """
-    Versione robusta che prima normalizza `results` con normalize_results().
-    Il resto della logica è invariata rispetto alla versione precedente.
+    Integra varianti direttamente nelle instructions della Function.
+
+    Parametri:
+    - functions: dict {func_name: Function}
+    - results: lista di dict nel formato sopra
+    - num_variants: numero totale di varianti da generare (inclusa l'originale)
+    - max_transforms_per_variant: numero massimo di trasformazioni per variante
+    - transformations: lista di funzioni di trasformazione
+    - max_nops_for_fallback: parametro per fallback NOP
+    - seed: seme random opzionale
+
+    Restituisce: la stessa mappa `functions` con .instructions modificate inline.
     """
+    #for f in functions:
+    #    print({f'Name: {f.name}'})
+    #    for i in f.instructions:
+    #        print({f'Instructions: {i.to_asm}'})
 
     if seed is not None:
         random.seed(seed)
 
     if transformations is None:
-        transformations = [transform_nop_random, transform_dummy_read]
+        transformations = [transform_nop_random] #, transform_dummy_read]
+
+    # --- Conversione compatibilità formato ---
+    # Se results è una lista di dict con chiave 'function', lo mappiamo in un dict {func_name: windows}
+    if isinstance(results, list):
+        results_map = {}
+        for entry in results:
+            func_name = entry.get("function")
+            windows = entry.get("windows", [])
+            # Convertiamo i campi start_index/end_index -> start/end
+            norm_windows = []
+            for w in windows:
+                if "start_index" in w and "end_index" in w:
+                    norm_windows.append({
+                        "start": w["start_index"],
+                        "end": w["end_index"],
+                        "pattern": w.get("pattern", ""),
+                        "score": w.get("score", 0.0)
+                    })
+            results_map[func_name] = norm_windows
+        results = results_map
 
     # Validazione di base
     if num_variants < 1:
@@ -126,86 +161,76 @@ def generate_variants_for_results(functions, results,
         raise ValueError("max_transforms_per_variant deve essere >= 1.")
 
     # Elaboriamo funzione per funzione
-    for func_name, windows in results_map.items():
-        if func_name == "" and func_name not in functions:
-            # se abbiamo finestre senza func_name e non c'è una funzione corrispondente,
-            # proviamo ad applicare alle function di default (o skip).
-            # Per sicurezza saltiamo.
-            print("[normalize_results] Warning: windows senza riferimento a funzione; skipping.")
+    for func_name, windows in results.items():
+        #print(func_name)
+        #if func_name not in functions:
+            # ENTRA SEMPRE QUI NONOSTANTE I NOMI SIANO UGUALI
+        #    continue
+        instrs = None
+        for f in functions:
+            if f.name == func_name:
+                func = f
+                instrs = func.instructions
+                #print('fatto')
+
+        if instrs is None:
             continue
 
-        if func_name not in functions:
-            # skip: risultato del detector per funzione non presente nelle functions
-            # ma è possibile che results_map contenga key "" con windows generiche, le skippiamo
-            print(f"[generate_variants] Warning: funzione '{func_name}' non trovata in functions; skipping.")
-            continue
+        for window in windows:
+            print(window)
 
-        func = functions[func_name]
-        instrs = func.instructions  # alias
+        #func = functions[func_name]
+        #instrs = func.instructions  # alias
+        #print({f'Instructions before generating variants for {func_name}: {instrs}'})
 
-        # Process windows in reverse order per evitare shift degli indici durante le modifiche
+        # Process windows in reverse order per evitare shift degli indici
         for win_idx, window in reversed(list(enumerate(windows))):
-            # Il window può essere un dict {'start':..., 'end':...} oppure
-            # avere nomi differenti: adattiamo
-            if isinstance(window, dict):
-                # preferenze per key start/end
-                if 'start' in window and 'end' in window:
-                    start = window['start']
-                    end = window['end']
-                elif 'i' in window and 'j' in window:
-                    start = window['i']; end = window['j']
-                else:
-                    # formati alternativi: try to infer from 'range' or 'span'
-                    if 'range' in window and isinstance(window['range'], (list, tuple)) and len(window['range']) == 2:
-                        start, end = window['range']
-                    else:
-                        raise ValueError(f"Window format non riconosciuto per {func_name} window {win_idx}: {window}")
-            elif isinstance(window, (list, tuple)) and len(window) == 2 and all(isinstance(x, int) for x in window):
-                start, end = window
-            else:
-                raise ValueError(f"Window format non riconosciuto per {func_name} window {win_idx}: {window}")
+            start = window['start']
+            end = window['end']
 
-            # Sanity check sugli indici
             if not (0 <= start < len(instrs)) or not (0 < end <= len(instrs)) or start >= end:
                 raise IndexError(f"Window indices invalidi per {func_name} window {win_idx}: {(start,end)}")
 
-            # Copia della finestra originale
-            window_instrs = [deepcopy(instrs[i]) for i in range(start, end)]
+            window_instrs = [instrs[i] for i in range(start, end + 1)]
+            #for w in window_instrs:
+                #print(w.raw_line)
 
-            # Genera varianti: la prima è sempre la originale
+            # Genera varianti: prima = originale
             variants = [transform_original(window_instrs)]
 
-            # Genera le altre varianti combinando trasformazioni casualmente
             for _ in range(num_variants - 1):
                 v = transform_original(window_instrs)
                 n_t = random.randint(1, max_transforms_per_variant)
-                chosen = random.sample(transformations, k=n_t if n_t <= len(transformations) else len(transformations))
+                chosen = random.sample(transformations, k=min(n_t, len(transformations)))
                 for t in chosen:
                     v = t(v)
                 variants.append(v)
 
-            # Se due o più varianti risultano uguali -> fallback: forziamo NOP diversi
             def _seq_text(seq):
                 return "\n".join(i.text if hasattr(i, "text") else str(i) for i in seq)
+
+            # METTE TUTTO IN UN'UNICA LISTA PER CONTROLLARE DIFFERENZE TRA VAIRIANTI, VA CAMBIATO
+            '''
             texts = [_seq_text(v) for v in variants]
+            print(texts)
             if len(set(texts)) != len(texts):
-                # fallback: rigeneriamo le varianti (tranne l'originale) con molti NOP
                 for i in range(1, len(variants)):
                     variants[i] = transform_nop_random(window_instrs, max_nops=max_nops_for_fallback)
+            '''
 
-            # ------------------- Determina continuation_label -------------------
-            # Cerchiamo la prima label immediatamente dopo la finestra (scorrendo da 'end').
-            # Se troviamo un'istruzione che è label (es. "LBB0_2:") la usiamo.
-            # Altrimenti creiamo una nuova label e la inseriamo nella posizione 'end'.
+            # ------------------- continuation_label -------------------
             continuation_label = None
             if end < len(instrs):
                 found = None
                 for idx in range(end, len(instrs)):
+                    #print(instrs[idx].raw_line)
+                    #print(is_label_instr(instrs[idx]))
                     if is_label_instr(instrs[idx]):
                         found = instrs[idx]
+                        print(f'Continuation label: {found.raw_line}')
                         break
                 if found is not None:
-                    continuation_label = get_label_text(found)
+                    continuation_label = found.raw_line
                 else:
                     continuation_label = f"Lcont_{_labelify(func_name)}_win{win_idx}:"
                     instrs.insert(end, Instruction(continuation_label))
@@ -214,13 +239,22 @@ def generate_variants_for_results(functions, results,
                 instrs.append(Instruction(continuation_label))
 
             if not continuation_label.endswith(":"):
-                continuation_label = continuation_label + ":"
+                continuation_label += ":"
 
-            # ------------------- Costruisci prologo (Instruction objects) -------------------
-            table_label = make_table_label(func_name, win_idx)[:-1]  # senza ':' per usare in lea
+            # ------------------- prologo -------------------
+            # -----------------------------------------------
+            # In pseudocodice è sostanzialmente questo:
+            # -----------------------------------------------
+            # int idx = rand() % 3;
+            # void* jump_table[] = { &variant0, &variant1, &variant2 };
+            # goto *jump_table[idx];
+            #------------------------------------------------
+            # ANDREBBE CONTROLLATO SE I REGISTRI SONO LIBERI PER EVITARE PROBLEMI DURANTE L'ESECUZIONE
+
+            table_label = make_table_label(func_name, win_idx)[:-1]
             prologue = [
                 Instruction("    /* --- variant selection prologue START --- */"),
-                Instruction("    call    rand@PLT"),
+                Instruction("    call    _rand"),
                 Instruction("    cdq"),
                 Instruction(f"    mov     ${num_variants}, %ebx"),
                 Instruction("    idiv    %ebx           ## edx = rand() % num_variants"),
@@ -231,32 +265,71 @@ def generate_variants_for_results(functions, results,
                 Instruction("    /* --- variant selection prologue END --- */"),
             ]
 
-            # ------------------- Sostituisci la finestra con il prologo -------------------
-            del instrs[start:end]
+            # ------------------- sostituzione finestra -------------------
+
+            del instrs[start:end + 1]
+
+            # ANDREBBE INSERITA UNA LABEL DI DEFAULT NELLA RIGA SUBITO DOPO END DOVE DEVONO SALTARE
+            # TUTTE LE VARIANTI ALLA FINE DELL'ESECUZIONE
+            # esempio:
+            #   movl	_array1_size(%rip), %ecx
+            #   cmpq	%rcx, %rax      #INIZIO FINESTRA
+            #   jae LBB0_2
+            # ## %bb.1:
+            # 	movq	-8(%rbp), %rcx      # FINE FINESTRA
+            # 	leaq	_array1(%rip), %rax
+            # --------------------------
+            # DEVE DIVENTARE
+            # --------------------------
+            #   movl	_array1_size(%rip), %ecx
+            # ROBA PROLOGO
+            # VARIANTE 1
+            #   .....
+            #   jmp LcontinueWinN
+            # VARIANTE 2
+            #   .....
+            #   jmp LcontinueWinN
+            # JUMP TABLE ECC..
+            # LcontinueWinN:
+	        #   leaq	_array1(%rip), %rax
+
+            #for i in instrs:
+            #    print(i.raw_line)
+
             for i, ins in enumerate(reversed(prologue)):
                 instrs.insert(start, ins)
 
+            #for i in instrs:
+            #    print(i.raw_line)
+
+            for v in variants:
+                print('\nVariant')
+                for l in range(len(v)):
+                    print(v[l].raw_line)
+
             pos_base = start + len(prologue)
 
-            # ------------------- Inserisci le varianti inline -------------------
+            # ------------------- inserisci varianti -------------------
             for var_idx, vseq in enumerate(variants):
+
                 lbl = make_variant_label(func_name, win_idx, var_idx)
                 instrs.insert(pos_base, Instruction(lbl)); pos_base += 1
                 for vi in vseq:
-                    if hasattr(vi, "text"):
-                        instrs.insert(pos_base, deepcopy(vi)); pos_base += 1
-                    else:
-                        instrs.insert(pos_base, Instruction(str(vi))); pos_base += 1
+                    #instrs.insert(pos_base, deepcopy(vi) if hasattr(vi, "text") else Instruction(str(vi)))
+                    instrs.insert(pos_base, Instruction(vi.raw_line))
+                    pos_base += 1
                 cont_target = continuation_label[:-1] if continuation_label.endswith(":") else continuation_label
-                instrs.insert(pos_base, Instruction(f"    jmp     {cont_target}")); pos_base += 1
+                instrs.insert(pos_base, Instruction(f"    jmp {cont_target}")); pos_base += 1
 
-            # ------------------- Inserisci la jump-table subito dopo le varianti -------------------
+            # ------------------- jump table -------------------
             table_label_with_colon = make_table_label(func_name, win_idx)
+            instrs.insert(pos_base, Instruction(table_label_with_colon)); pos_base += 1
             instrs.insert(pos_base, Instruction(table_label_with_colon)); pos_base += 1
             for var_idx in range(num_variants):
                 tgt_lbl = make_variant_label(func_name, win_idx, var_idx)
-                q = Instruction(f"    .quad   {tgt_lbl[:-1]}")
-                instrs.insert(pos_base, q); pos_base += 1
+                instrs.insert(pos_base, Instruction(f"    .quad   {tgt_lbl[:-1]}")); pos_base += 1
+
 
     return functions
+
 

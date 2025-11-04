@@ -233,7 +233,7 @@ def write_functions(functions: List[Function], output_file: str):
             # Scriviamo solo le direttive 'importanti' prima della label
             for dir in func.directives:
                 file.write(dir + '\n')
-                print(dir)
+                #print(dir)
 
             # Se si tratta della funzione anonima per le direttive finali, le scriviamo e continuiamo
             if func.name == "__trailing_directives__":

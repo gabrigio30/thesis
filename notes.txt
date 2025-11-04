@@ -33,9 +33,10 @@ NOTE CALL 27 OTTOBRE
     e.g. orario) di poter accedere alle differenti varianti (segmenti di codice semanticamente equivalenti all'originale)
 
 TESTO UTILE
-Basati su questi due file che sono il mio parser e il mio detector attuali:
+Basati su questi due file che sono il mio parser, il mio detector attuali e il mio variant generator attuali:
 - https://github.com/gabrigio30/thesis/blob/main/src/parser.py
 - https://github.com/gabrigio30/thesis/blob/main/src/detector.py
+- https://github.com/gabrigio30/thesis/blob/main/src/variant_generator.py
 
 DOMANDE DA FARE A ELIA:
 - sono in difficoltà perché non riesco a trovare trasformazioni che non facciano casino a livello di stack pointer
