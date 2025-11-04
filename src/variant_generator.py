@@ -112,8 +112,6 @@ def generate_variants_for_results(functions, results,
     Versione robusta che prima normalizza `results` con normalize_results().
     Il resto della logica è invariata rispetto alla versione precedente.
     """
-    # normalizza i risultati in una mappa func_name -> list of windows
-    results_map = normalize_results(results)
 
     if seed is not None:
         random.seed(seed)
