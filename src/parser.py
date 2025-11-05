@@ -229,6 +229,13 @@ def write_functions(functions: List[Function], output_file: str):
     - Scrive istruzioni e label senza spostare direttive delicate (.cfi_*, .p2align).
     """
     with open(output_file, 'w') as file:
+        # Scriviamo intestazione .data solo una volta
+        file.write("\t.data\n")
+        file.write("\t.globl  random_selector\n")
+        file.write("random_selector:\n")
+        file.write("\t.long   0\n")
+        file.write("\t.text\n\n")
+
         for func in functions:
             # Scriviamo solo le direttive 'importanti' prima della label
             for dir in func.directives:

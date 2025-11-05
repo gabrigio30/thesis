@@ -63,7 +63,7 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	movl	%eax, -56(%rbp)
 	jmp	LBB1_1
 LBB1_4:
-	movl	$1999, -52(%rbp)                ## imm = 0x7CF
+	movl	$999, -52(%rbp)                 ## imm = 0x3E7
 LBB1_5:                                 ## =>This Loop Header: Depth=1
                                         ##     Child Loop BB1_7 Depth 2
                                         ##     Child Loop BB1_11 Depth 2
