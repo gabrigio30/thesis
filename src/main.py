@@ -26,7 +26,7 @@ def main():
 
 def main():
     funcs = load_functions('Ctests/spectre.s')
-    results = annotate_transient_instructions(funcs, window_size=4)
+    results = annotate_transient_instructions(funcs, window_size=7)
     #write_functions(funcs, 'Ctests/out.s')
 
     for r in results:

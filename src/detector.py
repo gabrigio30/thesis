@@ -35,10 +35,32 @@ def is_conditional_jump(instr: Instruction) -> bool:
     mn = instr.mnemonic.lower()
     return mn.startswith('j') and mn != 'jmp'
 
+def is_unconditional_jump(instr) -> bool:
+    """
+    Ritorna True per jmp in qualsiasi variante (jmp/jmpq/jmpw).
+    Non considera i call né i jcc condizionali.
+    """
+    m = instr.mnemonic
+    if m is None:
+        return False
+    return m in ("jmp", "jmpq", "jmpw")
+
+
+def is_ret(instr) -> bool:
+    """
+    Ritorna True per le istruzioni di ritorno da funzione.
+    """
+    m = instr.mnemonic
+    if m is None:
+        return False
+    return m in ("ret", "retq", "lret", "lretq")
+
 
 def has_memory_access(instr: Instruction) -> bool:
     """Euristica semplice: verifica se l'istruzione accede alla memoria (AT&T: presenza di parentesi negli operandi)."""
-    return bool(instr.operands and any('(' in op and ')' in op for op in instr.operands))
+    if not instr.mnemonic or not instr.operands:
+        return False
+    return any('(' in op and ')' in op for op in instr.operands)
 
 
 def is_indirect_branch(instr: Instruction) -> bool:
@@ -88,33 +110,69 @@ def detect_cmp_jcc_mem(instrs: List[Instruction], i: int, window_size: int, n: i
     # cerchiamo un jump condizionale entro window_size
     jcc_index = None
     for j in range(i + 1, min(n, i + window_size)):
+        raw = normalize_raw(instrs[j].raw_line)
+
+        # fine basic block se incontriamo una label "vera"
+        if instrs[j].mnemonic is None:
+            # togliamo eventuale commento ("## ...") e poi guardiamo se finisce con ':'
+            no_comment = raw.split('#', 1)[0].strip()
+            if no_comment.endswith(":"):
+                break
+
+        # fine basic block / finestra
+        if is_unconditional_jump(instrs[j]) or is_ret(instrs[j]):
+            break
+
         if is_conditional_jump(instrs[j]):
             jcc_index = j
             break
-    if not jcc_index:
+
+    if jcc_index is None:
         return None
 
     # cerchiamo accesso memoria entro window_size dopo jcc
-    mem_index = None
+    last_mem_index = None
     for k in range(jcc_index + 1, min(n, jcc_index + window_size)):
-        if has_memory_access(instrs[k]):
-            mem_index = k
+        raw = normalize_raw(instrs[k].raw_line)
+
+        # non attraversiamo label → restiamo intra-basic-block
+        if instrs[k].mnemonic is None:
+            no_comment = raw.split('#', 1)[0].strip()
+            if no_comment.endswith(":"):
+                break
+
+        # barriera / fine basic block
+        if is_unconditional_jump(instrs[k]) or is_ret(instrs[k]):
             break
-    if not mem_index:
+
+        # (opzionale) potremmo fermarci anche su mfence/lfence/sfence
+        # if is_serializing(instrs[k]):
+        #     break
+
+        if has_memory_access(instrs[k]):
+            # print(f'Istruzione mem: {instrs[k].raw_line}')
+            last_mem_index = k
+
+    if last_mem_index is None:
         return None
 
-    # score euristico (stessa formula originale)
-    score = 0.4 + 0.4 * (1 - (jcc_index - cmp_index) / window_size) \
-                 + 0.2 * (1 - (mem_index - jcc_index) / window_size)
+    start = cmp_index
+    end = last_mem_index
+
+    # score euristico: puoi mantenere il tuo, basta aggiornare range
+    dist_jcc = (jcc_index - cmp_index)
+    dist_mem = (last_mem_index - jcc_index)
+    score = 0.4 + 0.3 * (1 - dist_jcc / max(1, window_size)) \
+            + 0.3 * (1 - dist_mem / max(1, window_size))
     score = round(min(score, 1.0), 2)
 
-    mark_window(instrs, cmp_index, mem_index, score)
+    mark_window(instrs, start, end, score)
 
     return {
-        "start_index": cmp_index,
-        "end_index": mem_index,
-        "pattern": "cmp+jcc+mem",
-        "score": score
+        "start_index": start,
+        "end_index": end,
+        "pattern": "cmp+jcc+mem*",
+        "score": score,
     }
 
 
@@ -256,7 +314,7 @@ REGISTERED_DETECTORS: List[Callable[[List[Instruction], int, int, int], Optional
 # ---------------------------------------------------------------------
 
 def annotate_transient_instructions(functions: List[Function],
-                                    window_size: int = 4,
+                                    window_size: int = 7,
                                     enabled_detectors: Optional[List[str]] = None) -> List[Dict]:
     """
     Detector modulare per finestre transient.

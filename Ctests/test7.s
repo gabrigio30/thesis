@@ -1,5 +1,5 @@
 	.section	__TEXT,__text,regular,pure_instructions
-	.build_version macos, 15, 0	sdk_version 26, 0
+	.build_version macos, 15, 0	sdk_version 26, 1
 	.globl	_compute_value                  ## -- Begin function compute_value
 	.p2align	4, 0x90
 _compute_value:                         ## @compute_value

@@ -98,8 +98,11 @@ def generate_variants_for_results(functions, results,
     Parametri:
     - functions: lista di oggetti Function (dal parser)
     - results: dict {func_name: [window_dict, ...]} prodotto dal detector
+               oppure lista di dict in formato:
+                 { "function": name,
+                   "windows": [ {start_index, end_index, ...}, ... ] }
     - num_variants: numero totale di varianti da generare (inclusa l'originale)
-    - transformations: lista di funzioni di trasformazione (solo quelle "reali")
+    - transformations: lista di funzioni di trasformazione
     - seed: seme random per riproducibilità
     """
 
@@ -111,13 +114,13 @@ def generate_variants_for_results(functions, results,
         transformations = [transform_nop]
 
     # --- Conversione compatibilità formato ---
-    # Se results è una lista di dict con chiave 'function', lo mappiamo in un dict {func_name: windows}
+    # Se results è una lista di dict con chiave 'function',
+    # lo mappiamo in un dict {func_name: windows}
     if isinstance(results, list):
         results_map = {}
         for entry in results:
             func_name = entry.get("function")
             windows = entry.get("windows", [])
-            # Convertiamo i campi start_index/end_index -> start/end
             norm_windows = []
             for w in windows:
                 if "start_index" in w and "end_index" in w:
@@ -125,26 +128,46 @@ def generate_variants_for_results(functions, results,
                         "start": w["start_index"],
                         "end": w["end_index"],
                         "pattern": w.get("pattern", ""),
-                        "score": w.get("score", 0.0)
+                        "score": w.get("score", 0.0),
                     })
             results_map[func_name] = norm_windows
         results = results_map
 
+    # ======================================================
+    # Generazione varianti per funzione
+    # ======================================================
     for func in functions:
         if func.name not in results:
             continue  # nessuna finestra in questa funzione
 
         func_label = _labelify(func.name)
-        func_results = results[func.name]
-        offset = 0  # serve per correggere gli indici quando inseriamo codice extra
-        windows_sorted = sorted(func_results, key=lambda w: w["start"], reverse=True)
+
+        # --- 1) Filtra finestre sovrapposte sugli indici ORIGINALI ---
+        orig_windows = results[func.name]
+        orig_windows_sorted = sorted(orig_windows, key=lambda w: w["start"])
+
+        selected_windows = []
+        last_end = -1
+        for w in orig_windows_sorted:
+            start = w["start"]
+            end = w["end"]
+            # se si sovrappone (anche solo di 1 istruzione) a una finestra già scelta, la scartiamo
+            if start <= last_end:
+                continue
+            selected_windows.append(w)
+            last_end = end
+
+        # Lavoriamo dal fondo verso l'inizio: così non ci serve nessun offset
+        windows_sorted = sorted(selected_windows, key=lambda w: w["start"], reverse=True)
 
         # Elaboriamo ogni finestra rilevata
         for win_idx, window in enumerate(windows_sorted):
             start = window["start"]
             end = window["end"]
-            window_instrs = func.instructions[start:end + 1]
+            instrs = func.instructions
 
+            # Istruzioni della finestra nell'assembly originale
+            window_instrs = instrs[start:end + 1]
 
             # ======================================================
             # 1. Generazione varianti
@@ -154,21 +177,22 @@ def generate_variants_for_results(functions, results,
             # Variante 0: copia esatta (originale)
             variants.append([deepcopy(i) for i in window_instrs])
 
-            # Varianti successive: applicazione di trasformazioni reali
-            for v in range(1, num_variants):
+            # Varianti successive: trasformazioni randomiche
+            for _v in range(1, num_variants):
                 t = random.choice(transformations)
-                variants.append(t(window_instrs))
+                transformed = t(window_instrs)
+                variants.append(transformed)
 
             # ======================================================
-            # 2. Costruzione blocco di selezione random
+            # 2. Costruzione del blocco di selezione dinamica
             # ======================================================
-            continue_label = make_continue_label(func.name, win_idx)
-
             selector_block = []
 
-            # Salva RAX per sicurezza
+            # Salva i registri che andremo a clobberare
             selector_block.append(Instruction('## Start of variant dynamic selector'))
             selector_block.append(Instruction("    pushq   %rax", "pushq", ["%rax"]))
+            selector_block.append(Instruction("    pushq   %rcx", "pushq", ["%rcx"]))
+            selector_block.append(Instruction("    pushq   %rdx", "pushq", ["%rdx"]))
 
             # Lazy init del random_selector
             selector_block.append(Instruction("    movl    random_selector(%rip), %eax", "movl",
@@ -185,29 +209,49 @@ def generate_variants_for_results(functions, results,
             selector_block.append(Instruction("    movl    random_selector(%rip), %eax", "movl",
                                               ["random_selector(%rip)", "%eax"]))
 
-            # Confrontiamo %eax con ciascun indice di variante
+            # random_selector = random_selector % num_variants
+            selector_block.append(Instruction("    xorl    %edx, %edx", "xorl", ["%edx", "%edx"]))
+            selector_block.append(Instruction(f"    movl    ${num_variants}, %ecx", "movl",
+                                              [f"${num_variants}", "%ecx"]))
+            selector_block.append(Instruction("    divl    %ecx", "divl", ["%ecx"]))
+            selector_block.append(Instruction("    movl    %edx, %eax", "movl", ["%edx", "%eax"]))
+
+            # Ripristina RCX/RDX prima dei salti alle varianti
+            selector_block.append(Instruction("    popq    %rdx", "popq", ["%rdx"]))
+            selector_block.append(Instruction("    popq    %rcx", "popq", ["%rcx"]))
+
+            # Ora EAX contiene l'indice, stack top contiene ancora il vecchio RAX
+            # (che verrà ripristinato dalla popq %rax nella variante)
             for v in range(num_variants):
                 selector_block.append(
                     Instruction(f"    cmpl    ${v}, %eax", "cmpl", [f"${v}", "%eax"])
                 )
                 selector_block.append(
-                    Instruction(f"    je      {make_variant_label(func.name, win_idx, v)[:-1]}", "je",
-                                [make_variant_label(func.name, win_idx, v)[:-1]])
+                    Instruction(
+                        f"    je      {make_variant_label(func.name, win_idx, v)[:-1]}",
+                        "je",
+                        [make_variant_label(func.name, win_idx, v)[:-1]],
+                    )
                 )
 
-            # Salto di default alla variante 0
             selector_block.append(
-                Instruction(f"    jmp     {make_variant_label(func.name, win_idx, 0)[:-1]}", "jmp",
-                            [make_variant_label(func.name, win_idx, 0)[:-1]])
+                Instruction(
+                    f"    jmp     {make_variant_label(func.name, win_idx, 0)[:-1]}",
+                    "jmp",
+                    [make_variant_label(func.name, win_idx, 0)[:-1]],
+                )
             )
 
             # ======================================================
-            # 3. Costruzione blocchi varianti
+            # 3. Costruzione dei blocchi di variante
             # ======================================================
+            continue_label = make_continue_label(func.name, win_idx)
             variant_blocks = []
 
             for v, var_instrs in enumerate(variants):
+                # Commento per leggibilità
                 variant_blocks.append(Instruction(f"## Variant {v}"))
+
                 # Etichetta della variante
                 variant_blocks.append(Instruction(make_variant_label(func.name, win_idx, v)))
 
@@ -227,13 +271,8 @@ def generate_variants_for_results(functions, results,
 
             # ======================================================
             # 4. Inserimento nel corpo della funzione
+            #    (bottom-up: non serve offset)
             # ======================================================
-            insertion_point = start + offset
-            func.instructions[insertion_point:end + offset + 1] = (
-                selector_block + variant_blocks + [continue_instr]
-            )
-
-            # Aggiorniamo offset per mantenere coerenza dei prossimi indici
-            offset += len(selector_block) + len(variant_blocks) + 1 - (end - start + 1)
+            func.instructions[start:end + 1] = selector_block + variant_blocks + [continue_instr]
 
     return functions

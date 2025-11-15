@@ -72,6 +72,43 @@ class Function:
     def add_instruction(self, instr: Instruction):
         self.instructions.append(instr)
 
+
+def _split_operands(operands_raw: str):
+    """
+    Splitta gli operandi tenendo conto delle parentesi:
+    - non spezza sulle virgole dentro (...).
+    Esempio:
+      "%rax, (%rbx,%rcx), $1" -> ["%rax", "(%rbx,%rcx)", "$1"]
+    """
+    operands = []
+    current = []
+    depth = 0  # profondità di parentesi
+
+    for ch in operands_raw:
+        if ch == '(':
+            depth += 1
+            current.append(ch)
+        elif ch == ')':
+            depth = max(0, depth - 1)
+            current.append(ch)
+        elif ch == ',' and depth == 0:
+            # fine operando
+            op = ''.join(current).strip()
+            if op:
+                operands.append(op)
+            current = []
+        else:
+            current.append(ch)
+
+    # ultimo operando
+    op = ''.join(current).strip()
+    if op:
+        operands.append(op)
+
+    return operands
+
+
+
 # -------------------------
 # Parsing / I/O
 # -------------------------
@@ -193,7 +230,7 @@ def load_functions(filename: str) -> List[Function]:
             if instr_match:
                 mnemonic = instr_match.group(1)
                 operands_raw = instr_match.group(2).strip()
-                operands = [op.strip() for op in operands_raw.split(',')] if operands_raw else []
+                operands = _split_operands(operands_raw) if operands_raw else []
                 comment = instr_match.group(3) if instr_match.group(3) else None
                 instr = Instruction(raw_line=raw_line, mnemonic=mnemonic,
                                     operands=operands, comment=comment)
