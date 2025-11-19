@@ -1,5 +1,5 @@
 	.section	__TEXT,__text,regular,pure_instructions
-	.build_version macos, 15, 0	sdk_version 26, 0
+	.build_version macos, 15, 0	sdk_version 26, 1
 	.globl	_victim_function                ## -- Begin function victim_function
 	.p2align	4, 0x90
 _victim_function:                       ## @victim_function
@@ -63,7 +63,7 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	movl	%eax, -56(%rbp)
 	jmp	LBB1_1
 LBB1_4:
-	movl	$999, -52(%rbp)                 ## imm = 0x3E7
+	movl	$1999, -52(%rbp)                ## imm = 0x7CF
 LBB1_5:                                 ## =>This Loop Header: Depth=1
                                         ##     Child Loop BB1_7 Depth 2
                                         ##     Child Loop BB1_11 Depth 2
@@ -97,7 +97,7 @@ LBB1_10:                                ##   in Loop: Header=BB1_5 Depth=1
 	movl	%edx, %eax
                                         ## kill: def $rax killed $eax
 	movq	%rax, -80(%rbp)
-	movl	$29, -60(%rbp)
+	movl	$59, -60(%rbp)
 LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
                                         ## =>  This Loop Header: Depth=2
                                         ##       Child Loop BB1_13 Depth 3

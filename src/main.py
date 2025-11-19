@@ -27,16 +27,15 @@ def main():
 def main():
     funcs = load_functions('Ctests/spectre.s')
     results = annotate_transient_instructions(funcs, window_size=7)
-    #write_functions(funcs, 'Ctests/out.s')
 
-    for r in results:
-        print(r)
+    #for r in results:
+    #    print(r)
 
     #Per debug visuale di una funzione specifica:
     #print(get_windows_text_report(funcs[0]))
 
-    out = generate_variants_for_results(funcs, results)
-    res = write_functions(out, 'Ctests/out.s')
+    out = generate_variants_for_results(funcs, results, )
+    res = write_functions(out, 'Ctests/outLoad.s')
 
 if __name__ == "__main__":
     main()

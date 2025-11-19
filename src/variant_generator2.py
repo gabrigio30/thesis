@@ -12,30 +12,7 @@
 #  - Ogni variante termina con un salto verso un'etichetta di
 #    continuazione che riporta il flusso esattamente alla prima
 #    istruzione successiva alla finestra originale.
-#
-# Struttura del blocco generato:
-#
-#   pushq %rax
-#   movl  random_selector(%rip), %eax
-#   cmpl  $0, %eax
-#   je    .Lfunc_win0_var0
-#   cmpl  $1, %eax
-#   je    .Lfunc_win0_var1
-#   popq  %rax
-#   jmp   .Lfunc_win0_var0
-#
-# .Lfunc_win0_var0:
-#   ... codice variante originale ...
-#   jmp .Lfunc_win0_continue
-#
-# .Lfunc_win0_var1:
-#   ... codice trasformato (es. NOP insertion) ...
-#   jmp .Lfunc_win0_continue
-#
-# .Lfunc_win0_continue:
-#   ... prima istruzione successiva alla finestra ...
-#
-# ==============================================================
+
 
 import random
 from copy import deepcopy
@@ -80,6 +57,136 @@ def transform_nop(instrs, max_nops=3):
     return out
 
 
+def transform_fence(instrs, fence_mnemonic="lfence"):
+    """
+    Inserisce una o più fence (lfence di default) all'interno della finestra
+    per bloccare/limitare la speculazione oltre i punti sensibili.
+
+    - Non modifica la semantica architetturale (solo performance).
+    - Heuristica:
+      1) Inserisce una fence subito dopo il primo branch condizionale (jcc).
+      2) Inserisce opzionalmente una seconda fence prima del primo accesso
+         a memoria (operandi con parentesi).
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    # ---------------------------
+    # 1) Fence dopo il primo jcc
+    # ---------------------------
+    branch_idx = None
+    for idx, ins in enumerate(out):
+        m = (ins.mnemonic or "").lower()
+        if not m:
+            continue
+
+        # j* ma non jmp/jmpq/jmpl → branch condizionale
+        if m.startswith("j") and m not in ("jmp", "jmpq", "jmpl"):
+            branch_idx = idx
+            break
+
+    if branch_idx is not None and branch_idx + 1 <= len(out):
+        insert_positions = [branch_idx + 1]
+    else:
+        # fallback: fence all'inizio della finestra
+        insert_positions = [0]
+
+    # -----------------------------------------
+    # 2) Fence prima del primo accesso memoria
+    # -----------------------------------------
+    mem_idx = None
+    for idx, ins in enumerate(out):
+        # salta direttive/label
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            continue
+
+        # euristica: operandi con "(" implicano indirizzamento memoria
+        ops_str = ",".join(ins.operands) if ins.operands else ""
+        if "(" in ops_str:
+            mem_idx = idx
+            break
+
+    if mem_idx is not None and mem_idx not in insert_positions:
+        insert_positions.append(mem_idx)
+
+    # -----------------------------------------
+    # 3) Inserimento effettivo delle fence
+    # -----------------------------------------
+    offset = 0
+    for pos in sorted(insert_positions):
+        fence_line = f"    {fence_mnemonic}"
+        out.insert(pos + offset, Instruction(fence_line, fence_mnemonic, []))
+        offset += 1
+
+    return out
+
+
+import random  # se non è già importato in variant_generator2.py
+
+def transform_dummy_load(instrs, max_offset=64):
+    """
+    Inserisce un 'dummy load' da un buffer sicuro globale (__spec_noise_buf)
+    per aggiungere rumore nel pattern di accesso alla cache.
+
+    - Non modifica le istruzioni esistenti (solo inserimenti).
+    - Salva e ripristina i registri usati (r10, r11) con push/pop.
+    - Usa un offset random [0, max_offset) per differenziare le varianti.
+    - Presuppone che nel file .s finale esista un simbolo globale:
+        .comm   __spec_noise_buf,4096,16
+      (da aggiungere nel writer UNA sola volta se questa trasformazione viene usata).
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    # 1) Trova un punto "sensato" per il dummy load: prima del primo accesso a memoria
+    mem_idx = None
+    for idx, ins in enumerate(out):
+        # salta direttive/label o istruzioni senza mnemonic
+        if getattr(ins, "mnemonic", None) is None or getattr(ins, "directive", False):
+            continue
+
+        # euristica grezza: operandi con "(" => indirizzamento memoria
+        ops_str = ",".join(ins.operands) if ins.operands else ""
+        if "(" in ops_str:
+            mem_idx = idx
+            break
+
+    if mem_idx is None:
+        # fallback: se non troviamo accessi a memoria, inseriamo a metà finestra
+        insert_pos = len(out) // 2
+    else:
+        insert_pos = mem_idx
+
+    # 2) Costruisci il blocco di dummy load
+    #    Usiamo r10/r11, salvati con push/pop per non rompere la semantica.
+    #    offset random (in byte) dentro il buffer per muovere un po' il pattern di cache.
+    offset = 0
+    if max_offset > 0:
+        offset = random.randint(0, max_offset - 1)
+
+    if offset == 0:
+        mem_operand = "(%r10)"
+    else:
+        mem_operand = f"{offset}(%r10)"
+
+    dummy_block = []
+
+    dummy_block.append(Instruction("    ## Dummy load noise block", None, []))
+    #dummy_block.append(Instruction("    pushq   %r10", "pushq", ["%r10"]))
+    #dummy_block.append(Instruction("    pushq   %r11", "pushq", ["%r11"]))
+    dummy_block.append(Instruction("    leaq    __spec_noise_buf(%rip), %r10",
+                                   "leaq", ["__spec_noise_buf(%rip)", "%r10"]))
+    dummy_block.append(Instruction(f"    movb    {mem_operand}, %r11b",
+                                   "movb", [mem_operand, "%r11b"]))
+    #dummy_block.append(Instruction("    popq    %r11", "popq", ["%r11"]))
+    #dummy_block.append(Instruction("    popq    %r10", "popq", ["%r10"]))
+
+    # 3) Inserisci il blocco nel punto scelto
+    out[insert_pos:insert_pos] = dummy_block
+
+    return out
+
+# transform_dummy_load.TAGS = {"decorative"}
+
+
 # ==============================================================
 # Generatore principale di varianti
 # ==============================================================
@@ -111,7 +218,8 @@ def generate_variants_for_results(functions, results,
 
     # Di default, usiamo solo la trasformazione NOP
     if transformations is None:
-        transformations = [transform_nop]
+        #transformations = [transform_fence]
+        transformations = [transform_dummy_load]
 
     # --- Conversione compatibilità formato ---
     # Se results è una lista di dict con chiave 'function',

@@ -290,3 +290,5 @@ def write_functions(functions: List[Function], output_file: str):
             for instr in func.instructions:
                 # print(instr.to_asm())
                 file.write(instr.to_asm() + '\n')
+
+        file.write("    .comm   __spec_noise_buf,4096,4\n")
