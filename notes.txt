@@ -38,11 +38,6 @@ Basati su questi due file che sono il mio parser, il mio detector attuali e il m
 - https://github.com/gabrigio30/thesis/blob/main/src/detector.py
 - https://github.com/gabrigio30/thesis/blob/main/src/variant_generator.py
 
-DOMANDE DA FARE A ELIA:
-- sono in difficoltà perché non riesco a trovare trasformazioni che non facciano casino a livello di stack pointer
-    escluso l'inserimento di NOPs
-
-
 NOTE CALL 5 NOVEMBRE:
 - Inserisci trasformazioni e verifica overhead (in modo statistico, fai un po' di run e vedi quanto ne introducono),
     sicurezza e correttezza funzionale di tutte
@@ -51,3 +46,7 @@ NOTE CALL 5 NOVEMBRE:
 - Scarica coremark, genera l'assembly, passalo nel tool e poi esegui l'assembly di coremark per vedere quanto varia
     tra coremark eseguito 'normale' e coremark eseguito dopo essere passato nel tool
 
+
+NOTE CALL 19 NOVEMBRE:
+- Test: prendi istanza di spectre, testa unprotected, quanti byte del segreto rubo con quello e quanti con versione protected
+-

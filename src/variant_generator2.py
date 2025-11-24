@@ -218,8 +218,11 @@ def generate_variants_for_results(functions, results,
 
     # Di default, usiamo solo la trasformazione NOP
     if transformations is None:
-        #transformations = [transform_fence]
-        transformations = [transform_dummy_load]
+        #transformations = [transform_nop]
+        transformations = [transform_fence]
+        #transformations = [transform_dummy_load]
+        #transformations = [transform_nop, transform_dummy_load]
+        #transformations = [transform_nop, transform_fence, transform_dummy_load]
 
     # --- Conversione compatibilità formato ---
     # Se results è una lista di dict con chiave 'function',
@@ -291,6 +294,11 @@ def generate_variants_for_results(functions, results,
                 transformed = t(window_instrs)
                 variants.append(transformed)
 
+            '''
+            for _v in range(1, num_variants):
+                variants.append([deepcopy(i) for i in window_instrs])
+            '''
+
             # ======================================================
             # 2. Costruzione del blocco di selezione dinamica
             # ======================================================
@@ -302,6 +310,7 @@ def generate_variants_for_results(functions, results,
             selector_block.append(Instruction("    pushq   %rcx", "pushq", ["%rcx"]))
             selector_block.append(Instruction("    pushq   %rdx", "pushq", ["%rdx"]))
 
+            # VERSIONE CON RANDOM_SELECTOR COME GLOBAL
             # Lazy init del random_selector
             selector_block.append(Instruction("    movl    random_selector(%rip), %eax", "movl",
                                               ["random_selector(%rip)", "%eax"]))
@@ -323,6 +332,21 @@ def generate_variants_for_results(functions, results,
                                               [f"${num_variants}", "%ecx"]))
             selector_block.append(Instruction("    divl    %ecx", "divl", ["%ecx"]))
             selector_block.append(Instruction("    movl    %edx, %eax", "movl", ["%edx", "%eax"]))
+
+            '''
+            # VERSIONE CON RANDOM_SELECTOR SCELTO PRIMA DI OGNI FINESTRA
+            # Random locale basato su rdtsc: niente stato globale
+            # edx:eax = timestamp
+            selector_block.append(Instruction("    rdtsc", "rdtsc", []))
+            selector_block.append(Instruction("    xorq    %rdx, %rax", "xorq", ["%rdx", "%rax"]))
+
+            # eax % num_variants -> indice in [0, num_variants-1]
+            selector_block.append(Instruction(f"    movl    ${num_variants}, %ecx", "movl",
+                                              [f"${num_variants}", "%ecx"]))
+            selector_block.append(Instruction("    xorl    %edx, %edx", "xorl", ["%edx", "%edx"]))
+            selector_block.append(Instruction("    divl    %ecx", "divl", ["%ecx"]))
+            selector_block.append(Instruction("    movl    %edx, %eax", "movl", ["%edx", "%eax"]))
+            '''
 
             # Ripristina RCX/RDX prima dei salti alle varianti
             selector_block.append(Instruction("    popq    %rdx", "popq", ["%rdx"]))

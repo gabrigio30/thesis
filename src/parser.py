@@ -291,4 +291,5 @@ def write_functions(functions: List[Function], output_file: str):
                 # print(instr.to_asm())
                 file.write(instr.to_asm() + '\n')
 
-        file.write("    .comm   __spec_noise_buf,4096,4\n")
+        # QUESTA CREA CASINO
+        #file.write("    .comm   __spec_noise_buf,4096,4\n")

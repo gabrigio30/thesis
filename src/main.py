@@ -35,7 +35,7 @@ def main():
     #print(get_windows_text_report(funcs[0]))
 
     out = generate_variants_for_results(funcs, results, )
-    res = write_functions(out, 'Ctests/outLoad.s')
+    res = write_functions(out, 'Ctests/out2.s')
 
 if __name__ == "__main__":
     main()
