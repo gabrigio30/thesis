@@ -218,8 +218,8 @@ def generate_variants_for_results(functions, results,
 
     # Di default, usiamo solo la trasformazione NOP
     if transformations is None:
-        #transformations = [transform_nop]
-        transformations = [transform_fence]
+        transformations = [transform_nop]
+        #transformations = [transform_fence]
         #transformations = [transform_dummy_load]
         #transformations = [transform_nop, transform_dummy_load]
         #transformations = [transform_nop, transform_fence, transform_dummy_load]
@@ -288,6 +288,11 @@ def generate_variants_for_results(functions, results,
             # Variante 0: copia esatta (originale)
             variants.append([deepcopy(i) for i in window_instrs])
 
+            # --------------------------------------------------------------------------
+            # NON è necessario che le varianti che genero siano tutte diverse e uniche,
+            # perché saranno comunque in posizione (PC address) diversa tra loro
+            # --------------------------------------------------------------------------
+
             # Varianti successive: trasformazioni randomiche
             for _v in range(1, num_variants):
                 t = random.choice(transformations)
@@ -295,6 +300,7 @@ def generate_variants_for_results(functions, results,
                 variants.append(transformed)
 
             '''
+            # Varianti successive: copie esatte dell'originale
             for _v in range(1, num_variants):
                 variants.append([deepcopy(i) for i in window_instrs])
             '''
@@ -309,7 +315,7 @@ def generate_variants_for_results(functions, results,
             selector_block.append(Instruction("    pushq   %rax", "pushq", ["%rax"]))
             selector_block.append(Instruction("    pushq   %rcx", "pushq", ["%rcx"]))
             selector_block.append(Instruction("    pushq   %rdx", "pushq", ["%rdx"]))
-
+            '''
             # VERSIONE CON RANDOM_SELECTOR COME GLOBAL
             # Lazy init del random_selector
             selector_block.append(Instruction("    movl    random_selector(%rip), %eax", "movl",
@@ -346,7 +352,7 @@ def generate_variants_for_results(functions, results,
             selector_block.append(Instruction("    xorl    %edx, %edx", "xorl", ["%edx", "%edx"]))
             selector_block.append(Instruction("    divl    %ecx", "divl", ["%ecx"]))
             selector_block.append(Instruction("    movl    %edx, %eax", "movl", ["%edx", "%eax"]))
-            '''
+
 
             # Ripristina RCX/RDX prima dei salti alle varianti
             selector_block.append(Instruction("    popq    %rdx", "popq", ["%rdx"]))

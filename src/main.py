@@ -34,8 +34,8 @@ def main():
     #Per debug visuale di una funzione specifica:
     #print(get_windows_text_report(funcs[0]))
 
-    out = generate_variants_for_results(funcs, results, )
-    res = write_functions(out, 'Ctests/out2.s')
+    out = generate_variants_for_results(funcs, results, 100)
+    res = write_functions(out, 'Ctests/spectreSame_100.s')
 
 if __name__ == "__main__":
     main()

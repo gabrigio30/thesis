@@ -10,42 +10,23 @@ _compute_value:                         ## @compute_value
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	movl	%edi, -4(%rbp)
-	movl	%esi, -8(%rbp)
-	movl	-4(%rbp), %eax
-	addl	-8(%rbp), %eax
-	movl	%eax, -12(%rbp)
-	movl	-4(%rbp), %eax
-	shll	%eax
-	movl	%eax, -16(%rbp)
-	movl	-8(%rbp), %eax
-	xorl	$85, %eax
-	movl	%eax, -20(%rbp)
-	movl	-12(%rbp), %eax
-	addl	-16(%rbp), %eax
-	movl	%eax, -12(%rbp)
-	movl	-20(%rbp), %eax
-	subl	-4(%rbp), %eax
-	movl	%eax, -20(%rbp)
-	movl	-12(%rbp), %eax
-	cmpl	-20(%rbp), %eax
-	jle	LBB0_2
-## %bb.1:
-	movl	-16(%rbp), %eax
-	addl	$3, %eax
-	movl	%eax, -16(%rbp)
-	movl	-12(%rbp), %eax
-	xorl	-16(%rbp), %eax
-	movl	%eax, -12(%rbp)
-	jmp	LBB0_3
-LBB0_2:
-	movl	-20(%rbp), %eax
-	addl	$5, %eax
-	movl	%eax, -20(%rbp)
-LBB0_3:
-	movl	-12(%rbp), %eax
-	addl	-16(%rbp), %eax
-	addl	-20(%rbp), %eax
+                                        ## kill: def $esi killed $esi def $rsi
+                                        ## kill: def $edi killed $edi def $rdi
+	leal	(%rsi,%rdi), %eax
+	leal	(%rdi,%rdi), %ecx
+	xorl	$85, %esi
+	leal	(%rax,%rdi,2), %edx
+	subl	%edi, %esi
+	leal	5(%rsi), %eax
+	xorl	%r8d, %r8d
+	cmpl	%esi, %edx
+	leal	3(%rdi,%rdi), %edi
+	cmovgl	%edi, %r8d
+	cmovgl	%edi, %ecx
+	cmovgl	%esi, %eax
+	xorl	%edx, %r8d
+	addl	%ecx, %eax
+	addl	%r8d, %eax
 	popq	%rbp
 	retq
 	.cfi_endproc
@@ -60,20 +41,11 @@ _main:                                  ## @main
 	.cfi_offset %rbp, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register %rbp
-	subq	$16, %rsp
-	movl	$0, -4(%rbp)
-	movl	$7, -8(%rbp)
-	movl	$13, -12(%rbp)
-	movl	-8(%rbp), %edi
-	movl	-12(%rbp), %esi
-	callq	_compute_value
-	movl	%eax, -16(%rbp)
-	movl	-16(%rbp), %esi
 	leaq	L_.str(%rip), %rdi
-	movb	$0, %al
+	movl	$134, %esi
+	xorl	%eax, %eax
 	callq	_printf
 	xorl	%eax, %eax
-	addq	$16, %rsp
 	popq	%rbp
 	retq
 	.cfi_endproc

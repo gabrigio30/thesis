@@ -1,5 +1,13 @@
-NOTE CALL 6 OTTOBRE
+NOTE CALL 3 DICEMBRE:
+- Rimarrà utile anche tenere il fence e il nop perché a noi interessa il 'mix' di tutto, quindi non serve toglierli
+- Implementa tutte le idee, quelle che vanno le metti in tesi, se alcune non funzionano proprio le abbandono, nella
+    tesi, essendo tutto random, metterò un set di esperimenti largo con diversi setup mostrando i vari risultati
+- Testa le trasformazioni singolarmente con 10, 20 e 50 varianti per finestra
+- Mettere in maniera parametrica 'quante trasformazioni di ogni tipo usare per variante' e anche poter avere in %
+    quanto di ogni trasformazione usare (e.g. 30% fence, 50% nop, 20% altro)
 
+
+NOTE CALL 6 OTTOBRE
 - Tira fuori delle statistiche di coverage dei branch/righe di codice in maniera strutturata cosi posso
   tirare fuori grafici e tabelle per dire ‘Non solo impedisco l’attacco, ma garantisco statisticamente che
   il programma modificato sia funzionalmente uguale al programma originale’
@@ -49,4 +57,7 @@ NOTE CALL 5 NOVEMBRE:
 
 NOTE CALL 19 NOVEMBRE:
 - Test: prendi istanza di spectre, testa unprotected, quanti byte del segreto rubo con quello e quanti con versione protected
--
+- Nella narrativa della mia tesi farò l'estensione di LLVM, Amazon implementa il suo compilatore LLVM sul suo server, quindi
+    tutti gli eseguibili eseguiti su quel server andranno prima ricompilati col mio tool (?)
+- NON è necessario che le varianti che genero siano tutte diverse e uniche, perché saranno comunque in posizione (PC address)
+    diversa tra loro
