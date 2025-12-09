@@ -18,6 +18,98 @@ import random
 from copy import deepcopy
 from parser import Instruction
 
+# ==============================================================
+# Helper per la gestione dei registri temporanei "sicuri"
+# ==============================================================
+
+# Tutti i registri generali a 64 bit che ci interessano
+ALL_GPRS = [
+    "%rax", "%rbx", "%rcx", "%rdx",
+    "%rsi", "%rdi", "%rbp", "%rsp",
+    "%r8", "%r9", "%r10", "%r11",
+    "%r12", "%r13", "%r14", "%r15",
+]
+
+# Registri caller-saved che preferiamo usare come temporanei.
+# NOTA: lascio fuori rax/rcx/rdx perché li uso già nel selettore random
+CALLER_SAVED_PREFS = ["%r10", "%r11", "%r9", "%r8"]
+
+
+def regs_in_operand(op: str):
+    """
+    Restituisce l'insieme dei registri generali che compaiono in un operando.
+    Esempi di operandi: "%rax", "(%rdi,%rcx,4)", "8(%r10)".
+    """
+    regs = set()
+    for r in ALL_GPRS:
+        if r in op:
+            regs.add(r)
+    return regs
+
+
+def compute_safe_temps_for_function(func):
+    """
+    Calcola, per una funzione, quali registri temporanei possiamo usare
+    in modo molto conservativo.
+
+    Strategia:
+    - Consideriamo "sicuri" solo i caller-saved in CALLER_SAVED_PREFS.
+    - Un registro è considerato "safe" solo se NON compare mai in nessun
+      operando di nessuna istruzione della funzione.
+      In questo modo siamo ragionevolmente sicuri che il compilatore
+      non lo stia usando per nulla.
+
+    Se la lista restituita è vuota → per quella funzione non applichiamo
+    trasformazioni che richiedono registri temporanei.
+    """
+    used_regs = set()
+
+    for ins in func.instructions:
+        # Saltiamo direttive e linee non-istruzione
+        if ins.mnemonic is None:
+            continue
+        if not ins.operands:
+            continue
+        for op in ins.operands:
+            used_regs |= regs_in_operand(op)
+
+    safe_temps = [r for r in CALLER_SAVED_PREFS if r not in used_regs]
+    return safe_temps
+
+
+def reg_sets_for_mov(ins):
+    """
+    Calcola (defs, uses) per istruzioni di tipo mov* senza accesso a memoria.
+
+    Assunzioni molto conservative:
+    - Consideriamo solo mov* con operandi puramente di registro (niente parentesi).
+    - In sintassi AT&T: sorgente è il primo operando, destinazione l'ultimo.
+    - Usiamo solo i registri generali (ignora immediati, ecc.).
+    """
+    if ins.mnemonic is None:
+        return set(), set()
+
+    mnem = ins.mnemonic.lower()
+    if not mnem.startswith("mov"):
+        return set(), set()
+
+    # Niente accessi a memoria: se c'è '(' in un operando, lasciamo stare
+    if any("(" in op for op in (ins.operands or [])):
+        return set(), set()
+
+    if not ins.operands:
+        return set(), set()
+
+    # Operandi in AT&T: src, dst
+    src = ins.operands[0]
+    dst = ins.operands[-1]
+
+    uses = regs_in_operand(src)
+    defs = regs_in_operand(dst)
+
+    return defs, uses
+
+
 
 # ==============================================================
 # Helper per generare etichette leggibili e univoche
@@ -120,8 +212,167 @@ def transform_fence(instrs, fence_mnemonic="lfence"):
     return out
 
 
-import random  # se non è già importato in variant_generator2.py
+def transform_lea_split(instrs, safe_temps):
+    """
+    Trasformazione strutturale: LEA-splitting dei load da memoria.
 
+    Pattern (sintassi AT&T):
+        movX   offset(base, index, scale), dst
+
+    Diventa:
+        leaq   offset(base, index, scale), tmp
+        movX   (tmp), dst
+
+    dove:
+    - tmp è un registro temporaneo scelto tra i "safe_temps"
+      calcolati a livello di funzione.
+    - Non modifichiamo la semantica architetturale del load, ma
+      aggiungiamo un'operazione in più (LEA) e cambiamo il grafo
+      delle dipendenze, rendendo il gadget più "sporco".
+
+    NOTE:
+    - Non tocchiamo direttive/label.
+    - Non tocchiamo istruzioni già modificate strutturalmente
+      (structural_tag == True).
+    - Se non abbiamo registri temporanei disponibili, la finestra
+      resta invariata.
+    """
+    # Copia profonda della finestra, così non tocchiamo l'originale
+    out = [deepcopy(i) for i in instrs]
+
+    # Se non ci sono registri temporanei sicuri, non facciamo nulla
+    if not safe_temps:
+        return out
+
+    tmp = safe_temps[0]  # scelta estremamente conservativa: usiamo sempre il primo
+
+    for idx, ins in enumerate(out):
+        # Saltiamo direttive o linee non-istruzione
+        if ins.mnemonic is None or ins.directive:
+            continue
+
+        # Se questa riga è già stata modificata da una trasformazione strutturale,
+        # non la tocchiamo per evitare sovrascritture pericolose.
+        if getattr(ins, "structural_tag", False):
+            continue
+
+        mnem = ins.mnemonic.lower()
+
+        # Consideriamo solo mov* (movb/movw/movl/movq/...)
+        if not mnem.startswith("mov"):
+            continue
+
+        if not ins.operands or len(ins.operands) < 2:
+            continue
+
+        src = ins.operands[0]   # sorgente (AT&T)
+        dst = ins.operands[-1]  # destinazione
+
+        # Vogliamo solo load da memoria: l'operando sorgente deve avere "addressing"
+        # con parentesi, es: "offset(%rdi,%rcx,4)".
+        if "(" not in src:
+            continue
+
+        # Costruiamo la nuova coppia di istruzioni: LEA + MOV
+        lea_instr = Instruction(
+            f"    leaq    {src}, {tmp}",
+            "leaq",
+            [src, tmp],
+        )
+        # Manteniamo la stessa variante di mov (movb/movl/movq, ecc.)
+        new_mov = Instruction(
+            f"    {ins.mnemonic}    ({tmp}), {dst}",
+            ins.mnemonic,
+            [f"({tmp})", dst],
+        )
+
+        # Flagghiamo le nuove istruzioni come "strutturalmente modificate"
+        lea_instr.structural_tag = True
+        new_mov.structural_tag = True
+
+        # Rimpiazziamo l'istruzione originale con le due nuove
+        out[idx:idx+1] = [lea_instr, new_mov]
+
+    return out
+
+
+def transform_reorder_movs(instrs):
+    """
+    Trasformazione strutturale molto conservativa:
+    tenta di riordinare (swap) solo coppie di istruzioni mov*
+    tra registri, quando sono chiaramente indipendenti.
+
+    Regole di sicurezza:
+    - Consideriamo solo istruzioni mov* senza accesso a memoria.
+    - Non tocchiamo branch/call/ret o altre cose sensibili.
+    - Non tocchiamo istruzioni già modificate strutturalmente.
+    - Swappiamo due mov* adiacenti solo se:
+        * non usano gli stessi registri in lettura/scrittura
+          (no dipendenze RAW/WAR/WAW).
+
+    L'effetto è un leggero cambiamento nell'ordine di esecuzione
+    di µops semplici, senza toccare il controllo di flusso.
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    i = 0
+    while i < len(out) - 1:
+        a = out[i]
+        b = out[i + 1]
+
+        # Saltiamo direttive/label
+        if a.mnemonic is None or b.mnemonic is None:
+            i += 1
+            continue
+
+        # Se una delle due è già stata modificata strutturalmente, non la tocchiamo
+        if getattr(a, "structural_tag", False) or getattr(b, "structural_tag", False):
+            i += 1
+            continue
+
+        # Non swappiamo se una delle due è branch/call/ret
+        for ins in (a, b):
+            mnem = ins.mnemonic.lower()
+            if mnem.startswith("j") or mnem in ("call", "ret"):
+                break
+        else:
+            # Arriviamo qui solo se nessuna delle due è branch/call/ret
+
+            # Calcoliamo def/use per mov* senza memoria
+            defs_a, uses_a = reg_sets_for_mov(a)
+            defs_b, uses_b = reg_sets_for_mov(b)
+
+            # Se una delle due non è un mov "valido", non swappiamo
+            if (not defs_a and not uses_a) or (not defs_b and not uses_b):
+                i += 1
+                continue
+
+            # Condizione di indipendenza:
+            # - i registri scritti da A non devono essere letti/scritti da B
+            # - i registri scritti da B non devono essere letti/scritti da A
+            if (defs_a & (defs_b | uses_b)) or (defs_b & (defs_a | uses_a)):
+                i += 1
+                continue
+
+            # Se siamo qui, A e B sono mov* indipendenti: le swappiamo
+            out[i], out[i + 1] = out[i + 1], out[i]
+
+            # Flagghiamo entrambe come modificate strutturalmente
+            out[i].structural_tag = True
+            out[i + 1].structural_tag = True
+
+            # Avanziamo di 2 per non provare subito a riswappare la stessa coppia
+            i += 2
+            continue
+
+        # Se abbiamo fatto 'break' nel for (branch/call/ret), arriviamo qui
+        i += 1
+
+    return out
+
+
+
+# ATTUALMENTE NON FUNZIONA: SERVE AGGIUNGERE UN COMM ALLA FUNE DEL FILE .S CHE ROMPE TUTTO IL FLOW
 def transform_dummy_load(instrs, max_offset=64):
     """
     Inserisce un 'dummy load' da un buffer sicuro globale (__spec_noise_buf)
@@ -194,7 +445,10 @@ def transform_dummy_load(instrs, max_offset=64):
 def generate_variants_for_results(functions, results,
                                   num_variants=3,
                                   transformations=None,
-                                  seed=None):
+                                  seed=None,
+                                  transforms_per_variant=1,
+                                  transform_weights=None
+                                  ):
     """
     Integra varianti direttamente nelle istruzioni delle Function.
     Ogni finestra viene sostituita da:
@@ -211,18 +465,72 @@ def generate_variants_for_results(functions, results,
     - num_variants: numero totale di varianti da generare (inclusa l'originale)
     - transformations: lista di funzioni di trasformazione
     - seed: seme random per riproducibilità
+    - transforms_per_variant: quante trasformazioni applicare in sequenza
+      per costruire ciascuna variante (esclusa la variante 0 che resta
+      l'originale).
+    - transform_weights: dict opzionale {funzione: peso}. I pesi
+      determinano la probabilità relativa con cui ogni trasformazione
+      viene scelta (non devono sommare a 1, basta che siano >0).
+      Esempio:
+        {
+          transform_nop:         0.2,
+          transform_fence:       0.3,
+          transform_lea_split:   0.4,
+          transform_reorder_movs:0.1,
+        }
     """
 
     if seed is not None:
         random.seed(seed)
 
-    # Di default, usiamo solo la trasformazione NOP
+    # Se abbiamo solo i pesi ma non la lista esplicita, ricaviamo la lista
+    if transformations is None and transform_weights is not None:
+        transformations = [t for t in transform_weights.keys() if callable(t)]
+
+    # Di default: tutte le trasformazioni disponibili, incluse le strutturali
     if transformations is None:
-        transformations = [transform_nop]
-        #transformations = [transform_fence]
-        #transformations = [transform_dummy_load]
-        #transformations = [transform_nop, transform_dummy_load]
-        #transformations = [transform_nop, transform_fence, transform_dummy_load]
+        transformations = [
+            transform_nop,
+            transform_fence,
+            transform_dummy_load,
+            transform_lea_split,
+            transform_reorder_movs,
+        ]
+
+    # Normalizzazione: almeno 1 trasformazione per variante
+    if transforms_per_variant < 1:
+        transforms_per_variant = 1
+
+    # ----------------------------------------------------------
+    # Costruzione distribuzione di probabilità sulle trasformazioni
+    # ----------------------------------------------------------
+    if transform_weights is None:
+        # Pesi uniformi se non specificato altro
+        items = [(t, 1.0) for t in transformations]
+    else:
+        items = []
+        for t in transformations:
+            w = transform_weights.get(t, 0.0)
+            if w > 0:
+                items.append((t, float(w)))
+        # Fallback: se tutti i pesi sono 0, torniamo all'uniforme
+        if not items:
+            items = [(t, 1.0) for t in transformations]
+
+    transf_funcs = [t for (t, _) in items]
+    cum_weights = []
+    total_w = 0.0
+    for _, w in items:
+        total_w += w
+        cum_weights.append(total_w)
+
+    def pick_transform():
+        """Estrae una trasformazione secondo i pesi configurati."""
+        r = random.random() * total_w
+        for t, cw in zip(transf_funcs, cum_weights):
+            if r <= cw:
+                return t
+        return transf_funcs[-1]
 
     # --- Conversione compatibilità formato ---
     # Se results è una lista di dict con chiave 'function',
@@ -253,6 +561,9 @@ def generate_variants_for_results(functions, results,
 
         func_label = _labelify(func.name)
 
+        # Calcolo dei registri temporanei "sicuri" per LEA-splitting
+        safe_temps = compute_safe_temps_for_function(func)
+
         # --- 1) Filtra finestre sovrapposte sugli indici ORIGINALI ---
         orig_windows = results[func.name]
         orig_windows_sorted = sorted(orig_windows, key=lambda w: w["start"])
@@ -268,7 +579,7 @@ def generate_variants_for_results(functions, results,
             selected_windows.append(w)
             last_end = end
 
-        # Lavoriamo dal fondo verso l'inizio: così non ci serve nessun offset
+        # Andiamo dal fondo verso l'inizio così non serve nessun offset
         windows_sorted = sorted(selected_windows, key=lambda w: w["start"], reverse=True)
 
         # Elaboriamo ogni finestra rilevata
@@ -293,11 +604,20 @@ def generate_variants_for_results(functions, results,
             # perché saranno comunque in posizione (PC address) diversa tra loro
             # --------------------------------------------------------------------------
 
-            # Varianti successive: trasformazioni randomiche
+            # Varianti successive: sequenza di N trasformazioni scelte secondo i pesi
             for _v in range(1, num_variants):
-                t = random.choice(transformations)
-                transformed = t(window_instrs)
-                variants.append(transformed)
+                current = window_instrs
+
+                for _step in range(transforms_per_variant):
+                    t = pick_transform()
+
+                    # Trasformazioni che richiedono registri temporanei "safe"
+                    if t is transform_lea_split:
+                        current = t(current, safe_temps)
+                    else:
+                        current = t(current)
+
+                variants.append(current)
 
             '''
             # Varianti successive: copie esatte dell'originale
@@ -311,7 +631,7 @@ def generate_variants_for_results(functions, results,
             selector_block = []
 
             # Salva i registri che andremo a clobberare
-            selector_block.append(Instruction('## Start of variant dynamic selector'))
+            selector_block.append(Instruction('## RANDOM SELECTOR BLOCK'))
             selector_block.append(Instruction("    pushq   %rax", "pushq", ["%rax"]))
             selector_block.append(Instruction("    pushq   %rcx", "pushq", ["%rcx"]))
             selector_block.append(Instruction("    pushq   %rdx", "pushq", ["%rdx"]))

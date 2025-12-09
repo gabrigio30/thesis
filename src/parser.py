@@ -39,6 +39,8 @@ class Instruction:
         self.transient_score = 0.0
         # Consideriamo direttive le linee che cominciano con '.'
         self.directive = self.raw_line.strip().startswith('.')
+        # Flag per indicare se l'istruzione è già stata modificata in modo strutturale
+        self.structural_tag = False
 
     def to_asm(self) -> str:
         """
