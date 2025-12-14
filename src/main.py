@@ -14,21 +14,18 @@ def main():
 
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
-        transform_nop: 0.0,
-        transform_fence: 0.0,
-        transform_lea_split: 0.5,
-        transform_reorder_movs: 0.5,
+        transform_reorder_movs: 1
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=20,
-        transforms_per_variant=4,   # 1 trasformazione per variante (oltre all'originale)
+        num_variants=75,
+        transforms_per_variant=6,   # 1 trasformazione per variante (oltre all'originale)
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'Ctests/spectreNew20.s')
+    write_functions(out, 'Ctests/spectreReorder75.s')
 
 '''
 def main():
