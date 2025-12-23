@@ -136,16 +136,14 @@ def make_continue_label(func_name: str, win_idx: int) -> str:
 # Trasformazioni disponibili
 # ==============================================================
 
-def transform_nop(instrs, max_nops=3):
+def transform_nop(instrs):
     """
     Inserisce un numero casuale di istruzioni NOP all’interno
     della finestra per aumentare la diversità temporale.
     """
     out = [deepcopy(i) for i in instrs]
-    n = random.randint(1, max_nops)
-    for _ in range(n):
-        idx = random.randint(0, len(out))
-        out.insert(idx, Instruction("    nop", "nop"))
+    idx = random.randint(0, len(out))
+    out.insert(idx, Instruction("    nop", "nop"))
     return out
 
 
@@ -371,73 +369,6 @@ def transform_reorder_movs(instrs):
     return out
 
 
-
-# ATTUALMENTE NON FUNZIONA: SERVE AGGIUNGERE UN COMM ALLA FUNE DEL FILE .S CHE ROMPE TUTTO IL FLOW
-def transform_dummy_load(instrs, max_offset=64):
-    """
-    Inserisce un 'dummy load' da un buffer sicuro globale (__spec_noise_buf)
-    per aggiungere rumore nel pattern di accesso alla cache.
-
-    - Non modifica le istruzioni esistenti (solo inserimenti).
-    - Salva e ripristina i registri usati (r10, r11) con push/pop.
-    - Usa un offset random [0, max_offset) per differenziare le varianti.
-    - Presuppone che nel file .s finale esista un simbolo globale:
-        .comm   __spec_noise_buf,4096,16
-      (da aggiungere nel writer UNA sola volta se questa trasformazione viene usata).
-    """
-    out = [deepcopy(i) for i in instrs]
-
-    # 1) Trova un punto "sensato" per il dummy load: prima del primo accesso a memoria
-    mem_idx = None
-    for idx, ins in enumerate(out):
-        # salta direttive/label o istruzioni senza mnemonic
-        if getattr(ins, "mnemonic", None) is None or getattr(ins, "directive", False):
-            continue
-
-        # euristica grezza: operandi con "(" => indirizzamento memoria
-        ops_str = ",".join(ins.operands) if ins.operands else ""
-        if "(" in ops_str:
-            mem_idx = idx
-            break
-
-    if mem_idx is None:
-        # fallback: se non troviamo accessi a memoria, inseriamo a metà finestra
-        insert_pos = len(out) // 2
-    else:
-        insert_pos = mem_idx
-
-    # 2) Costruisci il blocco di dummy load
-    #    Usiamo r10/r11, salvati con push/pop per non rompere la semantica.
-    #    offset random (in byte) dentro il buffer per muovere un po' il pattern di cache.
-    offset = 0
-    if max_offset > 0:
-        offset = random.randint(0, max_offset - 1)
-
-    if offset == 0:
-        mem_operand = "(%r10)"
-    else:
-        mem_operand = f"{offset}(%r10)"
-
-    dummy_block = []
-
-    dummy_block.append(Instruction("    ## Dummy load noise block", None, []))
-    #dummy_block.append(Instruction("    pushq   %r10", "pushq", ["%r10"]))
-    #dummy_block.append(Instruction("    pushq   %r11", "pushq", ["%r11"]))
-    dummy_block.append(Instruction("    leaq    __spec_noise_buf(%rip), %r10",
-                                   "leaq", ["__spec_noise_buf(%rip)", "%r10"]))
-    dummy_block.append(Instruction(f"    movb    {mem_operand}, %r11b",
-                                   "movb", [mem_operand, "%r11b"]))
-    #dummy_block.append(Instruction("    popq    %r11", "popq", ["%r11"]))
-    #dummy_block.append(Instruction("    popq    %r10", "popq", ["%r10"]))
-
-    # 3) Inserisci il blocco nel punto scelto
-    out[insert_pos:insert_pos] = dummy_block
-
-    return out
-
-# transform_dummy_load.TAGS = {"decorative"}
-
-
 # ==============================================================
 # Generatore principale di varianti
 # ==============================================================
@@ -492,7 +423,6 @@ def generate_variants_for_results(functions, results,
         transformations = [
             transform_nop,
             transform_fence,
-            transform_dummy_load,
             transform_lea_split,
             transform_reorder_movs,
         ]
@@ -532,7 +462,7 @@ def generate_variants_for_results(functions, results,
                 return t
         return transf_funcs[-1]
 
-    # --- Conversione compatibilità formato ---
+    # --- Conversione compatibilità formato dei results ---
     # Se results è una lista di dict con chiave 'function',
     # lo mappiamo in un dict {func_name: windows}
     if isinstance(results, list):

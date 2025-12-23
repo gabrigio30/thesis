@@ -10,22 +10,25 @@ from src.variant_generator2 import (
 
 def main():
     funcs = load_functions('Ctests/spectre.s')
-    results = annotate_transient_instructions(funcs, window_size=7)
+    results = annotate_transient_instructions(funcs, window_size=10)
 
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
-        transform_reorder_movs: 1
+        transform_lea_split: 0.5,
+        transform_nop: 0.25,
+        transform_reorder_movs: 0.25,
+        transform_fence: 0.05,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=75,
+        num_variants=50,
         transforms_per_variant=6,   # 1 trasformazione per variante (oltre all'originale)
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'Ctests/spectreReorder75.s')
+    write_functions(out, 'Ctests/spectreNew50.s')
 
 '''
 def main():
