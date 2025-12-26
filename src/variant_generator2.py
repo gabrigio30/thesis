@@ -131,10 +131,240 @@ def make_continue_label(func_name: str, win_idx: int) -> str:
     base = _labelify(func_name)
     return f".L{base}_win{win_idx}_continue:"
 
+# ==============================================================
+# Trasformazione: Index Masking (AIH/SLH "light") senza fence
+# ==============================================================
+# Incolla questo blocco **prima** di:  def generate_variants_for_results(...)
+
+def _is_conditional_jump_mnemonic(m: str) -> bool:
+    """Ritorna True se la mnemonica è un jump condizionale (jcc)."""
+    if not m:
+        return False
+    m = m.lower()
+    if not m.startswith("j"):
+        return False
+    # escludiamo jump incondizionato
+    return m not in ("jmp", "jmpq", "jmpl")
+
+
+def _inverse_jcc_cc(jcc: str) -> str:
+    """
+    Dato un jump condizionale (es. 'jae'), ritorna il *condition code*
+    inverso (senza il prefisso 'j'), da usare con cmov.
+
+    Esempi:
+      - jae  (>= unsigned)  -> b   (< unsigned)
+      - je                 -> ne
+      - jge (>= signed)    -> l   (< signed)
+
+    Gestiamo le condizioni più comuni che ci aspettiamo nel pattern
+    cmp/test -> jcc -> mem (tipico bounds-check / Spectre v1).
+    """
+    jcc = (jcc or "").lower()
+    inv = {
+        # unsigned
+        "ja":  "be",
+        "jae": "b",
+        "jb":  "ae",
+        "jbe": "a",
+
+        # signed
+        "jg":  "le",
+        "jge": "l",
+        "jl":  "ge",
+        "jle": "g",
+
+        # equality
+        "je":  "ne",
+        "jne": "e",
+        "jz":  "nz",
+        "jnz": "z",
+
+        # carry/borrow
+        "jc":  "nc",
+        "jnc": "c",
+    }
+    return inv.get(jcc, "")
+
+
+def _parse_index_reg_from_mem_operand(op: str) -> str:
+    """
+    Estrae (se presente) il registro *index* da un operando memoria AT&T.
+
+    Esempi:
+      - "8(%rdi,%rcx,4)" -> "%rcx"
+      - "(%r12,%r8)"     -> "%r8"
+      - "16(%rbp)"       -> ""     (nessun index)
+      - "foo(%rip)"      -> ""     (RIP-relative)
+    """
+    if "(" not in op or ")" not in op:
+        return ""
+    inside = op.split("(", 1)[1].rsplit(")", 1)[0]
+    parts = [p.strip() for p in inside.split(",")]
+    if len(parts) < 2:
+        return ""
+    idx = parts[1]
+    if idx.startswith("%") and idx in ALL_GPRS:
+        return idx
+    return ""
+
+
+def _rewrite_mem_operand_index(op: str, new_index: str) -> str:
+    """
+    Ritorna una versione di 'op' dove il registro index (se presente) viene
+    sostituito con 'new_index'. Manteniamo displacement/base/scale invariati.
+
+    Esempio:
+      - "8(%rdi,%rcx,4)" con new_index="%r10" -> "8(%rdi,%r10,4)"
+    """
+    if "(" not in op or ")" not in op:
+        return op
+    prefix, rest = op.split("(", 1)
+    inside, suffix = rest.rsplit(")", 1)
+    parts = [p.strip() for p in inside.split(",")]
+    if len(parts) < 2:
+        return op
+    parts[1] = new_index
+    new_inside = ",".join(parts)
+    return f"{prefix}({new_inside}){suffix}"
+
 
 # ==============================================================
 # Trasformazioni disponibili
 # ==============================================================
+
+def transform_index_masking_light(instrs, safe_temps):
+    """
+    Trasformazione "AIH/SLH light" *senza fence*.
+
+    Obiettivo:
+      - In finestre del tipo cmp/test -> jcc -> accesso memoria indicizzato,
+        rendiamo innocuo l'accesso nel caso in cui la CPU speculi lungo il
+        fall-through quando in realtà avrebbe dovuto prendere il salto.
+
+    Come:
+      1) Identifichiamo un memory operand indicizzato: (..., %idx, scale)
+         e verifichiamo che %idx sia correlato al registro confrontato nel cmp/test.
+      2) Subito dopo il jcc inseriamo:
+           xorq   %tmp, %tmp          # tmp = 0
+           cmov<INV> %idx, %tmp       # tmp = idx solo se la condizione del fall-through è vera
+         dove <INV> è la condizione inversa del jcc (perché vogliamo "vero" quando NON salta).
+      3) Riscriviamo gli operandi memoria: usiamo %tmp al posto di %idx.
+
+    Risultato:
+      - Percorso corretto: tmp = idx => l'accesso rimane equivalente.
+      - Caso pericoloso (mispredict / speculazione sbagliata): tmp resta 0 => accesso su indirizzo "safe".
+
+    NOTE:
+      - Questa trasformazione è efficace soprattutto contro Spectre v1.
+      - È conservativa: se non trova un match robusto (cmp+jcc+mem indicizzato correlato), non fa nulla.
+      - Richiede un registro temporaneo "safe" (safe_temps) per non clobberare registri live.
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    if not safe_temps or len(safe_temps) < 2:
+        return out
+
+    # 1) Trova il primo cmp/test
+    cmp_idx = None
+    for idx, ins in enumerate(out):
+        m = (ins.mnemonic or "").lower()
+        if m.startswith("cmp") or m.startswith("test"):
+            cmp_idx = idx
+            break
+    if cmp_idx is None:
+        return out
+
+    # 2) Trova il primo jcc dopo il cmp/test
+    jcc_idx = None
+    jcc_mn = ""
+    for idx in range(cmp_idx + 1, len(out)):
+        m = (out[idx].mnemonic or "").lower()
+        if _is_conditional_jump_mnemonic(m):
+            jcc_idx = idx
+            jcc_mn = m
+            break
+        # Se esco dal basic block, smetto
+        if m in ("jmp", "jmpq", "jmpl") or m.startswith("ret"):
+            break
+    if jcc_idx is None:
+        return out
+
+    inv_cc = _inverse_jcc_cc(jcc_mn)
+    if not inv_cc:
+        # Condizione non riconosciuta -> non rischiamo.
+        return out
+
+    # 3) Registi coinvolti nel cmp/test
+    cmp_ins = out[cmp_idx]
+    cmp_regs = set()
+    dst_regs = set()
+    if cmp_ins.operands:
+        for op in cmp_ins.operands:
+            cmp_regs |= regs_in_operand(op)
+        # In AT&T: cmp SRC, DST -> i flag descrivono DST - SRC
+        if len(cmp_ins.operands) >= 2:
+            dst_regs = regs_in_operand(cmp_ins.operands[1])
+
+    # 4) Cerca accessi memoria indicizzati dopo il jcc che usano l'indice confrontato
+    patches = []  # (instr_index, operand_index, idx_reg)
+    for ii in range(jcc_idx + 1, len(out)):
+        ins = out[ii]
+        if ins.mnemonic is None or not ins.operands:
+            continue
+        if getattr(ins, "structural_tag", False):
+            continue
+
+        for oi, op in enumerate(ins.operands):
+            op_s = op.strip()
+            idx_reg = _parse_index_reg_from_mem_operand(op_s)
+            if not idx_reg:
+                continue
+
+            # Conservativo: prima match col DST del cmp, altrimenti match con qualunque registro del cmp
+            if (idx_reg in dst_regs) or (idx_reg in cmp_regs):
+                patches.append((ii, oi, idx_reg))
+
+    if not patches:
+        return out
+
+    chosen_idx = patches[0][2]
+    patches = [(ii, oi, r) for (ii, oi, r) in patches if r == chosen_idx]
+    if not patches:
+        return out
+
+    # 5) Inserisci la logica branchless subito dopo il jcc (così non tocchiamo i flag prima del salto)
+    tmp = safe_temps[1]
+
+    xor_ins = Instruction(f"    xorq    {tmp}, {tmp}", "xorq", [tmp, tmp])
+    cmov_ins = Instruction(
+        f"    cmov{inv_cc}  {chosen_idx}, {tmp}",
+        f"cmov{inv_cc}",
+        [chosen_idx, tmp],
+    )
+
+    xor_ins.structural_tag = True
+    cmov_ins.structural_tag = True
+
+    insert_at = jcc_idx + 1
+    out.insert(insert_at, xor_ins)
+    out.insert(insert_at + 1, cmov_ins)
+
+    # Dopo l'inserimento, gli indici successivi slittano di +2
+    def shift(i):
+        return i + 2 if i >= insert_at else i
+
+    shifted_patches = [(shift(ii), oi, r) for (ii, oi, r) in patches]
+
+    # 6) Riscrivi operandi memoria: usa tmp come index reg
+    for ii, oi, _r in shifted_patches:
+        ins = out[ii]
+        old_op = ins.operands[oi]
+        ins.operands[oi] = _rewrite_mem_operand_index(old_op, tmp)
+        ins.structural_tag = True
+
+    return out
+
 
 def transform_nop(instrs):
     """
@@ -425,6 +655,7 @@ def generate_variants_for_results(functions, results,
             transform_fence,
             transform_lea_split,
             transform_reorder_movs,
+            transform_index_masking_light,
         ]
 
     # Normalizzazione: almeno 1 trasformazione per variante
@@ -542,7 +773,7 @@ def generate_variants_for_results(functions, results,
                     t = pick_transform()
 
                     # Trasformazioni che richiedono registri temporanei "safe"
-                    if t is transform_lea_split:
+                    if t is transform_lea_split or t is transform_index_masking_light:
                         current = t(current, safe_temps)
                     else:
                         current = t(current)
