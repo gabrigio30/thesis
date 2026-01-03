@@ -178,16 +178,21 @@ def detect_cmp_jcc_mem(instrs: List[Instruction], i: int, window_size: int, n: i
 
 def detect_indirect_branch(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
     """
-    Pattern 2: indirect call/jmp
-    (Manteniamo anche qui la logica originale.)
+    Pattern 2: indirect call/jmp (utile per Spectre v2).
+    Nota: per v2 è spesso più utile annotare la finestra *prima* del branch,
+    perché lì viene calcolato/caricato il target (registro/memoria).
     """
     instr = instrs[i]
     if not is_indirect_branch(instr):
         return None
 
-    start = max(0, i - 2)
-    end = min(n - 1, i + 2)
-    score = 0.5
+    # window "backward": include l'indirect branch e le istruzioni che preparano il target
+    start = max(0, i - window_size)
+    end = i  # includi il branch stesso; evitare di andare "dopo" è più sensato per call/jmp
+
+    # scoring leggermente più alto rispetto al default: è un trigger forte per Spectre v2
+    mnem = (instr.mnemonic or "").lower()
+    score = 0.60 if mnem.startswith("call") else 0.55  # call* tipico del PoC, jmp* un filo meno comune
 
     mark_window(instrs, start, end, score)
 

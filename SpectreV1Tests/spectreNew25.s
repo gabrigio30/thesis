@@ -91,11 +91,14 @@ _victim_function:
 .Lvictim_function_win0_var1:
 	popq	%rax
 	cmpq	%rcx, %rax
-	nop
 	jae	LBB0_2
+	lfence
+	lfence
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
+	lfence
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
@@ -104,15 +107,16 @@ _victim_function:
 ## Variant 2
 .Lvictim_function_win0_var2:
 	popq	%rax
-	cmpq	%rcx, %rax
 	nop
+	cmpq	%rcx, %rax
 	jae	LBB0_2
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
+	movq	-8(%rbp), %rcx
+	nop
 	leaq	_array1(%rip), %rax
+	nop
 	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 3
@@ -120,11 +124,12 @@ _victim_function:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
 ## %bb.1:
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
-	nop
 	leaq	(%rax,%rcx), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lvictim_function_win0_continue
@@ -133,50 +138,61 @@ _victim_function:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
 	xorq	%r11, %r11
-	nop
 	cmovb	%rcx, %r11
+	lfence
 ## %bb.1:
+	lfence
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
+	nop
+	nop
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
-	nop
 	jmp	.Lvictim_function_win0_continue
 ## Variant 5
 .Lvictim_function_win0_var5:
 	popq	%rax
+	nop
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
 ## %bb.1:
-	nop
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
 	leaq	(%rax,%rcx), %r10
 	movzbl	(%r10), %eax
+	nop
 	jmp	.Lvictim_function_win0_continue
 ## Variant 6
 .Lvictim_function_win0_var6:
 	popq	%rax
 	cmpq	%rcx, %rax
-	nop
 	jae	LBB0_2
+	lfence
+	xorq	%r11, %r11
+	cmovb	%rcx, %r11
 ## %bb.1:
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
-	leaq	(%rax,%rcx), %r10
-	movzbl	(%r10), %eax
+	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 7
 .Lvictim_function_win0_var7:
 	popq	%rax
-	nop
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
+	lfence
 ## %bb.1:
-	nop
+	lfence
+	lfence
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
@@ -189,43 +205,36 @@ _victim_function:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
-	xorq	%r11, %r11
-	cmovb	%rcx, %r11
 ## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
-	leaq	_array1(%rip), %rax
-	movzbl	(%rax,%r11), %eax
-	jmp	.Lvictim_function_win0_continue
-## Variant 9
-.Lvictim_function_win0_var9:
-	popq	%rax
-	cmpq	%rcx, %rax
-	jae	LBB0_2
-	xorq	%r11, %r11
-	cmovb	%rcx, %r11
-## %bb.1:
-	movq	-8(%rbp), %rcx
-	leaq	_array1(%rip), %rax
-	movzbl	(%rax,%r11), %eax
-	jmp	.Lvictim_function_win0_continue
-## Variant 10
-.Lvictim_function_win0_var10:
-	popq	%rax
-	cmpq	%rcx, %rax
-	jae	LBB0_2
-	nop
-## %bb.1:
-	nop
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
 	leaq	(%rax,%rcx), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lvictim_function_win0_continue
-## Variant 11
-.Lvictim_function_win0_var11:
+## Variant 9
+.Lvictim_function_win0_var9:
 	popq	%rax
+	cmpq	%rcx, %rax
+	jae	LBB0_2
+	lfence
+	lfence
+	lfence
+## %bb.1:
+	lfence
+	lfence
+	lfence
+	leaq	-8(%rbp), %r10
+	movq	(%r10), %rcx
+	leaq	_array1(%rip), %rax
+	nop
+	leaq	(%rax,%rcx), %r10
+	movzbl	(%r10), %eax
+	jmp	.Lvictim_function_win0_continue
+## Variant 10
+.Lvictim_function_win0_var10:
+	popq	%rax
+	nop
 	cmpq	%rcx, %rax
 	jae	LBB0_2
 	xorq	%r11, %r11
@@ -235,7 +244,19 @@ _victim_function:
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
+	jmp	.Lvictim_function_win0_continue
+## Variant 11
+.Lvictim_function_win0_var11:
+	popq	%rax
+	cmpq	%rcx, %rax
+	jae	LBB0_2
 	nop
+	xorq	%r11, %r11
+	cmovb	%rcx, %r11
+## %bb.1:
+	movq	-8(%rbp), %rcx
+	leaq	_array1(%rip), %rax
+	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 12
 .Lvictim_function_win0_var12:
@@ -244,20 +265,17 @@ _victim_function:
 	jae	LBB0_2
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
-	nop
 ## %bb.1:
 	leaq	-8(%rbp), %r10
+	nop
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
-	nop
 	jmp	.Lvictim_function_win0_continue
 ## Variant 13
 .Lvictim_function_win0_var13:
 	popq	%rax
-	nop
 	cmpq	%rcx, %rax
-	nop
 	jae	LBB0_2
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
@@ -271,27 +289,28 @@ _victim_function:
 .Lvictim_function_win0_var14:
 	popq	%rax
 	cmpq	%rcx, %rax
-	nop
 	jae	LBB0_2
-	nop
-	xorq	%r11, %r11
-	nop
-	cmovb	%rcx, %r11
+	lfence
 ## %bb.1:
-	movq	-8(%rbp), %rcx
+	nop
+	lfence
+	leaq	-8(%rbp), %r10
+	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
-	movzbl	(%rax,%r11), %eax
+	leaq	(%rax,%rcx), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 15
 .Lvictim_function_win0_var15:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
+	lfence
+	movq	-8(%rbp), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
@@ -300,28 +319,16 @@ _victim_function:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	xorq	%r11, %r11
+	cmovb	%rcx, %r11
 ## %bb.1:
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
-	leaq	(%rax,%rcx), %r10
-	movzbl	(%r10), %eax
+	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 17
 .Lvictim_function_win0_var17:
-	popq	%rax
-	nop
-	cmpq	%rcx, %rax
-	jae	LBB0_2
-## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
-	leaq	_array1(%rip), %rax
-	leaq	(%rax,%rcx), %r10
-	movzbl	(%r10), %eax
-	jmp	.Lvictim_function_win0_continue
-## Variant 18
-.Lvictim_function_win0_var18:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
@@ -330,6 +337,24 @@ _victim_function:
 ## %bb.1:
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
+	leaq	_array1(%rip), %rax
+	movzbl	(%rax,%r11), %eax
+	jmp	.Lvictim_function_win0_continue
+## Variant 18
+.Lvictim_function_win0_var18:
+	popq	%rax
+	cmpq	%rcx, %rax
+	jae	LBB0_2
+	lfence
+	nop
+	lfence
+	xorq	%r11, %r11
+	nop
+	cmovb	%rcx, %r11
+## %bb.1:
+	lfence
+	lfence
+	movq	-8(%rbp), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
@@ -337,58 +362,60 @@ _victim_function:
 .Lvictim_function_win0_var19:
 	popq	%rax
 	cmpq	%rcx, %rax
-	nop
 	jae	LBB0_2
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
+	movq	-8(%rbp), %rcx
+	nop
 	leaq	_array1(%rip), %rax
+	nop
 	movzbl	(%rax,%r11), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 20
 .Lvictim_function_win0_var20:
 	popq	%rax
-	nop
 	cmpq	%rcx, %rax
+	nop
 	jae	LBB0_2
+	lfence
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
-	leaq	-8(%rbp), %r10
-	movq	(%r10), %rcx
+	lfence
+	movq	-8(%rbp), %rcx
+	nop
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
-	nop
 	jmp	.Lvictim_function_win0_continue
 ## Variant 21
 .Lvictim_function_win0_var21:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
+	lfence
+	lfence
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
 ## %bb.1:
-	movq	-8(%rbp), %rcx
+	lfence
+	lfence
+	leaq	-8(%rbp), %r10
+	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
-	nop
 	jmp	.Lvictim_function_win0_continue
 ## Variant 22
 .Lvictim_function_win0_var22:
 	popq	%rax
 	cmpq	%rcx, %rax
 	jae	LBB0_2
-	xorq	%r11, %r11
-	cmovb	%rcx, %r11
 ## %bb.1:
 	leaq	-8(%rbp), %r10
 	movq	(%r10), %rcx
 	leaq	_array1(%rip), %rax
-	nop
-	nop
-	movzbl	(%rax,%r11), %eax
+	leaq	(%rax,%rcx), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lvictim_function_win0_continue
 ## Variant 23
 .Lvictim_function_win0_var23:
@@ -406,16 +433,17 @@ _victim_function:
 ## Variant 24
 .Lvictim_function_win0_var24:
 	popq	%rax
-	nop
-	nop
 	cmpq	%rcx, %rax
 	jae	LBB0_2
 	xorq	%r11, %r11
 	cmovb	%rcx, %r11
+	lfence
 ## %bb.1:
+	lfence
 	movq	-8(%rbp), %rcx
 	leaq	_array1(%rip), %rax
 	movzbl	(%rax,%r11), %eax
+	nop
 	jmp	.Lvictim_function_win0_continue
 .Lvictim_function_win0_continue:
 	shll	$9, %eax
@@ -527,23 +555,29 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 1
 .LreadMemoryByte_win9_var1:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
-	nop
+	lfence
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 2
 .LreadMemoryByte_win9_var2:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_4
+	lfence
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -556,37 +590,41 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 3
 .LreadMemoryByte_win9_var3:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
-## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	movslq	-56(%rbp), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	movl	$0, (%rax,%rcx,4)
-	nop
-## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	movl	-56(%rbp), %eax
-	jmp	.LreadMemoryByte_win9_continue
-## Variant 4
-.LreadMemoryByte_win9_var4:
-	popq	%rax
-	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
-	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
+	jmp	.LreadMemoryByte_win9_continue
+## Variant 4
+.LreadMemoryByte_win9_var4:
+	popq	%rax
+	nop
+	lfence
+	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	jge	LBB1_4
+	lfence
+## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	movslq	-56(%rbp), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	movl	$0, (%rax,%rcx,4)
+## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
+	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 5
 .LreadMemoryByte_win9_var5:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -602,11 +640,11 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
-	nop
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
@@ -615,52 +653,53 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 .LreadMemoryByte_win9_var7:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
+	nop
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	nop
 	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
+	nop
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 8
 .LreadMemoryByte_win9_var8:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 9
 .LreadMemoryByte_win9_var9:
 	popq	%rax
-	nop
-	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 10
 .LreadMemoryByte_win9_var10:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -674,7 +713,6 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 .LreadMemoryByte_win9_var11:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
@@ -682,6 +720,7 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
@@ -696,24 +735,26 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 13
 .LreadMemoryByte_win9_var13:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 14
 .LreadMemoryByte_win9_var14:
@@ -721,7 +762,6 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -729,43 +769,47 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 15
 .LreadMemoryByte_win9_var15:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
-## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
 	nop
+	lfence
+## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	movslq	-56(%rbp), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
+	nop
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 16
 .LreadMemoryByte_win9_var16:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	nop
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	nop
+	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 17
 .LreadMemoryByte_win9_var17:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -787,13 +831,13 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
-	nop
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 19
 .LreadMemoryByte_win9_var19:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
@@ -814,6 +858,7 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
+	nop
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
@@ -821,10 +866,11 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 21
 .LreadMemoryByte_win9_var21:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 	nop
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -833,36 +879,43 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 22
 .LreadMemoryByte_win9_var22:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	movl	$0, (%rax,%rcx,4)
+	nop
+	nop
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	nop
+	movl	-56(%rbp), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 23
 .LreadMemoryByte_win9_var23:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
+	lfence
+	lfence
 	nop
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
 	leaq	-56(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 24
@@ -871,11 +924,13 @@ LBB1_1:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_4
 ## %bb.2:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	$0, (%rax,%rcx,4)
 ## %bb.3:                               ##   in Loop: Header=BB1_1 Depth=1
+	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win9_continue
@@ -965,28 +1020,34 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 ## Variant 1
 .LreadMemoryByte_win8_var1:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -52(%rbp)
+	nop
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
+	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 2
 .LreadMemoryByte_win8_var2:
 	popq	%rax
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
-	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 3
 .LreadMemoryByte_win8_var3:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
-	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 4
@@ -1002,7 +1063,9 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 ## Variant 5
 .LreadMemoryByte_win8_var5:
 	popq	%rax
+	nop
 	cmpl	$0, -52(%rbp)
+	nop
 	jle	LBB1_42
 	nop
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
@@ -1011,14 +1074,18 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 ## Variant 6
 .LreadMemoryByte_win8_var6:
 	popq	%rax
+	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	nop
+	nop
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 7
 .LreadMemoryByte_win8_var7:
 	popq	%rax
+	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
@@ -1027,17 +1094,26 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 ## Variant 8
 .LreadMemoryByte_win8_var8:
 	popq	%rax
+	nop
+	nop
+	lfence
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
-	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 9
 .LreadMemoryByte_win8_var9:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	nop
@@ -1045,17 +1121,21 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 ## Variant 10
 .LreadMemoryByte_win8_var10:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
-	nop
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 11
 .LreadMemoryByte_win8_var11:
 	popq	%rax
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
@@ -1065,52 +1145,58 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
-	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 13
 .LreadMemoryByte_win8_var13:
 	popq	%rax
 	cmpl	$0, -52(%rbp)
+	nop
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
-	nop
-	nop
-	nop
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 14
 .LreadMemoryByte_win8_var14:
 	popq	%rax
+	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
-	nop
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 15
 .LreadMemoryByte_win8_var15:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	nop
 	movl	$0, -56(%rbp)
+	nop
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 16
 .LreadMemoryByte_win8_var16:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 17
 .LreadMemoryByte_win8_var17:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
@@ -1118,8 +1204,11 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 .LreadMemoryByte_win8_var18:
 	popq	%rax
 	nop
+	lfence
 	cmpl	$0, -52(%rbp)
+	nop
 	jle	LBB1_42
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
@@ -1129,15 +1218,18 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
+	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 20
 .LreadMemoryByte_win8_var20:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -52(%rbp)
-	nop
 	jle	LBB1_42
-	nop
+	lfence
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
@@ -1148,12 +1240,10 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
-	nop
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 22
 .LreadMemoryByte_win8_var22:
 	popq	%rax
-	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
@@ -1165,20 +1255,21 @@ LBB1_5:                                 ## =>This Loop Header: Depth=1
 	nop
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
-	nop
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
+	nop
 	movl	$0, -56(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 24
 .LreadMemoryByte_win8_var24:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -52(%rbp)
 	jle	LBB1_42
+	lfence
+	lfence
 ## %bb.6:                               ##   in Loop: Header=BB1_5 Depth=1
 	movl	$0, -56(%rbp)
-	nop
-	nop
-	nop
 	jmp	.LreadMemoryByte_win8_continue
 .LreadMemoryByte_win8_continue:
 LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
@@ -1267,14 +1358,19 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
+	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 2
 .LreadMemoryByte_win7_var2:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
+	lfence
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	nop
 	leaq	-56(%rbp), %r10
@@ -1294,25 +1390,21 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	shll	$9, %eax
-	nop
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
-	nop
 	movq	(%r10), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 4
 .LreadMemoryByte_win7_var4:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
+	nop
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
+	movq	_array2@GOTPCREL(%rip), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 5
 .LreadMemoryByte_win7_var5:
@@ -1320,9 +1412,9 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	shll	$9, %eax
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
@@ -1334,10 +1426,14 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	movl	-56(%rbp), %eax
+	nop
+	leaq	-56(%rbp), %r10
+	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	nop
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 7
 .LreadMemoryByte_win7_var7:
@@ -1349,32 +1445,36 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
+	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
-	nop
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 8
 .LreadMemoryByte_win7_var8:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
-	nop
-	nop
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	movl	-56(%rbp), %eax
+	leaq	-56(%rbp), %r10
+	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
+	nop
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
 	nop
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 9
 .LreadMemoryByte_win7_var9:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	nop
 	leaq	-56(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
@@ -1384,14 +1484,14 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 ## Variant 10
 .LreadMemoryByte_win7_var10:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
-	nop
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	shll	$9, %eax
-	nop
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
@@ -1399,18 +1499,15 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 ## Variant 11
 .LreadMemoryByte_win7_var11:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
 	jge	LBB1_10
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	nop
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
-	nop
+	movq	_array2@GOTPCREL(%rip), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 12
 .LreadMemoryByte_win7_var12:
@@ -1418,30 +1515,35 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
+	nop
+	nop
 	shll	$9, %eax
+	nop
 	movslq	%eax, %rcx
 	nop
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
+	movq	_array2@GOTPCREL(%rip), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 13
 .LreadMemoryByte_win7_var13:
 	popq	%rax
+	lfence
+	nop
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
+	lfence
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
+	movq	_array2@GOTPCREL(%rip), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 14
 .LreadMemoryByte_win7_var14:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
@@ -1455,20 +1557,29 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 ## Variant 15
 .LreadMemoryByte_win7_var15:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
+	lfence
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	nop
-	movl	-56(%rbp), %eax
+	leaq	-56(%rbp), %r10
+	movl	(%r10), %eax
 	shll	$9, %eax
 	movslq	%eax, %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 16
 .LreadMemoryByte_win7_var16:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_10
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
@@ -1476,13 +1587,16 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
-	nop
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 17
 .LreadMemoryByte_win7_var17:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
+	lfence
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
@@ -1497,19 +1611,7 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
-	shll	$9, %eax
-	movslq	%eax, %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
-	jmp	.LreadMemoryByte_win7_continue
-## Variant 19
-.LreadMemoryByte_win7_var19:
-	popq	%rax
-	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	jge	LBB1_10
-## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
+	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	shll	$9, %eax
@@ -1517,6 +1619,23 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	nop
+	jmp	.LreadMemoryByte_win7_continue
+## Variant 19
+.LreadMemoryByte_win7_var19:
+	popq	%rax
+	lfence
+	lfence
+	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	jge	LBB1_10
+	lfence
+	lfence
+## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
+	leaq	-56(%rbp), %r10
+	movl	(%r10), %eax
+	shll	$9, %eax
+	movslq	%eax, %rcx
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 20
 .LreadMemoryByte_win7_var20:
@@ -1537,7 +1656,6 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	shll	$9, %eax
@@ -1552,24 +1670,19 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 	jge	LBB1_10
 	nop
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
-	leaq	-56(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-56(%rbp), %eax
 	shll	$9, %eax
-	nop
 	movslq	%eax, %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
+	movq	_array2@GOTPCREL(%rip), %rax
 	jmp	.LreadMemoryByte_win7_continue
 ## Variant 23
 .LreadMemoryByte_win7_var23:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
-	nop
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	shll	$9, %eax
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
@@ -1578,14 +1691,16 @@ LBB1_7:                                 ##   Parent Loop BB1_5 Depth=1
 ## Variant 24
 .LreadMemoryByte_win7_var24:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_10
+	lfence
 ## %bb.8:                               ##   in Loop: Header=BB1_7 Depth=2
+	nop
 	leaq	-56(%rbp), %r10
 	movl	(%r10), %eax
 	shll	$9, %eax
-	nop
-	nop
 	movslq	%eax, %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
@@ -1685,8 +1800,10 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win6_var1:
 	popq	%rax
 	nop
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
@@ -1694,12 +1811,10 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 2
 .LreadMemoryByte_win6_var2:
 	popq	%rax
-	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 3
@@ -1708,19 +1823,18 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
+	nop
 	clflush	_array1_size(%rip)
-	nop
-	nop
-	nop
-	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 4
 .LreadMemoryByte_win6_var4:
 	popq	%rax
 	cmpl	$0, -60(%rbp)
+	nop
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
+	nop
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
@@ -1728,51 +1842,55 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win6_var5:
 	popq	%rax
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 6
 .LreadMemoryByte_win6_var6:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
-	nop
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 7
 .LreadMemoryByte_win6_var7:
 	popq	%rax
-	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	nop
 	movl	$0, -116(%rbp)
+	nop
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 8
 .LreadMemoryByte_win6_var8:
 	popq	%rax
+	nop
+	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
-	nop
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 9
 .LreadMemoryByte_win6_var9:
 	popq	%rax
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
+	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 10
@@ -1780,16 +1898,15 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 11
 .LreadMemoryByte_win6_var11:
 	popq	%rax
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
@@ -1800,41 +1917,47 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
-## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	nop
+## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 13
 .LreadMemoryByte_win6_var13:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_18
-	nop
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	movl	$0, -116(%rbp)
 	nop
+	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 14
 .LreadMemoryByte_win6_var14:
 	popq	%rax
+	lfence
 	cmpl	$0, -60(%rbp)
+	nop
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
+	nop
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 15
 .LreadMemoryByte_win6_var15:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
-	nop
 	clflush	_array1_size(%rip)
+	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 16
@@ -1850,32 +1973,36 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 17
 .LreadMemoryByte_win6_var17:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
+	nop
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
-	nop
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 18
 .LreadMemoryByte_win6_var18:
 	popq	%rax
 	cmpl	$0, -60(%rbp)
-	jl	LBB1_18
 	nop
+	nop
+	jl	LBB1_18
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	nop
-	nop
-	nop
 	movl	$0, -116(%rbp)
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 19
 .LreadMemoryByte_win6_var19:
 	popq	%rax
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
+	nop
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
@@ -1883,8 +2010,8 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 20
 .LreadMemoryByte_win6_var20:
 	popq	%rax
-	cmpl	$0, -60(%rbp)
 	nop
+	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
 	nop
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
@@ -1894,20 +2021,25 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 21
 .LreadMemoryByte_win6_var21:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_18
+	lfence
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
+	nop
 	movl	$0, -116(%rbp)
-	nop
-	nop
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 22
 .LreadMemoryByte_win6_var22:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
@@ -1915,22 +2047,26 @@ LBB1_11:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 23
 .LreadMemoryByte_win6_var23:
 	popq	%rax
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
 	movl	$0, -116(%rbp)
+	nop
+	nop
 	jmp	.LreadMemoryByte_win6_continue
 ## Variant 24
 .LreadMemoryByte_win6_var24:
 	popq	%rax
+	lfence
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_18
+	lfence
 ## %bb.12:                              ##   in Loop: Header=BB1_11 Depth=2
 	clflush	_array1_size(%rip)
-	nop
 	movl	$0, -116(%rbp)
-	nop
 	jmp	.LreadMemoryByte_win6_continue
 .LreadMemoryByte_win6_continue:
 LBB1_13:                                ##   Parent Loop BB1_5 Depth=1
@@ -2057,53 +2193,61 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 1
 .LreadMemoryByte_win5_var1:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	nop
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 2
 .LreadMemoryByte_win5_var2:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
-## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
 	nop
+## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
-	andl	$255, %eax
 	nop
+	andl	$255, %eax
 	movl	%eax, -68(%rbp)
 	leaq	-68(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 3
 .LreadMemoryByte_win5_var3:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_25
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 4
 .LreadMemoryByte_win5_var4:
 	popq	%rax
-	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	nop
+	lfence
+	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
+	nop
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
@@ -2119,10 +2263,8 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
-	nop
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 6
 .LreadMemoryByte_win5_var6:
@@ -2131,22 +2273,21 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	jge	LBB1_25
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
+	nop
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
-	nop
-	nop
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 7
 .LreadMemoryByte_win5_var7:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
-	nop
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
+	nop
+	nop
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
@@ -2156,44 +2297,46 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 8
 .LreadMemoryByte_win5_var8:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
-	nop
 	addl	$13, %eax
-	andl	$255, %eax
-	movl	%eax, -68(%rbp)
 	nop
-	movl	-68(%rbp), %eax
-	jmp	.LreadMemoryByte_win5_continue
-## Variant 9
-.LreadMemoryByte_win5_var9:
-	popq	%rax
-	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	jge	LBB1_25
-	nop
-## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
-	imull	$167, -56(%rbp), %eax
-	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
+	jmp	.LreadMemoryByte_win5_continue
+## Variant 9
+.LreadMemoryByte_win5_var9:
+	popq	%rax
+	lfence
+	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	jge	LBB1_25
+	lfence
+## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
+	imull	$167, -56(%rbp), %eax
+	addl	$13, %eax
+	andl	$255, %eax
+	movl	%eax, -68(%rbp)
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 10
 .LreadMemoryByte_win5_var10:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	nop
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 11
 .LreadMemoryByte_win5_var11:
@@ -2202,11 +2345,10 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	jge	LBB1_25
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
-	nop
-	nop
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
+	nop
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
@@ -2215,13 +2357,14 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	nop
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
+	nop
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 13
 .LreadMemoryByte_win5_var13:
@@ -2231,6 +2374,7 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
+	nop
 	andl	$255, %eax
 	nop
 	movl	%eax, -68(%rbp)
@@ -2240,21 +2384,26 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 14
 .LreadMemoryByte_win5_var14:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	nop
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	movl	-68(%rbp), %eax
+	leaq	-68(%rbp), %r10
+	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 15
 .LreadMemoryByte_win5_var15:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
@@ -2266,27 +2415,30 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 16
 .LreadMemoryByte_win5_var16:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	nop
 	jge	LBB1_25
+	lfence
+	nop
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 17
 .LreadMemoryByte_win5_var17:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
+	nop
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
-	nop
 	addl	$13, %eax
-	nop
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
 	leaq	-68(%rbp), %r10
@@ -2299,19 +2451,20 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	jge	LBB1_25
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
-	nop
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 19
 .LreadMemoryByte_win5_var19:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
+	nop
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
@@ -2330,8 +2483,8 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
-	nop
 	movl	%eax, -68(%rbp)
+	nop
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
@@ -2346,6 +2499,7 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
 	leaq	-68(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 22
@@ -2364,20 +2518,28 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 23
 .LreadMemoryByte_win5_var23:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_25
+	lfence
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
 	andl	$255, %eax
 	movl	%eax, -68(%rbp)
-	movl	-68(%rbp), %eax
+	leaq	-68(%rbp), %r10
+	movl	(%r10), %eax
 	jmp	.LreadMemoryByte_win5_continue
 ## Variant 24
 .LreadMemoryByte_win5_var24:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_25
+	lfence
 ## %bb.20:                              ##   in Loop: Header=BB1_19 Depth=2
 	imull	$167, -56(%rbp), %eax
 	addl	$13, %eax
@@ -2510,29 +2672,29 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 2
 .LreadMemoryByte_win4_var2:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	nop
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	leaq	-52(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-52(%rbp), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
-	nop
-	nop
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 3
 .LreadMemoryByte_win4_var3:
 	popq	%rax
+	nop
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
@@ -2547,13 +2709,16 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 4
 .LreadMemoryByte_win4_var4:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
@@ -2561,8 +2726,12 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 5
 .LreadMemoryByte_win4_var5:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
@@ -2575,27 +2744,31 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 6
 .LreadMemoryByte_win4_var6:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
-	nop
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	nop
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
+	nop
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 7
 .LreadMemoryByte_win4_var7:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
-	nop
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
@@ -2606,13 +2779,16 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 8
 .LreadMemoryByte_win4_var8:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
@@ -2621,14 +2797,16 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win4_var9:
 	popq	%rax
 	cmpl	-20(%rbp), %eax
+	nop
 	jg	LBB1_23
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
@@ -2636,6 +2814,7 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win4_var10:
 	popq	%rax
 	cmpl	-20(%rbp), %eax
+	nop
 	jg	LBB1_23
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
@@ -2643,20 +2822,25 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
+	nop
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 11
 .LreadMemoryByte_win4_var11:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	leaq	-52(%rbp), %r10
 	nop
+	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
@@ -2666,43 +2850,42 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
-	nop
-	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
-	nop
 	movl	(%r10), %eax
-	nop
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
 	xorl	%edx, %edx
-	nop
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 13
 .LreadMemoryByte_win4_var13:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	movl	-52(%rbp), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
-	nop
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 14
 .LreadMemoryByte_win4_var14:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
-	nop
 	jg	LBB1_23
+	lfence
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	nop
 	movl	-52(%rbp), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
@@ -2710,12 +2893,15 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 15
 .LreadMemoryByte_win4_var15:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
-	nop
 	jg	LBB1_23
+	lfence
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
+	nop
 	movl	-52(%rbp), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
@@ -2724,43 +2910,46 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win4_var16:
 	popq	%rax
 	nop
+	nop
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
-	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	nop
-	leaq	-52(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-52(%rbp), %eax
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 17
 .LreadMemoryByte_win4_var17:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 	nop
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
-	nop
-	movl	-68(%rbp), %eax
+	leaq	-68(%rbp), %r10
+	movl	(%r10), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	movl	-52(%rbp), %eax
+	leaq	-52(%rbp), %r10
+	movl	(%r10), %eax
 	xorl	%edx, %edx
-	nop
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 18
 .LreadMemoryByte_win4_var18:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
@@ -2778,29 +2967,28 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
-	nop
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 20
 .LreadMemoryByte_win4_var20:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
-	nop
-	leaq	-68(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-68(%rbp), %eax
 	movl	%eax, -140(%rbp)    # # 4-byte Spill
-	leaq	-52(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-52(%rbp), %eax
+	nop
 	xorl	%edx, %edx
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 21
 .LreadMemoryByte_win4_var21:
 	popq	%rax
+	nop
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
@@ -2815,8 +3003,10 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 22
 .LreadMemoryByte_win4_var22:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
@@ -2824,14 +3014,15 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	leaq	-52(%rbp), %r10
 	movl	(%r10), %eax
 	xorl	%edx, %edx
-	nop
 	divl	_array1_size(%rip)
 	jmp	.LreadMemoryByte_win4_continue
 ## Variant 23
 .LreadMemoryByte_win4_var23:
 	popq	%rax
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
 	nop
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
@@ -2845,9 +3036,12 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 24
 .LreadMemoryByte_win4_var24:
 	popq	%rax
-	nop
+	lfence
+	lfence
 	cmpl	-20(%rbp), %eax
 	jg	LBB1_23
+	lfence
+	lfence
 ## %bb.21:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movl	(%r10), %eax
@@ -2942,23 +3136,23 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win3_var1:
 	popq	%rax
 	cmpl	%ecx, %eax
+	nop
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %edx
+	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 2
 .LreadMemoryByte_win3_var2:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	je	LBB1_23
-## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	nop
+## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -2976,8 +3170,8 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
 	nop
+	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -2986,30 +3180,30 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win3_var4:
 	popq	%rax
 	cmpl	%ecx, %eax
-	nop
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
-	nop
 	movl	(%r10), %edx
 	addl	$1, %edx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 5
 .LreadMemoryByte_win3_var5:
 	popq	%rax
-	nop
 	cmpl	%ecx, %eax
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
+	nop
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %edx
+	nop
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
@@ -3018,30 +3212,31 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	lfence
+	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	nop
+	movl	(%rax,%rcx,4), %edx
 	nop
-	leaq	(%rax,%rcx,4), %r10
-	nop
-	movl	(%r10), %edx
 	addl	$1, %edx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 7
 .LreadMemoryByte_win3_var7:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %edx
+	nop
+	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 8
@@ -3049,25 +3244,31 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	lfence
+	lfence
+	movslq	-68(%rbp), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %edx
+	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
+	nop
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 9
 .LreadMemoryByte_win3_var9:
 	popq	%rax
 	cmpl	%ecx, %eax
-	nop
 	je	LBB1_23
+	lfence
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
+	lfence
 	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -3078,12 +3279,13 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	%ecx, %eax
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	leaq	-68(%rbp), %r10
 	nop
-	movslq	-68(%rbp), %rcx
+	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	movl	(%rax,%rcx,4), %edx
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %edx
 	addl	$1, %edx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
 ## Variant 11
@@ -3092,7 +3294,9 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	nop
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
 	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	(%rax,%rcx,4), %edx
@@ -3104,14 +3308,17 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
+	nop
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
 	leaq	-68(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
 	nop
 	movl	(%r10), %edx
-	nop
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
@@ -3119,7 +3326,6 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win3_var13:
 	popq	%rax
 	cmpl	%ecx, %eax
-	nop
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
@@ -3134,12 +3340,18 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win3_var14:
 	popq	%rax
 	cmpl	%ecx, %eax
-	je	LBB1_23
-## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	movslq	-68(%rbp), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	movl	(%rax,%rcx,4), %edx
 	nop
+	je	LBB1_23
+	lfence
+	lfence
+## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
+	lfence
+	leaq	-68(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
@@ -3147,19 +3359,6 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 .LreadMemoryByte_win3_var15:
 	popq	%rax
 	nop
-	cmpl	%ecx, %eax
-	je	LBB1_23
-## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	movslq	-68(%rbp), %rcx
-	nop
-	leaq	_readMemoryByte.results(%rip), %rax
-	movl	(%rax,%rcx,4), %edx
-	addl	$1, %edx
-	leaq	_readMemoryByte.results(%rip), %rax
-	jmp	.LreadMemoryByte_win3_continue
-## Variant 16
-.LreadMemoryByte_win3_var16:
-	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
@@ -3171,12 +3370,34 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
-## Variant 17
-.LreadMemoryByte_win3_var17:
+## Variant 16
+.LreadMemoryByte_win3_var16:
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
+	lfence
+	leaq	-68(%rbp), %r10
+	nop
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %edx
+	addl	$1, %edx
+	leaq	_readMemoryByte.results(%rip), %rax
+	jmp	.LreadMemoryByte_win3_continue
+## Variant 17
+.LreadMemoryByte_win3_var17:
+	popq	%rax
+	nop
+	cmpl	%ecx, %eax
+	je	LBB1_23
+	lfence
+## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -3190,13 +3411,13 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	nop
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	lfence
+	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %edx
+	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
@@ -3223,6 +3444,7 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
+	nop
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %edx
 	addl	$1, %edx
@@ -3235,7 +3457,6 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	je	LBB1_23
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
 	leaq	-68(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
@@ -3246,14 +3467,14 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 22
 .LreadMemoryByte_win3_var22:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	nop
+	lfence
 	movslq	-68(%rbp), %rcx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -3263,10 +3484,11 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
+	lfence
 	leaq	-68(%rbp), %r10
 	movslq	(%r10), %rcx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %edx
@@ -3278,14 +3500,14 @@ LBB1_19:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	je	LBB1_23
-	nop
+	lfence
+	lfence
 ## %bb.22:                              ##   in Loop: Header=BB1_19 Depth=2
-	leaq	-68(%rbp), %r10
-	movslq	(%r10), %rcx
+	lfence
+	lfence
+	movslq	-68(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	nop
-	movl	(%r10), %edx
+	movl	(%rax,%rcx,4), %edx
 	addl	$1, %edx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win3_continue
@@ -3384,12 +3606,13 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	nop
+	nop
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 2
@@ -3402,8 +3625,7 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 3
@@ -3412,64 +3634,78 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	movslq	-56(%rbp), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
 	nop
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 4
 .LreadMemoryByte_win2_var4:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 5
 .LreadMemoryByte_win2_var5:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	nop
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 6
 .LreadMemoryByte_win2_var6:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	nop
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
+	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	nop
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	nop
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 7
 .LreadMemoryByte_win2_var7:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
+	nop
+	nop
 	jl	LBB1_29
+	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -3478,12 +3714,14 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 8
 .LreadMemoryByte_win2_var8:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
+	nop
 	jge	LBB1_36
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
-	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -3495,9 +3733,9 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
+	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
-	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -3511,22 +3749,20 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
-	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
+	nop
+	nop
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 11
 .LreadMemoryByte_win2_var11:
 	popq	%rax
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	nop
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
-	nop
-	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
@@ -3545,19 +3781,22 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 13
 .LreadMemoryByte_win2_var13:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
+	nop
+	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -3565,13 +3804,17 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 14
 .LreadMemoryByte_win2_var14:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
-## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	nop
+## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -3579,6 +3822,7 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 15
 .LreadMemoryByte_win2_var15:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
@@ -3592,15 +3836,18 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 16
 .LreadMemoryByte_win2_var16:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	movslq	-56(%rbp), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
 	nop
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 17
 .LreadMemoryByte_win2_var17:
@@ -3608,22 +3855,20 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_29
+	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 18
 .LreadMemoryByte_win2_var18:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
-	nop
-	nop
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
@@ -3634,39 +3879,44 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 19
 .LreadMemoryByte_win2_var19:
 	popq	%rax
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
-	nop
 	jge	LBB1_36
+	lfence
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 20
 .LreadMemoryByte_win2_var20:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
-	nop
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	cmpl	$0, -60(%rbp)
-	nop
 	jl	LBB1_29
+	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 21
 .LreadMemoryByte_win2_var21:
 	popq	%rax
+	lfence
+	lfence
+	lfence
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
+	lfence
+	lfence
+	lfence
 	nop
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
@@ -3679,13 +3929,11 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## Variant 22
 .LreadMemoryByte_win2_var22:
 	popq	%rax
-	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
-	nop
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -3702,23 +3950,19 @@ LBB1_26:                                ##   Parent Loop BB1_5 Depth=1
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
-	nop
-	nop
 	jmp	.LreadMemoryByte_win2_continue
 ## Variant 24
 .LreadMemoryByte_win2_var24:
 	popq	%rax
+	nop
 	cmpl	$256, -56(%rbp)    # # imm = 0x100
 	jge	LBB1_36
 ## %bb.27:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
 	cmpl	$0, -60(%rbp)
 	jl	LBB1_29
 ## %bb.28:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	jmp	.LreadMemoryByte_win2_continue
 .LreadMemoryByte_win2_continue:
@@ -3812,14 +4056,18 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 ## Variant 1
 .LreadMemoryByte_win1_var1:
 	popq	%rax
-	nop
 	cmpl	$0, -64(%rbp)
+	nop
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	movslq	-56(%rbp), %rcx
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	movl	(%rax,%rcx,4), %eax
-	movslq	-64(%rbp), %rdx
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	nop
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 2
@@ -3827,20 +4075,20 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	popq	%rax
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
-	nop
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
-	movslq	-56(%rbp), %rcx
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	movl	(%rax,%rcx,4), %eax
-	movslq	-64(%rbp), %rdx
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 3
 .LreadMemoryByte_win1_var3:
 	popq	%rax
 	cmpl	$0, -64(%rbp)
-	nop
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
@@ -3848,47 +4096,53 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %eax
+	nop
 	leaq	-64(%rbp), %r10
 	movslq	(%r10), %rdx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rcx
+	nop
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 4
 .LreadMemoryByte_win1_var4:
 	popq	%rax
+	lfence
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
+	movl	(%rax,%rcx,4), %eax
+	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 5
 .LreadMemoryByte_win1_var5:
 	popq	%rax
+	lfence
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
+	lfence
+	nop
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	nop
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
+	movl	(%rax,%rcx,4), %eax
+	nop
+	nop
+	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 6
 .LreadMemoryByte_win1_var6:
 	popq	%rax
+	lfence
 	nop
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -3902,16 +4156,17 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 ## Variant 7
 .LreadMemoryByte_win1_var7:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
+	lfence
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
-	nop
 	leaq	(%rax,%rcx,4), %r10
-	nop
 	movl	(%r10), %eax
 	leaq	-64(%rbp), %r10
 	movslq	(%r10), %rdx
@@ -3935,47 +4190,48 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 ## Variant 9
 .LreadMemoryByte_win1_var9:
 	popq	%rax
+	lfence
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
-	nop
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %eax
 	leaq	-64(%rbp), %r10
 	movslq	(%r10), %rdx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 10
 .LreadMemoryByte_win1_var10:
 	popq	%rax
-	nop
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
-	leaq	_readMemoryByte.results(%rip), %rcx
-	jmp	.LreadMemoryByte_win1_continue
-## Variant 11
-.LreadMemoryByte_win1_var11:
-	popq	%rax
-	cmpl	$0, -64(%rbp)
-	jl	LBB1_32
-	nop
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	movl	(%rax,%rcx,4), %eax
 	movslq	-64(%rbp), %rdx
-	nop
+	leaq	_readMemoryByte.results(%rip), %rcx
+	jmp	.LreadMemoryByte_win1_continue
+## Variant 11
+.LreadMemoryByte_win1_var11:
+	popq	%rax
+	lfence
+	lfence
+	cmpl	$0, -64(%rbp)
+	jl	LBB1_32
+	lfence
+	lfence
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	movslq	-56(%rbp), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	movl	(%rax,%rcx,4), %eax
+	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 12
@@ -3984,14 +4240,10 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-56(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
+	movl	(%rax,%rcx,4), %eax
+	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 13
@@ -4000,11 +4252,14 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	movslq	-56(%rbp), %rcx
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
 	nop
-	movl	(%rax,%rcx,4), %eax
-	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 14
@@ -4014,6 +4269,7 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
@@ -4028,8 +4284,6 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	nop
-	nop
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -4050,6 +4304,7 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
 	movl	(%r10), %eax
+	nop
 	leaq	-64(%rbp), %r10
 	movslq	(%r10), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
@@ -4057,22 +4312,29 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 ## Variant 17
 .LreadMemoryByte_win1_var17:
 	popq	%rax
-	nop
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	movslq	-56(%rbp), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
 	nop
-	movl	(%rax,%rcx,4), %eax
-	movslq	-64(%rbp), %rdx
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	nop
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 18
 .LreadMemoryByte_win1_var18:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$0, -64(%rbp)
+	nop
 	jl	LBB1_32
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -4081,16 +4343,19 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	movl	(%r10), %eax
 	leaq	-64(%rbp), %r10
 	movslq	(%r10), %rdx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 ## Variant 19
 .LreadMemoryByte_win1_var19:
 	popq	%rax
+	lfence
 	cmpl	$0, -64(%rbp)
+	nop
 	jl	LBB1_32
+	lfence
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
 	leaq	-56(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	leaq	(%rax,%rcx,4), %r10
@@ -4102,70 +4367,8 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 ## Variant 20
 .LreadMemoryByte_win1_var20:
 	popq	%rax
-	cmpl	$0, -64(%rbp)
-	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
-	leaq	_readMemoryByte.results(%rip), %rcx
-	jmp	.LreadMemoryByte_win1_continue
-## Variant 21
-.LreadMemoryByte_win1_var21:
-	popq	%rax
-	cmpl	$0, -64(%rbp)
-	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
 	nop
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
-	leaq	_readMemoryByte.results(%rip), %rcx
-	jmp	.LreadMemoryByte_win1_continue
-## Variant 22
-.LreadMemoryByte_win1_var22:
-	popq	%rax
-	cmpl	$0, -64(%rbp)
-	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
 	nop
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
-	leaq	_readMemoryByte.results(%rip), %rcx
-	jmp	.LreadMemoryByte_win1_continue
-## Variant 23
-.LreadMemoryByte_win1_var23:
-	popq	%rax
-	cmpl	$0, -64(%rbp)
-	jl	LBB1_32
-## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
-	leaq	-56(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	nop
-	leaq	(%rax,%rcx,4), %r10
-	movl	(%r10), %eax
-	leaq	-64(%rbp), %r10
-	movslq	(%r10), %rdx
-	nop
-	leaq	_readMemoryByte.results(%rip), %rcx
-	jmp	.LreadMemoryByte_win1_continue
-## Variant 24
-.LreadMemoryByte_win1_var24:
-	popq	%rax
 	cmpl	$0, -64(%rbp)
 	jl	LBB1_32
 ## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
@@ -4174,7 +4377,73 @@ LBB1_30:                                ##   in Loop: Header=BB1_26 Depth=2
 	movl	(%rax,%rcx,4), %eax
 	movslq	-64(%rbp), %rdx
 	leaq	_readMemoryByte.results(%rip), %rcx
+	jmp	.LreadMemoryByte_win1_continue
+## Variant 21
+.LreadMemoryByte_win1_var21:
+	popq	%rax
+	cmpl	$0, -64(%rbp)
 	nop
+	jl	LBB1_32
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
+	leaq	_readMemoryByte.results(%rip), %rcx
+	jmp	.LreadMemoryByte_win1_continue
+## Variant 22
+.LreadMemoryByte_win1_var22:
+	popq	%rax
+	nop
+	cmpl	$0, -64(%rbp)
+	nop
+	jl	LBB1_32
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	movslq	-56(%rbp), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	movl	(%rax,%rcx,4), %eax
+	movslq	-64(%rbp), %rdx
+	leaq	_readMemoryByte.results(%rip), %rcx
+	jmp	.LreadMemoryByte_win1_continue
+## Variant 23
+.LreadMemoryByte_win1_var23:
+	popq	%rax
+	lfence
+	cmpl	$0, -64(%rbp)
+	jl	LBB1_32
+	lfence
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	nop
+	leaq	-56(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	leaq	(%rax,%rcx,4), %r10
+	movl	(%r10), %eax
+	nop
+	leaq	-64(%rbp), %r10
+	movslq	(%r10), %rdx
+	leaq	_readMemoryByte.results(%rip), %rcx
+	nop
+	jmp	.LreadMemoryByte_win1_continue
+## Variant 24
+.LreadMemoryByte_win1_var24:
+	popq	%rax
+	nop
+	lfence
+	cmpl	$0, -64(%rbp)
+	jl	LBB1_32
+	lfence
+## %bb.31:                              ##   in Loop: Header=BB1_26 Depth=2
+	movslq	-56(%rbp), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	nop
+	movl	(%rax,%rcx,4), %eax
+	movslq	-64(%rbp), %rdx
+	nop
+	leaq	_readMemoryByte.results(%rip), %rcx
 	jmp	.LreadMemoryByte_win1_continue
 .LreadMemoryByte_win1_continue:
 	cmpl	(%rcx,%rdx,4), %eax
@@ -4278,9 +4547,12 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4289,9 +4561,12 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4300,8 +4575,12 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	nop
+	lfence
 	leaq	-60(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
@@ -4315,17 +4594,19 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 5
 .LreadMemoryByte_win0_var5:
 	popq	%rax
-	nop
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	nop
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -4334,12 +4615,15 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 ## Variant 6
 .LreadMemoryByte_win0_var6:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4347,20 +4631,25 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 .LreadMemoryByte_win0_var7:
 	popq	%rax
 	cmpl	%ecx, %eax
+	nop
 	jge	LBB1_39
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
+	nop
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 8
 .LreadMemoryByte_win0_var8:
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
+	nop
+	nop
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	movslq	-60(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
@@ -4370,15 +4659,16 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	nop
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-60(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 10
 .LreadMemoryByte_win0_var10:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	nop
 	jge	LBB1_39
@@ -4388,15 +4678,18 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
+	nop
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 11
 .LreadMemoryByte_win0_var11:
 	popq	%rax
-	nop
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
@@ -4405,14 +4698,15 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 ## Variant 12
 .LreadMemoryByte_win0_var12:
 	popq	%rax
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
-	nop
+	lfence
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4436,7 +4730,6 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	nop
-	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	nop
@@ -4446,11 +4739,12 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 16
@@ -4459,47 +4753,45 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	cmpl	%ecx, %eax
 	jge	LBB1_39
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
-	movslq	-60(%rbp), %rcx
+	leaq	-60(%rbp), %r10
+	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
-	nop
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 17
 .LreadMemoryByte_win0_var17:
 	popq	%rax
+	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
 	nop
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
-	nop
-	nop
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-60(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
-	nop
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 18
 .LreadMemoryByte_win0_var18:
 	popq	%rax
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
+	nop
+	nop
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 19
 .LreadMemoryByte_win0_var19:
 	popq	%rax
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
+	movslq	-60(%rbp), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4510,7 +4802,6 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	jge	LBB1_39
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
@@ -4518,12 +4809,15 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 ## Variant 21
 .LreadMemoryByte_win0_var21:
 	popq	%rax
-	nop
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
 	leaq	-60(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
+	nop
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
@@ -4532,26 +4826,18 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	popq	%rax
 	cmpl	%ecx, %eax
 	jge	LBB1_39
+	lfence
 ## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	nop
+	lfence
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_readMemoryByte.results(%rip), %rax
+	nop
 	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 ## Variant 23
 .LreadMemoryByte_win0_var23:
-	popq	%rax
-	cmpl	%ecx, %eax
-	jge	LBB1_39
-## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
-	nop
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_readMemoryByte.results(%rip), %rax
-	cmpl	$2, (%rax,%rcx,4)
-	jmp	.LreadMemoryByte_win0_continue
-## Variant 24
-.LreadMemoryByte_win0_var24:
 	popq	%rax
 	nop
 	cmpl	%ecx, %eax
@@ -4561,6 +4847,20 @@ LBB1_36:                                ##   in Loop: Header=BB1_5 Depth=1
 	leaq	_readMemoryByte.results(%rip), %rax
 	cmpl	$2, (%rax,%rcx,4)
 	nop
+	jmp	.LreadMemoryByte_win0_continue
+## Variant 24
+.LreadMemoryByte_win0_var24:
+	popq	%rax
+	cmpl	%ecx, %eax
+	jge	LBB1_39
+	lfence
+## %bb.37:                              ##   in Loop: Header=BB1_5 Depth=1
+	lfence
+	leaq	-60(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_readMemoryByte.results(%rip), %rax
+	nop
+	cmpl	$2, (%rax,%rcx,4)
 	jmp	.LreadMemoryByte_win0_continue
 .LreadMemoryByte_win0_continue:
 	jne	LBB1_40
@@ -4708,26 +5008,39 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 1
 .Lmain_win6_var1:
 	popq	%rax
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
-	jge	LBB2_4
-## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	nop
-	movslq	-60(%rbp), %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
-	movb	$1, (%rax,%rcx)
-## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	movl	-60(%rbp), %eax
-	jmp	.Lmain_win6_continue
-## Variant 2
-.Lmain_win6_var2:
-	popq	%rax
-	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
+	movb	$1, (%rax,%rcx)
+## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
+	leaq	-60(%rbp), %r10
+	movl	(%r10), %eax
+	nop
+	jmp	.Lmain_win6_continue
+## Variant 2
+.Lmain_win6_var2:
+	popq	%rax
+	nop
+	lfence
+	lfence
+	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
+	jge	LBB2_4
+	lfence
+	lfence
+## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	leaq	-60(%rbp), %r10
+	movslq	(%r10), %rcx
+	nop
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	nop
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
@@ -4737,15 +5050,16 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win6_var3:
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
-	nop
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
-	movslq	-60(%rbp), %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
+	leaq	-60(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	nop
-	movl	-60(%rbp), %eax
+	leaq	-60(%rbp), %r10
+	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 4
 .Lmain_win6_var4:
@@ -4753,37 +5067,36 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
+	movslq	-60(%rbp), %rcx
+	movq	_array2@GOTPCREL(%rip), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	leaq	-60(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-60(%rbp), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 5
 .Lmain_win6_var5:
 	popq	%rax
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movslq	(%r10), %rcx
+	nop
+	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
-	nop
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 6
 .Lmain_win6_var6:
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
-	nop
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
@@ -4798,7 +5111,9 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 7
 .Lmain_win6_var7:
 	popq	%rax
+	nop
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
+	nop
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
@@ -4807,16 +5122,17 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	nop
-	nop
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	jmp	.Lmain_win6_continue
 ## Variant 8
 .Lmain_win6_var8:
 	popq	%rax
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
@@ -4830,17 +5146,19 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 9
 .Lmain_win6_var9:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
-	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	nop
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
@@ -4855,8 +5173,6 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
-	nop
-	nop
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
@@ -4864,9 +5180,13 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 11
 .Lmain_win6_var11:
 	popq	%rax
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
+	nop
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	nop
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
@@ -4880,32 +5200,29 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win6_var12:
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
+	nop
+	nop
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
-	nop
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
-	nop
+	movslq	-60(%rbp), %rcx
+	movq	_array2@GOTPCREL(%rip), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	leaq	-60(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-60(%rbp), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 13
 .Lmain_win6_var13:
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
+	nop
 	jge	LBB2_4
+	nop
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
-	nop
 	movb	$1, (%rax,%rcx)
-	nop
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
@@ -4913,18 +5230,20 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 14
 .Lmain_win6_var14:
 	popq	%rax
-	nop
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	nop
+	nop
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
+	nop
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 15
@@ -4932,17 +5251,17 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
-	nop
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	nop
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
+	nop
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
-	nop
 	jmp	.Lmain_win6_continue
 ## Variant 16
 .Lmain_win6_var16:
@@ -4955,16 +5274,15 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
-	nop
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
+	nop
 	jmp	.Lmain_win6_continue
 ## Variant 17
 .Lmain_win6_var17:
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
-	nop
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
@@ -4974,6 +5292,7 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
+	nop
 	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 18
@@ -4984,18 +5303,18 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
+	nop
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movl	(%r10), %eax
+	nop
 	jmp	.Lmain_win6_continue
 ## Variant 19
 .Lmain_win6_var19:
 	popq	%rax
-	nop
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
@@ -5013,16 +5332,13 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
-## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
-	leaq	-60(%rbp), %r10
-	movslq	(%r10), %rcx
-	leaq	_array2@GOTPCREL(%rip), %r10
-	movq	(%r10), %rax
-	movb	$1, (%rax,%rcx)
 	nop
+## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	movslq	-60(%rbp), %rcx
+	movq	_array2@GOTPCREL(%rip), %rax
+	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	leaq	-60(%rbp), %r10
-	movl	(%r10), %eax
+	movl	-60(%rbp), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 21
 .Lmain_win6_var21:
@@ -5031,34 +5347,26 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	jge	LBB2_4
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
+	nop
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
 	movq	(%r10), %rax
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
+	nop
+	nop
 	leaq	-60(%rbp), %r10
 	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 22
 .Lmain_win6_var22:
 	popq	%rax
+	lfence
 	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	jge	LBB2_4
+	lfence
 ## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
-	movslq	-60(%rbp), %rcx
-	movq	_array2@GOTPCREL(%rip), %rax
 	nop
-	movb	$1, (%rax,%rcx)
-## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
-	movl	-60(%rbp), %eax
-	nop
-	jmp	.Lmain_win6_continue
-## Variant 23
-.Lmain_win6_var23:
-	popq	%rax
-	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
-	jge	LBB2_4
-## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
 	movslq	(%r10), %rcx
 	leaq	_array2@GOTPCREL(%rip), %r10
@@ -5066,9 +5374,26 @@ LBB2_1:                                 ## =>This Inner Loop Header: Depth=1
 	movb	$1, (%rax,%rcx)
 ## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
 	leaq	-60(%rbp), %r10
-	nop
 	movl	(%r10), %eax
+	jmp	.Lmain_win6_continue
+## Variant 23
+.Lmain_win6_var23:
+	popq	%rax
+	lfence
+	cmpl	$131072, -60(%rbp)    # # imm = 0x20000
 	nop
+	jge	LBB2_4
+	lfence
+## %bb.2:                               ##   in Loop: Header=BB2_1 Depth=1
+	leaq	-60(%rbp), %r10
+	movslq	(%r10), %rcx
+	leaq	_array2@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	movb	$1, (%rax,%rcx)
+	nop
+## %bb.3:                               ##   in Loop: Header=BB2_1 Depth=1
+	leaq	-60(%rbp), %r10
+	movl	(%r10), %eax
 	jmp	.Lmain_win6_continue
 ## Variant 24
 .Lmain_win6_var24:
@@ -5167,14 +5492,15 @@ LBB2_4:
 ## Variant 1
 .Lmain_win5_var1:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
+	lfence
 ## %bb.5:
-	nop
-	leaq	-32(%rbp), %r10
-	movq	(%r10), %rax
-	leaq	8(%rax), %r10
-	movq	(%r10), %rdi
+	movq	-32(%rbp), %rax
+	movq	8(%rax), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
@@ -5184,10 +5510,8 @@ LBB2_4:
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
 ## %bb.5:
-	leaq	-32(%rbp), %r10
-	movq	(%r10), %rax
-	leaq	8(%rax), %r10
-	movq	(%r10), %rdi
+	movq	-32(%rbp), %rax
+	movq	8(%rax), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
@@ -5195,9 +5519,9 @@ LBB2_4:
 .Lmain_win5_var3:
 	popq	%rax
 	cmpl	$2, -24(%rbp)
+	nop
 	jl	LBB2_6
 ## %bb.5:
-	nop
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	8(%rax), %r10
@@ -5208,14 +5532,17 @@ LBB2_4:
 ## Variant 4
 .Lmain_win5_var4:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
-	nop
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
@@ -5230,30 +5557,31 @@ LBB2_4:
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
-	nop
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 6
 .Lmain_win5_var6:
 	popq	%rax
+	nop
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
-	nop
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
-	nop
 	nop
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 7
 .Lmain_win5_var7:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
@@ -5265,17 +5593,19 @@ LBB2_4:
 ## Variant 8
 .Lmain_win5_var8:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
-## %bb.5:
+	lfence
+	lfence
 	nop
+## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
-	nop
-	nop
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 9
@@ -5283,21 +5613,20 @@ LBB2_4:
 	popq	%rax
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
-## %bb.5:
-	leaq	-32(%rbp), %r10
 	nop
-	movq	(%r10), %rax
-	leaq	8(%rax), %r10
-	movq	(%r10), %rdi
+## %bb.5:
+	movq	-32(%rbp), %rax
+	movq	8(%rax), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 10
 .Lmain_win5_var10:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
@@ -5312,20 +5641,22 @@ LBB2_4:
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
 ## %bb.5:
-	movq	-32(%rbp), %rax
-	movq	8(%rax), %rdi
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	8(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
-	nop
-	nop
-	nop
 	jmp	.Lmain_win5_continue
 ## Variant 12
 .Lmain_win5_var12:
 	popq	%rax
-	nop
+	lfence
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
@@ -5337,12 +5668,16 @@ LBB2_4:
 ## Variant 13
 .Lmain_win5_var13:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	8(%rax), %r10
+	nop
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
@@ -5350,10 +5685,11 @@ LBB2_4:
 ## Variant 14
 .Lmain_win5_var14:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
-	nop
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	nop
@@ -5365,23 +5701,28 @@ LBB2_4:
 ## Variant 15
 .Lmain_win5_var15:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
+	nop
+	nop
 	jl	LBB2_6
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
-	nop
 	leaq	L_.str.1(%rip), %rsi
-	nop
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 16
 .Lmain_win5_var16:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
+	nop
 	nop
 ## %bb.5:
 	leaq	-32(%rbp), %r10
@@ -5394,11 +5735,14 @@ LBB2_4:
 ## Variant 17
 .Lmain_win5_var17:
 	popq	%rax
+	nop
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
+	nop
+	nop
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
@@ -5407,21 +5751,28 @@ LBB2_4:
 ## Variant 18
 .Lmain_win5_var18:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
-	movq	-32(%rbp), %rax
-	movq	8(%rax), %rdi
+	nop
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	8(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
-	nop
 	jmp	.Lmain_win5_continue
 ## Variant 19
 .Lmain_win5_var19:
 	popq	%rax
-	nop
+	lfence
 	cmpl	$2, -24(%rbp)
+	nop
 	jl	LBB2_6
+	nop
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
@@ -5429,28 +5780,27 @@ LBB2_4:
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
-	nop
 	jmp	.Lmain_win5_continue
 ## Variant 20
 .Lmain_win5_var20:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
-	nop
+	lfence
 ## %bb.5:
-	leaq	-32(%rbp), %r10
-	movq	(%r10), %rax
-	nop
-	leaq	8(%rax), %r10
-	movq	(%r10), %rdi
+	movq	-32(%rbp), %rax
+	movq	8(%rax), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
 	jmp	.Lmain_win5_continue
 ## Variant 21
 .Lmain_win5_var21:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
@@ -5462,18 +5812,17 @@ LBB2_4:
 ## Variant 22
 .Lmain_win5_var22:
 	popq	%rax
+	lfence
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
-	nop
+	lfence
 ## %bb.5:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
-	nop
 	leaq	8(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
-	nop
 	jmp	.Lmain_win5_continue
 ## Variant 23
 .Lmain_win5_var23:
@@ -5482,10 +5831,8 @@ LBB2_4:
 	nop
 	jl	LBB2_6
 ## %bb.5:
-	leaq	-32(%rbp), %r10
-	movq	(%r10), %rax
-	leaq	8(%rax), %r10
-	movq	(%r10), %rdi
+	movq	-32(%rbp), %rax
+	movq	8(%rax), %rdi
 	nop
 	leaq	L_.str.1(%rip), %rsi
 	leaq	-36(%rbp), %rdx
@@ -5495,10 +5842,12 @@ LBB2_4:
 	popq	%rax
 	cmpl	$2, -24(%rbp)
 	jl	LBB2_6
-	nop
 ## %bb.5:
-	movq	-32(%rbp), %rax
-	movq	8(%rax), %rdi
+	leaq	-32(%rbp), %r10
+	nop
+	movq	(%r10), %rax
+	leaq	8(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	nop
 	leaq	-36(%rbp), %rdx
@@ -5584,9 +5933,10 @@ LBB2_6:
 ## Variant 1
 .Lmain_win4_var1:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
-	nop
 	jl	LBB2_8
+	lfence
 ## %bb.7:
 	movq	-32(%rbp), %rax
 	movq	16(%rax), %rdi
@@ -5596,12 +5946,16 @@ LBB2_6:
 ## Variant 2
 .Lmain_win4_var2:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
-	jl	LBB2_8
-## %bb.7:
-	movq	-32(%rbp), %rax
 	nop
-	movq	16(%rax), %rdi
+	jl	LBB2_8
+	lfence
+## %bb.7:
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
@@ -5616,7 +5970,6 @@ LBB2_6:
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
-	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 4
@@ -5627,18 +5980,20 @@ LBB2_6:
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
+	nop
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
+	nop
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
-	nop
 	jmp	.Lmain_win4_continue
 ## Variant 5
 .Lmain_win4_var5:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
-	nop
+	lfence
 ## %bb.7:
 	movq	-32(%rbp), %rax
 	movq	16(%rax), %rdi
@@ -5648,41 +6003,49 @@ LBB2_6:
 ## Variant 6
 .Lmain_win4_var6:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	lfence
 ## %bb.7:
-	movq	-32(%rbp), %rax
+	leaq	-32(%rbp), %r10
 	nop
-	nop
-	nop
-	movq	16(%rax), %rdi
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 7
 .Lmain_win4_var7:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	lfence
 ## %bb.7:
-	movq	-32(%rbp), %rax
-	nop
-	movq	16(%rax), %rdi
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 8
 .Lmain_win4_var8:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	lfence
 ## %bb.7:
-	nop
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
+	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 9
@@ -5696,6 +6059,7 @@ LBB2_6:
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
+	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 10
@@ -5703,55 +6067,61 @@ LBB2_6:
 	popq	%rax
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	nop
+## %bb.7:
+	leaq	-32(%rbp), %r10
+	nop
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
+	leaq	L_.str.2(%rip), %rsi
+	leaq	-48(%rbp), %rdx
+	nop
+	jmp	.Lmain_win4_continue
+## Variant 11
+.Lmain_win4_var11:
+	popq	%rax
+	lfence
+	cmpl	$4, -24(%rbp)
+	jl	LBB2_8
+	lfence
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
-	leaq	-48(%rbp), %rdx
-	jmp	.Lmain_win4_continue
-## Variant 11
-.Lmain_win4_var11:
-	popq	%rax
-	cmpl	$4, -24(%rbp)
-	jl	LBB2_8
-## %bb.7:
-	movq	-32(%rbp), %rax
-	movq	16(%rax), %rdi
-	leaq	L_.str.2(%rip), %rsi
-	nop
-	nop
-	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 12
 .Lmain_win4_var12:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
-## %bb.7:
-	movq	-32(%rbp), %rax
-	movq	16(%rax), %rdi
-	leaq	L_.str.2(%rip), %rsi
-	nop
-	nop
-	nop
-	leaq	-48(%rbp), %rdx
-	jmp	.Lmain_win4_continue
-## Variant 13
-.Lmain_win4_var13:
-	popq	%rax
-	cmpl	$4, -24(%rbp)
-	jl	LBB2_8
+	lfence
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
+	leaq	-48(%rbp), %rdx
+	jmp	.Lmain_win4_continue
+## Variant 13
+.Lmain_win4_var13:
+	popq	%rax
 	nop
+	cmpl	$4, -24(%rbp)
+	jl	LBB2_8
+## %bb.7:
+	leaq	-32(%rbp), %r10
 	nop
+	movq	(%r10), %rax
+	nop
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
+	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 14
@@ -5764,44 +6134,28 @@ LBB2_6:
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
-	nop
 	leaq	L_.str.2(%rip), %rsi
-	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 15
 .Lmain_win4_var15:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	lfence
+	lfence
 	nop
 ## %bb.7:
-	nop
-	leaq	-32(%rbp), %r10
-	movq	(%r10), %rax
-	leaq	16(%rax), %r10
-	movq	(%r10), %rdi
+	movq	-32(%rbp), %rax
+	movq	16(%rax), %rdi
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 16
 .Lmain_win4_var16:
 	popq	%rax
-	nop
-	cmpl	$4, -24(%rbp)
-	jl	LBB2_8
-	nop
-## %bb.7:
-	movq	-32(%rbp), %rax
-	movq	16(%rax), %rdi
-	leaq	L_.str.2(%rip), %rsi
-	nop
-	leaq	-48(%rbp), %rdx
-	jmp	.Lmain_win4_continue
-## Variant 17
-.Lmain_win4_var17:
-	popq	%rax
-	nop
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
 ## %bb.7:
@@ -5809,27 +6163,43 @@ LBB2_6:
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
+	leaq	L_.str.2(%rip), %rsi
+	leaq	-48(%rbp), %rdx
+	jmp	.Lmain_win4_continue
+## Variant 17
+.Lmain_win4_var17:
+	popq	%rax
+	cmpl	$4, -24(%rbp)
+	jl	LBB2_8
+## %bb.7:
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
+	nop
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 18
 .Lmain_win4_var18:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	nop
 	jl	LBB2_8
+	lfence
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
+	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 19
 .Lmain_win4_var19:
 	popq	%rax
-	nop
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
 ## %bb.7:
@@ -5844,56 +6214,63 @@ LBB2_6:
 .Lmain_win4_var20:
 	popq	%rax
 	cmpl	$4, -24(%rbp)
-	nop
 	jl	LBB2_8
 ## %bb.7:
+	nop
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
-	nop
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
+	nop
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 21
 .Lmain_win4_var21:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
-	nop
+	lfence
 ## %bb.7:
-	movq	-32(%rbp), %rax
-	movq	16(%rax), %rdi
+	leaq	-32(%rbp), %r10
+	movq	(%r10), %rax
+	leaq	16(%rax), %r10
+	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
+	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 22
 .Lmain_win4_var22:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
-	nop
 	jl	LBB2_8
+	lfence
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
+	nop
+	nop
 	leaq	L_.str.2(%rip), %rsi
 	leaq	-48(%rbp), %rdx
-	nop
 	jmp	.Lmain_win4_continue
 ## Variant 23
 .Lmain_win4_var23:
 	popq	%rax
+	lfence
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
+	lfence
 ## %bb.7:
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
-	nop
 	leaq	-48(%rbp), %rdx
 	jmp	.Lmain_win4_continue
 ## Variant 24
@@ -5902,8 +6279,11 @@ LBB2_6:
 	cmpl	$4, -24(%rbp)
 	jl	LBB2_8
 ## %bb.7:
+	nop
+	nop
 	leaq	-32(%rbp), %r10
 	movq	(%r10), %rax
+	nop
 	leaq	16(%rax), %r10
 	movq	(%r10), %rdi
 	leaq	L_.str.2(%rip), %rsi
@@ -6036,11 +6416,12 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
 	leaq	L_.str.12(%rip), %rdi
-	nop
 	movb	$0, %al
 	callq	_printf
 	leaq	-36(%rbp), %r10
@@ -6053,14 +6434,13 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$0, %eax
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
-	nop
 	leaq	L_.str.12(%rip), %rdi
-	nop
 	movb	$0, %al
+	nop
 	callq	_printf
+	nop
 	leaq	-36(%rbp), %r10
 	movl	(%r10), %edi
 	jmp	.Lmain_win3_continue
@@ -6068,16 +6448,16 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win3_var3:
 	popq	%rax
 	cmpl	$0, %eax
-	nop
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
+	nop
+	nop
+	nop
 	movb	$0, %al
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 4
 .Lmain_win3_var4:
@@ -6097,18 +6477,15 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win3_var5:
 	popq	%rax
 	cmpl	$0, %eax
-	nop
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	lfence
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
-	nop
-	nop
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 6
 .Lmain_win3_var6:
@@ -6128,6 +6505,7 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win3_var7:
 	popq	%rax
 	cmpl	$0, %eax
+	nop
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
@@ -6141,11 +6519,9 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 8
 .Lmain_win3_var8:
 	popq	%rax
-	nop
 	cmpl	$0, %eax
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
 	leaq	L_.str.12(%rip), %rdi
@@ -6158,51 +6534,53 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win3_var9:
 	popq	%rax
 	cmpl	$0, %eax
-	nop
 	jl	LBB2_21
+	lfence
+	nop
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	leaq	-48(%rbp), %r10
+	movq	(%r10), %rsi
+	leaq	L_.str.12(%rip), %rdi
+	movb	$0, %al
+	callq	_printf
+	leaq	-36(%rbp), %r10
+	movl	(%r10), %edi
+	jmp	.Lmain_win3_continue
+## Variant 10
+.Lmain_win3_var10:
+	popq	%rax
+	nop
+	cmpl	$0, %eax
+	jl	LBB2_21
+	lfence
+## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
 	callq	_printf
 	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
-## Variant 10
-.Lmain_win3_var10:
-	popq	%rax
-	cmpl	$0, %eax
-	jl	LBB2_21
-## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	nop
-	movq	(%r10), %rsi
-	leaq	L_.str.12(%rip), %rdi
-	movb	$0, %al
-	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
-	nop
-	nop
-	jmp	.Lmain_win3_continue
 ## Variant 11
 .Lmain_win3_var11:
 	popq	%rax
-	nop
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	lfence
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 12
 .Lmain_win3_var12:
 	popq	%rax
 	cmpl	$0, %eax
+	nop
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
@@ -6212,20 +6590,19 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	callq	_printf
 	leaq	-36(%rbp), %r10
 	movl	(%r10), %edi
-	nop
 	jmp	.Lmain_win3_continue
 ## Variant 13
 .Lmain_win3_var13:
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
-	nop
 	movb	$0, %al
 	callq	_printf
-	nop
 	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 14
@@ -6233,8 +6610,13 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
+	lfence
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
+	lfence
+	lfence
+	lfence
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
 	leaq	L_.str.12(%rip), %rdi
@@ -6250,19 +6632,19 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$0, %eax
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
+	nop
+	nop
+	nop
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 16
 .Lmain_win3_var16:
 	popq	%rax
 	cmpl	$0, %eax
-	nop
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
@@ -6272,13 +6654,13 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	callq	_printf
 	leaq	-36(%rbp), %r10
 	movl	(%r10), %edi
-	nop
 	jmp	.Lmain_win3_continue
 ## Variant 17
 .Lmain_win3_var17:
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	nop
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
@@ -6292,55 +6674,57 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win3_var18:
 	popq	%rax
 	cmpl	$0, %eax
-	nop
 	jl	LBB2_21
+	lfence
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	lfence
+	lfence
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
-	nop
-	nop
 	movb	$0, %al
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 19
 .Lmain_win3_var19:
 	popq	%rax
-	cmpl	$0, %eax
 	nop
+	cmpl	$0, %eax
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-48(%rbp), %r10
-	movq	(%r10), %rsi
+	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
-	nop
 	movb	$0, %al
 	callq	_printf
-	leaq	-36(%rbp), %r10
-	movl	(%r10), %edi
+	movl	-36(%rbp), %edi
 	jmp	.Lmain_win3_continue
 ## Variant 20
 .Lmain_win3_var20:
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	movq	-48(%rbp), %rsi
 	leaq	L_.str.12(%rip), %rdi
 	nop
 	movb	$0, %al
 	callq	_printf
 	movl	-36(%rbp), %edi
+	nop
 	jmp	.Lmain_win3_continue
 ## Variant 21
 .Lmain_win3_var21:
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
-	nop
+	lfence
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	lfence
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
 	leaq	L_.str.12(%rip), %rdi
@@ -6358,7 +6742,6 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
-	nop
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
 	callq	_printf
@@ -6368,30 +6751,31 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 23
 .Lmain_win3_var23:
 	popq	%rax
-	nop
 	cmpl	$0, %eax
 	jl	LBB2_21
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
-	nop
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
 	callq	_printf
 	leaq	-36(%rbp), %r10
 	movl	(%r10), %edi
-	nop
 	jmp	.Lmain_win3_continue
 ## Variant 24
 .Lmain_win3_var24:
 	popq	%rax
 	cmpl	$0, %eax
 	jl	LBB2_21
+	lfence
 ## %bb.10:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-48(%rbp), %r10
 	movq	(%r10), %rsi
+	nop
 	leaq	L_.str.12(%rip), %rdi
 	movb	$0, %al
+	nop
 	callq	_printf
 	leaq	-36(%rbp), %r10
 	movl	(%r10), %edi
@@ -6496,36 +6880,45 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win2_var1:
 	popq	%rax
 	cmpl	$31, %eax
+	nop
 	jle	LBB2_13
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-54(%rbp), %eax
+	lfence
+	leaq	-54(%rbp), %r10
+	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-54(%rbp), %eax
-	nop
-	nop
+	leaq	-54(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 2
 .Lmain_win2_var2:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
+	nop
 	jmp	.Lmain_win2_continue
 ## Variant 3
 .Lmain_win2_var3:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
+	lfence
+	lfence
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	lfence
+	lfence
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -6533,14 +6926,17 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	jmp	.Lmain_win2_continue
 ## Variant 4
 .Lmain_win2_var4:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
+	lfence
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	lfence
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -6548,33 +6944,31 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
+	nop
 	jmp	.Lmain_win2_continue
 ## Variant 5
 .Lmain_win2_var5:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
+	nop
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
-	nop
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 6
 .Lmain_win2_var6:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
-	nop
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
+	nop
+	lfence
 	movzbl	-54(%rbp), %eax
-	nop
-	nop
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
@@ -6585,44 +6979,44 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	lfence
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	movzbl	-54(%rbp), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 8
 .Lmain_win2_var8:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
-	nop
 	jge	LBB2_13
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 9
 .Lmain_win2_var9:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	lfence
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
-	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	movzbl	-54(%rbp), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 10
 .Lmain_win2_var10:
@@ -6631,6 +7025,7 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
@@ -6642,10 +7037,11 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 11
 .Lmain_win2_var11:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
 	jle	LBB2_13
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -6659,12 +7055,10 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
-	nop
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
@@ -6675,14 +7069,16 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 .Lmain_win2_var13:
 	popq	%rax
 	cmpl	$31, %eax
+	nop
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
+	nop
+	nop
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win2_continue
@@ -6692,7 +7088,6 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -6700,14 +7095,11 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	jmp	.Lmain_win2_continue
 ## Variant 15
 .Lmain_win2_var15:
 	popq	%rax
 	cmpl	$31, %eax
-	nop
-	nop
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
@@ -6717,18 +7109,21 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win2_continue
 ## Variant 16
 .Lmain_win2_var16:
 	popq	%rax
 	cmpl	$31, %eax
-	nop
-	nop
 	jle	LBB2_13
+	lfence
+	lfence
+	nop
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
-	nop
+	lfence
+	lfence
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -6743,40 +7138,39 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
+	nop
 	jmp	.Lmain_win2_continue
 ## Variant 18
 .Lmain_win2_var18:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
 	cmpl	$127, %eax
 	nop
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-54(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-54(%rbp), %eax
+	nop
 	jmp	.Lmain_win2_continue
 ## Variant 19
 .Lmain_win2_var19:
 	popq	%rax
 	cmpl	$31, %eax
-	nop
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -6786,16 +7180,17 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_13
-	nop
+	lfence
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	jmp	.Lmain_win2_continue
 ## Variant 21
 .Lmain_win2_var21:
@@ -6814,7 +7209,6 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 ## Variant 22
 .Lmain_win2_var22:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
@@ -6822,6 +7216,7 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
+	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -6837,7 +7232,6 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	cmpl	$127, %eax
 	jge	LBB2_13
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win2_continue
@@ -6848,10 +7242,10 @@ LBB2_9:                                 ## =>This Inner Loop Header: Depth=1
 	jle	LBB2_13
 ## %bb.11:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_13
-	nop
 ## %bb.12:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-54(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -6955,21 +7349,18 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	nop
-	nop
 	jmp	.Lmain_win1_continue
 ## Variant 2
 .Lmain_win1_var2:
 	popq	%rax
+	nop
+	nop
 	cmpl	$0, -12(%rbp)
-	nop
-	nop
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 3
 .Lmain_win1_var3:
@@ -6977,30 +7368,33 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	nop
-	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	movzbl	-53(%rbp), %eax
-	nop
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 4
 .Lmain_win1_var4:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
+	lfence
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
-	nop
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	nop
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 5
 .Lmain_win1_var5:
 	popq	%rax
 	cmpl	$0, -12(%rbp)
-	nop
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
@@ -7008,7 +7402,6 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	jmp	.Lmain_win1_continue
 ## Variant 6
 .Lmain_win1_var6:
@@ -7016,99 +7409,107 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	nop
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 7
 .Lmain_win1_var7:
 	popq	%rax
+	nop
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
-	nop
-## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
-	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	nop
-	movzbl	-53(%rbp), %eax
-	jmp	.Lmain_win1_continue
-## Variant 8
-.Lmain_win1_var8:
-	popq	%rax
-	cmpl	$0, -12(%rbp)
-	jle	LBB2_20
-	nop
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
+	leaq	-53(%rbp), %r10
 	nop
+	movzbl	(%r10), %eax
+	jmp	.Lmain_win1_continue
+## Variant 8
+.Lmain_win1_var8:
+	popq	%rax
+	nop
+	cmpl	$0, -12(%rbp)
+	jle	LBB2_20
+## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
+	movl	%eax, -72(%rbp)    # # 4-byte Spill
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 9
 .Lmain_win1_var9:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -12(%rbp)
+	nop
 	jle	LBB2_20
+	lfence
+	lfence
+	nop
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 10
 .Lmain_win1_var10:
 	popq	%rax
+	nop
+	lfence
 	cmpl	$0, -12(%rbp)
-	nop
 	jle	LBB2_20
-	nop
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 11
 .Lmain_win1_var11:
 	popq	%rax
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
-	nop
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
+	nop
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
-	nop
 	jmp	.Lmain_win1_continue
 ## Variant 12
 .Lmain_win1_var12:
 	popq	%rax
+	lfence
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 13
 .Lmain_win1_var13:
 	popq	%rax
+	lfence
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
-	nop
-	nop
 	movzbl	(%r10), %eax
-	nop
-	nop
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -7120,6 +7521,7 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	jle	LBB2_20
 	nop
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
+	nop
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
@@ -7129,23 +7531,25 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 ## Variant 15
 .Lmain_win1_var15:
 	popq	%rax
+	lfence
 	cmpl	$0, -12(%rbp)
-	jle	LBB2_20
-## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	jle	LBB2_20
+	lfence
+## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 16
 .Lmain_win1_var16:
 	popq	%rax
+	lfence
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
-	nop
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
+	nop
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
@@ -7157,34 +7561,29 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	popq	%rax
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
-## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
+## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
 	leaq	-53(%rbp), %r10
-	nop
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 18
 .Lmain_win1_var18:
 	popq	%rax
-	nop
 	cmpl	$0, -12(%rbp)
-	nop
 	jle	LBB2_20
-	nop
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	nop
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
+	nop
 	jmp	.Lmain_win1_continue
 ## Variant 19
 .Lmain_win1_var19:
 	popq	%rax
+	nop
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
@@ -7200,27 +7599,34 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 21
 .Lmain_win1_var21:
 	popq	%rax
+	lfence
+	lfence
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
+	lfence
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 22
 .Lmain_win1_var22:
 	popq	%rax
+	lfence
+	nop
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
+	lfence
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -7244,15 +7650,16 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 ## Variant 24
 .Lmain_win1_var24:
 	popq	%rax
-	nop
 	cmpl	$0, -12(%rbp)
 	jle	LBB2_20
 ## %bb.15:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	nop
+	nop
+	movzbl	-53(%rbp), %eax
 	movl	%eax, -72(%rbp)    # # 4-byte Spill
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
+	nop
 	jmp	.Lmain_win1_continue
 .Lmain_win1_continue:
 ## RANDOM SELECTOR BLOCK
@@ -7338,54 +7745,60 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
+	nop
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 2
 .Lmain_win0_var2:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
-	nop
 	jle	LBB2_18
-	nop
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 3
 .Lmain_win0_var3:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
+	lfence
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
-	nop
+	lfence
+	lfence
+	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 4
 .Lmain_win0_var4:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
-	movzbl	-53(%rbp), %eax
+	lfence
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 5
 .Lmain_win0_var5:
@@ -7393,59 +7806,55 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
-	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 6
 .Lmain_win0_var6:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
-	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
+	movzbl	-53(%rbp), %eax
 	nop
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 7
 .Lmain_win0_var7:
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
-## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 8
 .Lmain_win0_var8:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
+	nop
 	jge	LBB2_18
+	nop
+	nop
+	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 9
 .Lmain_win0_var9:
@@ -7453,22 +7862,24 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
-	movzbl	(%r10), %eax
+	nop
+	movzbl	-53(%rbp), %eax
+	nop
 	nop
 	jmp	.Lmain_win0_continue
 ## Variant 10
 .Lmain_win0_var10:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -7482,38 +7893,43 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
-	nop
-	nop
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	nop
-	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 12
 .Lmain_win0_var12:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
-	jle	LBB2_18
-## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
 	nop
-	movzbl	-53(%rbp), %eax
+	jle	LBB2_18
+	lfence
+## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
+	nop
 	cmpl	$127, %eax
 	jge	LBB2_18
+	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 13
 .Lmain_win0_var13:
 	popq	%rax
-	nop
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
@@ -7526,16 +7942,17 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
-	nop
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
+	nop
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	jmp	.Lmain_win0_continue
 ## Variant 15
 .Lmain_win0_var15:
@@ -7543,12 +7960,13 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	cmpl	$31, %eax
 	jle	LBB2_18
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	movzbl	-53(%rbp), %eax
+	leaq	-53(%rbp), %r10
+	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 16
 .Lmain_win0_var16:
@@ -7558,7 +7976,6 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	nop
 	cmpl	$127, %eax
 	jge	LBB2_18
@@ -7571,12 +7988,13 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	popq	%rax
 	cmpl	$31, %eax
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
-	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
@@ -7585,9 +8003,10 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 .Lmain_win0_var18:
 	popq	%rax
 	cmpl	$31, %eax
-	nop
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
@@ -7600,12 +8019,12 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 .Lmain_win0_var19:
 	popq	%rax
 	cmpl	$31, %eax
-	nop
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
-	nop
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
@@ -7622,9 +8041,10 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
-## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	leaq	-53(%rbp), %r10
 	nop
+## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
+	nop
+	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 21
@@ -7644,15 +8064,17 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 ## Variant 22
 .Lmain_win0_var22:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
 	jle	LBB2_18
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	leaq	-53(%rbp), %r10
 	movzbl	(%r10), %eax
 	jmp	.Lmain_win0_continue
@@ -7666,20 +8088,21 @@ LBB2_14:                                ##   in Loop: Header=BB2_9 Depth=1
 	movzbl	-53(%rbp), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
-	nop
 ## %bb.17:                              ##   in Loop: Header=BB2_9 Depth=1
-	nop
 	movzbl	-53(%rbp), %eax
 	jmp	.Lmain_win0_continue
 ## Variant 24
 .Lmain_win0_var24:
 	popq	%rax
+	nop
 	cmpl	$31, %eax
-	nop
 	jle	LBB2_18
+	lfence
+	lfence
 ## %bb.16:                              ##   in Loop: Header=BB2_9 Depth=1
+	lfence
+	lfence
 	leaq	-53(%rbp), %r10
-	nop
 	movzbl	(%r10), %eax
 	cmpl	$127, %eax
 	jge	LBB2_18
