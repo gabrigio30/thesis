@@ -188,11 +188,21 @@ def detect_indirect_branch(instrs: List[Instruction], i: int, window_size: int, 
 
     # window "backward": include l'indirect branch e le istruzioni che preparano il target
     start = max(0, i - window_size)
-    end = i  # includi il branch stesso; evitare di andare "dopo" è più sensato per call/jmp
+    end = i  # includi il branch stesso, evitare di andare "dopo" è più sensato per call/jmp
 
-    # scoring leggermente più alto rispetto al default: è un trigger forte per Spectre v2
+    # se nella window ci sono label, lo start sarà l'istruzione successiva ad essa
+    # (poiché duplicandola il programma non sarebbe compilabile)
+    for n in range(end, start - 1, -1):
+        m = instrs[n].raw_line or ""
+
+        # Caso label come mnemonic ("LBB0_3:" o "LBB0_3")
+        if m.startswith(("LBB", ".LBB")):
+            start = n + 1
+            break
+
+    # scoring leggermente più alto rispetto al default: trigger forte per Spectre v2
     mnem = (instr.mnemonic or "").lower()
-    score = 0.60 if mnem.startswith("call") else 0.55  # call* tipico del PoC, jmp* un filo meno comune
+    score = 0.70 if mnem.startswith("call") else 0.55  # call* tipico del PoC, jmp* un filo meno comune
 
     mark_window(instrs, start, end, score)
 
@@ -309,7 +319,7 @@ def detect_early_load_after_store(instrs: List[Instruction], i: int, window_size
 REGISTERED_DETECTORS: List[Callable[[List[Instruction], int, int, int], Optional[Dict]]] = [
     detect_cmp_jcc_mem,
     detect_indirect_branch,
-    #detect_store_then_load,
+    detect_store_then_load,
     #detect_early_load_after_store,
     #detect_unbalanced_ret,
 ]

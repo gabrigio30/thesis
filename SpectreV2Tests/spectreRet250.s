@@ -75,7 +75,7 @@ LBB2_4:
 	pushq	%rdx
 	rdtsc
 	xorq	%rdx, %rax
-	movl	$500, %ecx
+	movl	$250, %ecx
 	xorl	%edx, %edx
 	divl	%ecx
 	movl	%edx, %eax
@@ -581,506 +581,6 @@ LBB2_4:
 	je	.Lvictim_win0_var248
 	cmpl	$249, %eax
 	je	.Lvictim_win0_var249
-	cmpl	$250, %eax
-	je	.Lvictim_win0_var250
-	cmpl	$251, %eax
-	je	.Lvictim_win0_var251
-	cmpl	$252, %eax
-	je	.Lvictim_win0_var252
-	cmpl	$253, %eax
-	je	.Lvictim_win0_var253
-	cmpl	$254, %eax
-	je	.Lvictim_win0_var254
-	cmpl	$255, %eax
-	je	.Lvictim_win0_var255
-	cmpl	$256, %eax
-	je	.Lvictim_win0_var256
-	cmpl	$257, %eax
-	je	.Lvictim_win0_var257
-	cmpl	$258, %eax
-	je	.Lvictim_win0_var258
-	cmpl	$259, %eax
-	je	.Lvictim_win0_var259
-	cmpl	$260, %eax
-	je	.Lvictim_win0_var260
-	cmpl	$261, %eax
-	je	.Lvictim_win0_var261
-	cmpl	$262, %eax
-	je	.Lvictim_win0_var262
-	cmpl	$263, %eax
-	je	.Lvictim_win0_var263
-	cmpl	$264, %eax
-	je	.Lvictim_win0_var264
-	cmpl	$265, %eax
-	je	.Lvictim_win0_var265
-	cmpl	$266, %eax
-	je	.Lvictim_win0_var266
-	cmpl	$267, %eax
-	je	.Lvictim_win0_var267
-	cmpl	$268, %eax
-	je	.Lvictim_win0_var268
-	cmpl	$269, %eax
-	je	.Lvictim_win0_var269
-	cmpl	$270, %eax
-	je	.Lvictim_win0_var270
-	cmpl	$271, %eax
-	je	.Lvictim_win0_var271
-	cmpl	$272, %eax
-	je	.Lvictim_win0_var272
-	cmpl	$273, %eax
-	je	.Lvictim_win0_var273
-	cmpl	$274, %eax
-	je	.Lvictim_win0_var274
-	cmpl	$275, %eax
-	je	.Lvictim_win0_var275
-	cmpl	$276, %eax
-	je	.Lvictim_win0_var276
-	cmpl	$277, %eax
-	je	.Lvictim_win0_var277
-	cmpl	$278, %eax
-	je	.Lvictim_win0_var278
-	cmpl	$279, %eax
-	je	.Lvictim_win0_var279
-	cmpl	$280, %eax
-	je	.Lvictim_win0_var280
-	cmpl	$281, %eax
-	je	.Lvictim_win0_var281
-	cmpl	$282, %eax
-	je	.Lvictim_win0_var282
-	cmpl	$283, %eax
-	je	.Lvictim_win0_var283
-	cmpl	$284, %eax
-	je	.Lvictim_win0_var284
-	cmpl	$285, %eax
-	je	.Lvictim_win0_var285
-	cmpl	$286, %eax
-	je	.Lvictim_win0_var286
-	cmpl	$287, %eax
-	je	.Lvictim_win0_var287
-	cmpl	$288, %eax
-	je	.Lvictim_win0_var288
-	cmpl	$289, %eax
-	je	.Lvictim_win0_var289
-	cmpl	$290, %eax
-	je	.Lvictim_win0_var290
-	cmpl	$291, %eax
-	je	.Lvictim_win0_var291
-	cmpl	$292, %eax
-	je	.Lvictim_win0_var292
-	cmpl	$293, %eax
-	je	.Lvictim_win0_var293
-	cmpl	$294, %eax
-	je	.Lvictim_win0_var294
-	cmpl	$295, %eax
-	je	.Lvictim_win0_var295
-	cmpl	$296, %eax
-	je	.Lvictim_win0_var296
-	cmpl	$297, %eax
-	je	.Lvictim_win0_var297
-	cmpl	$298, %eax
-	je	.Lvictim_win0_var298
-	cmpl	$299, %eax
-	je	.Lvictim_win0_var299
-	cmpl	$300, %eax
-	je	.Lvictim_win0_var300
-	cmpl	$301, %eax
-	je	.Lvictim_win0_var301
-	cmpl	$302, %eax
-	je	.Lvictim_win0_var302
-	cmpl	$303, %eax
-	je	.Lvictim_win0_var303
-	cmpl	$304, %eax
-	je	.Lvictim_win0_var304
-	cmpl	$305, %eax
-	je	.Lvictim_win0_var305
-	cmpl	$306, %eax
-	je	.Lvictim_win0_var306
-	cmpl	$307, %eax
-	je	.Lvictim_win0_var307
-	cmpl	$308, %eax
-	je	.Lvictim_win0_var308
-	cmpl	$309, %eax
-	je	.Lvictim_win0_var309
-	cmpl	$310, %eax
-	je	.Lvictim_win0_var310
-	cmpl	$311, %eax
-	je	.Lvictim_win0_var311
-	cmpl	$312, %eax
-	je	.Lvictim_win0_var312
-	cmpl	$313, %eax
-	je	.Lvictim_win0_var313
-	cmpl	$314, %eax
-	je	.Lvictim_win0_var314
-	cmpl	$315, %eax
-	je	.Lvictim_win0_var315
-	cmpl	$316, %eax
-	je	.Lvictim_win0_var316
-	cmpl	$317, %eax
-	je	.Lvictim_win0_var317
-	cmpl	$318, %eax
-	je	.Lvictim_win0_var318
-	cmpl	$319, %eax
-	je	.Lvictim_win0_var319
-	cmpl	$320, %eax
-	je	.Lvictim_win0_var320
-	cmpl	$321, %eax
-	je	.Lvictim_win0_var321
-	cmpl	$322, %eax
-	je	.Lvictim_win0_var322
-	cmpl	$323, %eax
-	je	.Lvictim_win0_var323
-	cmpl	$324, %eax
-	je	.Lvictim_win0_var324
-	cmpl	$325, %eax
-	je	.Lvictim_win0_var325
-	cmpl	$326, %eax
-	je	.Lvictim_win0_var326
-	cmpl	$327, %eax
-	je	.Lvictim_win0_var327
-	cmpl	$328, %eax
-	je	.Lvictim_win0_var328
-	cmpl	$329, %eax
-	je	.Lvictim_win0_var329
-	cmpl	$330, %eax
-	je	.Lvictim_win0_var330
-	cmpl	$331, %eax
-	je	.Lvictim_win0_var331
-	cmpl	$332, %eax
-	je	.Lvictim_win0_var332
-	cmpl	$333, %eax
-	je	.Lvictim_win0_var333
-	cmpl	$334, %eax
-	je	.Lvictim_win0_var334
-	cmpl	$335, %eax
-	je	.Lvictim_win0_var335
-	cmpl	$336, %eax
-	je	.Lvictim_win0_var336
-	cmpl	$337, %eax
-	je	.Lvictim_win0_var337
-	cmpl	$338, %eax
-	je	.Lvictim_win0_var338
-	cmpl	$339, %eax
-	je	.Lvictim_win0_var339
-	cmpl	$340, %eax
-	je	.Lvictim_win0_var340
-	cmpl	$341, %eax
-	je	.Lvictim_win0_var341
-	cmpl	$342, %eax
-	je	.Lvictim_win0_var342
-	cmpl	$343, %eax
-	je	.Lvictim_win0_var343
-	cmpl	$344, %eax
-	je	.Lvictim_win0_var344
-	cmpl	$345, %eax
-	je	.Lvictim_win0_var345
-	cmpl	$346, %eax
-	je	.Lvictim_win0_var346
-	cmpl	$347, %eax
-	je	.Lvictim_win0_var347
-	cmpl	$348, %eax
-	je	.Lvictim_win0_var348
-	cmpl	$349, %eax
-	je	.Lvictim_win0_var349
-	cmpl	$350, %eax
-	je	.Lvictim_win0_var350
-	cmpl	$351, %eax
-	je	.Lvictim_win0_var351
-	cmpl	$352, %eax
-	je	.Lvictim_win0_var352
-	cmpl	$353, %eax
-	je	.Lvictim_win0_var353
-	cmpl	$354, %eax
-	je	.Lvictim_win0_var354
-	cmpl	$355, %eax
-	je	.Lvictim_win0_var355
-	cmpl	$356, %eax
-	je	.Lvictim_win0_var356
-	cmpl	$357, %eax
-	je	.Lvictim_win0_var357
-	cmpl	$358, %eax
-	je	.Lvictim_win0_var358
-	cmpl	$359, %eax
-	je	.Lvictim_win0_var359
-	cmpl	$360, %eax
-	je	.Lvictim_win0_var360
-	cmpl	$361, %eax
-	je	.Lvictim_win0_var361
-	cmpl	$362, %eax
-	je	.Lvictim_win0_var362
-	cmpl	$363, %eax
-	je	.Lvictim_win0_var363
-	cmpl	$364, %eax
-	je	.Lvictim_win0_var364
-	cmpl	$365, %eax
-	je	.Lvictim_win0_var365
-	cmpl	$366, %eax
-	je	.Lvictim_win0_var366
-	cmpl	$367, %eax
-	je	.Lvictim_win0_var367
-	cmpl	$368, %eax
-	je	.Lvictim_win0_var368
-	cmpl	$369, %eax
-	je	.Lvictim_win0_var369
-	cmpl	$370, %eax
-	je	.Lvictim_win0_var370
-	cmpl	$371, %eax
-	je	.Lvictim_win0_var371
-	cmpl	$372, %eax
-	je	.Lvictim_win0_var372
-	cmpl	$373, %eax
-	je	.Lvictim_win0_var373
-	cmpl	$374, %eax
-	je	.Lvictim_win0_var374
-	cmpl	$375, %eax
-	je	.Lvictim_win0_var375
-	cmpl	$376, %eax
-	je	.Lvictim_win0_var376
-	cmpl	$377, %eax
-	je	.Lvictim_win0_var377
-	cmpl	$378, %eax
-	je	.Lvictim_win0_var378
-	cmpl	$379, %eax
-	je	.Lvictim_win0_var379
-	cmpl	$380, %eax
-	je	.Lvictim_win0_var380
-	cmpl	$381, %eax
-	je	.Lvictim_win0_var381
-	cmpl	$382, %eax
-	je	.Lvictim_win0_var382
-	cmpl	$383, %eax
-	je	.Lvictim_win0_var383
-	cmpl	$384, %eax
-	je	.Lvictim_win0_var384
-	cmpl	$385, %eax
-	je	.Lvictim_win0_var385
-	cmpl	$386, %eax
-	je	.Lvictim_win0_var386
-	cmpl	$387, %eax
-	je	.Lvictim_win0_var387
-	cmpl	$388, %eax
-	je	.Lvictim_win0_var388
-	cmpl	$389, %eax
-	je	.Lvictim_win0_var389
-	cmpl	$390, %eax
-	je	.Lvictim_win0_var390
-	cmpl	$391, %eax
-	je	.Lvictim_win0_var391
-	cmpl	$392, %eax
-	je	.Lvictim_win0_var392
-	cmpl	$393, %eax
-	je	.Lvictim_win0_var393
-	cmpl	$394, %eax
-	je	.Lvictim_win0_var394
-	cmpl	$395, %eax
-	je	.Lvictim_win0_var395
-	cmpl	$396, %eax
-	je	.Lvictim_win0_var396
-	cmpl	$397, %eax
-	je	.Lvictim_win0_var397
-	cmpl	$398, %eax
-	je	.Lvictim_win0_var398
-	cmpl	$399, %eax
-	je	.Lvictim_win0_var399
-	cmpl	$400, %eax
-	je	.Lvictim_win0_var400
-	cmpl	$401, %eax
-	je	.Lvictim_win0_var401
-	cmpl	$402, %eax
-	je	.Lvictim_win0_var402
-	cmpl	$403, %eax
-	je	.Lvictim_win0_var403
-	cmpl	$404, %eax
-	je	.Lvictim_win0_var404
-	cmpl	$405, %eax
-	je	.Lvictim_win0_var405
-	cmpl	$406, %eax
-	je	.Lvictim_win0_var406
-	cmpl	$407, %eax
-	je	.Lvictim_win0_var407
-	cmpl	$408, %eax
-	je	.Lvictim_win0_var408
-	cmpl	$409, %eax
-	je	.Lvictim_win0_var409
-	cmpl	$410, %eax
-	je	.Lvictim_win0_var410
-	cmpl	$411, %eax
-	je	.Lvictim_win0_var411
-	cmpl	$412, %eax
-	je	.Lvictim_win0_var412
-	cmpl	$413, %eax
-	je	.Lvictim_win0_var413
-	cmpl	$414, %eax
-	je	.Lvictim_win0_var414
-	cmpl	$415, %eax
-	je	.Lvictim_win0_var415
-	cmpl	$416, %eax
-	je	.Lvictim_win0_var416
-	cmpl	$417, %eax
-	je	.Lvictim_win0_var417
-	cmpl	$418, %eax
-	je	.Lvictim_win0_var418
-	cmpl	$419, %eax
-	je	.Lvictim_win0_var419
-	cmpl	$420, %eax
-	je	.Lvictim_win0_var420
-	cmpl	$421, %eax
-	je	.Lvictim_win0_var421
-	cmpl	$422, %eax
-	je	.Lvictim_win0_var422
-	cmpl	$423, %eax
-	je	.Lvictim_win0_var423
-	cmpl	$424, %eax
-	je	.Lvictim_win0_var424
-	cmpl	$425, %eax
-	je	.Lvictim_win0_var425
-	cmpl	$426, %eax
-	je	.Lvictim_win0_var426
-	cmpl	$427, %eax
-	je	.Lvictim_win0_var427
-	cmpl	$428, %eax
-	je	.Lvictim_win0_var428
-	cmpl	$429, %eax
-	je	.Lvictim_win0_var429
-	cmpl	$430, %eax
-	je	.Lvictim_win0_var430
-	cmpl	$431, %eax
-	je	.Lvictim_win0_var431
-	cmpl	$432, %eax
-	je	.Lvictim_win0_var432
-	cmpl	$433, %eax
-	je	.Lvictim_win0_var433
-	cmpl	$434, %eax
-	je	.Lvictim_win0_var434
-	cmpl	$435, %eax
-	je	.Lvictim_win0_var435
-	cmpl	$436, %eax
-	je	.Lvictim_win0_var436
-	cmpl	$437, %eax
-	je	.Lvictim_win0_var437
-	cmpl	$438, %eax
-	je	.Lvictim_win0_var438
-	cmpl	$439, %eax
-	je	.Lvictim_win0_var439
-	cmpl	$440, %eax
-	je	.Lvictim_win0_var440
-	cmpl	$441, %eax
-	je	.Lvictim_win0_var441
-	cmpl	$442, %eax
-	je	.Lvictim_win0_var442
-	cmpl	$443, %eax
-	je	.Lvictim_win0_var443
-	cmpl	$444, %eax
-	je	.Lvictim_win0_var444
-	cmpl	$445, %eax
-	je	.Lvictim_win0_var445
-	cmpl	$446, %eax
-	je	.Lvictim_win0_var446
-	cmpl	$447, %eax
-	je	.Lvictim_win0_var447
-	cmpl	$448, %eax
-	je	.Lvictim_win0_var448
-	cmpl	$449, %eax
-	je	.Lvictim_win0_var449
-	cmpl	$450, %eax
-	je	.Lvictim_win0_var450
-	cmpl	$451, %eax
-	je	.Lvictim_win0_var451
-	cmpl	$452, %eax
-	je	.Lvictim_win0_var452
-	cmpl	$453, %eax
-	je	.Lvictim_win0_var453
-	cmpl	$454, %eax
-	je	.Lvictim_win0_var454
-	cmpl	$455, %eax
-	je	.Lvictim_win0_var455
-	cmpl	$456, %eax
-	je	.Lvictim_win0_var456
-	cmpl	$457, %eax
-	je	.Lvictim_win0_var457
-	cmpl	$458, %eax
-	je	.Lvictim_win0_var458
-	cmpl	$459, %eax
-	je	.Lvictim_win0_var459
-	cmpl	$460, %eax
-	je	.Lvictim_win0_var460
-	cmpl	$461, %eax
-	je	.Lvictim_win0_var461
-	cmpl	$462, %eax
-	je	.Lvictim_win0_var462
-	cmpl	$463, %eax
-	je	.Lvictim_win0_var463
-	cmpl	$464, %eax
-	je	.Lvictim_win0_var464
-	cmpl	$465, %eax
-	je	.Lvictim_win0_var465
-	cmpl	$466, %eax
-	je	.Lvictim_win0_var466
-	cmpl	$467, %eax
-	je	.Lvictim_win0_var467
-	cmpl	$468, %eax
-	je	.Lvictim_win0_var468
-	cmpl	$469, %eax
-	je	.Lvictim_win0_var469
-	cmpl	$470, %eax
-	je	.Lvictim_win0_var470
-	cmpl	$471, %eax
-	je	.Lvictim_win0_var471
-	cmpl	$472, %eax
-	je	.Lvictim_win0_var472
-	cmpl	$473, %eax
-	je	.Lvictim_win0_var473
-	cmpl	$474, %eax
-	je	.Lvictim_win0_var474
-	cmpl	$475, %eax
-	je	.Lvictim_win0_var475
-	cmpl	$476, %eax
-	je	.Lvictim_win0_var476
-	cmpl	$477, %eax
-	je	.Lvictim_win0_var477
-	cmpl	$478, %eax
-	je	.Lvictim_win0_var478
-	cmpl	$479, %eax
-	je	.Lvictim_win0_var479
-	cmpl	$480, %eax
-	je	.Lvictim_win0_var480
-	cmpl	$481, %eax
-	je	.Lvictim_win0_var481
-	cmpl	$482, %eax
-	je	.Lvictim_win0_var482
-	cmpl	$483, %eax
-	je	.Lvictim_win0_var483
-	cmpl	$484, %eax
-	je	.Lvictim_win0_var484
-	cmpl	$485, %eax
-	je	.Lvictim_win0_var485
-	cmpl	$486, %eax
-	je	.Lvictim_win0_var486
-	cmpl	$487, %eax
-	je	.Lvictim_win0_var487
-	cmpl	$488, %eax
-	je	.Lvictim_win0_var488
-	cmpl	$489, %eax
-	je	.Lvictim_win0_var489
-	cmpl	$490, %eax
-	je	.Lvictim_win0_var490
-	cmpl	$491, %eax
-	je	.Lvictim_win0_var491
-	cmpl	$492, %eax
-	je	.Lvictim_win0_var492
-	cmpl	$493, %eax
-	je	.Lvictim_win0_var493
-	cmpl	$494, %eax
-	je	.Lvictim_win0_var494
-	cmpl	$495, %eax
-	je	.Lvictim_win0_var495
-	cmpl	$496, %eax
-	je	.Lvictim_win0_var496
-	cmpl	$497, %eax
-	je	.Lvictim_win0_var497
-	cmpl	$498, %eax
-	je	.Lvictim_win0_var498
-	cmpl	$499, %eax
-	je	.Lvictim_win0_var499
 	jmp	.Lvictim_win0_var0
 ## Variant 0
 .Lvictim_win0_var0:
@@ -1098,7 +598,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000001
+	jmp	.Lgg_retpol_after_000001
+.Lgg_retpol_thunk_000001:
+	callq	.Lgg_retpol_setup_000001
+.Lgg_retpol_cap_000001:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000001
+.Lgg_retpol_setup_000001:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000001:
 	jmp	.Lvictim_win0_continue
 ## Variant 2
 .Lvictim_win0_var2:
@@ -1107,7 +618,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000002
+	jmp	.Lgg_retpol_after_000002
+.Lgg_retpol_thunk_000002:
+	callq	.Lgg_retpol_setup_000002
+.Lgg_retpol_cap_000002:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000002
+.Lgg_retpol_setup_000002:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000002:
 	jmp	.Lvictim_win0_continue
 ## Variant 3
 .Lvictim_win0_var3:
@@ -1116,7 +638,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000003
+	jmp	.Lgg_retpol_after_000003
+.Lgg_retpol_thunk_000003:
+	callq	.Lgg_retpol_setup_000003
+.Lgg_retpol_cap_000003:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000003
+.Lgg_retpol_setup_000003:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000003:
 	jmp	.Lvictim_win0_continue
 ## Variant 4
 .Lvictim_win0_var4:
@@ -1125,7 +658,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000004
+	jmp	.Lgg_retpol_after_000004
+.Lgg_retpol_thunk_000004:
+	callq	.Lgg_retpol_setup_000004
+.Lgg_retpol_cap_000004:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000004
+.Lgg_retpol_setup_000004:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000004:
 	jmp	.Lvictim_win0_continue
 ## Variant 5
 .Lvictim_win0_var5:
@@ -1134,7 +678,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000005
+	jmp	.Lgg_retpol_after_000005
+.Lgg_retpol_thunk_000005:
+	callq	.Lgg_retpol_setup_000005
+.Lgg_retpol_cap_000005:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000005
+.Lgg_retpol_setup_000005:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000005:
 	jmp	.Lvictim_win0_continue
 ## Variant 6
 .Lvictim_win0_var6:
@@ -1143,7 +698,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000006
+	jmp	.Lgg_retpol_after_000006
+.Lgg_retpol_thunk_000006:
+	callq	.Lgg_retpol_setup_000006
+.Lgg_retpol_cap_000006:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000006
+.Lgg_retpol_setup_000006:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000006:
 	jmp	.Lvictim_win0_continue
 ## Variant 7
 .Lvictim_win0_var7:
@@ -1152,7 +718,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000007
+	jmp	.Lgg_retpol_after_000007
+.Lgg_retpol_thunk_000007:
+	callq	.Lgg_retpol_setup_000007
+.Lgg_retpol_cap_000007:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000007
+.Lgg_retpol_setup_000007:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000007:
 	jmp	.Lvictim_win0_continue
 ## Variant 8
 .Lvictim_win0_var8:
@@ -1161,7 +738,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000008
+	jmp	.Lgg_retpol_after_000008
+.Lgg_retpol_thunk_000008:
+	callq	.Lgg_retpol_setup_000008
+.Lgg_retpol_cap_000008:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000008
+.Lgg_retpol_setup_000008:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000008:
 	jmp	.Lvictim_win0_continue
 ## Variant 9
 .Lvictim_win0_var9:
@@ -1170,7 +758,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000009
+	jmp	.Lgg_retpol_after_000009
+.Lgg_retpol_thunk_000009:
+	callq	.Lgg_retpol_setup_000009
+.Lgg_retpol_cap_000009:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000009
+.Lgg_retpol_setup_000009:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000009:
 	jmp	.Lvictim_win0_continue
 ## Variant 10
 .Lvictim_win0_var10:
@@ -1179,7 +778,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000010
+	jmp	.Lgg_retpol_after_000010
+.Lgg_retpol_thunk_000010:
+	callq	.Lgg_retpol_setup_000010
+.Lgg_retpol_cap_000010:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000010
+.Lgg_retpol_setup_000010:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000010:
 	jmp	.Lvictim_win0_continue
 ## Variant 11
 .Lvictim_win0_var11:
@@ -1188,7 +798,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000011
+	jmp	.Lgg_retpol_after_000011
+.Lgg_retpol_thunk_000011:
+	callq	.Lgg_retpol_setup_000011
+.Lgg_retpol_cap_000011:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000011
+.Lgg_retpol_setup_000011:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000011:
 	jmp	.Lvictim_win0_continue
 ## Variant 12
 .Lvictim_win0_var12:
@@ -1197,7 +818,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000012
+	jmp	.Lgg_retpol_after_000012
+.Lgg_retpol_thunk_000012:
+	callq	.Lgg_retpol_setup_000012
+.Lgg_retpol_cap_000012:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000012
+.Lgg_retpol_setup_000012:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000012:
 	jmp	.Lvictim_win0_continue
 ## Variant 13
 .Lvictim_win0_var13:
@@ -1206,7 +838,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000013
+	jmp	.Lgg_retpol_after_000013
+.Lgg_retpol_thunk_000013:
+	callq	.Lgg_retpol_setup_000013
+.Lgg_retpol_cap_000013:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000013
+.Lgg_retpol_setup_000013:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000013:
 	jmp	.Lvictim_win0_continue
 ## Variant 14
 .Lvictim_win0_var14:
@@ -1215,7 +858,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000014
+	jmp	.Lgg_retpol_after_000014
+.Lgg_retpol_thunk_000014:
+	callq	.Lgg_retpol_setup_000014
+.Lgg_retpol_cap_000014:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000014
+.Lgg_retpol_setup_000014:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000014:
 	jmp	.Lvictim_win0_continue
 ## Variant 15
 .Lvictim_win0_var15:
@@ -1224,7 +878,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000015
+	jmp	.Lgg_retpol_after_000015
+.Lgg_retpol_thunk_000015:
+	callq	.Lgg_retpol_setup_000015
+.Lgg_retpol_cap_000015:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000015
+.Lgg_retpol_setup_000015:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000015:
 	jmp	.Lvictim_win0_continue
 ## Variant 16
 .Lvictim_win0_var16:
@@ -1233,7 +898,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000016
+	jmp	.Lgg_retpol_after_000016
+.Lgg_retpol_thunk_000016:
+	callq	.Lgg_retpol_setup_000016
+.Lgg_retpol_cap_000016:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000016
+.Lgg_retpol_setup_000016:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000016:
 	jmp	.Lvictim_win0_continue
 ## Variant 17
 .Lvictim_win0_var17:
@@ -1242,7 +918,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000017
+	jmp	.Lgg_retpol_after_000017
+.Lgg_retpol_thunk_000017:
+	callq	.Lgg_retpol_setup_000017
+.Lgg_retpol_cap_000017:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000017
+.Lgg_retpol_setup_000017:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000017:
 	jmp	.Lvictim_win0_continue
 ## Variant 18
 .Lvictim_win0_var18:
@@ -1251,7 +938,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000018
+	jmp	.Lgg_retpol_after_000018
+.Lgg_retpol_thunk_000018:
+	callq	.Lgg_retpol_setup_000018
+.Lgg_retpol_cap_000018:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000018
+.Lgg_retpol_setup_000018:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000018:
 	jmp	.Lvictim_win0_continue
 ## Variant 19
 .Lvictim_win0_var19:
@@ -1260,7 +958,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000019
+	jmp	.Lgg_retpol_after_000019
+.Lgg_retpol_thunk_000019:
+	callq	.Lgg_retpol_setup_000019
+.Lgg_retpol_cap_000019:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000019
+.Lgg_retpol_setup_000019:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000019:
 	jmp	.Lvictim_win0_continue
 ## Variant 20
 .Lvictim_win0_var20:
@@ -1269,7 +978,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000020
+	jmp	.Lgg_retpol_after_000020
+.Lgg_retpol_thunk_000020:
+	callq	.Lgg_retpol_setup_000020
+.Lgg_retpol_cap_000020:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000020
+.Lgg_retpol_setup_000020:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000020:
 	jmp	.Lvictim_win0_continue
 ## Variant 21
 .Lvictim_win0_var21:
@@ -1278,7 +998,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000021
+	jmp	.Lgg_retpol_after_000021
+.Lgg_retpol_thunk_000021:
+	callq	.Lgg_retpol_setup_000021
+.Lgg_retpol_cap_000021:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000021
+.Lgg_retpol_setup_000021:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000021:
 	jmp	.Lvictim_win0_continue
 ## Variant 22
 .Lvictim_win0_var22:
@@ -1287,7 +1018,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000022
+	jmp	.Lgg_retpol_after_000022
+.Lgg_retpol_thunk_000022:
+	callq	.Lgg_retpol_setup_000022
+.Lgg_retpol_cap_000022:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000022
+.Lgg_retpol_setup_000022:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000022:
 	jmp	.Lvictim_win0_continue
 ## Variant 23
 .Lvictim_win0_var23:
@@ -1296,7 +1038,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000023
+	jmp	.Lgg_retpol_after_000023
+.Lgg_retpol_thunk_000023:
+	callq	.Lgg_retpol_setup_000023
+.Lgg_retpol_cap_000023:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000023
+.Lgg_retpol_setup_000023:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000023:
 	jmp	.Lvictim_win0_continue
 ## Variant 24
 .Lvictim_win0_var24:
@@ -1305,7 +1058,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000024
+	jmp	.Lgg_retpol_after_000024
+.Lgg_retpol_thunk_000024:
+	callq	.Lgg_retpol_setup_000024
+.Lgg_retpol_cap_000024:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000024
+.Lgg_retpol_setup_000024:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000024:
 	jmp	.Lvictim_win0_continue
 ## Variant 25
 .Lvictim_win0_var25:
@@ -1314,7 +1078,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000025
+	jmp	.Lgg_retpol_after_000025
+.Lgg_retpol_thunk_000025:
+	callq	.Lgg_retpol_setup_000025
+.Lgg_retpol_cap_000025:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000025
+.Lgg_retpol_setup_000025:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000025:
 	jmp	.Lvictim_win0_continue
 ## Variant 26
 .Lvictim_win0_var26:
@@ -1323,7 +1098,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000026
+	jmp	.Lgg_retpol_after_000026
+.Lgg_retpol_thunk_000026:
+	callq	.Lgg_retpol_setup_000026
+.Lgg_retpol_cap_000026:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000026
+.Lgg_retpol_setup_000026:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000026:
 	jmp	.Lvictim_win0_continue
 ## Variant 27
 .Lvictim_win0_var27:
@@ -1332,7 +1118,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000027
+	jmp	.Lgg_retpol_after_000027
+.Lgg_retpol_thunk_000027:
+	callq	.Lgg_retpol_setup_000027
+.Lgg_retpol_cap_000027:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000027
+.Lgg_retpol_setup_000027:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000027:
 	jmp	.Lvictim_win0_continue
 ## Variant 28
 .Lvictim_win0_var28:
@@ -1341,7 +1138,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000028
+	jmp	.Lgg_retpol_after_000028
+.Lgg_retpol_thunk_000028:
+	callq	.Lgg_retpol_setup_000028
+.Lgg_retpol_cap_000028:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000028
+.Lgg_retpol_setup_000028:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000028:
 	jmp	.Lvictim_win0_continue
 ## Variant 29
 .Lvictim_win0_var29:
@@ -1350,7 +1158,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000029
+	jmp	.Lgg_retpol_after_000029
+.Lgg_retpol_thunk_000029:
+	callq	.Lgg_retpol_setup_000029
+.Lgg_retpol_cap_000029:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000029
+.Lgg_retpol_setup_000029:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000029:
 	jmp	.Lvictim_win0_continue
 ## Variant 30
 .Lvictim_win0_var30:
@@ -1359,7 +1178,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000030
+	jmp	.Lgg_retpol_after_000030
+.Lgg_retpol_thunk_000030:
+	callq	.Lgg_retpol_setup_000030
+.Lgg_retpol_cap_000030:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000030
+.Lgg_retpol_setup_000030:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000030:
 	jmp	.Lvictim_win0_continue
 ## Variant 31
 .Lvictim_win0_var31:
@@ -1368,7 +1198,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000031
+	jmp	.Lgg_retpol_after_000031
+.Lgg_retpol_thunk_000031:
+	callq	.Lgg_retpol_setup_000031
+.Lgg_retpol_cap_000031:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000031
+.Lgg_retpol_setup_000031:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000031:
 	jmp	.Lvictim_win0_continue
 ## Variant 32
 .Lvictim_win0_var32:
@@ -1377,7 +1218,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000032
+	jmp	.Lgg_retpol_after_000032
+.Lgg_retpol_thunk_000032:
+	callq	.Lgg_retpol_setup_000032
+.Lgg_retpol_cap_000032:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000032
+.Lgg_retpol_setup_000032:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000032:
 	jmp	.Lvictim_win0_continue
 ## Variant 33
 .Lvictim_win0_var33:
@@ -1386,7 +1238,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000033
+	jmp	.Lgg_retpol_after_000033
+.Lgg_retpol_thunk_000033:
+	callq	.Lgg_retpol_setup_000033
+.Lgg_retpol_cap_000033:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000033
+.Lgg_retpol_setup_000033:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000033:
 	jmp	.Lvictim_win0_continue
 ## Variant 34
 .Lvictim_win0_var34:
@@ -1395,7 +1258,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000034
+	jmp	.Lgg_retpol_after_000034
+.Lgg_retpol_thunk_000034:
+	callq	.Lgg_retpol_setup_000034
+.Lgg_retpol_cap_000034:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000034
+.Lgg_retpol_setup_000034:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000034:
 	jmp	.Lvictim_win0_continue
 ## Variant 35
 .Lvictim_win0_var35:
@@ -1404,7 +1278,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000035
+	jmp	.Lgg_retpol_after_000035
+.Lgg_retpol_thunk_000035:
+	callq	.Lgg_retpol_setup_000035
+.Lgg_retpol_cap_000035:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000035
+.Lgg_retpol_setup_000035:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000035:
 	jmp	.Lvictim_win0_continue
 ## Variant 36
 .Lvictim_win0_var36:
@@ -1413,7 +1298,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000036
+	jmp	.Lgg_retpol_after_000036
+.Lgg_retpol_thunk_000036:
+	callq	.Lgg_retpol_setup_000036
+.Lgg_retpol_cap_000036:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000036
+.Lgg_retpol_setup_000036:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000036:
 	jmp	.Lvictim_win0_continue
 ## Variant 37
 .Lvictim_win0_var37:
@@ -1422,7 +1318,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000037
+	jmp	.Lgg_retpol_after_000037
+.Lgg_retpol_thunk_000037:
+	callq	.Lgg_retpol_setup_000037
+.Lgg_retpol_cap_000037:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000037
+.Lgg_retpol_setup_000037:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000037:
 	jmp	.Lvictim_win0_continue
 ## Variant 38
 .Lvictim_win0_var38:
@@ -1431,7 +1338,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000038
+	jmp	.Lgg_retpol_after_000038
+.Lgg_retpol_thunk_000038:
+	callq	.Lgg_retpol_setup_000038
+.Lgg_retpol_cap_000038:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000038
+.Lgg_retpol_setup_000038:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000038:
 	jmp	.Lvictim_win0_continue
 ## Variant 39
 .Lvictim_win0_var39:
@@ -1440,7 +1358,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000039
+	jmp	.Lgg_retpol_after_000039
+.Lgg_retpol_thunk_000039:
+	callq	.Lgg_retpol_setup_000039
+.Lgg_retpol_cap_000039:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000039
+.Lgg_retpol_setup_000039:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000039:
 	jmp	.Lvictim_win0_continue
 ## Variant 40
 .Lvictim_win0_var40:
@@ -1449,7 +1378,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000040
+	jmp	.Lgg_retpol_after_000040
+.Lgg_retpol_thunk_000040:
+	callq	.Lgg_retpol_setup_000040
+.Lgg_retpol_cap_000040:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000040
+.Lgg_retpol_setup_000040:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000040:
 	jmp	.Lvictim_win0_continue
 ## Variant 41
 .Lvictim_win0_var41:
@@ -1458,7 +1398,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000041
+	jmp	.Lgg_retpol_after_000041
+.Lgg_retpol_thunk_000041:
+	callq	.Lgg_retpol_setup_000041
+.Lgg_retpol_cap_000041:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000041
+.Lgg_retpol_setup_000041:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000041:
 	jmp	.Lvictim_win0_continue
 ## Variant 42
 .Lvictim_win0_var42:
@@ -1467,7 +1418,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000042
+	jmp	.Lgg_retpol_after_000042
+.Lgg_retpol_thunk_000042:
+	callq	.Lgg_retpol_setup_000042
+.Lgg_retpol_cap_000042:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000042
+.Lgg_retpol_setup_000042:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000042:
 	jmp	.Lvictim_win0_continue
 ## Variant 43
 .Lvictim_win0_var43:
@@ -1476,7 +1438,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000043
+	jmp	.Lgg_retpol_after_000043
+.Lgg_retpol_thunk_000043:
+	callq	.Lgg_retpol_setup_000043
+.Lgg_retpol_cap_000043:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000043
+.Lgg_retpol_setup_000043:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000043:
 	jmp	.Lvictim_win0_continue
 ## Variant 44
 .Lvictim_win0_var44:
@@ -1485,7 +1458,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000044
+	jmp	.Lgg_retpol_after_000044
+.Lgg_retpol_thunk_000044:
+	callq	.Lgg_retpol_setup_000044
+.Lgg_retpol_cap_000044:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000044
+.Lgg_retpol_setup_000044:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000044:
 	jmp	.Lvictim_win0_continue
 ## Variant 45
 .Lvictim_win0_var45:
@@ -1494,7 +1478,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000045
+	jmp	.Lgg_retpol_after_000045
+.Lgg_retpol_thunk_000045:
+	callq	.Lgg_retpol_setup_000045
+.Lgg_retpol_cap_000045:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000045
+.Lgg_retpol_setup_000045:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000045:
 	jmp	.Lvictim_win0_continue
 ## Variant 46
 .Lvictim_win0_var46:
@@ -1503,7 +1498,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000046
+	jmp	.Lgg_retpol_after_000046
+.Lgg_retpol_thunk_000046:
+	callq	.Lgg_retpol_setup_000046
+.Lgg_retpol_cap_000046:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000046
+.Lgg_retpol_setup_000046:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000046:
 	jmp	.Lvictim_win0_continue
 ## Variant 47
 .Lvictim_win0_var47:
@@ -1512,7 +1518,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000047
+	jmp	.Lgg_retpol_after_000047
+.Lgg_retpol_thunk_000047:
+	callq	.Lgg_retpol_setup_000047
+.Lgg_retpol_cap_000047:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000047
+.Lgg_retpol_setup_000047:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000047:
 	jmp	.Lvictim_win0_continue
 ## Variant 48
 .Lvictim_win0_var48:
@@ -1521,7 +1538,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000048
+	jmp	.Lgg_retpol_after_000048
+.Lgg_retpol_thunk_000048:
+	callq	.Lgg_retpol_setup_000048
+.Lgg_retpol_cap_000048:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000048
+.Lgg_retpol_setup_000048:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000048:
 	jmp	.Lvictim_win0_continue
 ## Variant 49
 .Lvictim_win0_var49:
@@ -1530,7 +1558,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000049
+	jmp	.Lgg_retpol_after_000049
+.Lgg_retpol_thunk_000049:
+	callq	.Lgg_retpol_setup_000049
+.Lgg_retpol_cap_000049:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000049
+.Lgg_retpol_setup_000049:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000049:
 	jmp	.Lvictim_win0_continue
 ## Variant 50
 .Lvictim_win0_var50:
@@ -1539,7 +1578,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000050
+	jmp	.Lgg_retpol_after_000050
+.Lgg_retpol_thunk_000050:
+	callq	.Lgg_retpol_setup_000050
+.Lgg_retpol_cap_000050:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000050
+.Lgg_retpol_setup_000050:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000050:
 	jmp	.Lvictim_win0_continue
 ## Variant 51
 .Lvictim_win0_var51:
@@ -1548,7 +1598,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000051
+	jmp	.Lgg_retpol_after_000051
+.Lgg_retpol_thunk_000051:
+	callq	.Lgg_retpol_setup_000051
+.Lgg_retpol_cap_000051:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000051
+.Lgg_retpol_setup_000051:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000051:
 	jmp	.Lvictim_win0_continue
 ## Variant 52
 .Lvictim_win0_var52:
@@ -1557,7 +1618,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000052
+	jmp	.Lgg_retpol_after_000052
+.Lgg_retpol_thunk_000052:
+	callq	.Lgg_retpol_setup_000052
+.Lgg_retpol_cap_000052:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000052
+.Lgg_retpol_setup_000052:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000052:
 	jmp	.Lvictim_win0_continue
 ## Variant 53
 .Lvictim_win0_var53:
@@ -1566,7 +1638,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000053
+	jmp	.Lgg_retpol_after_000053
+.Lgg_retpol_thunk_000053:
+	callq	.Lgg_retpol_setup_000053
+.Lgg_retpol_cap_000053:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000053
+.Lgg_retpol_setup_000053:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000053:
 	jmp	.Lvictim_win0_continue
 ## Variant 54
 .Lvictim_win0_var54:
@@ -1575,7 +1658,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000054
+	jmp	.Lgg_retpol_after_000054
+.Lgg_retpol_thunk_000054:
+	callq	.Lgg_retpol_setup_000054
+.Lgg_retpol_cap_000054:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000054
+.Lgg_retpol_setup_000054:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000054:
 	jmp	.Lvictim_win0_continue
 ## Variant 55
 .Lvictim_win0_var55:
@@ -1584,7 +1678,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000055
+	jmp	.Lgg_retpol_after_000055
+.Lgg_retpol_thunk_000055:
+	callq	.Lgg_retpol_setup_000055
+.Lgg_retpol_cap_000055:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000055
+.Lgg_retpol_setup_000055:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000055:
 	jmp	.Lvictim_win0_continue
 ## Variant 56
 .Lvictim_win0_var56:
@@ -1593,7 +1698,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000056
+	jmp	.Lgg_retpol_after_000056
+.Lgg_retpol_thunk_000056:
+	callq	.Lgg_retpol_setup_000056
+.Lgg_retpol_cap_000056:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000056
+.Lgg_retpol_setup_000056:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000056:
 	jmp	.Lvictim_win0_continue
 ## Variant 57
 .Lvictim_win0_var57:
@@ -1602,7 +1718,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000057
+	jmp	.Lgg_retpol_after_000057
+.Lgg_retpol_thunk_000057:
+	callq	.Lgg_retpol_setup_000057
+.Lgg_retpol_cap_000057:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000057
+.Lgg_retpol_setup_000057:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000057:
 	jmp	.Lvictim_win0_continue
 ## Variant 58
 .Lvictim_win0_var58:
@@ -1611,7 +1738,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000058
+	jmp	.Lgg_retpol_after_000058
+.Lgg_retpol_thunk_000058:
+	callq	.Lgg_retpol_setup_000058
+.Lgg_retpol_cap_000058:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000058
+.Lgg_retpol_setup_000058:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000058:
 	jmp	.Lvictim_win0_continue
 ## Variant 59
 .Lvictim_win0_var59:
@@ -1620,7 +1758,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000059
+	jmp	.Lgg_retpol_after_000059
+.Lgg_retpol_thunk_000059:
+	callq	.Lgg_retpol_setup_000059
+.Lgg_retpol_cap_000059:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000059
+.Lgg_retpol_setup_000059:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000059:
 	jmp	.Lvictim_win0_continue
 ## Variant 60
 .Lvictim_win0_var60:
@@ -1629,7 +1778,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000060
+	jmp	.Lgg_retpol_after_000060
+.Lgg_retpol_thunk_000060:
+	callq	.Lgg_retpol_setup_000060
+.Lgg_retpol_cap_000060:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000060
+.Lgg_retpol_setup_000060:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000060:
 	jmp	.Lvictim_win0_continue
 ## Variant 61
 .Lvictim_win0_var61:
@@ -1638,7 +1798,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000061
+	jmp	.Lgg_retpol_after_000061
+.Lgg_retpol_thunk_000061:
+	callq	.Lgg_retpol_setup_000061
+.Lgg_retpol_cap_000061:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000061
+.Lgg_retpol_setup_000061:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000061:
 	jmp	.Lvictim_win0_continue
 ## Variant 62
 .Lvictim_win0_var62:
@@ -1647,7 +1818,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000062
+	jmp	.Lgg_retpol_after_000062
+.Lgg_retpol_thunk_000062:
+	callq	.Lgg_retpol_setup_000062
+.Lgg_retpol_cap_000062:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000062
+.Lgg_retpol_setup_000062:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000062:
 	jmp	.Lvictim_win0_continue
 ## Variant 63
 .Lvictim_win0_var63:
@@ -1656,7 +1838,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000063
+	jmp	.Lgg_retpol_after_000063
+.Lgg_retpol_thunk_000063:
+	callq	.Lgg_retpol_setup_000063
+.Lgg_retpol_cap_000063:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000063
+.Lgg_retpol_setup_000063:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000063:
 	jmp	.Lvictim_win0_continue
 ## Variant 64
 .Lvictim_win0_var64:
@@ -1665,7 +1858,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000064
+	jmp	.Lgg_retpol_after_000064
+.Lgg_retpol_thunk_000064:
+	callq	.Lgg_retpol_setup_000064
+.Lgg_retpol_cap_000064:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000064
+.Lgg_retpol_setup_000064:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000064:
 	jmp	.Lvictim_win0_continue
 ## Variant 65
 .Lvictim_win0_var65:
@@ -1674,7 +1878,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000065
+	jmp	.Lgg_retpol_after_000065
+.Lgg_retpol_thunk_000065:
+	callq	.Lgg_retpol_setup_000065
+.Lgg_retpol_cap_000065:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000065
+.Lgg_retpol_setup_000065:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000065:
 	jmp	.Lvictim_win0_continue
 ## Variant 66
 .Lvictim_win0_var66:
@@ -1683,7 +1898,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000066
+	jmp	.Lgg_retpol_after_000066
+.Lgg_retpol_thunk_000066:
+	callq	.Lgg_retpol_setup_000066
+.Lgg_retpol_cap_000066:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000066
+.Lgg_retpol_setup_000066:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000066:
 	jmp	.Lvictim_win0_continue
 ## Variant 67
 .Lvictim_win0_var67:
@@ -1692,7 +1918,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000067
+	jmp	.Lgg_retpol_after_000067
+.Lgg_retpol_thunk_000067:
+	callq	.Lgg_retpol_setup_000067
+.Lgg_retpol_cap_000067:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000067
+.Lgg_retpol_setup_000067:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000067:
 	jmp	.Lvictim_win0_continue
 ## Variant 68
 .Lvictim_win0_var68:
@@ -1701,7 +1938,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000068
+	jmp	.Lgg_retpol_after_000068
+.Lgg_retpol_thunk_000068:
+	callq	.Lgg_retpol_setup_000068
+.Lgg_retpol_cap_000068:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000068
+.Lgg_retpol_setup_000068:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000068:
 	jmp	.Lvictim_win0_continue
 ## Variant 69
 .Lvictim_win0_var69:
@@ -1710,7 +1958,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000069
+	jmp	.Lgg_retpol_after_000069
+.Lgg_retpol_thunk_000069:
+	callq	.Lgg_retpol_setup_000069
+.Lgg_retpol_cap_000069:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000069
+.Lgg_retpol_setup_000069:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000069:
 	jmp	.Lvictim_win0_continue
 ## Variant 70
 .Lvictim_win0_var70:
@@ -1719,7 +1978,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000070
+	jmp	.Lgg_retpol_after_000070
+.Lgg_retpol_thunk_000070:
+	callq	.Lgg_retpol_setup_000070
+.Lgg_retpol_cap_000070:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000070
+.Lgg_retpol_setup_000070:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000070:
 	jmp	.Lvictim_win0_continue
 ## Variant 71
 .Lvictim_win0_var71:
@@ -1728,7 +1998,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000071
+	jmp	.Lgg_retpol_after_000071
+.Lgg_retpol_thunk_000071:
+	callq	.Lgg_retpol_setup_000071
+.Lgg_retpol_cap_000071:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000071
+.Lgg_retpol_setup_000071:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000071:
 	jmp	.Lvictim_win0_continue
 ## Variant 72
 .Lvictim_win0_var72:
@@ -1737,7 +2018,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000072
+	jmp	.Lgg_retpol_after_000072
+.Lgg_retpol_thunk_000072:
+	callq	.Lgg_retpol_setup_000072
+.Lgg_retpol_cap_000072:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000072
+.Lgg_retpol_setup_000072:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000072:
 	jmp	.Lvictim_win0_continue
 ## Variant 73
 .Lvictim_win0_var73:
@@ -1746,7 +2038,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000073
+	jmp	.Lgg_retpol_after_000073
+.Lgg_retpol_thunk_000073:
+	callq	.Lgg_retpol_setup_000073
+.Lgg_retpol_cap_000073:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000073
+.Lgg_retpol_setup_000073:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000073:
 	jmp	.Lvictim_win0_continue
 ## Variant 74
 .Lvictim_win0_var74:
@@ -1755,7 +2058,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000074
+	jmp	.Lgg_retpol_after_000074
+.Lgg_retpol_thunk_000074:
+	callq	.Lgg_retpol_setup_000074
+.Lgg_retpol_cap_000074:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000074
+.Lgg_retpol_setup_000074:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000074:
 	jmp	.Lvictim_win0_continue
 ## Variant 75
 .Lvictim_win0_var75:
@@ -1764,7 +2078,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000075
+	jmp	.Lgg_retpol_after_000075
+.Lgg_retpol_thunk_000075:
+	callq	.Lgg_retpol_setup_000075
+.Lgg_retpol_cap_000075:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000075
+.Lgg_retpol_setup_000075:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000075:
 	jmp	.Lvictim_win0_continue
 ## Variant 76
 .Lvictim_win0_var76:
@@ -1773,7 +2098,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000076
+	jmp	.Lgg_retpol_after_000076
+.Lgg_retpol_thunk_000076:
+	callq	.Lgg_retpol_setup_000076
+.Lgg_retpol_cap_000076:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000076
+.Lgg_retpol_setup_000076:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000076:
 	jmp	.Lvictim_win0_continue
 ## Variant 77
 .Lvictim_win0_var77:
@@ -1782,7 +2118,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000077
+	jmp	.Lgg_retpol_after_000077
+.Lgg_retpol_thunk_000077:
+	callq	.Lgg_retpol_setup_000077
+.Lgg_retpol_cap_000077:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000077
+.Lgg_retpol_setup_000077:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000077:
 	jmp	.Lvictim_win0_continue
 ## Variant 78
 .Lvictim_win0_var78:
@@ -1791,7 +2138,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000078
+	jmp	.Lgg_retpol_after_000078
+.Lgg_retpol_thunk_000078:
+	callq	.Lgg_retpol_setup_000078
+.Lgg_retpol_cap_000078:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000078
+.Lgg_retpol_setup_000078:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000078:
 	jmp	.Lvictim_win0_continue
 ## Variant 79
 .Lvictim_win0_var79:
@@ -1800,7 +2158,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000079
+	jmp	.Lgg_retpol_after_000079
+.Lgg_retpol_thunk_000079:
+	callq	.Lgg_retpol_setup_000079
+.Lgg_retpol_cap_000079:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000079
+.Lgg_retpol_setup_000079:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000079:
 	jmp	.Lvictim_win0_continue
 ## Variant 80
 .Lvictim_win0_var80:
@@ -1809,7 +2178,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000080
+	jmp	.Lgg_retpol_after_000080
+.Lgg_retpol_thunk_000080:
+	callq	.Lgg_retpol_setup_000080
+.Lgg_retpol_cap_000080:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000080
+.Lgg_retpol_setup_000080:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000080:
 	jmp	.Lvictim_win0_continue
 ## Variant 81
 .Lvictim_win0_var81:
@@ -1818,7 +2198,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000081
+	jmp	.Lgg_retpol_after_000081
+.Lgg_retpol_thunk_000081:
+	callq	.Lgg_retpol_setup_000081
+.Lgg_retpol_cap_000081:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000081
+.Lgg_retpol_setup_000081:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000081:
 	jmp	.Lvictim_win0_continue
 ## Variant 82
 .Lvictim_win0_var82:
@@ -1827,7 +2218,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000082
+	jmp	.Lgg_retpol_after_000082
+.Lgg_retpol_thunk_000082:
+	callq	.Lgg_retpol_setup_000082
+.Lgg_retpol_cap_000082:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000082
+.Lgg_retpol_setup_000082:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000082:
 	jmp	.Lvictim_win0_continue
 ## Variant 83
 .Lvictim_win0_var83:
@@ -1836,7 +2238,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000083
+	jmp	.Lgg_retpol_after_000083
+.Lgg_retpol_thunk_000083:
+	callq	.Lgg_retpol_setup_000083
+.Lgg_retpol_cap_000083:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000083
+.Lgg_retpol_setup_000083:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000083:
 	jmp	.Lvictim_win0_continue
 ## Variant 84
 .Lvictim_win0_var84:
@@ -1845,7 +2258,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000084
+	jmp	.Lgg_retpol_after_000084
+.Lgg_retpol_thunk_000084:
+	callq	.Lgg_retpol_setup_000084
+.Lgg_retpol_cap_000084:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000084
+.Lgg_retpol_setup_000084:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000084:
 	jmp	.Lvictim_win0_continue
 ## Variant 85
 .Lvictim_win0_var85:
@@ -1854,7 +2278,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000085
+	jmp	.Lgg_retpol_after_000085
+.Lgg_retpol_thunk_000085:
+	callq	.Lgg_retpol_setup_000085
+.Lgg_retpol_cap_000085:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000085
+.Lgg_retpol_setup_000085:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000085:
 	jmp	.Lvictim_win0_continue
 ## Variant 86
 .Lvictim_win0_var86:
@@ -1863,7 +2298,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000086
+	jmp	.Lgg_retpol_after_000086
+.Lgg_retpol_thunk_000086:
+	callq	.Lgg_retpol_setup_000086
+.Lgg_retpol_cap_000086:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000086
+.Lgg_retpol_setup_000086:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000086:
 	jmp	.Lvictim_win0_continue
 ## Variant 87
 .Lvictim_win0_var87:
@@ -1872,7 +2318,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000087
+	jmp	.Lgg_retpol_after_000087
+.Lgg_retpol_thunk_000087:
+	callq	.Lgg_retpol_setup_000087
+.Lgg_retpol_cap_000087:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000087
+.Lgg_retpol_setup_000087:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000087:
 	jmp	.Lvictim_win0_continue
 ## Variant 88
 .Lvictim_win0_var88:
@@ -1881,7 +2338,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000088
+	jmp	.Lgg_retpol_after_000088
+.Lgg_retpol_thunk_000088:
+	callq	.Lgg_retpol_setup_000088
+.Lgg_retpol_cap_000088:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000088
+.Lgg_retpol_setup_000088:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000088:
 	jmp	.Lvictim_win0_continue
 ## Variant 89
 .Lvictim_win0_var89:
@@ -1890,7 +2358,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000089
+	jmp	.Lgg_retpol_after_000089
+.Lgg_retpol_thunk_000089:
+	callq	.Lgg_retpol_setup_000089
+.Lgg_retpol_cap_000089:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000089
+.Lgg_retpol_setup_000089:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000089:
 	jmp	.Lvictim_win0_continue
 ## Variant 90
 .Lvictim_win0_var90:
@@ -1899,7 +2378,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000090
+	jmp	.Lgg_retpol_after_000090
+.Lgg_retpol_thunk_000090:
+	callq	.Lgg_retpol_setup_000090
+.Lgg_retpol_cap_000090:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000090
+.Lgg_retpol_setup_000090:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000090:
 	jmp	.Lvictim_win0_continue
 ## Variant 91
 .Lvictim_win0_var91:
@@ -1908,7 +2398,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000091
+	jmp	.Lgg_retpol_after_000091
+.Lgg_retpol_thunk_000091:
+	callq	.Lgg_retpol_setup_000091
+.Lgg_retpol_cap_000091:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000091
+.Lgg_retpol_setup_000091:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000091:
 	jmp	.Lvictim_win0_continue
 ## Variant 92
 .Lvictim_win0_var92:
@@ -1917,7 +2418,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000092
+	jmp	.Lgg_retpol_after_000092
+.Lgg_retpol_thunk_000092:
+	callq	.Lgg_retpol_setup_000092
+.Lgg_retpol_cap_000092:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000092
+.Lgg_retpol_setup_000092:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000092:
 	jmp	.Lvictim_win0_continue
 ## Variant 93
 .Lvictim_win0_var93:
@@ -1926,7 +2438,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000093
+	jmp	.Lgg_retpol_after_000093
+.Lgg_retpol_thunk_000093:
+	callq	.Lgg_retpol_setup_000093
+.Lgg_retpol_cap_000093:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000093
+.Lgg_retpol_setup_000093:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000093:
 	jmp	.Lvictim_win0_continue
 ## Variant 94
 .Lvictim_win0_var94:
@@ -1935,7 +2458,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000094
+	jmp	.Lgg_retpol_after_000094
+.Lgg_retpol_thunk_000094:
+	callq	.Lgg_retpol_setup_000094
+.Lgg_retpol_cap_000094:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000094
+.Lgg_retpol_setup_000094:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000094:
 	jmp	.Lvictim_win0_continue
 ## Variant 95
 .Lvictim_win0_var95:
@@ -1944,7 +2478,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000095
+	jmp	.Lgg_retpol_after_000095
+.Lgg_retpol_thunk_000095:
+	callq	.Lgg_retpol_setup_000095
+.Lgg_retpol_cap_000095:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000095
+.Lgg_retpol_setup_000095:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000095:
 	jmp	.Lvictim_win0_continue
 ## Variant 96
 .Lvictim_win0_var96:
@@ -1953,7 +2498,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000096
+	jmp	.Lgg_retpol_after_000096
+.Lgg_retpol_thunk_000096:
+	callq	.Lgg_retpol_setup_000096
+.Lgg_retpol_cap_000096:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000096
+.Lgg_retpol_setup_000096:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000096:
 	jmp	.Lvictim_win0_continue
 ## Variant 97
 .Lvictim_win0_var97:
@@ -1962,7 +2518,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000097
+	jmp	.Lgg_retpol_after_000097
+.Lgg_retpol_thunk_000097:
+	callq	.Lgg_retpol_setup_000097
+.Lgg_retpol_cap_000097:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000097
+.Lgg_retpol_setup_000097:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000097:
 	jmp	.Lvictim_win0_continue
 ## Variant 98
 .Lvictim_win0_var98:
@@ -1971,7 +2538,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000098
+	jmp	.Lgg_retpol_after_000098
+.Lgg_retpol_thunk_000098:
+	callq	.Lgg_retpol_setup_000098
+.Lgg_retpol_cap_000098:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000098
+.Lgg_retpol_setup_000098:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000098:
 	jmp	.Lvictim_win0_continue
 ## Variant 99
 .Lvictim_win0_var99:
@@ -1980,7 +2558,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000099
+	jmp	.Lgg_retpol_after_000099
+.Lgg_retpol_thunk_000099:
+	callq	.Lgg_retpol_setup_000099
+.Lgg_retpol_cap_000099:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000099
+.Lgg_retpol_setup_000099:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000099:
 	jmp	.Lvictim_win0_continue
 ## Variant 100
 .Lvictim_win0_var100:
@@ -1989,7 +2578,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000100
+	jmp	.Lgg_retpol_after_000100
+.Lgg_retpol_thunk_000100:
+	callq	.Lgg_retpol_setup_000100
+.Lgg_retpol_cap_000100:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000100
+.Lgg_retpol_setup_000100:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000100:
 	jmp	.Lvictim_win0_continue
 ## Variant 101
 .Lvictim_win0_var101:
@@ -1998,7 +2598,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000101
+	jmp	.Lgg_retpol_after_000101
+.Lgg_retpol_thunk_000101:
+	callq	.Lgg_retpol_setup_000101
+.Lgg_retpol_cap_000101:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000101
+.Lgg_retpol_setup_000101:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000101:
 	jmp	.Lvictim_win0_continue
 ## Variant 102
 .Lvictim_win0_var102:
@@ -2007,7 +2618,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000102
+	jmp	.Lgg_retpol_after_000102
+.Lgg_retpol_thunk_000102:
+	callq	.Lgg_retpol_setup_000102
+.Lgg_retpol_cap_000102:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000102
+.Lgg_retpol_setup_000102:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000102:
 	jmp	.Lvictim_win0_continue
 ## Variant 103
 .Lvictim_win0_var103:
@@ -2016,7 +2638,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000103
+	jmp	.Lgg_retpol_after_000103
+.Lgg_retpol_thunk_000103:
+	callq	.Lgg_retpol_setup_000103
+.Lgg_retpol_cap_000103:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000103
+.Lgg_retpol_setup_000103:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000103:
 	jmp	.Lvictim_win0_continue
 ## Variant 104
 .Lvictim_win0_var104:
@@ -2025,7 +2658,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000104
+	jmp	.Lgg_retpol_after_000104
+.Lgg_retpol_thunk_000104:
+	callq	.Lgg_retpol_setup_000104
+.Lgg_retpol_cap_000104:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000104
+.Lgg_retpol_setup_000104:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000104:
 	jmp	.Lvictim_win0_continue
 ## Variant 105
 .Lvictim_win0_var105:
@@ -2034,7 +2678,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000105
+	jmp	.Lgg_retpol_after_000105
+.Lgg_retpol_thunk_000105:
+	callq	.Lgg_retpol_setup_000105
+.Lgg_retpol_cap_000105:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000105
+.Lgg_retpol_setup_000105:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000105:
 	jmp	.Lvictim_win0_continue
 ## Variant 106
 .Lvictim_win0_var106:
@@ -2043,7 +2698,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000106
+	jmp	.Lgg_retpol_after_000106
+.Lgg_retpol_thunk_000106:
+	callq	.Lgg_retpol_setup_000106
+.Lgg_retpol_cap_000106:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000106
+.Lgg_retpol_setup_000106:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000106:
 	jmp	.Lvictim_win0_continue
 ## Variant 107
 .Lvictim_win0_var107:
@@ -2052,7 +2718,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000107
+	jmp	.Lgg_retpol_after_000107
+.Lgg_retpol_thunk_000107:
+	callq	.Lgg_retpol_setup_000107
+.Lgg_retpol_cap_000107:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000107
+.Lgg_retpol_setup_000107:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000107:
 	jmp	.Lvictim_win0_continue
 ## Variant 108
 .Lvictim_win0_var108:
@@ -2061,7 +2738,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000108
+	jmp	.Lgg_retpol_after_000108
+.Lgg_retpol_thunk_000108:
+	callq	.Lgg_retpol_setup_000108
+.Lgg_retpol_cap_000108:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000108
+.Lgg_retpol_setup_000108:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000108:
 	jmp	.Lvictim_win0_continue
 ## Variant 109
 .Lvictim_win0_var109:
@@ -2070,7 +2758,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000109
+	jmp	.Lgg_retpol_after_000109
+.Lgg_retpol_thunk_000109:
+	callq	.Lgg_retpol_setup_000109
+.Lgg_retpol_cap_000109:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000109
+.Lgg_retpol_setup_000109:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000109:
 	jmp	.Lvictim_win0_continue
 ## Variant 110
 .Lvictim_win0_var110:
@@ -2079,7 +2778,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000110
+	jmp	.Lgg_retpol_after_000110
+.Lgg_retpol_thunk_000110:
+	callq	.Lgg_retpol_setup_000110
+.Lgg_retpol_cap_000110:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000110
+.Lgg_retpol_setup_000110:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000110:
 	jmp	.Lvictim_win0_continue
 ## Variant 111
 .Lvictim_win0_var111:
@@ -2088,7 +2798,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000111
+	jmp	.Lgg_retpol_after_000111
+.Lgg_retpol_thunk_000111:
+	callq	.Lgg_retpol_setup_000111
+.Lgg_retpol_cap_000111:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000111
+.Lgg_retpol_setup_000111:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000111:
 	jmp	.Lvictim_win0_continue
 ## Variant 112
 .Lvictim_win0_var112:
@@ -2097,7 +2818,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000112
+	jmp	.Lgg_retpol_after_000112
+.Lgg_retpol_thunk_000112:
+	callq	.Lgg_retpol_setup_000112
+.Lgg_retpol_cap_000112:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000112
+.Lgg_retpol_setup_000112:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000112:
 	jmp	.Lvictim_win0_continue
 ## Variant 113
 .Lvictim_win0_var113:
@@ -2106,7 +2838,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000113
+	jmp	.Lgg_retpol_after_000113
+.Lgg_retpol_thunk_000113:
+	callq	.Lgg_retpol_setup_000113
+.Lgg_retpol_cap_000113:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000113
+.Lgg_retpol_setup_000113:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000113:
 	jmp	.Lvictim_win0_continue
 ## Variant 114
 .Lvictim_win0_var114:
@@ -2115,7 +2858,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000114
+	jmp	.Lgg_retpol_after_000114
+.Lgg_retpol_thunk_000114:
+	callq	.Lgg_retpol_setup_000114
+.Lgg_retpol_cap_000114:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000114
+.Lgg_retpol_setup_000114:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000114:
 	jmp	.Lvictim_win0_continue
 ## Variant 115
 .Lvictim_win0_var115:
@@ -2124,7 +2878,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000115
+	jmp	.Lgg_retpol_after_000115
+.Lgg_retpol_thunk_000115:
+	callq	.Lgg_retpol_setup_000115
+.Lgg_retpol_cap_000115:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000115
+.Lgg_retpol_setup_000115:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000115:
 	jmp	.Lvictim_win0_continue
 ## Variant 116
 .Lvictim_win0_var116:
@@ -2133,7 +2898,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000116
+	jmp	.Lgg_retpol_after_000116
+.Lgg_retpol_thunk_000116:
+	callq	.Lgg_retpol_setup_000116
+.Lgg_retpol_cap_000116:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000116
+.Lgg_retpol_setup_000116:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000116:
 	jmp	.Lvictim_win0_continue
 ## Variant 117
 .Lvictim_win0_var117:
@@ -2142,7 +2918,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000117
+	jmp	.Lgg_retpol_after_000117
+.Lgg_retpol_thunk_000117:
+	callq	.Lgg_retpol_setup_000117
+.Lgg_retpol_cap_000117:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000117
+.Lgg_retpol_setup_000117:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000117:
 	jmp	.Lvictim_win0_continue
 ## Variant 118
 .Lvictim_win0_var118:
@@ -2151,7 +2938,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000118
+	jmp	.Lgg_retpol_after_000118
+.Lgg_retpol_thunk_000118:
+	callq	.Lgg_retpol_setup_000118
+.Lgg_retpol_cap_000118:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000118
+.Lgg_retpol_setup_000118:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000118:
 	jmp	.Lvictim_win0_continue
 ## Variant 119
 .Lvictim_win0_var119:
@@ -2160,7 +2958,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000119
+	jmp	.Lgg_retpol_after_000119
+.Lgg_retpol_thunk_000119:
+	callq	.Lgg_retpol_setup_000119
+.Lgg_retpol_cap_000119:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000119
+.Lgg_retpol_setup_000119:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000119:
 	jmp	.Lvictim_win0_continue
 ## Variant 120
 .Lvictim_win0_var120:
@@ -2169,7 +2978,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000120
+	jmp	.Lgg_retpol_after_000120
+.Lgg_retpol_thunk_000120:
+	callq	.Lgg_retpol_setup_000120
+.Lgg_retpol_cap_000120:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000120
+.Lgg_retpol_setup_000120:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000120:
 	jmp	.Lvictim_win0_continue
 ## Variant 121
 .Lvictim_win0_var121:
@@ -2178,7 +2998,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000121
+	jmp	.Lgg_retpol_after_000121
+.Lgg_retpol_thunk_000121:
+	callq	.Lgg_retpol_setup_000121
+.Lgg_retpol_cap_000121:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000121
+.Lgg_retpol_setup_000121:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000121:
 	jmp	.Lvictim_win0_continue
 ## Variant 122
 .Lvictim_win0_var122:
@@ -2187,7 +3018,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000122
+	jmp	.Lgg_retpol_after_000122
+.Lgg_retpol_thunk_000122:
+	callq	.Lgg_retpol_setup_000122
+.Lgg_retpol_cap_000122:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000122
+.Lgg_retpol_setup_000122:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000122:
 	jmp	.Lvictim_win0_continue
 ## Variant 123
 .Lvictim_win0_var123:
@@ -2196,7 +3038,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000123
+	jmp	.Lgg_retpol_after_000123
+.Lgg_retpol_thunk_000123:
+	callq	.Lgg_retpol_setup_000123
+.Lgg_retpol_cap_000123:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000123
+.Lgg_retpol_setup_000123:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000123:
 	jmp	.Lvictim_win0_continue
 ## Variant 124
 .Lvictim_win0_var124:
@@ -2205,7 +3058,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000124
+	jmp	.Lgg_retpol_after_000124
+.Lgg_retpol_thunk_000124:
+	callq	.Lgg_retpol_setup_000124
+.Lgg_retpol_cap_000124:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000124
+.Lgg_retpol_setup_000124:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000124:
 	jmp	.Lvictim_win0_continue
 ## Variant 125
 .Lvictim_win0_var125:
@@ -2214,7 +3078,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000125
+	jmp	.Lgg_retpol_after_000125
+.Lgg_retpol_thunk_000125:
+	callq	.Lgg_retpol_setup_000125
+.Lgg_retpol_cap_000125:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000125
+.Lgg_retpol_setup_000125:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000125:
 	jmp	.Lvictim_win0_continue
 ## Variant 126
 .Lvictim_win0_var126:
@@ -2223,7 +3098,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000126
+	jmp	.Lgg_retpol_after_000126
+.Lgg_retpol_thunk_000126:
+	callq	.Lgg_retpol_setup_000126
+.Lgg_retpol_cap_000126:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000126
+.Lgg_retpol_setup_000126:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000126:
 	jmp	.Lvictim_win0_continue
 ## Variant 127
 .Lvictim_win0_var127:
@@ -2232,7 +3118,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000127
+	jmp	.Lgg_retpol_after_000127
+.Lgg_retpol_thunk_000127:
+	callq	.Lgg_retpol_setup_000127
+.Lgg_retpol_cap_000127:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000127
+.Lgg_retpol_setup_000127:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000127:
 	jmp	.Lvictim_win0_continue
 ## Variant 128
 .Lvictim_win0_var128:
@@ -2241,7 +3138,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000128
+	jmp	.Lgg_retpol_after_000128
+.Lgg_retpol_thunk_000128:
+	callq	.Lgg_retpol_setup_000128
+.Lgg_retpol_cap_000128:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000128
+.Lgg_retpol_setup_000128:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000128:
 	jmp	.Lvictim_win0_continue
 ## Variant 129
 .Lvictim_win0_var129:
@@ -2250,7 +3158,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000129
+	jmp	.Lgg_retpol_after_000129
+.Lgg_retpol_thunk_000129:
+	callq	.Lgg_retpol_setup_000129
+.Lgg_retpol_cap_000129:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000129
+.Lgg_retpol_setup_000129:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000129:
 	jmp	.Lvictim_win0_continue
 ## Variant 130
 .Lvictim_win0_var130:
@@ -2259,7 +3178,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000130
+	jmp	.Lgg_retpol_after_000130
+.Lgg_retpol_thunk_000130:
+	callq	.Lgg_retpol_setup_000130
+.Lgg_retpol_cap_000130:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000130
+.Lgg_retpol_setup_000130:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000130:
 	jmp	.Lvictim_win0_continue
 ## Variant 131
 .Lvictim_win0_var131:
@@ -2268,7 +3198,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000131
+	jmp	.Lgg_retpol_after_000131
+.Lgg_retpol_thunk_000131:
+	callq	.Lgg_retpol_setup_000131
+.Lgg_retpol_cap_000131:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000131
+.Lgg_retpol_setup_000131:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000131:
 	jmp	.Lvictim_win0_continue
 ## Variant 132
 .Lvictim_win0_var132:
@@ -2277,7 +3218,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000132
+	jmp	.Lgg_retpol_after_000132
+.Lgg_retpol_thunk_000132:
+	callq	.Lgg_retpol_setup_000132
+.Lgg_retpol_cap_000132:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000132
+.Lgg_retpol_setup_000132:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000132:
 	jmp	.Lvictim_win0_continue
 ## Variant 133
 .Lvictim_win0_var133:
@@ -2286,7 +3238,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000133
+	jmp	.Lgg_retpol_after_000133
+.Lgg_retpol_thunk_000133:
+	callq	.Lgg_retpol_setup_000133
+.Lgg_retpol_cap_000133:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000133
+.Lgg_retpol_setup_000133:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000133:
 	jmp	.Lvictim_win0_continue
 ## Variant 134
 .Lvictim_win0_var134:
@@ -2295,7 +3258,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000134
+	jmp	.Lgg_retpol_after_000134
+.Lgg_retpol_thunk_000134:
+	callq	.Lgg_retpol_setup_000134
+.Lgg_retpol_cap_000134:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000134
+.Lgg_retpol_setup_000134:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000134:
 	jmp	.Lvictim_win0_continue
 ## Variant 135
 .Lvictim_win0_var135:
@@ -2304,7 +3278,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000135
+	jmp	.Lgg_retpol_after_000135
+.Lgg_retpol_thunk_000135:
+	callq	.Lgg_retpol_setup_000135
+.Lgg_retpol_cap_000135:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000135
+.Lgg_retpol_setup_000135:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000135:
 	jmp	.Lvictim_win0_continue
 ## Variant 136
 .Lvictim_win0_var136:
@@ -2313,7 +3298,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000136
+	jmp	.Lgg_retpol_after_000136
+.Lgg_retpol_thunk_000136:
+	callq	.Lgg_retpol_setup_000136
+.Lgg_retpol_cap_000136:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000136
+.Lgg_retpol_setup_000136:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000136:
 	jmp	.Lvictim_win0_continue
 ## Variant 137
 .Lvictim_win0_var137:
@@ -2322,7 +3318,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000137
+	jmp	.Lgg_retpol_after_000137
+.Lgg_retpol_thunk_000137:
+	callq	.Lgg_retpol_setup_000137
+.Lgg_retpol_cap_000137:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000137
+.Lgg_retpol_setup_000137:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000137:
 	jmp	.Lvictim_win0_continue
 ## Variant 138
 .Lvictim_win0_var138:
@@ -2331,7 +3338,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000138
+	jmp	.Lgg_retpol_after_000138
+.Lgg_retpol_thunk_000138:
+	callq	.Lgg_retpol_setup_000138
+.Lgg_retpol_cap_000138:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000138
+.Lgg_retpol_setup_000138:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000138:
 	jmp	.Lvictim_win0_continue
 ## Variant 139
 .Lvictim_win0_var139:
@@ -2340,7 +3358,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000139
+	jmp	.Lgg_retpol_after_000139
+.Lgg_retpol_thunk_000139:
+	callq	.Lgg_retpol_setup_000139
+.Lgg_retpol_cap_000139:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000139
+.Lgg_retpol_setup_000139:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000139:
 	jmp	.Lvictim_win0_continue
 ## Variant 140
 .Lvictim_win0_var140:
@@ -2349,7 +3378,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000140
+	jmp	.Lgg_retpol_after_000140
+.Lgg_retpol_thunk_000140:
+	callq	.Lgg_retpol_setup_000140
+.Lgg_retpol_cap_000140:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000140
+.Lgg_retpol_setup_000140:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000140:
 	jmp	.Lvictim_win0_continue
 ## Variant 141
 .Lvictim_win0_var141:
@@ -2358,7 +3398,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000141
+	jmp	.Lgg_retpol_after_000141
+.Lgg_retpol_thunk_000141:
+	callq	.Lgg_retpol_setup_000141
+.Lgg_retpol_cap_000141:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000141
+.Lgg_retpol_setup_000141:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000141:
 	jmp	.Lvictim_win0_continue
 ## Variant 142
 .Lvictim_win0_var142:
@@ -2367,7 +3418,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000142
+	jmp	.Lgg_retpol_after_000142
+.Lgg_retpol_thunk_000142:
+	callq	.Lgg_retpol_setup_000142
+.Lgg_retpol_cap_000142:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000142
+.Lgg_retpol_setup_000142:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000142:
 	jmp	.Lvictim_win0_continue
 ## Variant 143
 .Lvictim_win0_var143:
@@ -2376,7 +3438,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000143
+	jmp	.Lgg_retpol_after_000143
+.Lgg_retpol_thunk_000143:
+	callq	.Lgg_retpol_setup_000143
+.Lgg_retpol_cap_000143:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000143
+.Lgg_retpol_setup_000143:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000143:
 	jmp	.Lvictim_win0_continue
 ## Variant 144
 .Lvictim_win0_var144:
@@ -2385,7 +3458,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000144
+	jmp	.Lgg_retpol_after_000144
+.Lgg_retpol_thunk_000144:
+	callq	.Lgg_retpol_setup_000144
+.Lgg_retpol_cap_000144:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000144
+.Lgg_retpol_setup_000144:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000144:
 	jmp	.Lvictim_win0_continue
 ## Variant 145
 .Lvictim_win0_var145:
@@ -2394,7 +3478,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000145
+	jmp	.Lgg_retpol_after_000145
+.Lgg_retpol_thunk_000145:
+	callq	.Lgg_retpol_setup_000145
+.Lgg_retpol_cap_000145:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000145
+.Lgg_retpol_setup_000145:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000145:
 	jmp	.Lvictim_win0_continue
 ## Variant 146
 .Lvictim_win0_var146:
@@ -2403,7 +3498,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000146
+	jmp	.Lgg_retpol_after_000146
+.Lgg_retpol_thunk_000146:
+	callq	.Lgg_retpol_setup_000146
+.Lgg_retpol_cap_000146:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000146
+.Lgg_retpol_setup_000146:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000146:
 	jmp	.Lvictim_win0_continue
 ## Variant 147
 .Lvictim_win0_var147:
@@ -2412,7 +3518,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000147
+	jmp	.Lgg_retpol_after_000147
+.Lgg_retpol_thunk_000147:
+	callq	.Lgg_retpol_setup_000147
+.Lgg_retpol_cap_000147:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000147
+.Lgg_retpol_setup_000147:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000147:
 	jmp	.Lvictim_win0_continue
 ## Variant 148
 .Lvictim_win0_var148:
@@ -2421,7 +3538,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000148
+	jmp	.Lgg_retpol_after_000148
+.Lgg_retpol_thunk_000148:
+	callq	.Lgg_retpol_setup_000148
+.Lgg_retpol_cap_000148:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000148
+.Lgg_retpol_setup_000148:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000148:
 	jmp	.Lvictim_win0_continue
 ## Variant 149
 .Lvictim_win0_var149:
@@ -2430,7 +3558,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000149
+	jmp	.Lgg_retpol_after_000149
+.Lgg_retpol_thunk_000149:
+	callq	.Lgg_retpol_setup_000149
+.Lgg_retpol_cap_000149:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000149
+.Lgg_retpol_setup_000149:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000149:
 	jmp	.Lvictim_win0_continue
 ## Variant 150
 .Lvictim_win0_var150:
@@ -2439,7 +3578,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000150
+	jmp	.Lgg_retpol_after_000150
+.Lgg_retpol_thunk_000150:
+	callq	.Lgg_retpol_setup_000150
+.Lgg_retpol_cap_000150:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000150
+.Lgg_retpol_setup_000150:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000150:
 	jmp	.Lvictim_win0_continue
 ## Variant 151
 .Lvictim_win0_var151:
@@ -2448,7 +3598,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000151
+	jmp	.Lgg_retpol_after_000151
+.Lgg_retpol_thunk_000151:
+	callq	.Lgg_retpol_setup_000151
+.Lgg_retpol_cap_000151:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000151
+.Lgg_retpol_setup_000151:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000151:
 	jmp	.Lvictim_win0_continue
 ## Variant 152
 .Lvictim_win0_var152:
@@ -2457,7 +3618,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000152
+	jmp	.Lgg_retpol_after_000152
+.Lgg_retpol_thunk_000152:
+	callq	.Lgg_retpol_setup_000152
+.Lgg_retpol_cap_000152:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000152
+.Lgg_retpol_setup_000152:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000152:
 	jmp	.Lvictim_win0_continue
 ## Variant 153
 .Lvictim_win0_var153:
@@ -2466,7 +3638,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000153
+	jmp	.Lgg_retpol_after_000153
+.Lgg_retpol_thunk_000153:
+	callq	.Lgg_retpol_setup_000153
+.Lgg_retpol_cap_000153:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000153
+.Lgg_retpol_setup_000153:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000153:
 	jmp	.Lvictim_win0_continue
 ## Variant 154
 .Lvictim_win0_var154:
@@ -2475,7 +3658,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000154
+	jmp	.Lgg_retpol_after_000154
+.Lgg_retpol_thunk_000154:
+	callq	.Lgg_retpol_setup_000154
+.Lgg_retpol_cap_000154:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000154
+.Lgg_retpol_setup_000154:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000154:
 	jmp	.Lvictim_win0_continue
 ## Variant 155
 .Lvictim_win0_var155:
@@ -2484,7 +3678,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000155
+	jmp	.Lgg_retpol_after_000155
+.Lgg_retpol_thunk_000155:
+	callq	.Lgg_retpol_setup_000155
+.Lgg_retpol_cap_000155:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000155
+.Lgg_retpol_setup_000155:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000155:
 	jmp	.Lvictim_win0_continue
 ## Variant 156
 .Lvictim_win0_var156:
@@ -2493,7 +3698,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000156
+	jmp	.Lgg_retpol_after_000156
+.Lgg_retpol_thunk_000156:
+	callq	.Lgg_retpol_setup_000156
+.Lgg_retpol_cap_000156:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000156
+.Lgg_retpol_setup_000156:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000156:
 	jmp	.Lvictim_win0_continue
 ## Variant 157
 .Lvictim_win0_var157:
@@ -2502,7 +3718,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000157
+	jmp	.Lgg_retpol_after_000157
+.Lgg_retpol_thunk_000157:
+	callq	.Lgg_retpol_setup_000157
+.Lgg_retpol_cap_000157:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000157
+.Lgg_retpol_setup_000157:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000157:
 	jmp	.Lvictim_win0_continue
 ## Variant 158
 .Lvictim_win0_var158:
@@ -2511,7 +3738,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000158
+	jmp	.Lgg_retpol_after_000158
+.Lgg_retpol_thunk_000158:
+	callq	.Lgg_retpol_setup_000158
+.Lgg_retpol_cap_000158:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000158
+.Lgg_retpol_setup_000158:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000158:
 	jmp	.Lvictim_win0_continue
 ## Variant 159
 .Lvictim_win0_var159:
@@ -2520,7 +3758,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000159
+	jmp	.Lgg_retpol_after_000159
+.Lgg_retpol_thunk_000159:
+	callq	.Lgg_retpol_setup_000159
+.Lgg_retpol_cap_000159:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000159
+.Lgg_retpol_setup_000159:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000159:
 	jmp	.Lvictim_win0_continue
 ## Variant 160
 .Lvictim_win0_var160:
@@ -2529,7 +3778,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000160
+	jmp	.Lgg_retpol_after_000160
+.Lgg_retpol_thunk_000160:
+	callq	.Lgg_retpol_setup_000160
+.Lgg_retpol_cap_000160:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000160
+.Lgg_retpol_setup_000160:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000160:
 	jmp	.Lvictim_win0_continue
 ## Variant 161
 .Lvictim_win0_var161:
@@ -2538,7 +3798,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000161
+	jmp	.Lgg_retpol_after_000161
+.Lgg_retpol_thunk_000161:
+	callq	.Lgg_retpol_setup_000161
+.Lgg_retpol_cap_000161:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000161
+.Lgg_retpol_setup_000161:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000161:
 	jmp	.Lvictim_win0_continue
 ## Variant 162
 .Lvictim_win0_var162:
@@ -2547,7 +3818,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000162
+	jmp	.Lgg_retpol_after_000162
+.Lgg_retpol_thunk_000162:
+	callq	.Lgg_retpol_setup_000162
+.Lgg_retpol_cap_000162:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000162
+.Lgg_retpol_setup_000162:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000162:
 	jmp	.Lvictim_win0_continue
 ## Variant 163
 .Lvictim_win0_var163:
@@ -2556,7 +3838,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000163
+	jmp	.Lgg_retpol_after_000163
+.Lgg_retpol_thunk_000163:
+	callq	.Lgg_retpol_setup_000163
+.Lgg_retpol_cap_000163:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000163
+.Lgg_retpol_setup_000163:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000163:
 	jmp	.Lvictim_win0_continue
 ## Variant 164
 .Lvictim_win0_var164:
@@ -2565,7 +3858,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000164
+	jmp	.Lgg_retpol_after_000164
+.Lgg_retpol_thunk_000164:
+	callq	.Lgg_retpol_setup_000164
+.Lgg_retpol_cap_000164:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000164
+.Lgg_retpol_setup_000164:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000164:
 	jmp	.Lvictim_win0_continue
 ## Variant 165
 .Lvictim_win0_var165:
@@ -2574,7 +3878,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000165
+	jmp	.Lgg_retpol_after_000165
+.Lgg_retpol_thunk_000165:
+	callq	.Lgg_retpol_setup_000165
+.Lgg_retpol_cap_000165:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000165
+.Lgg_retpol_setup_000165:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000165:
 	jmp	.Lvictim_win0_continue
 ## Variant 166
 .Lvictim_win0_var166:
@@ -2583,7 +3898,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000166
+	jmp	.Lgg_retpol_after_000166
+.Lgg_retpol_thunk_000166:
+	callq	.Lgg_retpol_setup_000166
+.Lgg_retpol_cap_000166:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000166
+.Lgg_retpol_setup_000166:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000166:
 	jmp	.Lvictim_win0_continue
 ## Variant 167
 .Lvictim_win0_var167:
@@ -2592,7 +3918,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000167
+	jmp	.Lgg_retpol_after_000167
+.Lgg_retpol_thunk_000167:
+	callq	.Lgg_retpol_setup_000167
+.Lgg_retpol_cap_000167:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000167
+.Lgg_retpol_setup_000167:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000167:
 	jmp	.Lvictim_win0_continue
 ## Variant 168
 .Lvictim_win0_var168:
@@ -2601,7 +3938,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000168
+	jmp	.Lgg_retpol_after_000168
+.Lgg_retpol_thunk_000168:
+	callq	.Lgg_retpol_setup_000168
+.Lgg_retpol_cap_000168:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000168
+.Lgg_retpol_setup_000168:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000168:
 	jmp	.Lvictim_win0_continue
 ## Variant 169
 .Lvictim_win0_var169:
@@ -2610,7 +3958,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000169
+	jmp	.Lgg_retpol_after_000169
+.Lgg_retpol_thunk_000169:
+	callq	.Lgg_retpol_setup_000169
+.Lgg_retpol_cap_000169:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000169
+.Lgg_retpol_setup_000169:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000169:
 	jmp	.Lvictim_win0_continue
 ## Variant 170
 .Lvictim_win0_var170:
@@ -2619,7 +3978,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000170
+	jmp	.Lgg_retpol_after_000170
+.Lgg_retpol_thunk_000170:
+	callq	.Lgg_retpol_setup_000170
+.Lgg_retpol_cap_000170:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000170
+.Lgg_retpol_setup_000170:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000170:
 	jmp	.Lvictim_win0_continue
 ## Variant 171
 .Lvictim_win0_var171:
@@ -2628,7 +3998,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000171
+	jmp	.Lgg_retpol_after_000171
+.Lgg_retpol_thunk_000171:
+	callq	.Lgg_retpol_setup_000171
+.Lgg_retpol_cap_000171:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000171
+.Lgg_retpol_setup_000171:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000171:
 	jmp	.Lvictim_win0_continue
 ## Variant 172
 .Lvictim_win0_var172:
@@ -2637,7 +4018,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000172
+	jmp	.Lgg_retpol_after_000172
+.Lgg_retpol_thunk_000172:
+	callq	.Lgg_retpol_setup_000172
+.Lgg_retpol_cap_000172:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000172
+.Lgg_retpol_setup_000172:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000172:
 	jmp	.Lvictim_win0_continue
 ## Variant 173
 .Lvictim_win0_var173:
@@ -2646,7 +4038,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000173
+	jmp	.Lgg_retpol_after_000173
+.Lgg_retpol_thunk_000173:
+	callq	.Lgg_retpol_setup_000173
+.Lgg_retpol_cap_000173:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000173
+.Lgg_retpol_setup_000173:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000173:
 	jmp	.Lvictim_win0_continue
 ## Variant 174
 .Lvictim_win0_var174:
@@ -2655,7 +4058,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000174
+	jmp	.Lgg_retpol_after_000174
+.Lgg_retpol_thunk_000174:
+	callq	.Lgg_retpol_setup_000174
+.Lgg_retpol_cap_000174:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000174
+.Lgg_retpol_setup_000174:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000174:
 	jmp	.Lvictim_win0_continue
 ## Variant 175
 .Lvictim_win0_var175:
@@ -2664,7 +4078,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000175
+	jmp	.Lgg_retpol_after_000175
+.Lgg_retpol_thunk_000175:
+	callq	.Lgg_retpol_setup_000175
+.Lgg_retpol_cap_000175:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000175
+.Lgg_retpol_setup_000175:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000175:
 	jmp	.Lvictim_win0_continue
 ## Variant 176
 .Lvictim_win0_var176:
@@ -2673,7 +4098,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000176
+	jmp	.Lgg_retpol_after_000176
+.Lgg_retpol_thunk_000176:
+	callq	.Lgg_retpol_setup_000176
+.Lgg_retpol_cap_000176:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000176
+.Lgg_retpol_setup_000176:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000176:
 	jmp	.Lvictim_win0_continue
 ## Variant 177
 .Lvictim_win0_var177:
@@ -2682,7 +4118,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000177
+	jmp	.Lgg_retpol_after_000177
+.Lgg_retpol_thunk_000177:
+	callq	.Lgg_retpol_setup_000177
+.Lgg_retpol_cap_000177:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000177
+.Lgg_retpol_setup_000177:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000177:
 	jmp	.Lvictim_win0_continue
 ## Variant 178
 .Lvictim_win0_var178:
@@ -2691,7 +4138,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000178
+	jmp	.Lgg_retpol_after_000178
+.Lgg_retpol_thunk_000178:
+	callq	.Lgg_retpol_setup_000178
+.Lgg_retpol_cap_000178:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000178
+.Lgg_retpol_setup_000178:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000178:
 	jmp	.Lvictim_win0_continue
 ## Variant 179
 .Lvictim_win0_var179:
@@ -2700,7 +4158,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000179
+	jmp	.Lgg_retpol_after_000179
+.Lgg_retpol_thunk_000179:
+	callq	.Lgg_retpol_setup_000179
+.Lgg_retpol_cap_000179:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000179
+.Lgg_retpol_setup_000179:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000179:
 	jmp	.Lvictim_win0_continue
 ## Variant 180
 .Lvictim_win0_var180:
@@ -2709,7 +4178,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000180
+	jmp	.Lgg_retpol_after_000180
+.Lgg_retpol_thunk_000180:
+	callq	.Lgg_retpol_setup_000180
+.Lgg_retpol_cap_000180:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000180
+.Lgg_retpol_setup_000180:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000180:
 	jmp	.Lvictim_win0_continue
 ## Variant 181
 .Lvictim_win0_var181:
@@ -2718,7 +4198,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000181
+	jmp	.Lgg_retpol_after_000181
+.Lgg_retpol_thunk_000181:
+	callq	.Lgg_retpol_setup_000181
+.Lgg_retpol_cap_000181:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000181
+.Lgg_retpol_setup_000181:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000181:
 	jmp	.Lvictim_win0_continue
 ## Variant 182
 .Lvictim_win0_var182:
@@ -2727,7 +4218,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000182
+	jmp	.Lgg_retpol_after_000182
+.Lgg_retpol_thunk_000182:
+	callq	.Lgg_retpol_setup_000182
+.Lgg_retpol_cap_000182:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000182
+.Lgg_retpol_setup_000182:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000182:
 	jmp	.Lvictim_win0_continue
 ## Variant 183
 .Lvictim_win0_var183:
@@ -2736,7 +4238,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000183
+	jmp	.Lgg_retpol_after_000183
+.Lgg_retpol_thunk_000183:
+	callq	.Lgg_retpol_setup_000183
+.Lgg_retpol_cap_000183:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000183
+.Lgg_retpol_setup_000183:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000183:
 	jmp	.Lvictim_win0_continue
 ## Variant 184
 .Lvictim_win0_var184:
@@ -2745,7 +4258,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000184
+	jmp	.Lgg_retpol_after_000184
+.Lgg_retpol_thunk_000184:
+	callq	.Lgg_retpol_setup_000184
+.Lgg_retpol_cap_000184:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000184
+.Lgg_retpol_setup_000184:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000184:
 	jmp	.Lvictim_win0_continue
 ## Variant 185
 .Lvictim_win0_var185:
@@ -2754,7 +4278,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000185
+	jmp	.Lgg_retpol_after_000185
+.Lgg_retpol_thunk_000185:
+	callq	.Lgg_retpol_setup_000185
+.Lgg_retpol_cap_000185:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000185
+.Lgg_retpol_setup_000185:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000185:
 	jmp	.Lvictim_win0_continue
 ## Variant 186
 .Lvictim_win0_var186:
@@ -2763,7 +4298,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000186
+	jmp	.Lgg_retpol_after_000186
+.Lgg_retpol_thunk_000186:
+	callq	.Lgg_retpol_setup_000186
+.Lgg_retpol_cap_000186:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000186
+.Lgg_retpol_setup_000186:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000186:
 	jmp	.Lvictim_win0_continue
 ## Variant 187
 .Lvictim_win0_var187:
@@ -2772,7 +4318,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000187
+	jmp	.Lgg_retpol_after_000187
+.Lgg_retpol_thunk_000187:
+	callq	.Lgg_retpol_setup_000187
+.Lgg_retpol_cap_000187:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000187
+.Lgg_retpol_setup_000187:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000187:
 	jmp	.Lvictim_win0_continue
 ## Variant 188
 .Lvictim_win0_var188:
@@ -2781,7 +4338,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000188
+	jmp	.Lgg_retpol_after_000188
+.Lgg_retpol_thunk_000188:
+	callq	.Lgg_retpol_setup_000188
+.Lgg_retpol_cap_000188:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000188
+.Lgg_retpol_setup_000188:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000188:
 	jmp	.Lvictim_win0_continue
 ## Variant 189
 .Lvictim_win0_var189:
@@ -2790,7 +4358,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000189
+	jmp	.Lgg_retpol_after_000189
+.Lgg_retpol_thunk_000189:
+	callq	.Lgg_retpol_setup_000189
+.Lgg_retpol_cap_000189:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000189
+.Lgg_retpol_setup_000189:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000189:
 	jmp	.Lvictim_win0_continue
 ## Variant 190
 .Lvictim_win0_var190:
@@ -2799,7 +4378,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000190
+	jmp	.Lgg_retpol_after_000190
+.Lgg_retpol_thunk_000190:
+	callq	.Lgg_retpol_setup_000190
+.Lgg_retpol_cap_000190:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000190
+.Lgg_retpol_setup_000190:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000190:
 	jmp	.Lvictim_win0_continue
 ## Variant 191
 .Lvictim_win0_var191:
@@ -2808,7 +4398,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000191
+	jmp	.Lgg_retpol_after_000191
+.Lgg_retpol_thunk_000191:
+	callq	.Lgg_retpol_setup_000191
+.Lgg_retpol_cap_000191:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000191
+.Lgg_retpol_setup_000191:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000191:
 	jmp	.Lvictim_win0_continue
 ## Variant 192
 .Lvictim_win0_var192:
@@ -2817,7 +4418,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000192
+	jmp	.Lgg_retpol_after_000192
+.Lgg_retpol_thunk_000192:
+	callq	.Lgg_retpol_setup_000192
+.Lgg_retpol_cap_000192:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000192
+.Lgg_retpol_setup_000192:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000192:
 	jmp	.Lvictim_win0_continue
 ## Variant 193
 .Lvictim_win0_var193:
@@ -2826,7 +4438,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000193
+	jmp	.Lgg_retpol_after_000193
+.Lgg_retpol_thunk_000193:
+	callq	.Lgg_retpol_setup_000193
+.Lgg_retpol_cap_000193:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000193
+.Lgg_retpol_setup_000193:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000193:
 	jmp	.Lvictim_win0_continue
 ## Variant 194
 .Lvictim_win0_var194:
@@ -2835,7 +4458,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000194
+	jmp	.Lgg_retpol_after_000194
+.Lgg_retpol_thunk_000194:
+	callq	.Lgg_retpol_setup_000194
+.Lgg_retpol_cap_000194:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000194
+.Lgg_retpol_setup_000194:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000194:
 	jmp	.Lvictim_win0_continue
 ## Variant 195
 .Lvictim_win0_var195:
@@ -2844,7 +4478,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000195
+	jmp	.Lgg_retpol_after_000195
+.Lgg_retpol_thunk_000195:
+	callq	.Lgg_retpol_setup_000195
+.Lgg_retpol_cap_000195:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000195
+.Lgg_retpol_setup_000195:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000195:
 	jmp	.Lvictim_win0_continue
 ## Variant 196
 .Lvictim_win0_var196:
@@ -2853,7 +4498,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000196
+	jmp	.Lgg_retpol_after_000196
+.Lgg_retpol_thunk_000196:
+	callq	.Lgg_retpol_setup_000196
+.Lgg_retpol_cap_000196:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000196
+.Lgg_retpol_setup_000196:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000196:
 	jmp	.Lvictim_win0_continue
 ## Variant 197
 .Lvictim_win0_var197:
@@ -2862,7 +4518,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000197
+	jmp	.Lgg_retpol_after_000197
+.Lgg_retpol_thunk_000197:
+	callq	.Lgg_retpol_setup_000197
+.Lgg_retpol_cap_000197:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000197
+.Lgg_retpol_setup_000197:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000197:
 	jmp	.Lvictim_win0_continue
 ## Variant 198
 .Lvictim_win0_var198:
@@ -2871,7 +4538,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000198
+	jmp	.Lgg_retpol_after_000198
+.Lgg_retpol_thunk_000198:
+	callq	.Lgg_retpol_setup_000198
+.Lgg_retpol_cap_000198:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000198
+.Lgg_retpol_setup_000198:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000198:
 	jmp	.Lvictim_win0_continue
 ## Variant 199
 .Lvictim_win0_var199:
@@ -2880,7 +4558,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000199
+	jmp	.Lgg_retpol_after_000199
+.Lgg_retpol_thunk_000199:
+	callq	.Lgg_retpol_setup_000199
+.Lgg_retpol_cap_000199:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000199
+.Lgg_retpol_setup_000199:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000199:
 	jmp	.Lvictim_win0_continue
 ## Variant 200
 .Lvictim_win0_var200:
@@ -2889,7 +4578,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000200
+	jmp	.Lgg_retpol_after_000200
+.Lgg_retpol_thunk_000200:
+	callq	.Lgg_retpol_setup_000200
+.Lgg_retpol_cap_000200:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000200
+.Lgg_retpol_setup_000200:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000200:
 	jmp	.Lvictim_win0_continue
 ## Variant 201
 .Lvictim_win0_var201:
@@ -2898,7 +4598,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000201
+	jmp	.Lgg_retpol_after_000201
+.Lgg_retpol_thunk_000201:
+	callq	.Lgg_retpol_setup_000201
+.Lgg_retpol_cap_000201:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000201
+.Lgg_retpol_setup_000201:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000201:
 	jmp	.Lvictim_win0_continue
 ## Variant 202
 .Lvictim_win0_var202:
@@ -2907,7 +4618,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000202
+	jmp	.Lgg_retpol_after_000202
+.Lgg_retpol_thunk_000202:
+	callq	.Lgg_retpol_setup_000202
+.Lgg_retpol_cap_000202:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000202
+.Lgg_retpol_setup_000202:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000202:
 	jmp	.Lvictim_win0_continue
 ## Variant 203
 .Lvictim_win0_var203:
@@ -2916,7 +4638,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000203
+	jmp	.Lgg_retpol_after_000203
+.Lgg_retpol_thunk_000203:
+	callq	.Lgg_retpol_setup_000203
+.Lgg_retpol_cap_000203:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000203
+.Lgg_retpol_setup_000203:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000203:
 	jmp	.Lvictim_win0_continue
 ## Variant 204
 .Lvictim_win0_var204:
@@ -2925,7 +4658,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000204
+	jmp	.Lgg_retpol_after_000204
+.Lgg_retpol_thunk_000204:
+	callq	.Lgg_retpol_setup_000204
+.Lgg_retpol_cap_000204:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000204
+.Lgg_retpol_setup_000204:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000204:
 	jmp	.Lvictim_win0_continue
 ## Variant 205
 .Lvictim_win0_var205:
@@ -2934,7 +4678,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000205
+	jmp	.Lgg_retpol_after_000205
+.Lgg_retpol_thunk_000205:
+	callq	.Lgg_retpol_setup_000205
+.Lgg_retpol_cap_000205:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000205
+.Lgg_retpol_setup_000205:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000205:
 	jmp	.Lvictim_win0_continue
 ## Variant 206
 .Lvictim_win0_var206:
@@ -2943,7 +4698,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000206
+	jmp	.Lgg_retpol_after_000206
+.Lgg_retpol_thunk_000206:
+	callq	.Lgg_retpol_setup_000206
+.Lgg_retpol_cap_000206:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000206
+.Lgg_retpol_setup_000206:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000206:
 	jmp	.Lvictim_win0_continue
 ## Variant 207
 .Lvictim_win0_var207:
@@ -2952,7 +4718,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000207
+	jmp	.Lgg_retpol_after_000207
+.Lgg_retpol_thunk_000207:
+	callq	.Lgg_retpol_setup_000207
+.Lgg_retpol_cap_000207:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000207
+.Lgg_retpol_setup_000207:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000207:
 	jmp	.Lvictim_win0_continue
 ## Variant 208
 .Lvictim_win0_var208:
@@ -2961,7 +4738,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000208
+	jmp	.Lgg_retpol_after_000208
+.Lgg_retpol_thunk_000208:
+	callq	.Lgg_retpol_setup_000208
+.Lgg_retpol_cap_000208:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000208
+.Lgg_retpol_setup_000208:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000208:
 	jmp	.Lvictim_win0_continue
 ## Variant 209
 .Lvictim_win0_var209:
@@ -2970,7 +4758,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000209
+	jmp	.Lgg_retpol_after_000209
+.Lgg_retpol_thunk_000209:
+	callq	.Lgg_retpol_setup_000209
+.Lgg_retpol_cap_000209:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000209
+.Lgg_retpol_setup_000209:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000209:
 	jmp	.Lvictim_win0_continue
 ## Variant 210
 .Lvictim_win0_var210:
@@ -2979,7 +4778,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000210
+	jmp	.Lgg_retpol_after_000210
+.Lgg_retpol_thunk_000210:
+	callq	.Lgg_retpol_setup_000210
+.Lgg_retpol_cap_000210:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000210
+.Lgg_retpol_setup_000210:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000210:
 	jmp	.Lvictim_win0_continue
 ## Variant 211
 .Lvictim_win0_var211:
@@ -2988,7 +4798,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000211
+	jmp	.Lgg_retpol_after_000211
+.Lgg_retpol_thunk_000211:
+	callq	.Lgg_retpol_setup_000211
+.Lgg_retpol_cap_000211:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000211
+.Lgg_retpol_setup_000211:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000211:
 	jmp	.Lvictim_win0_continue
 ## Variant 212
 .Lvictim_win0_var212:
@@ -2997,7 +4818,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000212
+	jmp	.Lgg_retpol_after_000212
+.Lgg_retpol_thunk_000212:
+	callq	.Lgg_retpol_setup_000212
+.Lgg_retpol_cap_000212:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000212
+.Lgg_retpol_setup_000212:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000212:
 	jmp	.Lvictim_win0_continue
 ## Variant 213
 .Lvictim_win0_var213:
@@ -3006,7 +4838,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000213
+	jmp	.Lgg_retpol_after_000213
+.Lgg_retpol_thunk_000213:
+	callq	.Lgg_retpol_setup_000213
+.Lgg_retpol_cap_000213:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000213
+.Lgg_retpol_setup_000213:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000213:
 	jmp	.Lvictim_win0_continue
 ## Variant 214
 .Lvictim_win0_var214:
@@ -3015,7 +4858,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000214
+	jmp	.Lgg_retpol_after_000214
+.Lgg_retpol_thunk_000214:
+	callq	.Lgg_retpol_setup_000214
+.Lgg_retpol_cap_000214:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000214
+.Lgg_retpol_setup_000214:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000214:
 	jmp	.Lvictim_win0_continue
 ## Variant 215
 .Lvictim_win0_var215:
@@ -3024,7 +4878,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000215
+	jmp	.Lgg_retpol_after_000215
+.Lgg_retpol_thunk_000215:
+	callq	.Lgg_retpol_setup_000215
+.Lgg_retpol_cap_000215:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000215
+.Lgg_retpol_setup_000215:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000215:
 	jmp	.Lvictim_win0_continue
 ## Variant 216
 .Lvictim_win0_var216:
@@ -3033,7 +4898,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000216
+	jmp	.Lgg_retpol_after_000216
+.Lgg_retpol_thunk_000216:
+	callq	.Lgg_retpol_setup_000216
+.Lgg_retpol_cap_000216:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000216
+.Lgg_retpol_setup_000216:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000216:
 	jmp	.Lvictim_win0_continue
 ## Variant 217
 .Lvictim_win0_var217:
@@ -3042,7 +4918,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000217
+	jmp	.Lgg_retpol_after_000217
+.Lgg_retpol_thunk_000217:
+	callq	.Lgg_retpol_setup_000217
+.Lgg_retpol_cap_000217:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000217
+.Lgg_retpol_setup_000217:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000217:
 	jmp	.Lvictim_win0_continue
 ## Variant 218
 .Lvictim_win0_var218:
@@ -3051,7 +4938,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000218
+	jmp	.Lgg_retpol_after_000218
+.Lgg_retpol_thunk_000218:
+	callq	.Lgg_retpol_setup_000218
+.Lgg_retpol_cap_000218:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000218
+.Lgg_retpol_setup_000218:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000218:
 	jmp	.Lvictim_win0_continue
 ## Variant 219
 .Lvictim_win0_var219:
@@ -3060,7 +4958,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000219
+	jmp	.Lgg_retpol_after_000219
+.Lgg_retpol_thunk_000219:
+	callq	.Lgg_retpol_setup_000219
+.Lgg_retpol_cap_000219:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000219
+.Lgg_retpol_setup_000219:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000219:
 	jmp	.Lvictim_win0_continue
 ## Variant 220
 .Lvictim_win0_var220:
@@ -3069,7 +4978,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000220
+	jmp	.Lgg_retpol_after_000220
+.Lgg_retpol_thunk_000220:
+	callq	.Lgg_retpol_setup_000220
+.Lgg_retpol_cap_000220:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000220
+.Lgg_retpol_setup_000220:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000220:
 	jmp	.Lvictim_win0_continue
 ## Variant 221
 .Lvictim_win0_var221:
@@ -3078,7 +4998,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000221
+	jmp	.Lgg_retpol_after_000221
+.Lgg_retpol_thunk_000221:
+	callq	.Lgg_retpol_setup_000221
+.Lgg_retpol_cap_000221:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000221
+.Lgg_retpol_setup_000221:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000221:
 	jmp	.Lvictim_win0_continue
 ## Variant 222
 .Lvictim_win0_var222:
@@ -3087,7 +5018,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000222
+	jmp	.Lgg_retpol_after_000222
+.Lgg_retpol_thunk_000222:
+	callq	.Lgg_retpol_setup_000222
+.Lgg_retpol_cap_000222:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000222
+.Lgg_retpol_setup_000222:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000222:
 	jmp	.Lvictim_win0_continue
 ## Variant 223
 .Lvictim_win0_var223:
@@ -3096,7 +5038,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000223
+	jmp	.Lgg_retpol_after_000223
+.Lgg_retpol_thunk_000223:
+	callq	.Lgg_retpol_setup_000223
+.Lgg_retpol_cap_000223:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000223
+.Lgg_retpol_setup_000223:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000223:
 	jmp	.Lvictim_win0_continue
 ## Variant 224
 .Lvictim_win0_var224:
@@ -3105,7 +5058,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000224
+	jmp	.Lgg_retpol_after_000224
+.Lgg_retpol_thunk_000224:
+	callq	.Lgg_retpol_setup_000224
+.Lgg_retpol_cap_000224:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000224
+.Lgg_retpol_setup_000224:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000224:
 	jmp	.Lvictim_win0_continue
 ## Variant 225
 .Lvictim_win0_var225:
@@ -3114,7 +5078,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000225
+	jmp	.Lgg_retpol_after_000225
+.Lgg_retpol_thunk_000225:
+	callq	.Lgg_retpol_setup_000225
+.Lgg_retpol_cap_000225:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000225
+.Lgg_retpol_setup_000225:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000225:
 	jmp	.Lvictim_win0_continue
 ## Variant 226
 .Lvictim_win0_var226:
@@ -3123,7 +5098,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000226
+	jmp	.Lgg_retpol_after_000226
+.Lgg_retpol_thunk_000226:
+	callq	.Lgg_retpol_setup_000226
+.Lgg_retpol_cap_000226:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000226
+.Lgg_retpol_setup_000226:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000226:
 	jmp	.Lvictim_win0_continue
 ## Variant 227
 .Lvictim_win0_var227:
@@ -3132,7 +5118,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000227
+	jmp	.Lgg_retpol_after_000227
+.Lgg_retpol_thunk_000227:
+	callq	.Lgg_retpol_setup_000227
+.Lgg_retpol_cap_000227:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000227
+.Lgg_retpol_setup_000227:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000227:
 	jmp	.Lvictim_win0_continue
 ## Variant 228
 .Lvictim_win0_var228:
@@ -3141,7 +5138,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000228
+	jmp	.Lgg_retpol_after_000228
+.Lgg_retpol_thunk_000228:
+	callq	.Lgg_retpol_setup_000228
+.Lgg_retpol_cap_000228:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000228
+.Lgg_retpol_setup_000228:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000228:
 	jmp	.Lvictim_win0_continue
 ## Variant 229
 .Lvictim_win0_var229:
@@ -3150,7 +5158,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000229
+	jmp	.Lgg_retpol_after_000229
+.Lgg_retpol_thunk_000229:
+	callq	.Lgg_retpol_setup_000229
+.Lgg_retpol_cap_000229:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000229
+.Lgg_retpol_setup_000229:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000229:
 	jmp	.Lvictim_win0_continue
 ## Variant 230
 .Lvictim_win0_var230:
@@ -3159,7 +5178,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000230
+	jmp	.Lgg_retpol_after_000230
+.Lgg_retpol_thunk_000230:
+	callq	.Lgg_retpol_setup_000230
+.Lgg_retpol_cap_000230:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000230
+.Lgg_retpol_setup_000230:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000230:
 	jmp	.Lvictim_win0_continue
 ## Variant 231
 .Lvictim_win0_var231:
@@ -3168,7 +5198,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000231
+	jmp	.Lgg_retpol_after_000231
+.Lgg_retpol_thunk_000231:
+	callq	.Lgg_retpol_setup_000231
+.Lgg_retpol_cap_000231:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000231
+.Lgg_retpol_setup_000231:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000231:
 	jmp	.Lvictim_win0_continue
 ## Variant 232
 .Lvictim_win0_var232:
@@ -3177,7 +5218,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000232
+	jmp	.Lgg_retpol_after_000232
+.Lgg_retpol_thunk_000232:
+	callq	.Lgg_retpol_setup_000232
+.Lgg_retpol_cap_000232:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000232
+.Lgg_retpol_setup_000232:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000232:
 	jmp	.Lvictim_win0_continue
 ## Variant 233
 .Lvictim_win0_var233:
@@ -3186,7 +5238,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000233
+	jmp	.Lgg_retpol_after_000233
+.Lgg_retpol_thunk_000233:
+	callq	.Lgg_retpol_setup_000233
+.Lgg_retpol_cap_000233:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000233
+.Lgg_retpol_setup_000233:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000233:
 	jmp	.Lvictim_win0_continue
 ## Variant 234
 .Lvictim_win0_var234:
@@ -3195,7 +5258,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000234
+	jmp	.Lgg_retpol_after_000234
+.Lgg_retpol_thunk_000234:
+	callq	.Lgg_retpol_setup_000234
+.Lgg_retpol_cap_000234:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000234
+.Lgg_retpol_setup_000234:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000234:
 	jmp	.Lvictim_win0_continue
 ## Variant 235
 .Lvictim_win0_var235:
@@ -3204,7 +5278,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000235
+	jmp	.Lgg_retpol_after_000235
+.Lgg_retpol_thunk_000235:
+	callq	.Lgg_retpol_setup_000235
+.Lgg_retpol_cap_000235:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000235
+.Lgg_retpol_setup_000235:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000235:
 	jmp	.Lvictim_win0_continue
 ## Variant 236
 .Lvictim_win0_var236:
@@ -3213,7 +5298,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000236
+	jmp	.Lgg_retpol_after_000236
+.Lgg_retpol_thunk_000236:
+	callq	.Lgg_retpol_setup_000236
+.Lgg_retpol_cap_000236:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000236
+.Lgg_retpol_setup_000236:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000236:
 	jmp	.Lvictim_win0_continue
 ## Variant 237
 .Lvictim_win0_var237:
@@ -3222,7 +5318,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000237
+	jmp	.Lgg_retpol_after_000237
+.Lgg_retpol_thunk_000237:
+	callq	.Lgg_retpol_setup_000237
+.Lgg_retpol_cap_000237:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000237
+.Lgg_retpol_setup_000237:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000237:
 	jmp	.Lvictim_win0_continue
 ## Variant 238
 .Lvictim_win0_var238:
@@ -3231,7 +5338,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000238
+	jmp	.Lgg_retpol_after_000238
+.Lgg_retpol_thunk_000238:
+	callq	.Lgg_retpol_setup_000238
+.Lgg_retpol_cap_000238:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000238
+.Lgg_retpol_setup_000238:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000238:
 	jmp	.Lvictim_win0_continue
 ## Variant 239
 .Lvictim_win0_var239:
@@ -3240,7 +5358,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000239
+	jmp	.Lgg_retpol_after_000239
+.Lgg_retpol_thunk_000239:
+	callq	.Lgg_retpol_setup_000239
+.Lgg_retpol_cap_000239:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000239
+.Lgg_retpol_setup_000239:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000239:
 	jmp	.Lvictim_win0_continue
 ## Variant 240
 .Lvictim_win0_var240:
@@ -3249,7 +5378,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000240
+	jmp	.Lgg_retpol_after_000240
+.Lgg_retpol_thunk_000240:
+	callq	.Lgg_retpol_setup_000240
+.Lgg_retpol_cap_000240:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000240
+.Lgg_retpol_setup_000240:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000240:
 	jmp	.Lvictim_win0_continue
 ## Variant 241
 .Lvictim_win0_var241:
@@ -3258,7 +5398,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000241
+	jmp	.Lgg_retpol_after_000241
+.Lgg_retpol_thunk_000241:
+	callq	.Lgg_retpol_setup_000241
+.Lgg_retpol_cap_000241:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000241
+.Lgg_retpol_setup_000241:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000241:
 	jmp	.Lvictim_win0_continue
 ## Variant 242
 .Lvictim_win0_var242:
@@ -3267,7 +5418,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000242
+	jmp	.Lgg_retpol_after_000242
+.Lgg_retpol_thunk_000242:
+	callq	.Lgg_retpol_setup_000242
+.Lgg_retpol_cap_000242:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000242
+.Lgg_retpol_setup_000242:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000242:
 	jmp	.Lvictim_win0_continue
 ## Variant 243
 .Lvictim_win0_var243:
@@ -3276,7 +5438,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000243
+	jmp	.Lgg_retpol_after_000243
+.Lgg_retpol_thunk_000243:
+	callq	.Lgg_retpol_setup_000243
+.Lgg_retpol_cap_000243:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000243
+.Lgg_retpol_setup_000243:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000243:
 	jmp	.Lvictim_win0_continue
 ## Variant 244
 .Lvictim_win0_var244:
@@ -3285,7 +5458,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000244
+	jmp	.Lgg_retpol_after_000244
+.Lgg_retpol_thunk_000244:
+	callq	.Lgg_retpol_setup_000244
+.Lgg_retpol_cap_000244:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000244
+.Lgg_retpol_setup_000244:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000244:
 	jmp	.Lvictim_win0_continue
 ## Variant 245
 .Lvictim_win0_var245:
@@ -3294,7 +5478,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000245
+	jmp	.Lgg_retpol_after_000245
+.Lgg_retpol_thunk_000245:
+	callq	.Lgg_retpol_setup_000245
+.Lgg_retpol_cap_000245:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000245
+.Lgg_retpol_setup_000245:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000245:
 	jmp	.Lvictim_win0_continue
 ## Variant 246
 .Lvictim_win0_var246:
@@ -3303,7 +5498,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000246
+	jmp	.Lgg_retpol_after_000246
+.Lgg_retpol_thunk_000246:
+	callq	.Lgg_retpol_setup_000246
+.Lgg_retpol_cap_000246:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000246
+.Lgg_retpol_setup_000246:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000246:
 	jmp	.Lvictim_win0_continue
 ## Variant 247
 .Lvictim_win0_var247:
@@ -3312,7 +5518,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000247
+	jmp	.Lgg_retpol_after_000247
+.Lgg_retpol_thunk_000247:
+	callq	.Lgg_retpol_setup_000247
+.Lgg_retpol_cap_000247:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000247
+.Lgg_retpol_setup_000247:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000247:
 	jmp	.Lvictim_win0_continue
 ## Variant 248
 .Lvictim_win0_var248:
@@ -3321,7 +5538,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000248
+	jmp	.Lgg_retpol_after_000248
+.Lgg_retpol_thunk_000248:
+	callq	.Lgg_retpol_setup_000248
+.Lgg_retpol_cap_000248:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000248
+.Lgg_retpol_setup_000248:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000248:
 	jmp	.Lvictim_win0_continue
 ## Variant 249
 .Lvictim_win0_var249:
@@ -3330,2257 +5558,18 @@ LBB2_4:
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
 	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 250
-.Lvictim_win0_var250:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 251
-.Lvictim_win0_var251:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 252
-.Lvictim_win0_var252:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 253
-.Lvictim_win0_var253:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 254
-.Lvictim_win0_var254:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 255
-.Lvictim_win0_var255:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 256
-.Lvictim_win0_var256:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 257
-.Lvictim_win0_var257:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 258
-.Lvictim_win0_var258:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 259
-.Lvictim_win0_var259:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 260
-.Lvictim_win0_var260:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 261
-.Lvictim_win0_var261:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 262
-.Lvictim_win0_var262:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 263
-.Lvictim_win0_var263:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 264
-.Lvictim_win0_var264:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 265
-.Lvictim_win0_var265:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 266
-.Lvictim_win0_var266:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 267
-.Lvictim_win0_var267:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 268
-.Lvictim_win0_var268:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 269
-.Lvictim_win0_var269:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 270
-.Lvictim_win0_var270:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 271
-.Lvictim_win0_var271:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 272
-.Lvictim_win0_var272:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 273
-.Lvictim_win0_var273:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 274
-.Lvictim_win0_var274:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 275
-.Lvictim_win0_var275:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 276
-.Lvictim_win0_var276:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 277
-.Lvictim_win0_var277:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 278
-.Lvictim_win0_var278:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 279
-.Lvictim_win0_var279:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 280
-.Lvictim_win0_var280:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 281
-.Lvictim_win0_var281:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 282
-.Lvictim_win0_var282:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 283
-.Lvictim_win0_var283:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 284
-.Lvictim_win0_var284:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 285
-.Lvictim_win0_var285:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 286
-.Lvictim_win0_var286:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 287
-.Lvictim_win0_var287:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 288
-.Lvictim_win0_var288:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 289
-.Lvictim_win0_var289:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 290
-.Lvictim_win0_var290:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 291
-.Lvictim_win0_var291:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 292
-.Lvictim_win0_var292:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 293
-.Lvictim_win0_var293:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 294
-.Lvictim_win0_var294:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 295
-.Lvictim_win0_var295:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 296
-.Lvictim_win0_var296:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 297
-.Lvictim_win0_var297:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 298
-.Lvictim_win0_var298:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 299
-.Lvictim_win0_var299:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 300
-.Lvictim_win0_var300:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 301
-.Lvictim_win0_var301:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 302
-.Lvictim_win0_var302:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 303
-.Lvictim_win0_var303:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 304
-.Lvictim_win0_var304:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 305
-.Lvictim_win0_var305:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 306
-.Lvictim_win0_var306:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 307
-.Lvictim_win0_var307:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 308
-.Lvictim_win0_var308:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 309
-.Lvictim_win0_var309:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 310
-.Lvictim_win0_var310:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 311
-.Lvictim_win0_var311:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 312
-.Lvictim_win0_var312:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 313
-.Lvictim_win0_var313:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 314
-.Lvictim_win0_var314:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 315
-.Lvictim_win0_var315:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 316
-.Lvictim_win0_var316:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 317
-.Lvictim_win0_var317:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 318
-.Lvictim_win0_var318:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 319
-.Lvictim_win0_var319:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 320
-.Lvictim_win0_var320:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 321
-.Lvictim_win0_var321:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 322
-.Lvictim_win0_var322:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 323
-.Lvictim_win0_var323:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 324
-.Lvictim_win0_var324:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 325
-.Lvictim_win0_var325:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 326
-.Lvictim_win0_var326:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 327
-.Lvictim_win0_var327:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 328
-.Lvictim_win0_var328:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 329
-.Lvictim_win0_var329:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 330
-.Lvictim_win0_var330:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 331
-.Lvictim_win0_var331:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 332
-.Lvictim_win0_var332:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 333
-.Lvictim_win0_var333:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 334
-.Lvictim_win0_var334:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 335
-.Lvictim_win0_var335:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 336
-.Lvictim_win0_var336:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 337
-.Lvictim_win0_var337:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 338
-.Lvictim_win0_var338:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 339
-.Lvictim_win0_var339:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 340
-.Lvictim_win0_var340:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 341
-.Lvictim_win0_var341:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 342
-.Lvictim_win0_var342:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 343
-.Lvictim_win0_var343:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 344
-.Lvictim_win0_var344:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 345
-.Lvictim_win0_var345:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 346
-.Lvictim_win0_var346:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 347
-.Lvictim_win0_var347:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 348
-.Lvictim_win0_var348:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 349
-.Lvictim_win0_var349:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 350
-.Lvictim_win0_var350:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 351
-.Lvictim_win0_var351:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 352
-.Lvictim_win0_var352:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 353
-.Lvictim_win0_var353:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 354
-.Lvictim_win0_var354:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 355
-.Lvictim_win0_var355:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 356
-.Lvictim_win0_var356:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 357
-.Lvictim_win0_var357:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 358
-.Lvictim_win0_var358:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 359
-.Lvictim_win0_var359:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 360
-.Lvictim_win0_var360:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 361
-.Lvictim_win0_var361:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 362
-.Lvictim_win0_var362:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 363
-.Lvictim_win0_var363:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 364
-.Lvictim_win0_var364:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 365
-.Lvictim_win0_var365:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 366
-.Lvictim_win0_var366:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 367
-.Lvictim_win0_var367:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 368
-.Lvictim_win0_var368:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 369
-.Lvictim_win0_var369:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 370
-.Lvictim_win0_var370:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 371
-.Lvictim_win0_var371:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 372
-.Lvictim_win0_var372:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 373
-.Lvictim_win0_var373:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 374
-.Lvictim_win0_var374:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 375
-.Lvictim_win0_var375:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 376
-.Lvictim_win0_var376:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 377
-.Lvictim_win0_var377:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 378
-.Lvictim_win0_var378:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 379
-.Lvictim_win0_var379:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 380
-.Lvictim_win0_var380:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 381
-.Lvictim_win0_var381:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 382
-.Lvictim_win0_var382:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 383
-.Lvictim_win0_var383:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 384
-.Lvictim_win0_var384:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 385
-.Lvictim_win0_var385:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 386
-.Lvictim_win0_var386:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 387
-.Lvictim_win0_var387:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 388
-.Lvictim_win0_var388:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 389
-.Lvictim_win0_var389:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 390
-.Lvictim_win0_var390:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 391
-.Lvictim_win0_var391:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 392
-.Lvictim_win0_var392:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 393
-.Lvictim_win0_var393:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 394
-.Lvictim_win0_var394:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 395
-.Lvictim_win0_var395:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 396
-.Lvictim_win0_var396:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 397
-.Lvictim_win0_var397:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 398
-.Lvictim_win0_var398:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 399
-.Lvictim_win0_var399:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 400
-.Lvictim_win0_var400:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 401
-.Lvictim_win0_var401:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 402
-.Lvictim_win0_var402:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 403
-.Lvictim_win0_var403:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 404
-.Lvictim_win0_var404:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 405
-.Lvictim_win0_var405:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 406
-.Lvictim_win0_var406:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 407
-.Lvictim_win0_var407:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 408
-.Lvictim_win0_var408:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 409
-.Lvictim_win0_var409:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 410
-.Lvictim_win0_var410:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 411
-.Lvictim_win0_var411:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 412
-.Lvictim_win0_var412:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 413
-.Lvictim_win0_var413:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 414
-.Lvictim_win0_var414:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 415
-.Lvictim_win0_var415:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 416
-.Lvictim_win0_var416:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 417
-.Lvictim_win0_var417:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 418
-.Lvictim_win0_var418:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 419
-.Lvictim_win0_var419:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 420
-.Lvictim_win0_var420:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 421
-.Lvictim_win0_var421:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 422
-.Lvictim_win0_var422:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 423
-.Lvictim_win0_var423:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 424
-.Lvictim_win0_var424:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 425
-.Lvictim_win0_var425:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 426
-.Lvictim_win0_var426:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 427
-.Lvictim_win0_var427:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 428
-.Lvictim_win0_var428:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 429
-.Lvictim_win0_var429:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 430
-.Lvictim_win0_var430:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 431
-.Lvictim_win0_var431:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 432
-.Lvictim_win0_var432:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 433
-.Lvictim_win0_var433:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 434
-.Lvictim_win0_var434:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 435
-.Lvictim_win0_var435:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 436
-.Lvictim_win0_var436:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 437
-.Lvictim_win0_var437:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 438
-.Lvictim_win0_var438:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 439
-.Lvictim_win0_var439:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 440
-.Lvictim_win0_var440:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 441
-.Lvictim_win0_var441:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 442
-.Lvictim_win0_var442:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 443
-.Lvictim_win0_var443:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 444
-.Lvictim_win0_var444:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 445
-.Lvictim_win0_var445:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 446
-.Lvictim_win0_var446:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 447
-.Lvictim_win0_var447:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 448
-.Lvictim_win0_var448:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 449
-.Lvictim_win0_var449:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 450
-.Lvictim_win0_var450:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 451
-.Lvictim_win0_var451:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 452
-.Lvictim_win0_var452:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 453
-.Lvictim_win0_var453:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 454
-.Lvictim_win0_var454:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 455
-.Lvictim_win0_var455:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 456
-.Lvictim_win0_var456:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 457
-.Lvictim_win0_var457:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 458
-.Lvictim_win0_var458:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 459
-.Lvictim_win0_var459:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 460
-.Lvictim_win0_var460:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 461
-.Lvictim_win0_var461:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 462
-.Lvictim_win0_var462:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 463
-.Lvictim_win0_var463:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 464
-.Lvictim_win0_var464:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 465
-.Lvictim_win0_var465:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 466
-.Lvictim_win0_var466:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 467
-.Lvictim_win0_var467:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 468
-.Lvictim_win0_var468:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 469
-.Lvictim_win0_var469:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 470
-.Lvictim_win0_var470:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 471
-.Lvictim_win0_var471:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 472
-.Lvictim_win0_var472:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 473
-.Lvictim_win0_var473:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 474
-.Lvictim_win0_var474:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 475
-.Lvictim_win0_var475:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 476
-.Lvictim_win0_var476:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 477
-.Lvictim_win0_var477:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 478
-.Lvictim_win0_var478:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 479
-.Lvictim_win0_var479:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 480
-.Lvictim_win0_var480:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 481
-.Lvictim_win0_var481:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 482
-.Lvictim_win0_var482:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 483
-.Lvictim_win0_var483:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 484
-.Lvictim_win0_var484:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 485
-.Lvictim_win0_var485:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 486
-.Lvictim_win0_var486:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 487
-.Lvictim_win0_var487:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 488
-.Lvictim_win0_var488:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 489
-.Lvictim_win0_var489:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 490
-.Lvictim_win0_var490:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 491
-.Lvictim_win0_var491:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 492
-.Lvictim_win0_var492:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 493
-.Lvictim_win0_var493:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 494
-.Lvictim_win0_var494:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 495
-.Lvictim_win0_var495:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 496
-.Lvictim_win0_var496:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 497
-.Lvictim_win0_var497:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 498
-.Lvictim_win0_var498:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
-	jmp	.Lvictim_win0_continue
-## Variant 499
-.Lvictim_win0_var499:
-	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
-	## InlineAsm Start
-	callq	*%rbx
+	callq	.Lgg_retpol_thunk_000249
+	jmp	.Lgg_retpol_after_000249
+.Lgg_retpol_thunk_000249:
+	callq	.Lgg_retpol_setup_000249
+.Lgg_retpol_cap_000249:
+	pause
+	lfence
+	jmp	.Lgg_retpol_cap_000249
+.Lgg_retpol_setup_000249:
+	movq	%rbx, (%rsp)
+	ret
+.Lgg_retpol_after_000249:
 	jmp	.Lvictim_win0_continue
 .Lvictim_win0_continue:
 	movl	%eax, %ebx

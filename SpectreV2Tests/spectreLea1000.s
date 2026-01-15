@@ -2094,8991 +2094,11988 @@ LBB2_4:
 ## Variant 1
 .Lvictim_win0_var1:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 2
 .Lvictim_win0_var2:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 3
 .Lvictim_win0_var3:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 4
 .Lvictim_win0_var4:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 5
 .Lvictim_win0_var5:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 6
 .Lvictim_win0_var6:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 7
 .Lvictim_win0_var7:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 8
 .Lvictim_win0_var8:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 9
 .Lvictim_win0_var9:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 10
 .Lvictim_win0_var10:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 11
 .Lvictim_win0_var11:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 12
 .Lvictim_win0_var12:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 13
 .Lvictim_win0_var13:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 14
 .Lvictim_win0_var14:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 15
 .Lvictim_win0_var15:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 16
 .Lvictim_win0_var16:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 17
 .Lvictim_win0_var17:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 18
 .Lvictim_win0_var18:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 19
 .Lvictim_win0_var19:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 20
 .Lvictim_win0_var20:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 21
 .Lvictim_win0_var21:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 22
 .Lvictim_win0_var22:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 23
 .Lvictim_win0_var23:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 24
 .Lvictim_win0_var24:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 25
 .Lvictim_win0_var25:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 26
 .Lvictim_win0_var26:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 27
 .Lvictim_win0_var27:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 28
 .Lvictim_win0_var28:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 29
 .Lvictim_win0_var29:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 30
 .Lvictim_win0_var30:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 31
 .Lvictim_win0_var31:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 32
 .Lvictim_win0_var32:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 33
 .Lvictim_win0_var33:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 34
 .Lvictim_win0_var34:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 35
 .Lvictim_win0_var35:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 36
 .Lvictim_win0_var36:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 37
 .Lvictim_win0_var37:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 38
 .Lvictim_win0_var38:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 39
 .Lvictim_win0_var39:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 40
 .Lvictim_win0_var40:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 41
 .Lvictim_win0_var41:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 42
 .Lvictim_win0_var42:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 43
 .Lvictim_win0_var43:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 44
 .Lvictim_win0_var44:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 45
 .Lvictim_win0_var45:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 46
 .Lvictim_win0_var46:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 47
 .Lvictim_win0_var47:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 48
 .Lvictim_win0_var48:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 49
 .Lvictim_win0_var49:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 50
 .Lvictim_win0_var50:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 51
 .Lvictim_win0_var51:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 52
 .Lvictim_win0_var52:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 53
 .Lvictim_win0_var53:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 54
 .Lvictim_win0_var54:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 55
 .Lvictim_win0_var55:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 56
 .Lvictim_win0_var56:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 57
 .Lvictim_win0_var57:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 58
 .Lvictim_win0_var58:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 59
 .Lvictim_win0_var59:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 60
 .Lvictim_win0_var60:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 61
 .Lvictim_win0_var61:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 62
 .Lvictim_win0_var62:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 63
 .Lvictim_win0_var63:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 64
 .Lvictim_win0_var64:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 65
 .Lvictim_win0_var65:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 66
 .Lvictim_win0_var66:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 67
 .Lvictim_win0_var67:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 68
 .Lvictim_win0_var68:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 69
 .Lvictim_win0_var69:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 70
 .Lvictim_win0_var70:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 71
 .Lvictim_win0_var71:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 72
 .Lvictim_win0_var72:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 73
 .Lvictim_win0_var73:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 74
 .Lvictim_win0_var74:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 75
 .Lvictim_win0_var75:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 76
 .Lvictim_win0_var76:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 77
 .Lvictim_win0_var77:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 78
 .Lvictim_win0_var78:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 79
 .Lvictim_win0_var79:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 80
 .Lvictim_win0_var80:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 81
 .Lvictim_win0_var81:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 82
 .Lvictim_win0_var82:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 83
 .Lvictim_win0_var83:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 84
 .Lvictim_win0_var84:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 85
 .Lvictim_win0_var85:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 86
 .Lvictim_win0_var86:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 87
 .Lvictim_win0_var87:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 88
 .Lvictim_win0_var88:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 89
 .Lvictim_win0_var89:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 90
 .Lvictim_win0_var90:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 91
 .Lvictim_win0_var91:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 92
 .Lvictim_win0_var92:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 93
 .Lvictim_win0_var93:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 94
 .Lvictim_win0_var94:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 95
 .Lvictim_win0_var95:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 96
 .Lvictim_win0_var96:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 97
 .Lvictim_win0_var97:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 98
 .Lvictim_win0_var98:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 99
 .Lvictim_win0_var99:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 100
 .Lvictim_win0_var100:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 101
 .Lvictim_win0_var101:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 102
 .Lvictim_win0_var102:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 103
 .Lvictim_win0_var103:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 104
 .Lvictim_win0_var104:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 105
 .Lvictim_win0_var105:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 106
 .Lvictim_win0_var106:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 107
 .Lvictim_win0_var107:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 108
 .Lvictim_win0_var108:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 109
 .Lvictim_win0_var109:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 110
 .Lvictim_win0_var110:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 111
 .Lvictim_win0_var111:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 112
 .Lvictim_win0_var112:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 113
 .Lvictim_win0_var113:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 114
 .Lvictim_win0_var114:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 115
 .Lvictim_win0_var115:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 116
 .Lvictim_win0_var116:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 117
 .Lvictim_win0_var117:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 118
 .Lvictim_win0_var118:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 119
 .Lvictim_win0_var119:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 120
 .Lvictim_win0_var120:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 121
 .Lvictim_win0_var121:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 122
 .Lvictim_win0_var122:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 123
 .Lvictim_win0_var123:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 124
 .Lvictim_win0_var124:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 125
 .Lvictim_win0_var125:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 126
 .Lvictim_win0_var126:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 127
 .Lvictim_win0_var127:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 128
 .Lvictim_win0_var128:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 129
 .Lvictim_win0_var129:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 130
 .Lvictim_win0_var130:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 131
 .Lvictim_win0_var131:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 132
 .Lvictim_win0_var132:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 133
 .Lvictim_win0_var133:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 134
 .Lvictim_win0_var134:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 135
 .Lvictim_win0_var135:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 136
 .Lvictim_win0_var136:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 137
 .Lvictim_win0_var137:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 138
 .Lvictim_win0_var138:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 139
 .Lvictim_win0_var139:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 140
 .Lvictim_win0_var140:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 141
 .Lvictim_win0_var141:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 142
 .Lvictim_win0_var142:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 143
 .Lvictim_win0_var143:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 144
 .Lvictim_win0_var144:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 145
 .Lvictim_win0_var145:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 146
 .Lvictim_win0_var146:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 147
 .Lvictim_win0_var147:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 148
 .Lvictim_win0_var148:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 149
 .Lvictim_win0_var149:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 150
 .Lvictim_win0_var150:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 151
 .Lvictim_win0_var151:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 152
 .Lvictim_win0_var152:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 153
 .Lvictim_win0_var153:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 154
 .Lvictim_win0_var154:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 155
 .Lvictim_win0_var155:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 156
 .Lvictim_win0_var156:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 157
 .Lvictim_win0_var157:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 158
 .Lvictim_win0_var158:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 159
 .Lvictim_win0_var159:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 160
 .Lvictim_win0_var160:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 161
 .Lvictim_win0_var161:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 162
 .Lvictim_win0_var162:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 163
 .Lvictim_win0_var163:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 164
 .Lvictim_win0_var164:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 165
 .Lvictim_win0_var165:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 166
 .Lvictim_win0_var166:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 167
 .Lvictim_win0_var167:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 168
 .Lvictim_win0_var168:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 169
 .Lvictim_win0_var169:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 170
 .Lvictim_win0_var170:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 171
 .Lvictim_win0_var171:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 172
 .Lvictim_win0_var172:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 173
 .Lvictim_win0_var173:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 174
 .Lvictim_win0_var174:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 175
 .Lvictim_win0_var175:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 176
 .Lvictim_win0_var176:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 177
 .Lvictim_win0_var177:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 178
 .Lvictim_win0_var178:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 179
 .Lvictim_win0_var179:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 180
 .Lvictim_win0_var180:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 181
 .Lvictim_win0_var181:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 182
 .Lvictim_win0_var182:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 183
 .Lvictim_win0_var183:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 184
 .Lvictim_win0_var184:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 185
 .Lvictim_win0_var185:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 186
 .Lvictim_win0_var186:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 187
 .Lvictim_win0_var187:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 188
 .Lvictim_win0_var188:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 189
 .Lvictim_win0_var189:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 190
 .Lvictim_win0_var190:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 191
 .Lvictim_win0_var191:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 192
 .Lvictim_win0_var192:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 193
 .Lvictim_win0_var193:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 194
 .Lvictim_win0_var194:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 195
 .Lvictim_win0_var195:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 196
 .Lvictim_win0_var196:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 197
 .Lvictim_win0_var197:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 198
 .Lvictim_win0_var198:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 199
 .Lvictim_win0_var199:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 200
 .Lvictim_win0_var200:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 201
 .Lvictim_win0_var201:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 202
 .Lvictim_win0_var202:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 203
 .Lvictim_win0_var203:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 204
 .Lvictim_win0_var204:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 205
 .Lvictim_win0_var205:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 206
 .Lvictim_win0_var206:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 207
 .Lvictim_win0_var207:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 208
 .Lvictim_win0_var208:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 209
 .Lvictim_win0_var209:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 210
 .Lvictim_win0_var210:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 211
 .Lvictim_win0_var211:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 212
 .Lvictim_win0_var212:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 213
 .Lvictim_win0_var213:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 214
 .Lvictim_win0_var214:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 215
 .Lvictim_win0_var215:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 216
 .Lvictim_win0_var216:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 217
 .Lvictim_win0_var217:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 218
 .Lvictim_win0_var218:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 219
 .Lvictim_win0_var219:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 220
 .Lvictim_win0_var220:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 221
 .Lvictim_win0_var221:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 222
 .Lvictim_win0_var222:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 223
 .Lvictim_win0_var223:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 224
 .Lvictim_win0_var224:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 225
 .Lvictim_win0_var225:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 226
 .Lvictim_win0_var226:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 227
 .Lvictim_win0_var227:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 228
 .Lvictim_win0_var228:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 229
 .Lvictim_win0_var229:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 230
 .Lvictim_win0_var230:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 231
 .Lvictim_win0_var231:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 232
 .Lvictim_win0_var232:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 233
 .Lvictim_win0_var233:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 234
 .Lvictim_win0_var234:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 235
 .Lvictim_win0_var235:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 236
 .Lvictim_win0_var236:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 237
 .Lvictim_win0_var237:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 238
 .Lvictim_win0_var238:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 239
 .Lvictim_win0_var239:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 240
 .Lvictim_win0_var240:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 241
 .Lvictim_win0_var241:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 242
 .Lvictim_win0_var242:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 243
 .Lvictim_win0_var243:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 244
 .Lvictim_win0_var244:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 245
 .Lvictim_win0_var245:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 246
 .Lvictim_win0_var246:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 247
 .Lvictim_win0_var247:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 248
 .Lvictim_win0_var248:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 249
 .Lvictim_win0_var249:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 250
 .Lvictim_win0_var250:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 251
 .Lvictim_win0_var251:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 252
 .Lvictim_win0_var252:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 253
 .Lvictim_win0_var253:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 254
 .Lvictim_win0_var254:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 255
 .Lvictim_win0_var255:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 256
 .Lvictim_win0_var256:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 257
 .Lvictim_win0_var257:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 258
 .Lvictim_win0_var258:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 259
 .Lvictim_win0_var259:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 260
 .Lvictim_win0_var260:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 261
 .Lvictim_win0_var261:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 262
 .Lvictim_win0_var262:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 263
 .Lvictim_win0_var263:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 264
 .Lvictim_win0_var264:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 265
 .Lvictim_win0_var265:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 266
 .Lvictim_win0_var266:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 267
 .Lvictim_win0_var267:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 268
 .Lvictim_win0_var268:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 269
 .Lvictim_win0_var269:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 270
 .Lvictim_win0_var270:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 271
 .Lvictim_win0_var271:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 272
 .Lvictim_win0_var272:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 273
 .Lvictim_win0_var273:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 274
 .Lvictim_win0_var274:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 275
 .Lvictim_win0_var275:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 276
 .Lvictim_win0_var276:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 277
 .Lvictim_win0_var277:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 278
 .Lvictim_win0_var278:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 279
 .Lvictim_win0_var279:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 280
 .Lvictim_win0_var280:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 281
 .Lvictim_win0_var281:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 282
 .Lvictim_win0_var282:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 283
 .Lvictim_win0_var283:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 284
 .Lvictim_win0_var284:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 285
 .Lvictim_win0_var285:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 286
 .Lvictim_win0_var286:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 287
 .Lvictim_win0_var287:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 288
 .Lvictim_win0_var288:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 289
 .Lvictim_win0_var289:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 290
 .Lvictim_win0_var290:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 291
 .Lvictim_win0_var291:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 292
 .Lvictim_win0_var292:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 293
 .Lvictim_win0_var293:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 294
 .Lvictim_win0_var294:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 295
 .Lvictim_win0_var295:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 296
 .Lvictim_win0_var296:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 297
 .Lvictim_win0_var297:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 298
 .Lvictim_win0_var298:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 299
 .Lvictim_win0_var299:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 300
 .Lvictim_win0_var300:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 301
 .Lvictim_win0_var301:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 302
 .Lvictim_win0_var302:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 303
 .Lvictim_win0_var303:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 304
 .Lvictim_win0_var304:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 305
 .Lvictim_win0_var305:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 306
 .Lvictim_win0_var306:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 307
 .Lvictim_win0_var307:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 308
 .Lvictim_win0_var308:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 309
 .Lvictim_win0_var309:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 310
 .Lvictim_win0_var310:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 311
 .Lvictim_win0_var311:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 312
 .Lvictim_win0_var312:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 313
 .Lvictim_win0_var313:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 314
 .Lvictim_win0_var314:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 315
 .Lvictim_win0_var315:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 316
 .Lvictim_win0_var316:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 317
 .Lvictim_win0_var317:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 318
 .Lvictim_win0_var318:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 319
 .Lvictim_win0_var319:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 320
 .Lvictim_win0_var320:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 321
 .Lvictim_win0_var321:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 322
 .Lvictim_win0_var322:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 323
 .Lvictim_win0_var323:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 324
 .Lvictim_win0_var324:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 325
 .Lvictim_win0_var325:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 326
 .Lvictim_win0_var326:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 327
 .Lvictim_win0_var327:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 328
 .Lvictim_win0_var328:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 329
 .Lvictim_win0_var329:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 330
 .Lvictim_win0_var330:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 331
 .Lvictim_win0_var331:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 332
 .Lvictim_win0_var332:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 333
 .Lvictim_win0_var333:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 334
 .Lvictim_win0_var334:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 335
 .Lvictim_win0_var335:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 336
 .Lvictim_win0_var336:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 337
 .Lvictim_win0_var337:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 338
 .Lvictim_win0_var338:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 339
 .Lvictim_win0_var339:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 340
 .Lvictim_win0_var340:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 341
 .Lvictim_win0_var341:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 342
 .Lvictim_win0_var342:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 343
 .Lvictim_win0_var343:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 344
 .Lvictim_win0_var344:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 345
 .Lvictim_win0_var345:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 346
 .Lvictim_win0_var346:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 347
 .Lvictim_win0_var347:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 348
 .Lvictim_win0_var348:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 349
 .Lvictim_win0_var349:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 350
 .Lvictim_win0_var350:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 351
 .Lvictim_win0_var351:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 352
 .Lvictim_win0_var352:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 353
 .Lvictim_win0_var353:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 354
 .Lvictim_win0_var354:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 355
 .Lvictim_win0_var355:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 356
 .Lvictim_win0_var356:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 357
 .Lvictim_win0_var357:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 358
 .Lvictim_win0_var358:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 359
 .Lvictim_win0_var359:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 360
 .Lvictim_win0_var360:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 361
 .Lvictim_win0_var361:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 362
 .Lvictim_win0_var362:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 363
 .Lvictim_win0_var363:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 364
 .Lvictim_win0_var364:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 365
 .Lvictim_win0_var365:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 366
 .Lvictim_win0_var366:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 367
 .Lvictim_win0_var367:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 368
 .Lvictim_win0_var368:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 369
 .Lvictim_win0_var369:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 370
 .Lvictim_win0_var370:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 371
 .Lvictim_win0_var371:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 372
 .Lvictim_win0_var372:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 373
 .Lvictim_win0_var373:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 374
 .Lvictim_win0_var374:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 375
 .Lvictim_win0_var375:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 376
 .Lvictim_win0_var376:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 377
 .Lvictim_win0_var377:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 378
 .Lvictim_win0_var378:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 379
 .Lvictim_win0_var379:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 380
 .Lvictim_win0_var380:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 381
 .Lvictim_win0_var381:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 382
 .Lvictim_win0_var382:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 383
 .Lvictim_win0_var383:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 384
 .Lvictim_win0_var384:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 385
 .Lvictim_win0_var385:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 386
 .Lvictim_win0_var386:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 387
 .Lvictim_win0_var387:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 388
 .Lvictim_win0_var388:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 389
 .Lvictim_win0_var389:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 390
 .Lvictim_win0_var390:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 391
 .Lvictim_win0_var391:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 392
 .Lvictim_win0_var392:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 393
 .Lvictim_win0_var393:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 394
 .Lvictim_win0_var394:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 395
 .Lvictim_win0_var395:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 396
 .Lvictim_win0_var396:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 397
 .Lvictim_win0_var397:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 398
 .Lvictim_win0_var398:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 399
 .Lvictim_win0_var399:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 400
 .Lvictim_win0_var400:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 401
 .Lvictim_win0_var401:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 402
 .Lvictim_win0_var402:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 403
 .Lvictim_win0_var403:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 404
 .Lvictim_win0_var404:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 405
 .Lvictim_win0_var405:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 406
 .Lvictim_win0_var406:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 407
 .Lvictim_win0_var407:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 408
 .Lvictim_win0_var408:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 409
 .Lvictim_win0_var409:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 410
 .Lvictim_win0_var410:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 411
 .Lvictim_win0_var411:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 412
 .Lvictim_win0_var412:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 413
 .Lvictim_win0_var413:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 414
 .Lvictim_win0_var414:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 415
 .Lvictim_win0_var415:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 416
 .Lvictim_win0_var416:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 417
 .Lvictim_win0_var417:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 418
 .Lvictim_win0_var418:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 419
 .Lvictim_win0_var419:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 420
 .Lvictim_win0_var420:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 421
 .Lvictim_win0_var421:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 422
 .Lvictim_win0_var422:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 423
 .Lvictim_win0_var423:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 424
 .Lvictim_win0_var424:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 425
 .Lvictim_win0_var425:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 426
 .Lvictim_win0_var426:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 427
 .Lvictim_win0_var427:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 428
 .Lvictim_win0_var428:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 429
 .Lvictim_win0_var429:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 430
 .Lvictim_win0_var430:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 431
 .Lvictim_win0_var431:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 432
 .Lvictim_win0_var432:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 433
 .Lvictim_win0_var433:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 434
 .Lvictim_win0_var434:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 435
 .Lvictim_win0_var435:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 436
 .Lvictim_win0_var436:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 437
 .Lvictim_win0_var437:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 438
 .Lvictim_win0_var438:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 439
 .Lvictim_win0_var439:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 440
 .Lvictim_win0_var440:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 441
 .Lvictim_win0_var441:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 442
 .Lvictim_win0_var442:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 443
 .Lvictim_win0_var443:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 444
 .Lvictim_win0_var444:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 445
 .Lvictim_win0_var445:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 446
 .Lvictim_win0_var446:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 447
 .Lvictim_win0_var447:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 448
 .Lvictim_win0_var448:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 449
 .Lvictim_win0_var449:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 450
 .Lvictim_win0_var450:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 451
 .Lvictim_win0_var451:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 452
 .Lvictim_win0_var452:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 453
 .Lvictim_win0_var453:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 454
 .Lvictim_win0_var454:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 455
 .Lvictim_win0_var455:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 456
 .Lvictim_win0_var456:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 457
 .Lvictim_win0_var457:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 458
 .Lvictim_win0_var458:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 459
 .Lvictim_win0_var459:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 460
 .Lvictim_win0_var460:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 461
 .Lvictim_win0_var461:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 462
 .Lvictim_win0_var462:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 463
 .Lvictim_win0_var463:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 464
 .Lvictim_win0_var464:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 465
 .Lvictim_win0_var465:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 466
 .Lvictim_win0_var466:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 467
 .Lvictim_win0_var467:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 468
 .Lvictim_win0_var468:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 469
 .Lvictim_win0_var469:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 470
 .Lvictim_win0_var470:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 471
 .Lvictim_win0_var471:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 472
 .Lvictim_win0_var472:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 473
 .Lvictim_win0_var473:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 474
 .Lvictim_win0_var474:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 475
 .Lvictim_win0_var475:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 476
 .Lvictim_win0_var476:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 477
 .Lvictim_win0_var477:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 478
 .Lvictim_win0_var478:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 479
 .Lvictim_win0_var479:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 480
 .Lvictim_win0_var480:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 481
 .Lvictim_win0_var481:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 482
 .Lvictim_win0_var482:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 483
 .Lvictim_win0_var483:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 484
 .Lvictim_win0_var484:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 485
 .Lvictim_win0_var485:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 486
 .Lvictim_win0_var486:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 487
 .Lvictim_win0_var487:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 488
 .Lvictim_win0_var488:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 489
 .Lvictim_win0_var489:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 490
 .Lvictim_win0_var490:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 491
 .Lvictim_win0_var491:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 492
 .Lvictim_win0_var492:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 493
 .Lvictim_win0_var493:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 494
 .Lvictim_win0_var494:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 495
 .Lvictim_win0_var495:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 496
 .Lvictim_win0_var496:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 497
 .Lvictim_win0_var497:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 498
 .Lvictim_win0_var498:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 499
 .Lvictim_win0_var499:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 500
 .Lvictim_win0_var500:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 501
 .Lvictim_win0_var501:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 502
 .Lvictim_win0_var502:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 503
 .Lvictim_win0_var503:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 504
 .Lvictim_win0_var504:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 505
 .Lvictim_win0_var505:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 506
 .Lvictim_win0_var506:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 507
 .Lvictim_win0_var507:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 508
 .Lvictim_win0_var508:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 509
 .Lvictim_win0_var509:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 510
 .Lvictim_win0_var510:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 511
 .Lvictim_win0_var511:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 512
 .Lvictim_win0_var512:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 513
 .Lvictim_win0_var513:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 514
 .Lvictim_win0_var514:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 515
 .Lvictim_win0_var515:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 516
 .Lvictim_win0_var516:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 517
 .Lvictim_win0_var517:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 518
 .Lvictim_win0_var518:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 519
 .Lvictim_win0_var519:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 520
 .Lvictim_win0_var520:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 521
 .Lvictim_win0_var521:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 522
 .Lvictim_win0_var522:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 523
 .Lvictim_win0_var523:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 524
 .Lvictim_win0_var524:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 525
 .Lvictim_win0_var525:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 526
 .Lvictim_win0_var526:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 527
 .Lvictim_win0_var527:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 528
 .Lvictim_win0_var528:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 529
 .Lvictim_win0_var529:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 530
 .Lvictim_win0_var530:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 531
 .Lvictim_win0_var531:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 532
 .Lvictim_win0_var532:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 533
 .Lvictim_win0_var533:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 534
 .Lvictim_win0_var534:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 535
 .Lvictim_win0_var535:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 536
 .Lvictim_win0_var536:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 537
 .Lvictim_win0_var537:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 538
 .Lvictim_win0_var538:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 539
 .Lvictim_win0_var539:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 540
 .Lvictim_win0_var540:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 541
 .Lvictim_win0_var541:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 542
 .Lvictim_win0_var542:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 543
 .Lvictim_win0_var543:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 544
 .Lvictim_win0_var544:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 545
 .Lvictim_win0_var545:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 546
 .Lvictim_win0_var546:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 547
 .Lvictim_win0_var547:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 548
 .Lvictim_win0_var548:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 549
 .Lvictim_win0_var549:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 550
 .Lvictim_win0_var550:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 551
 .Lvictim_win0_var551:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 552
 .Lvictim_win0_var552:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 553
 .Lvictim_win0_var553:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 554
 .Lvictim_win0_var554:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 555
 .Lvictim_win0_var555:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 556
 .Lvictim_win0_var556:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 557
 .Lvictim_win0_var557:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 558
 .Lvictim_win0_var558:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 559
 .Lvictim_win0_var559:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 560
 .Lvictim_win0_var560:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 561
 .Lvictim_win0_var561:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 562
 .Lvictim_win0_var562:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 563
 .Lvictim_win0_var563:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 564
 .Lvictim_win0_var564:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 565
 .Lvictim_win0_var565:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 566
 .Lvictim_win0_var566:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 567
 .Lvictim_win0_var567:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 568
 .Lvictim_win0_var568:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 569
 .Lvictim_win0_var569:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 570
 .Lvictim_win0_var570:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 571
 .Lvictim_win0_var571:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 572
 .Lvictim_win0_var572:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 573
 .Lvictim_win0_var573:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 574
 .Lvictim_win0_var574:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 575
 .Lvictim_win0_var575:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 576
 .Lvictim_win0_var576:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 577
 .Lvictim_win0_var577:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 578
 .Lvictim_win0_var578:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 579
 .Lvictim_win0_var579:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 580
 .Lvictim_win0_var580:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 581
 .Lvictim_win0_var581:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 582
 .Lvictim_win0_var582:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 583
 .Lvictim_win0_var583:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 584
 .Lvictim_win0_var584:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 585
 .Lvictim_win0_var585:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 586
 .Lvictim_win0_var586:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 587
 .Lvictim_win0_var587:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 588
 .Lvictim_win0_var588:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 589
 .Lvictim_win0_var589:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 590
 .Lvictim_win0_var590:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 591
 .Lvictim_win0_var591:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 592
 .Lvictim_win0_var592:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 593
 .Lvictim_win0_var593:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 594
 .Lvictim_win0_var594:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 595
 .Lvictim_win0_var595:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 596
 .Lvictim_win0_var596:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 597
 .Lvictim_win0_var597:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 598
 .Lvictim_win0_var598:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 599
 .Lvictim_win0_var599:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 600
 .Lvictim_win0_var600:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 601
 .Lvictim_win0_var601:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 602
 .Lvictim_win0_var602:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 603
 .Lvictim_win0_var603:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 604
 .Lvictim_win0_var604:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 605
 .Lvictim_win0_var605:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 606
 .Lvictim_win0_var606:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 607
 .Lvictim_win0_var607:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 608
 .Lvictim_win0_var608:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 609
 .Lvictim_win0_var609:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 610
 .Lvictim_win0_var610:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 611
 .Lvictim_win0_var611:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 612
 .Lvictim_win0_var612:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 613
 .Lvictim_win0_var613:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 614
 .Lvictim_win0_var614:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 615
 .Lvictim_win0_var615:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 616
 .Lvictim_win0_var616:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 617
 .Lvictim_win0_var617:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 618
 .Lvictim_win0_var618:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 619
 .Lvictim_win0_var619:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 620
 .Lvictim_win0_var620:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 621
 .Lvictim_win0_var621:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 622
 .Lvictim_win0_var622:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 623
 .Lvictim_win0_var623:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 624
 .Lvictim_win0_var624:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 625
 .Lvictim_win0_var625:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 626
 .Lvictim_win0_var626:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 627
 .Lvictim_win0_var627:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 628
 .Lvictim_win0_var628:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 629
 .Lvictim_win0_var629:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 630
 .Lvictim_win0_var630:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 631
 .Lvictim_win0_var631:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 632
 .Lvictim_win0_var632:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 633
 .Lvictim_win0_var633:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 634
 .Lvictim_win0_var634:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 635
 .Lvictim_win0_var635:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 636
 .Lvictim_win0_var636:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 637
 .Lvictim_win0_var637:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 638
 .Lvictim_win0_var638:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 639
 .Lvictim_win0_var639:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 640
 .Lvictim_win0_var640:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 641
 .Lvictim_win0_var641:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 642
 .Lvictim_win0_var642:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 643
 .Lvictim_win0_var643:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 644
 .Lvictim_win0_var644:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 645
 .Lvictim_win0_var645:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 646
 .Lvictim_win0_var646:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 647
 .Lvictim_win0_var647:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 648
 .Lvictim_win0_var648:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 649
 .Lvictim_win0_var649:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 650
 .Lvictim_win0_var650:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 651
 .Lvictim_win0_var651:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 652
 .Lvictim_win0_var652:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 653
 .Lvictim_win0_var653:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 654
 .Lvictim_win0_var654:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 655
 .Lvictim_win0_var655:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 656
 .Lvictim_win0_var656:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 657
 .Lvictim_win0_var657:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 658
 .Lvictim_win0_var658:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 659
 .Lvictim_win0_var659:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 660
 .Lvictim_win0_var660:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 661
 .Lvictim_win0_var661:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 662
 .Lvictim_win0_var662:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 663
 .Lvictim_win0_var663:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 664
 .Lvictim_win0_var664:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 665
 .Lvictim_win0_var665:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 666
 .Lvictim_win0_var666:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 667
 .Lvictim_win0_var667:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 668
 .Lvictim_win0_var668:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 669
 .Lvictim_win0_var669:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 670
 .Lvictim_win0_var670:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 671
 .Lvictim_win0_var671:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 672
 .Lvictim_win0_var672:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 673
 .Lvictim_win0_var673:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 674
 .Lvictim_win0_var674:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 675
 .Lvictim_win0_var675:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 676
 .Lvictim_win0_var676:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 677
 .Lvictim_win0_var677:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 678
 .Lvictim_win0_var678:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 679
 .Lvictim_win0_var679:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 680
 .Lvictim_win0_var680:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 681
 .Lvictim_win0_var681:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 682
 .Lvictim_win0_var682:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 683
 .Lvictim_win0_var683:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 684
 .Lvictim_win0_var684:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 685
 .Lvictim_win0_var685:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 686
 .Lvictim_win0_var686:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 687
 .Lvictim_win0_var687:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 688
 .Lvictim_win0_var688:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 689
 .Lvictim_win0_var689:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 690
 .Lvictim_win0_var690:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 691
 .Lvictim_win0_var691:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 692
 .Lvictim_win0_var692:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 693
 .Lvictim_win0_var693:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 694
 .Lvictim_win0_var694:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 695
 .Lvictim_win0_var695:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 696
 .Lvictim_win0_var696:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 697
 .Lvictim_win0_var697:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 698
 .Lvictim_win0_var698:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 699
 .Lvictim_win0_var699:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 700
 .Lvictim_win0_var700:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 701
 .Lvictim_win0_var701:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 702
 .Lvictim_win0_var702:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 703
 .Lvictim_win0_var703:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 704
 .Lvictim_win0_var704:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 705
 .Lvictim_win0_var705:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 706
 .Lvictim_win0_var706:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 707
 .Lvictim_win0_var707:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 708
 .Lvictim_win0_var708:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 709
 .Lvictim_win0_var709:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 710
 .Lvictim_win0_var710:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 711
 .Lvictim_win0_var711:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 712
 .Lvictim_win0_var712:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 713
 .Lvictim_win0_var713:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 714
 .Lvictim_win0_var714:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 715
 .Lvictim_win0_var715:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 716
 .Lvictim_win0_var716:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 717
 .Lvictim_win0_var717:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 718
 .Lvictim_win0_var718:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 719
 .Lvictim_win0_var719:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 720
 .Lvictim_win0_var720:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 721
 .Lvictim_win0_var721:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 722
 .Lvictim_win0_var722:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 723
 .Lvictim_win0_var723:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 724
 .Lvictim_win0_var724:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 725
 .Lvictim_win0_var725:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 726
 .Lvictim_win0_var726:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 727
 .Lvictim_win0_var727:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 728
 .Lvictim_win0_var728:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 729
 .Lvictim_win0_var729:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 730
 .Lvictim_win0_var730:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 731
 .Lvictim_win0_var731:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 732
 .Lvictim_win0_var732:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 733
 .Lvictim_win0_var733:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 734
 .Lvictim_win0_var734:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 735
 .Lvictim_win0_var735:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 736
 .Lvictim_win0_var736:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 737
 .Lvictim_win0_var737:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 738
 .Lvictim_win0_var738:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 739
 .Lvictim_win0_var739:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 740
 .Lvictim_win0_var740:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 741
 .Lvictim_win0_var741:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 742
 .Lvictim_win0_var742:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 743
 .Lvictim_win0_var743:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 744
 .Lvictim_win0_var744:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 745
 .Lvictim_win0_var745:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 746
 .Lvictim_win0_var746:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 747
 .Lvictim_win0_var747:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 748
 .Lvictim_win0_var748:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 749
 .Lvictim_win0_var749:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 750
 .Lvictim_win0_var750:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 751
 .Lvictim_win0_var751:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 752
 .Lvictim_win0_var752:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 753
 .Lvictim_win0_var753:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 754
 .Lvictim_win0_var754:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 755
 .Lvictim_win0_var755:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 756
 .Lvictim_win0_var756:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 757
 .Lvictim_win0_var757:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 758
 .Lvictim_win0_var758:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 759
 .Lvictim_win0_var759:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 760
 .Lvictim_win0_var760:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 761
 .Lvictim_win0_var761:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 762
 .Lvictim_win0_var762:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 763
 .Lvictim_win0_var763:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 764
 .Lvictim_win0_var764:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 765
 .Lvictim_win0_var765:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 766
 .Lvictim_win0_var766:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 767
 .Lvictim_win0_var767:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 768
 .Lvictim_win0_var768:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 769
 .Lvictim_win0_var769:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 770
 .Lvictim_win0_var770:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 771
 .Lvictim_win0_var771:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 772
 .Lvictim_win0_var772:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 773
 .Lvictim_win0_var773:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 774
 .Lvictim_win0_var774:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 775
 .Lvictim_win0_var775:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 776
 .Lvictim_win0_var776:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 777
 .Lvictim_win0_var777:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 778
 .Lvictim_win0_var778:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 779
 .Lvictim_win0_var779:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 780
 .Lvictim_win0_var780:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 781
 .Lvictim_win0_var781:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 782
 .Lvictim_win0_var782:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 783
 .Lvictim_win0_var783:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 784
 .Lvictim_win0_var784:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 785
 .Lvictim_win0_var785:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 786
 .Lvictim_win0_var786:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 787
 .Lvictim_win0_var787:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 788
 .Lvictim_win0_var788:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 789
 .Lvictim_win0_var789:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 790
 .Lvictim_win0_var790:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 791
 .Lvictim_win0_var791:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 792
 .Lvictim_win0_var792:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 793
 .Lvictim_win0_var793:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 794
 .Lvictim_win0_var794:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 795
 .Lvictim_win0_var795:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 796
 .Lvictim_win0_var796:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 797
 .Lvictim_win0_var797:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 798
 .Lvictim_win0_var798:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 799
 .Lvictim_win0_var799:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 800
 .Lvictim_win0_var800:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 801
 .Lvictim_win0_var801:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 802
 .Lvictim_win0_var802:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 803
 .Lvictim_win0_var803:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 804
 .Lvictim_win0_var804:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 805
 .Lvictim_win0_var805:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 806
 .Lvictim_win0_var806:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 807
 .Lvictim_win0_var807:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 808
 .Lvictim_win0_var808:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 809
 .Lvictim_win0_var809:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 810
 .Lvictim_win0_var810:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 811
 .Lvictim_win0_var811:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 812
 .Lvictim_win0_var812:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 813
 .Lvictim_win0_var813:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 814
 .Lvictim_win0_var814:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 815
 .Lvictim_win0_var815:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 816
 .Lvictim_win0_var816:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 817
 .Lvictim_win0_var817:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 818
 .Lvictim_win0_var818:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 819
 .Lvictim_win0_var819:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 820
 .Lvictim_win0_var820:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 821
 .Lvictim_win0_var821:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 822
 .Lvictim_win0_var822:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 823
 .Lvictim_win0_var823:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 824
 .Lvictim_win0_var824:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 825
 .Lvictim_win0_var825:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 826
 .Lvictim_win0_var826:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 827
 .Lvictim_win0_var827:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 828
 .Lvictim_win0_var828:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 829
 .Lvictim_win0_var829:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 830
 .Lvictim_win0_var830:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 831
 .Lvictim_win0_var831:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 832
 .Lvictim_win0_var832:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 833
 .Lvictim_win0_var833:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 834
 .Lvictim_win0_var834:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 835
 .Lvictim_win0_var835:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 836
 .Lvictim_win0_var836:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 837
 .Lvictim_win0_var837:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 838
 .Lvictim_win0_var838:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 839
 .Lvictim_win0_var839:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 840
 .Lvictim_win0_var840:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 841
 .Lvictim_win0_var841:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 842
 .Lvictim_win0_var842:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 843
 .Lvictim_win0_var843:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 844
 .Lvictim_win0_var844:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 845
 .Lvictim_win0_var845:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 846
 .Lvictim_win0_var846:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 847
 .Lvictim_win0_var847:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 848
 .Lvictim_win0_var848:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 849
 .Lvictim_win0_var849:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 850
 .Lvictim_win0_var850:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 851
 .Lvictim_win0_var851:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 852
 .Lvictim_win0_var852:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 853
 .Lvictim_win0_var853:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 854
 .Lvictim_win0_var854:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 855
 .Lvictim_win0_var855:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 856
 .Lvictim_win0_var856:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 857
 .Lvictim_win0_var857:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 858
 .Lvictim_win0_var858:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 859
 .Lvictim_win0_var859:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 860
 .Lvictim_win0_var860:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 861
 .Lvictim_win0_var861:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 862
 .Lvictim_win0_var862:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 863
 .Lvictim_win0_var863:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 864
 .Lvictim_win0_var864:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 865
 .Lvictim_win0_var865:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 866
 .Lvictim_win0_var866:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 867
 .Lvictim_win0_var867:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 868
 .Lvictim_win0_var868:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 869
 .Lvictim_win0_var869:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 870
 .Lvictim_win0_var870:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 871
 .Lvictim_win0_var871:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 872
 .Lvictim_win0_var872:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 873
 .Lvictim_win0_var873:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 874
 .Lvictim_win0_var874:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 875
 .Lvictim_win0_var875:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 876
 .Lvictim_win0_var876:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 877
 .Lvictim_win0_var877:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 878
 .Lvictim_win0_var878:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 879
 .Lvictim_win0_var879:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 880
 .Lvictim_win0_var880:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 881
 .Lvictim_win0_var881:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 882
 .Lvictim_win0_var882:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 883
 .Lvictim_win0_var883:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 884
 .Lvictim_win0_var884:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 885
 .Lvictim_win0_var885:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 886
 .Lvictim_win0_var886:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 887
 .Lvictim_win0_var887:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 888
 .Lvictim_win0_var888:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 889
 .Lvictim_win0_var889:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 890
 .Lvictim_win0_var890:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 891
 .Lvictim_win0_var891:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 892
 .Lvictim_win0_var892:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 893
 .Lvictim_win0_var893:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 894
 .Lvictim_win0_var894:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 895
 .Lvictim_win0_var895:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 896
 .Lvictim_win0_var896:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 897
 .Lvictim_win0_var897:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 898
 .Lvictim_win0_var898:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 899
 .Lvictim_win0_var899:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 900
 .Lvictim_win0_var900:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 901
 .Lvictim_win0_var901:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 902
 .Lvictim_win0_var902:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 903
 .Lvictim_win0_var903:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 904
 .Lvictim_win0_var904:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 905
 .Lvictim_win0_var905:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 906
 .Lvictim_win0_var906:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 907
 .Lvictim_win0_var907:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 908
 .Lvictim_win0_var908:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 909
 .Lvictim_win0_var909:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 910
 .Lvictim_win0_var910:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 911
 .Lvictim_win0_var911:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 912
 .Lvictim_win0_var912:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 913
 .Lvictim_win0_var913:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 914
 .Lvictim_win0_var914:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 915
 .Lvictim_win0_var915:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 916
 .Lvictim_win0_var916:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 917
 .Lvictim_win0_var917:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 918
 .Lvictim_win0_var918:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 919
 .Lvictim_win0_var919:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 920
 .Lvictim_win0_var920:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 921
 .Lvictim_win0_var921:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 922
 .Lvictim_win0_var922:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 923
 .Lvictim_win0_var923:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 924
 .Lvictim_win0_var924:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 925
 .Lvictim_win0_var925:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 926
 .Lvictim_win0_var926:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 927
 .Lvictim_win0_var927:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 928
 .Lvictim_win0_var928:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 929
 .Lvictim_win0_var929:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 930
 .Lvictim_win0_var930:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 931
 .Lvictim_win0_var931:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 932
 .Lvictim_win0_var932:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 933
 .Lvictim_win0_var933:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 934
 .Lvictim_win0_var934:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 935
 .Lvictim_win0_var935:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 936
 .Lvictim_win0_var936:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 937
 .Lvictim_win0_var937:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 938
 .Lvictim_win0_var938:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 939
 .Lvictim_win0_var939:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 940
 .Lvictim_win0_var940:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 941
 .Lvictim_win0_var941:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 942
 .Lvictim_win0_var942:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 943
 .Lvictim_win0_var943:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 944
 .Lvictim_win0_var944:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 945
 .Lvictim_win0_var945:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 946
 .Lvictim_win0_var946:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 947
 .Lvictim_win0_var947:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 948
 .Lvictim_win0_var948:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 949
 .Lvictim_win0_var949:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 950
 .Lvictim_win0_var950:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 951
 .Lvictim_win0_var951:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 952
 .Lvictim_win0_var952:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 953
 .Lvictim_win0_var953:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 954
 .Lvictim_win0_var954:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 955
 .Lvictim_win0_var955:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 956
 .Lvictim_win0_var956:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 957
 .Lvictim_win0_var957:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 958
 .Lvictim_win0_var958:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 959
 .Lvictim_win0_var959:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 960
 .Lvictim_win0_var960:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 961
 .Lvictim_win0_var961:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 962
 .Lvictim_win0_var962:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 963
 .Lvictim_win0_var963:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 964
 .Lvictim_win0_var964:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 965
 .Lvictim_win0_var965:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 966
 .Lvictim_win0_var966:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 967
 .Lvictim_win0_var967:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 968
 .Lvictim_win0_var968:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 969
 .Lvictim_win0_var969:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 970
 .Lvictim_win0_var970:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 971
 .Lvictim_win0_var971:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 972
 .Lvictim_win0_var972:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 973
 .Lvictim_win0_var973:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 974
 .Lvictim_win0_var974:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 975
 .Lvictim_win0_var975:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 976
 .Lvictim_win0_var976:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 977
 .Lvictim_win0_var977:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 978
 .Lvictim_win0_var978:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 979
 .Lvictim_win0_var979:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 980
 .Lvictim_win0_var980:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 981
 .Lvictim_win0_var981:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 982
 .Lvictim_win0_var982:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 983
 .Lvictim_win0_var983:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 984
 .Lvictim_win0_var984:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 985
 .Lvictim_win0_var985:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 986
 .Lvictim_win0_var986:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 987
 .Lvictim_win0_var987:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 988
 .Lvictim_win0_var988:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 989
 .Lvictim_win0_var989:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 990
 .Lvictim_win0_var990:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 991
 .Lvictim_win0_var991:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 992
 .Lvictim_win0_var992:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 993
 .Lvictim_win0_var993:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 994
 .Lvictim_win0_var994:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 995
 .Lvictim_win0_var995:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 996
 .Lvictim_win0_var996:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 997
 .Lvictim_win0_var997:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 998
 .Lvictim_win0_var998:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue
 ## Variant 999
 .Lvictim_win0_var999:
 	popq	%rax
-	movq	_target@GOTPCREL(%rip), %rax
-	movq	(%rax), %rax
-	movq	(%rax), %rbx
+	leaq	_target@GOTPCREL(%rip), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rax
+	leaq	(%rax), %r10
+	movq	(%r10), %rbx
 	## InlineAsm Start
 	callq	*%rbx
 	jmp	.Lvictim_win0_continue

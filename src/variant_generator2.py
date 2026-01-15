@@ -600,11 +600,220 @@ def transform_reorder_movs(instrs):
 
 
 # ==============================================================
+# Trasformazione: Retpoline rewrite (Spectre V2 - BTI)
+# ==============================================================
+
+_RETPO_ID = 0
+
+def transform_retpoline_rewrite(instrs, safe_temps=None):
+    """
+    Riscrive call/jmp indiretti (Spectre V2 - BTI) in retpoline.
+
+    Supporta:
+      - call/callq/jmp/jmpq *%reg
+      - call/callq/jmp/jmpq *mem   (solo se safe_temps disponibile)
+
+    Strategia per *mem:
+      - carica il target in un registro temporaneo "safe" con: movq mem, tmp
+      - applica retpoline su tmp
+    """
+    from detector import is_indirect_branch
+
+    global _RETPO_ID
+    out = [deepcopy(i) for i in instrs]
+
+    def fresh_tag():
+        global _RETPO_ID
+        _RETPO_ID += 1
+        return f"{_RETPO_ID:06d}"
+
+    def is_int_literal(s: str) -> bool:
+        s = (s or "").strip().lower()
+        if s.startswith("0x"):
+            try:
+                int(s, 16)
+                return True
+            except ValueError:
+                return False
+        try:
+            int(s, 10)
+            return True
+        except ValueError:
+            return False
+
+    i = 0
+    while i < len(out):
+        ins = out[i]
+
+        # Salta direttive/label e istruzioni già "strutturali"
+        if ins is None or ins.mnemonic is None or getattr(ins, "directive", False) or getattr(ins, "structural_tag", False):
+            i += 1
+            continue
+
+        if not is_indirect_branch(ins):
+            i += 1
+            continue
+
+        m = (ins.mnemonic or "").lower()
+        if not (m.startswith("call") or m.startswith("jmp")):
+            i += 1
+            continue
+
+        if not ins.operands:
+            i += 1
+            continue
+
+        op0 = ins.operands[0].strip()
+        if not op0.startswith("*"):
+            i += 1
+            continue
+
+        target = op0[1:].strip()
+
+        # ----------------------------------------------------------
+        # 1) Materializza il target in un registro (treg)
+        # ----------------------------------------------------------
+        prep = []
+        treg = None
+
+        # Caso A: *%reg (solo 64-bit regs del tuo tool)
+        if target in ALL_GPRS:
+            treg = target
+
+        # Se è un registro ma NON è tra ALL_GPRS (es. %eax): non tocchiamo (conservativo)
+        elif target.startswith("%"):
+            i += 1
+            continue
+
+        # Caso B: *mem o *imm -> serve tmp "safe"
+        else:
+            if not safe_temps:
+                # Non abbiamo temp: non tocchiamo *mem (conservativo)
+                i += 1
+                continue
+
+            tmp = safe_temps[0]
+            treg = tmp
+
+            # *0x401000 / *1234 -> carica immediato in tmp
+            if is_int_literal(target):
+                movabs = Instruction(f"    movabsq ${target}, {tmp}", "movabsq", [f"${target}", tmp])
+                movabs.structural_tag = True
+                prep.append(movabs)
+            else:
+                # *foo(%rip), *(%rax), *8(%rdi,%rcx,4), *foo, *foo@GOTPCREL(%rip), ...
+                # Semantica: il branch legge da memoria il puntatore target.
+                mov = Instruction(f"    movq    {target}, {tmp}", "movq", [target, tmp])
+                mov.structural_tag = True
+                prep.append(mov)
+
+        if not treg:
+            i += 1
+            continue
+
+        tag = fresh_tag()
+        cap   = f".Lgg_retpol_cap_{tag}"
+        setup = f".Lgg_retpol_setup_{tag}"
+
+        seq = []
+        seq.extend(prep)
+
+        # ----------------------------------------------------------
+        # 2) Retpoline vero e proprio
+        # ----------------------------------------------------------
+        if m.startswith("jmp"):
+            # Retpoline per jmp *X:
+            #   call setup
+            # cap: pause; lfence; jmp cap
+            # setup: movq treg,(%rsp); ret
+            c = Instruction(f"    callq   {setup}", "callq", [setup]); c.structural_tag = True
+            seq.append(c)
+
+            lcap = Instruction(f"{cap}:", None); lcap.structural_tag = True
+            seq.append(lcap)
+
+            p = Instruction("    pause", "pause", []); p.structural_tag = True
+            seq.append(p)
+
+            f = Instruction("    lfence", "lfence", []); f.structural_tag = True
+            seq.append(f)
+
+            j = Instruction(f"    jmp     {cap}", "jmp", [cap]); j.structural_tag = True
+            seq.append(j)
+
+            lsetup = Instruction(f"{setup}:", None); lsetup.structural_tag = True
+            seq.append(lsetup)
+
+            mv = Instruction(f"    movq    {treg}, (%rsp)", "movq", [treg, "(%rsp)"]); mv.structural_tag = True
+            seq.append(mv)
+
+            r = Instruction("    ret", "ret", []); r.structural_tag = True
+            seq.append(r)
+
+        else:
+            # Retpoline per call *X (preserva RA originale):
+            #   call thunk
+            #   jmp after
+            # thunk:
+            #   call setup
+            # cap: pause; lfence; jmp cap
+            # setup: movq treg,(%rsp); ret
+            # after:
+            thunk = f".Lgg_retpol_thunk_{tag}"
+            after = f".Lgg_retpol_after_{tag}"
+
+            c1 = Instruction(f"    callq   {thunk}", "callq", [thunk]); c1.structural_tag = True
+            seq.append(c1)
+
+            jafter = Instruction(f"    jmp     {after}", "jmp", [after]); jafter.structural_tag = True
+            seq.append(jafter)
+
+            lth = Instruction(f"{thunk}:", None); lth.structural_tag = True
+            seq.append(lth)
+
+            c2 = Instruction(f"    callq   {setup}", "callq", [setup]); c2.structural_tag = True
+            seq.append(c2)
+
+            lcap = Instruction(f"{cap}:", None); lcap.structural_tag = True
+            seq.append(lcap)
+
+            p = Instruction("    pause", "pause", []); p.structural_tag = True
+            seq.append(p)
+
+            f = Instruction("    lfence", "lfence", []); f.structural_tag = True
+            seq.append(f)
+
+            j = Instruction(f"    jmp     {cap}", "jmp", [cap]); j.structural_tag = True
+            seq.append(j)
+
+            lsetup = Instruction(f"{setup}:", None); lsetup.structural_tag = True
+            seq.append(lsetup)
+
+            # sovrascrive il RA della call interna (c2) con il target => ret va al callee
+            mv = Instruction(f"    movq    {treg}, (%rsp)", "movq", [treg, "(%rsp)"]); mv.structural_tag = True
+            seq.append(mv)
+
+            r = Instruction("    ret", "ret", []); r.structural_tag = True
+            seq.append(r)
+
+            lafter = Instruction(f"{after}:", None); lafter.structural_tag = True
+            seq.append(lafter)
+
+        # sostituisce l'istruzione originale con la sequenza
+        out[i:i+1] = seq
+        i += len(seq)
+
+    return out
+
+
+
+# ==============================================================
 # Generatore principale di varianti
 # ==============================================================
 
 def generate_variants_for_results(functions, results,
                                   num_variants=3,
+                                  same_variants=False,
                                   transformations=None,
                                   seed=None,
                                   transforms_per_variant=1,
@@ -764,27 +973,27 @@ def generate_variants_for_results(functions, results,
             # NON è necessario che le varianti che genero siano tutte diverse e uniche,
             # perché saranno comunque in posizione (PC address) diversa tra loro
             # --------------------------------------------------------------------------
+            if same_variants == False:
+                # Varianti successive: sequenza di N trasformazioni scelte secondo i pesi
+                for _v in range(1, num_variants):
+                    current = window_instrs
 
-            # Varianti successive: sequenza di N trasformazioni scelte secondo i pesi
-            for _v in range(1, num_variants):
-                current = window_instrs
+                    for _step in range(transforms_per_variant):
+                        t = pick_transform()
 
-                for _step in range(transforms_per_variant):
-                    t = pick_transform()
+                        # Trasformazioni che richiedono registri temporanei "safe"
+                        if t is transform_lea_split or t is transform_index_masking_light or t is transform_retpoline_rewrite:
+                            current = t(current, safe_temps)
+                        else:
+                            current = t(current)
 
-                    # Trasformazioni che richiedono registri temporanei "safe"
-                    if t is transform_lea_split or t is transform_index_masking_light:
-                        current = t(current, safe_temps)
-                    else:
-                        current = t(current)
+                    variants.append(current)
 
-                variants.append(current)
+            else:
+                # Varianti successive: copie esatte dell'originale
+                for _v in range(1, num_variants):
+                    variants.append([deepcopy(i) for i in window_instrs])
 
-            '''
-            # Varianti successive: copie esatte dell'originale
-            for _v in range(1, num_variants):
-                variants.append([deepcopy(i) for i in window_instrs])
-            '''
 
             # ======================================================
             # 2. Costruzione del blocco di selezione dinamica

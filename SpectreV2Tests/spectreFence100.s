@@ -294,6 +294,7 @@ LBB2_4:
 ## Variant 1
 .Lvictim_win0_var1:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -303,6 +304,7 @@ LBB2_4:
 ## Variant 2
 .Lvictim_win0_var2:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -312,6 +314,7 @@ LBB2_4:
 ## Variant 3
 .Lvictim_win0_var3:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -321,6 +324,7 @@ LBB2_4:
 ## Variant 4
 .Lvictim_win0_var4:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -330,6 +334,7 @@ LBB2_4:
 ## Variant 5
 .Lvictim_win0_var5:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -339,6 +344,7 @@ LBB2_4:
 ## Variant 6
 .Lvictim_win0_var6:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -348,6 +354,7 @@ LBB2_4:
 ## Variant 7
 .Lvictim_win0_var7:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -357,6 +364,7 @@ LBB2_4:
 ## Variant 8
 .Lvictim_win0_var8:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -366,6 +374,7 @@ LBB2_4:
 ## Variant 9
 .Lvictim_win0_var9:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -375,6 +384,7 @@ LBB2_4:
 ## Variant 10
 .Lvictim_win0_var10:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -384,6 +394,7 @@ LBB2_4:
 ## Variant 11
 .Lvictim_win0_var11:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -393,6 +404,7 @@ LBB2_4:
 ## Variant 12
 .Lvictim_win0_var12:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -402,6 +414,7 @@ LBB2_4:
 ## Variant 13
 .Lvictim_win0_var13:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -411,6 +424,7 @@ LBB2_4:
 ## Variant 14
 .Lvictim_win0_var14:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -420,6 +434,7 @@ LBB2_4:
 ## Variant 15
 .Lvictim_win0_var15:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -429,6 +444,7 @@ LBB2_4:
 ## Variant 16
 .Lvictim_win0_var16:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -438,6 +454,7 @@ LBB2_4:
 ## Variant 17
 .Lvictim_win0_var17:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -447,6 +464,7 @@ LBB2_4:
 ## Variant 18
 .Lvictim_win0_var18:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -456,6 +474,7 @@ LBB2_4:
 ## Variant 19
 .Lvictim_win0_var19:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -465,6 +484,7 @@ LBB2_4:
 ## Variant 20
 .Lvictim_win0_var20:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -474,6 +494,7 @@ LBB2_4:
 ## Variant 21
 .Lvictim_win0_var21:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -483,6 +504,7 @@ LBB2_4:
 ## Variant 22
 .Lvictim_win0_var22:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -492,6 +514,7 @@ LBB2_4:
 ## Variant 23
 .Lvictim_win0_var23:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -501,6 +524,7 @@ LBB2_4:
 ## Variant 24
 .Lvictim_win0_var24:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -510,6 +534,7 @@ LBB2_4:
 ## Variant 25
 .Lvictim_win0_var25:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -519,6 +544,7 @@ LBB2_4:
 ## Variant 26
 .Lvictim_win0_var26:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -528,6 +554,7 @@ LBB2_4:
 ## Variant 27
 .Lvictim_win0_var27:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -537,6 +564,7 @@ LBB2_4:
 ## Variant 28
 .Lvictim_win0_var28:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -546,6 +574,7 @@ LBB2_4:
 ## Variant 29
 .Lvictim_win0_var29:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -555,6 +584,7 @@ LBB2_4:
 ## Variant 30
 .Lvictim_win0_var30:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -564,6 +594,7 @@ LBB2_4:
 ## Variant 31
 .Lvictim_win0_var31:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -573,6 +604,7 @@ LBB2_4:
 ## Variant 32
 .Lvictim_win0_var32:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -582,6 +614,7 @@ LBB2_4:
 ## Variant 33
 .Lvictim_win0_var33:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -591,6 +624,7 @@ LBB2_4:
 ## Variant 34
 .Lvictim_win0_var34:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -600,6 +634,7 @@ LBB2_4:
 ## Variant 35
 .Lvictim_win0_var35:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -609,6 +644,7 @@ LBB2_4:
 ## Variant 36
 .Lvictim_win0_var36:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -618,6 +654,7 @@ LBB2_4:
 ## Variant 37
 .Lvictim_win0_var37:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -627,6 +664,7 @@ LBB2_4:
 ## Variant 38
 .Lvictim_win0_var38:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -636,6 +674,7 @@ LBB2_4:
 ## Variant 39
 .Lvictim_win0_var39:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -645,6 +684,7 @@ LBB2_4:
 ## Variant 40
 .Lvictim_win0_var40:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -654,6 +694,7 @@ LBB2_4:
 ## Variant 41
 .Lvictim_win0_var41:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -663,6 +704,7 @@ LBB2_4:
 ## Variant 42
 .Lvictim_win0_var42:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -672,6 +714,7 @@ LBB2_4:
 ## Variant 43
 .Lvictim_win0_var43:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -681,6 +724,7 @@ LBB2_4:
 ## Variant 44
 .Lvictim_win0_var44:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -690,6 +734,7 @@ LBB2_4:
 ## Variant 45
 .Lvictim_win0_var45:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -699,6 +744,7 @@ LBB2_4:
 ## Variant 46
 .Lvictim_win0_var46:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -708,6 +754,7 @@ LBB2_4:
 ## Variant 47
 .Lvictim_win0_var47:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -717,6 +764,7 @@ LBB2_4:
 ## Variant 48
 .Lvictim_win0_var48:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -726,6 +774,7 @@ LBB2_4:
 ## Variant 49
 .Lvictim_win0_var49:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -735,6 +784,7 @@ LBB2_4:
 ## Variant 50
 .Lvictim_win0_var50:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -744,6 +794,7 @@ LBB2_4:
 ## Variant 51
 .Lvictim_win0_var51:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -753,6 +804,7 @@ LBB2_4:
 ## Variant 52
 .Lvictim_win0_var52:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -762,6 +814,7 @@ LBB2_4:
 ## Variant 53
 .Lvictim_win0_var53:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -771,6 +824,7 @@ LBB2_4:
 ## Variant 54
 .Lvictim_win0_var54:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -780,6 +834,7 @@ LBB2_4:
 ## Variant 55
 .Lvictim_win0_var55:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -789,6 +844,7 @@ LBB2_4:
 ## Variant 56
 .Lvictim_win0_var56:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -798,6 +854,7 @@ LBB2_4:
 ## Variant 57
 .Lvictim_win0_var57:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -807,6 +864,7 @@ LBB2_4:
 ## Variant 58
 .Lvictim_win0_var58:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -816,6 +874,7 @@ LBB2_4:
 ## Variant 59
 .Lvictim_win0_var59:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -825,6 +884,7 @@ LBB2_4:
 ## Variant 60
 .Lvictim_win0_var60:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -834,6 +894,7 @@ LBB2_4:
 ## Variant 61
 .Lvictim_win0_var61:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -843,6 +904,7 @@ LBB2_4:
 ## Variant 62
 .Lvictim_win0_var62:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -852,6 +914,7 @@ LBB2_4:
 ## Variant 63
 .Lvictim_win0_var63:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -861,6 +924,7 @@ LBB2_4:
 ## Variant 64
 .Lvictim_win0_var64:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -870,6 +934,7 @@ LBB2_4:
 ## Variant 65
 .Lvictim_win0_var65:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -879,6 +944,7 @@ LBB2_4:
 ## Variant 66
 .Lvictim_win0_var66:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -888,6 +954,7 @@ LBB2_4:
 ## Variant 67
 .Lvictim_win0_var67:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -897,6 +964,7 @@ LBB2_4:
 ## Variant 68
 .Lvictim_win0_var68:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -906,6 +974,7 @@ LBB2_4:
 ## Variant 69
 .Lvictim_win0_var69:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -915,6 +984,7 @@ LBB2_4:
 ## Variant 70
 .Lvictim_win0_var70:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -924,6 +994,7 @@ LBB2_4:
 ## Variant 71
 .Lvictim_win0_var71:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -933,6 +1004,7 @@ LBB2_4:
 ## Variant 72
 .Lvictim_win0_var72:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -942,6 +1014,7 @@ LBB2_4:
 ## Variant 73
 .Lvictim_win0_var73:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -951,6 +1024,7 @@ LBB2_4:
 ## Variant 74
 .Lvictim_win0_var74:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -960,6 +1034,7 @@ LBB2_4:
 ## Variant 75
 .Lvictim_win0_var75:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -969,6 +1044,7 @@ LBB2_4:
 ## Variant 76
 .Lvictim_win0_var76:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -978,6 +1054,7 @@ LBB2_4:
 ## Variant 77
 .Lvictim_win0_var77:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -987,6 +1064,7 @@ LBB2_4:
 ## Variant 78
 .Lvictim_win0_var78:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -996,6 +1074,7 @@ LBB2_4:
 ## Variant 79
 .Lvictim_win0_var79:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1005,6 +1084,7 @@ LBB2_4:
 ## Variant 80
 .Lvictim_win0_var80:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1014,6 +1094,7 @@ LBB2_4:
 ## Variant 81
 .Lvictim_win0_var81:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1023,6 +1104,7 @@ LBB2_4:
 ## Variant 82
 .Lvictim_win0_var82:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1032,6 +1114,7 @@ LBB2_4:
 ## Variant 83
 .Lvictim_win0_var83:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1041,6 +1124,7 @@ LBB2_4:
 ## Variant 84
 .Lvictim_win0_var84:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1050,6 +1134,7 @@ LBB2_4:
 ## Variant 85
 .Lvictim_win0_var85:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1059,6 +1144,7 @@ LBB2_4:
 ## Variant 86
 .Lvictim_win0_var86:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1068,6 +1154,7 @@ LBB2_4:
 ## Variant 87
 .Lvictim_win0_var87:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1077,6 +1164,7 @@ LBB2_4:
 ## Variant 88
 .Lvictim_win0_var88:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1086,6 +1174,7 @@ LBB2_4:
 ## Variant 89
 .Lvictim_win0_var89:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1095,6 +1184,7 @@ LBB2_4:
 ## Variant 90
 .Lvictim_win0_var90:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1104,6 +1194,7 @@ LBB2_4:
 ## Variant 91
 .Lvictim_win0_var91:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1113,6 +1204,7 @@ LBB2_4:
 ## Variant 92
 .Lvictim_win0_var92:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1122,6 +1214,7 @@ LBB2_4:
 ## Variant 93
 .Lvictim_win0_var93:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1131,6 +1224,7 @@ LBB2_4:
 ## Variant 94
 .Lvictim_win0_var94:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1140,6 +1234,7 @@ LBB2_4:
 ## Variant 95
 .Lvictim_win0_var95:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1149,6 +1244,7 @@ LBB2_4:
 ## Variant 96
 .Lvictim_win0_var96:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1158,6 +1254,7 @@ LBB2_4:
 ## Variant 97
 .Lvictim_win0_var97:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1167,6 +1264,7 @@ LBB2_4:
 ## Variant 98
 .Lvictim_win0_var98:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx
@@ -1176,6 +1274,7 @@ LBB2_4:
 ## Variant 99
 .Lvictim_win0_var99:
 	popq	%rax
+	lfence
 	movq	_target@GOTPCREL(%rip), %rax
 	movq	(%rax), %rax
 	movq	(%rax), %rbx

@@ -7,11 +7,12 @@ from src.variant_generator2 import (
     transform_lea_split,
     transform_reorder_movs,
     transform_index_masking_light,
+    transform_retpoline_rewrite,
 )
 
 def main():
-    funcs = load_functions('SpectreV2Tests/spectre.s')
-    results = annotate_transient_instructions(funcs, window_size=4)
+    funcs = load_functions('SpectreV4Tests/spectre.s')
+    results = annotate_transient_instructions(funcs, window_size=7, enabled_detectors = ['detect_indirect_branch'])
 
     for r in results:
         print(r)
@@ -19,22 +20,24 @@ def main():
 
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
-        transform_index_masking_light: 0.3,
-        transform_nop: 0.2,
-        transform_lea_split: 0.2,
-        transform_reorder_movs: 0.2,
-        transform_fence: 0.1,
+        #transform_index_masking_light: 0.3,
+        #transform_nop: 0.1,
+        #transform_lea_split: 0.1,
+        #transform_reorder_movs: 0.2,
+        #transform_fence: 0.1,
+        #transform_retpoline_rewrite: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=500,
+        num_variants=10,
+        same_variants=False,
         transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV2Tests/spectre500.s')
+    write_functions(out, 'SpectreV4Tests/spectre6.s')
 
 '''
 def main():
