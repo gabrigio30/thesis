@@ -3,7 +3,7 @@
 #include <x86intrin.h>
 
 #define LEN 16
-#define MAX_TRIES 2000
+#define MAX_TRIES 10000
 #define CACHE_HIT_THRESHOLD 100
 
 

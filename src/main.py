@@ -8,36 +8,49 @@ from src.variant_generator2 import (
     transform_reorder_movs,
     transform_index_masking_light,
     transform_retpoline_rewrite,
+    transform_fence_between_store_load,
 )
 
 def main():
     funcs = load_functions('SpectreV4Tests/spectre.s')
-    results = annotate_transient_instructions(funcs, window_size=7, enabled_detectors = ['detect_indirect_branch'])
+    results = annotate_transient_instructions(funcs, window_size=7,
+                                              enabled_detectors = [#'detect_cmp_jcc_mem',
+                                                                   #'detect_indirect_branch',
+                                                                   'detect_store_then_load',
+                                                                   #'detect_early_load_after_store',
+                                                                   #'detect_unbalanced_ret',
+                                                                   ])
 
     for r in results:
         print(r)
         print('\n')
 
+    for func in funcs:
+        for instr in func.instructions:
+            if instr.is_transient_window:
+                print(f" Func '{func.name}': {instr.to_asm()} --> score={instr.transient_score}")
+
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
-        #transform_index_masking_light: 0.3,
-        #transform_nop: 0.1,
-        #transform_lea_split: 0.1,
-        #transform_reorder_movs: 0.2,
-        #transform_fence: 0.1,
+        transform_index_masking_light: 0.10,
+        transform_nop: 0.3,
+        transform_lea_split: 0.3,
+        #transform_reorder_movs: 0.1,
+        #transform_fence: 0.15,
+        transform_fence_between_store_load: 0.3,
         #transform_retpoline_rewrite: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=10,
+        num_variants=500,
         same_variants=False,
         transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV4Tests/spectre6.s')
+    write_functions(out, 'SpectreV4Tests/spectreAll500.s')
 
 '''
 def main():

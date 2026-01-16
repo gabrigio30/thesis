@@ -23,6 +23,120 @@ from parser import Function, Instruction
 # Helper/utility
 # ---------------------------------------------------------------------
 
+def _strip_inline_comment(raw: str) -> str:
+    return raw.split('#', 1)[0].strip()
+
+
+def _is_bb_boundary(instr: Instruction) -> bool:
+    """
+    True se la riga è una label reale (es. LBB1_3:), usata come boundary di basic-block.
+    (stesso stile di detect_cmp_jcc_mem: non attraversiamo label)
+    """
+    if instr.mnemonic is not None:
+        return False
+    raw = normalize_raw(instr.raw_line)
+    return _strip_inline_comment(raw).endswith(":")
+
+
+def _is_cf_boundary(instr: Instruction) -> bool:
+    """True se l'istruzione è un boundary di controllo (non attraversiamo)."""
+    if instr.mnemonic is None:
+        return False
+    mn = instr.mnemonic.lower()
+    if is_unconditional_jump(instr) or is_conditional_jump(instr) or is_ret(instr):
+        return True
+    # anche le call spezzano il flusso: evita finestre che attraversano call
+    if mn.startswith('call'):
+        return True
+    return False
+
+
+def _is_mem_operand(op: str) -> bool:
+    return '(' in op and ')' in op
+
+
+def _is_stack_mem_operand(op: str) -> bool:
+    """Filtro semplice: accessi diretti allo stack via %rbp/%rsp (spills/locals)."""
+    if not _is_mem_operand(op):
+        return False
+    return ('%rbp' in op) or ('%rsp' in op) or ('%ebp' in op) or ('%esp' in op)
+
+
+def _is_rip_relative_mem(op: str) -> bool:
+    return _is_mem_operand(op) and ('%rip' in op)
+
+
+def _get_relevant_mem_operands(instr: Instruction, include_rip: bool = False) -> List[str]:
+    """
+    Ritorna gli operandi memoria filtrando stack e (opzionalmente) RIP-relative.
+    Questo taglia quasi tutto il rumore in attacker/main.
+    """
+    mems = [op for op in (instr.operands or []) if _is_mem_operand(op)]
+    mems = [op for op in mems if not _is_stack_mem_operand(op)]
+    if not include_rip:
+        mems = [op for op in mems if not _is_rip_relative_mem(op)]
+    return mems
+
+
+def _mov_like_mnemonic(instr: Instruction) -> bool:
+    if not instr.mnemonic:
+        return False
+    mn = instr.mnemonic.lower()
+    return mn.startswith('mov') or mn.startswith('stos')
+
+
+def _is_store_to_nonstack_mem(instr: Instruction) -> bool:
+    """
+    Store (AT&T): mov-like con DEST memoria (ultimo operando).
+    Evita stack e %rip (GOT/global).
+    """
+    if not _mov_like_mnemonic(instr):
+        return False
+    if not instr.operands or len(instr.operands) < 2:
+        return False
+    dst = instr.operands[-1]
+    return _is_mem_operand(dst) and not _is_stack_mem_operand(dst) and not _is_rip_relative_mem(dst)
+
+
+def _is_load_from_nonstack_mem(instr: Instruction) -> bool:
+    """
+    Load (AT&T): mov-like con SRC memoria (primo operando).
+    Evita stack e %rip (GOT/global).
+    """
+    if not _mov_like_mnemonic(instr):
+        return False
+    if not instr.operands or len(instr.operands) < 2:
+        return False
+    src = instr.operands[0]
+    return _is_mem_operand(src) and not _is_stack_mem_operand(src) and not _is_rip_relative_mem(src)
+
+
+def _base_reg_of_memop(op: str) -> Optional[str]:
+    """Estrae il base register dall'addressing mode AT&T: disp(base,index,scale)."""
+    if not _is_mem_operand(op):
+        return None
+    inside = op[op.find('(') + 1: op.find(')')]
+    parts = [p.strip() for p in inside.split(',') if p.strip()]
+    if not parts:
+        return None
+    return parts[0] if parts[0].startswith('%') else None
+
+
+def _mem_operands_may_alias(store_mems: List[str], load_mems: List[str]) -> bool:
+    """
+    Alias euristico (più stretto del tuo): stesso base register (non stack, non rip).
+    Questo elimina un sacco di falsi positivi e riduce overlap.
+    """
+    for so in store_mems:
+        b1 = _base_reg_of_memop(so)
+        if not b1 or b1 in {'%rbp', '%rsp', '%ebp', '%esp', '%rip'}:
+            continue
+        for lo in load_mems:
+            if _base_reg_of_memop(lo) == b1:
+                return True
+    return False
+
+
 def is_cmp_or_test(instr: Instruction) -> bool:
     """Ritorna True se l'istruzione è di tipo 'cmp' o 'test'."""
     return instr.mnemonic and instr.mnemonic.lower().startswith(('cmp', 'test'))
@@ -216,44 +330,45 @@ def detect_indirect_branch(instrs: List[Instruction], i: int, window_size: int, 
 
 def detect_store_then_load(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
     """
-    Pattern: store -> load su (potenzialmente) stesso indirizzo entro poche istruzioni.
-    Questa euristica può catturare casi di store-to-load forwarding / SSB-like windows.
-    Implementazione: se troviamo una store (mov to mem) e successivamente un load da memoria che
-    usa lo stesso base/index (semplice confronto testuale degli operandi), la segnaliamo.
-    Nota: è un'euristica semplice, potrebbe generare falsi positivi, servirà poi alias analysis.
+    Pattern: store -> load (Spectre v4 / Speculative Store Bypass)
+
+    Fix principali:
+    - store = DEST memoria (ultimo operando) (prima: qualunque mem operand)
+    - load  = SRC memoria (primo operando)
+    - non attraversa label/jump/ret/call (evita duplicazione LBB...:)
+    - greedy non-overlap: se già marcata, non parte da lì ✅
     """
     instr = instrs[i]
     if not instr.mnemonic:
         return None
 
-    # riconsideriamo 'store' come istruzione con una parentesi nei primi operandi e destinazione memoria
-    # Semplice check testuale: un'istruzione che contiene "(" nell'ultimo operando e 'mov' o 'stos' ecc.
-    mn = instr.mnemonic.lower()
-    if not (mn.startswith('mov') or 'store' in mn or mn.startswith('stos')):
-        return None
-    if not has_memory_access(instr):
+    # Greedy non-overlap: evita finestre sovrapposte
+    if getattr(instr, "is_transient_window", False):
         return None
 
-    store_operands = instr.operands
-    # cerchiamo un load successivo entro window_size
+    if not _is_store_to_nonstack_mem(instr):
+        return None
+
+    store_mems = _get_relevant_mem_operands(instr, include_rip=False)
+    if not store_mems:
+        return None
+
+    # cerca il PRIMO load successivo entro window_size, restando nello stesso basic-block
     for j in range(i + 1, min(n, i + window_size)):
-        if instrs[j].mnemonic and has_memory_access(instrs[j]):
-            # confronto testuale semplificato degli operandi: se condividono la stessa base/index substring
-            # (es. (%rax), (%rax,%rcx,1) -> consideriamo potenzialmente aliasing)
-            mem_ops_store = [op for op in store_operands if '(' in op]
-            mem_ops_load = [op for op in instrs[j].operands if '(' in op]
-            for so in mem_ops_store:
-                for lo in mem_ops_load:
-                    # check molto semplice: stessa register base presente
-                    # (analisi più sofisticata richiederebbe parsing degli addressing modes)
-                    for reg in ['%rax', '%rbx', '%rcx', '%rdx', '%rsi', '%rdi', '%rbp', '%rsp', '%r8', '%r9', '%r10', '%r11', '%r12', '%r13', '%r14', '%r15']:
-                        if reg in so and reg in lo:
-                            # abbiamo una potenziale store->load sullo stesso registro base
-                            score = 0.6
-                            start = i
-                            end = j
-                            mark_window(instrs, start, end, score)
-                            return {"start_index": start, "end_index": end, "pattern": "store->load", "score": score}
+        nxt = instrs[j]
+
+        if _is_bb_boundary(nxt) or _is_cf_boundary(nxt):
+            break
+
+        if not _is_load_from_nonstack_mem(nxt):
+            continue
+
+        load_mems = _get_relevant_mem_operands(nxt, include_rip=False)
+        if load_mems and _mem_operands_may_alias(store_mems, load_mems):
+            score = 0.6
+            mark_window(instrs, i, j, score)
+            return {"start_index": i, "end_index": j, "pattern": "store->load", "score": score}
+
     return None
 
 

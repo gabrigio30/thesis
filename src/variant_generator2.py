@@ -17,9 +17,10 @@
 import random
 from copy import deepcopy
 from parser import Instruction
+import re
 
 # ==============================================================
-# Helper per la gestione dei registri temporanei "sicuri"
+# FUNZIONI HELPER
 # ==============================================================
 
 # Tutti i registri generali a 64 bit che ci interessano
@@ -110,11 +111,6 @@ def reg_sets_for_mov(ins):
     return defs, uses
 
 
-
-# ==============================================================
-# Helper per generare etichette leggibili e univoche
-# ==============================================================
-
 def _labelify(func_name: str) -> str:
     """Rimuove eventuale underscore iniziale (es. '_victim_function' -> 'victim_function')."""
     return func_name.lstrip("_")
@@ -131,10 +127,6 @@ def make_continue_label(func_name: str, win_idx: int) -> str:
     base = _labelify(func_name)
     return f".L{base}_win{win_idx}_continue:"
 
-# ==============================================================
-# Trasformazione: Index Masking (AIH/SLH "light") senza fence
-# ==============================================================
-# Incolla questo blocco **prima** di:  def generate_variants_for_results(...)
 
 def _is_conditional_jump_mnemonic(m: str) -> bool:
     """Ritorna True se la mnemonica è un jump condizionale (jcc)."""
@@ -227,6 +219,104 @@ def _rewrite_mem_operand_index(op: str, new_index: str) -> str:
     parts[1] = new_index
     new_inside = ",".join(parts)
     return f"{prefix}({new_inside}){suffix}"
+
+
+# ==============================================================
+# Helper: padding stack per il selector (evita clobber di red-zone locals)
+# ==============================================================
+_SELECTOR_STACK_PAD = 32  # multiplo di 16; sufficiente per allontanare i push dai locals -8/-16
+
+_RE_NEG_RBP = re.compile(r"-\d+\(%rbp\)")
+
+def _function_has_stack_frame_alloc(func, scan_limit: int = 64) -> bool:
+    """True se nel prologo c'e' un'allocazione/realign su %rsp."""
+    for ins in func.instructions[:scan_limit]:
+        if ins.mnemonic is None:
+            raw = (ins.raw_line or '').strip()
+            if raw.endswith(':'):
+                break
+            continue
+
+        m = ins.mnemonic.lower()
+        ops = ins.operands or []
+
+        # frame allocation tipica: subq $imm, %rsp
+        if m in ('subq', 'sub') and len(ops) == 2 and ops[-1] == '%rsp':
+            return True
+
+        # realign tipico: andq $-16, %rsp
+        if m in ('andq', 'and') and len(ops) == 2 and ops[-1] == '%rsp':
+            return True
+
+    return False
+
+
+def _function_uses_redzone_rbp_locals(func, scan_limit: int = 256) -> bool:
+    """True se troviamo accessi a locals via offset negativo su %rbp (es. -8(%rbp))."""
+    for ins in func.instructions[:scan_limit]:
+        if ins.mnemonic is None:
+            continue
+        for op in (ins.operands or []):
+            if _RE_NEG_RBP.search(op):
+                return True
+    return False
+
+
+def _selector_needs_stack_padding(func) -> bool:
+    """Padding necessario se usa red-zone locals e non alloca frame su %rsp."""
+    return _function_uses_redzone_rbp_locals(func) and not _function_has_stack_frame_alloc(func)
+
+
+def _window_touches_rsp(window_instrs) -> bool:
+    """
+    Extra safety: se la finestra usa %rsp esplicitamente (addressing su stack),
+    spostare %rsp cambierebbe il significato.
+    """
+    for ins in window_instrs:
+        if ins.mnemonic is None:
+            continue
+        # mnemoniche stack-sensitive
+        m = ins.mnemonic.lower()
+        if m.startswith("push") or m.startswith("pop") or m.startswith("call") or m.startswith("ret"):
+            return True
+        # operandi che referenziano %rsp
+        for op in (ins.operands or []):
+            if "%rsp" in op:
+                return True
+    return False
+
+
+def _is_mem_operand(op: str) -> bool:
+    return op is not None and "(" in op and ")" in op
+
+def _is_mov_like(ins: Instruction) -> bool:
+    if ins is None or ins.mnemonic is None:
+        return False
+    return ins.mnemonic.lower().startswith("mov")
+
+def _is_store_mov(ins: Instruction) -> bool:
+    # AT&T: mov SRC, DST  => store se DST è memoria (ultimo operando)
+    if not _is_mov_like(ins):
+        return False
+    ops = ins.operands or []
+    return len(ops) >= 2 and _is_mem_operand(ops[-1])
+
+def _is_load_mov(ins: Instruction) -> bool:
+    # AT&T: mov SRC, DST  => load se SRC è memoria (primo operando)
+    if not _is_mov_like(ins):
+        return False
+    ops = ins.operands or []
+    return len(ops) >= 2 and _is_mem_operand(ops[0])
+
+def _alias_by_shared_regs(store_dst: str, load_src: str) -> bool:
+    """
+    Alias euristico “in stile detector” ma riusando regs_in_operand():
+    se i due operandi memoria condividono almeno un registro (esclusi rbp/rsp),
+    li consideriamo potenzialmente alias.
+    """
+    s = regs_in_operand(store_dst) - {"%rbp", "%rsp"}
+    l = regs_in_operand(load_src)  - {"%rbp", "%rsp"}
+    return len(s & l) > 0
 
 
 # ==============================================================
@@ -438,6 +528,54 @@ def transform_fence(instrs, fence_mnemonic="lfence"):
         offset += 1
 
     return out
+
+
+def transform_fence_between_store_load(instrs, fence_mnemonic="lfence"):
+    """
+    Spectre V4 / SSB: inserisce una fence *tra* uno store e la prima load successiva
+    che può bypassarlo (euristica di alias).
+
+    Inseriamo la fence IMMEDIATAMENTE PRIMA della load (equivale a "between").
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    # 1) trova il primo store (mov con dst memoria)
+    store_idx = None
+    store_dst = None
+    for i, ins in enumerate(out):
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            continue
+        if getattr(ins, "structural_tag", False):
+            continue
+        if _is_store_mov(ins):
+            store_idx = i
+            store_dst = (ins.operands or [])[-1]
+            break
+
+    if store_idx is None:
+        return out
+
+    # 2) trova la prima load successiva che aliasa euristicamente
+    load_idx = None
+    for j in range(store_idx + 1, len(out)):
+        ins = out[j]
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            continue
+        if _is_load_mov(ins):
+            load_src = (ins.operands or [None])[0]
+            if load_src and _alias_by_shared_regs(store_dst, load_src):
+                load_idx = j
+                break
+
+    if load_idx is None:
+        return out
+
+    # 3) inserisci fence prima della load
+    fence = Instruction(f"    {fence_mnemonic}", fence_mnemonic, [])
+    fence.structural_tag = True
+    out.insert(load_idx, fence)
+    return out
+
 
 
 def transform_lea_split(instrs, safe_temps):
@@ -1101,6 +1239,30 @@ def generate_variants_for_results(functions, results,
             # 4. Inserimento nel corpo della funzione
             #    (bottom-up: non serve offset)
             # ======================================================
-            func.instructions[start:end + 1] = selector_block + variant_blocks + [continue_instr]
+            #func.instructions[start:end + 1] = selector_block + variant_blocks + [continue_instr]
+
+            # Se la funzione usa red-zone locals e NON alloca un frame, i push del selector
+            # possono clobberare -8(%rbp)/-16(%rbp). Inseriamo padding su %rsp.
+            prefix = []
+            suffix = []
+
+            if _selector_needs_stack_padding(func) and not _window_touches_rsp(window_instrs):
+                prefix.append(
+                    Instruction(
+                        f"    subq    ${_SELECTOR_STACK_PAD}, %rsp",
+                        "subq",
+                        [f"${_SELECTOR_STACK_PAD}", "%rsp"],
+                    )
+                )
+                # addq subito dopo la continue label (cosi' %rsp e' ripristinato prima del resto della funzione)
+                suffix.append(
+                    Instruction(
+                        f"    addq    ${_SELECTOR_STACK_PAD}, %rsp",
+                        "addq",
+                        [f"${_SELECTOR_STACK_PAD}", "%rsp"],
+                    )
+                )
+
+            func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr] + suffix
 
     return functions
