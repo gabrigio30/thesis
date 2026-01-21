@@ -44,13 +44,13 @@ def main():
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=100,
-        same_variants=False,
+        num_variants=10,
+        same_variants=True,
         transforms_per_variant=1,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV1Tests/spectreHPSfence100.s')
+    write_functions(out, 'SpectreV1Tests/spectreHPS10.s')
 
 
 if __name__ == "__main__":
