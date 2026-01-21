@@ -16,12 +16,72 @@
 
 import random
 from copy import deepcopy
-from parser import Instruction
+from parser import Instruction, Function
+from detector import _base_reg_of_memop
 import re
 
 # ==============================================================
 # FUNZIONI HELPER
 # ==============================================================
+
+
+# ==============================================================
+# Retpoline out-of-line (thunk condiviso)
+# ==============================================================
+
+# insieme dei registri per cui dobbiamo emettere un thunk condiviso
+_RETPOLINE_OOL_REGS = set()
+
+def _regname_no_pct(r: str) -> str:
+    return (r or "").strip().lstrip('%')
+
+def _retpoline_ool_label_for_reg(r: str) -> str:
+    # Label locale (file-scope) usabile da tutto il TU senza esportarla
+    return f".Lgg_retpoline_{_regname_no_pct(r)}"
+
+def _emit_retpoline_ool_thunks(functions):
+    """Emette una sola volta (in fondo al file) i thunk per i registri richiesti."""
+    global _RETPOLINE_OOL_REGS
+    if not _RETPOLINE_OOL_REGS:
+        return functions
+
+    # Inseriamo prima delle trailing directives (se presenti) per non spostarle
+    insert_at = len(functions)
+    for idx, f in enumerate(functions):
+        if getattr(f, 'name', None) == "__trailing_directives__":
+            insert_at = idx
+            break
+
+    thunk_func = Function("__gg_retpoline_thunks")
+    thunk_func.directives = ["\t.text", "\t.p2align\t4,,15"]
+    thunk_func.instructions = [Instruction("## Shared retpoline thunks (auto-generated)")]
+
+    # ordine stabile per output riproducibile
+    for r in sorted(_RETPOLINE_OOL_REGS):
+        lab = _retpoline_ool_label_for_reg(r)
+        cap = f"{lab}_cap"
+        setup = f"{lab}_setup"
+
+        thunk_func.instructions.append(Instruction(""))
+        thunk_func.instructions.append(Instruction(f"{lab}:"))
+        thunk_func.instructions.append(Instruction(f"    callq   {setup}", "callq", [setup]))
+        thunk_func.instructions.append(Instruction(f"{cap}:"))
+        thunk_func.instructions.append(Instruction("    pause", "pause", []))
+        thunk_func.instructions.append(Instruction("    lfence", "lfence", []))
+        thunk_func.instructions.append(Instruction(f"    jmp     {cap}", "jmp", [cap]))
+        thunk_func.instructions.append(Instruction(f"{setup}:"))
+        thunk_func.instructions.append(Instruction(f"    movq    {r}, (%rsp)", "movq", [r, "(%rsp)"]))
+        thunk_func.instructions.append(Instruction("    ret", "ret", []))
+
+        # mark come strutturali per evitare qualsiasi trasformazione futura
+        for ins in thunk_func.instructions[-9:]:
+            ins.structural_tag = True
+
+    functions = functions[:insert_at] + [thunk_func] + functions[insert_at:]
+    _RETPOLINE_OOL_REGS = set()
+    return functions
+
+
 
 # Tutti i registri generali a 64 bit che ci interessano
 ALL_GPRS = [
@@ -203,21 +263,38 @@ def _parse_index_reg_from_mem_operand(op: str) -> str:
 
 def _rewrite_mem_operand_index(op: str, new_index: str) -> str:
     """
-    Ritorna una versione di 'op' dove il registro index (se presente) viene
-    sostituito con 'new_index'. Manteniamo displacement/base/scale invariati.
+    Ritorna una versione di 'op' dove il registro index viene impostato a
+    'new_index'. Se l'operando non ha index (es. '8(%rax)' o '(%rax)'),
+    lo aggiunge. Mantiene displacement/base/scale invariati.
 
-    Esempio:
-      - "8(%rdi,%rcx,4)" con new_index="%r10" -> "8(%rdi,%r10,4)"
+    Esempi:
+      - '8(%rdi,%rcx,4)' + %r10 -> '8(%rdi,%r10,4)'
+      - '(%rax)'         + %r10 -> '(%rax,%r10)'
     """
-    if "(" not in op or ")" not in op:
+    if '(' not in op or ')' not in op:
         return op
-    prefix, rest = op.split("(", 1)
-    inside, suffix = rest.rsplit(")", 1)
-    parts = [p.strip() for p in inside.split(",")]
-    if len(parts) < 2:
+    # non tocchiamo RIP-relative
+    if '%rip' in op:
         return op
-    parts[1] = new_index
-    new_inside = ",".join(parts)
+
+    prefix, rest = op.split('(', 1)
+    inside, suffix = rest.rsplit(')', 1)
+    parts = [p.strip() for p in inside.split(',')]
+    if len(parts) < 1:
+        return op
+
+    # base deve essere un registro valido
+    base = parts[0]
+    if not (base.startswith('%') and base in ALL_GPRS):
+        return op
+
+    # aggiungi o riscrivi index
+    if len(parts) == 1:
+        parts = [base, new_index]
+    else:
+        parts[1] = new_index
+
+    new_inside = ','.join(parts)
     return f"{prefix}({new_inside}){suffix}"
 
 
@@ -467,7 +544,7 @@ def transform_nop(instrs):
     return out
 
 
-def transform_fence(instrs, fence_mnemonic="lfence"):
+def transform_fence_after_jcc(instrs, fence_mnemonic="lfence"):
     """
     Inserisce una o più fence (lfence di default) all'interno della finestra
     per bloccare/limitare la speculazione oltre i punti sensibili.
@@ -530,7 +607,7 @@ def transform_fence(instrs, fence_mnemonic="lfence"):
     return out
 
 
-def transform_fence_between_store_load(instrs, fence_mnemonic="lfence"):
+def transform_fence_between_store_load(instrs, fence_mnemonic="mfence"):
     """
     Spectre V4 / SSB: inserisce una fence *tra* uno store e la prima load successiva
     che può bypassarlo (euristica di alias).
@@ -745,37 +822,28 @@ _RETPO_ID = 0
 
 def transform_retpoline_rewrite(instrs, safe_temps=None):
     """
-    Riscrive call/jmp indiretti (Spectre V2 - BTI) in retpoline.
+    Riscrive call/jmp indiretti (Spectre V2 - BTI) in una forma retpoline
+    **out-of-line**: ogni sito diventa 2 istruzioni (materializzazione target + call/jmp
+    verso un thunk condiviso) e i thunk vengono emessi una sola volta a fine file.
 
     Supporta:
       - call/callq/jmp/jmpq *%reg
-      - call/callq/jmp/jmpq *mem   (solo se safe_temps disponibile)
-
-    Strategia per *mem:
-      - carica il target in un registro temporaneo "safe" con: movq mem, tmp
-      - applica retpoline su tmp
+      - call/callq/jmp/jmpq *mem o *imm (solo se safe_temps disponibile)
     """
     from detector import is_indirect_branch
+    global _RETPOLINE_OOL_REGS
 
-    global _RETPO_ID
     out = [deepcopy(i) for i in instrs]
-
-    def fresh_tag():
-        global _RETPO_ID
-        _RETPO_ID += 1
-        return f"{_RETPO_ID:06d}"
 
     def is_int_literal(s: str) -> bool:
         s = (s or "").strip().lower()
         if s.startswith("0x"):
             try:
-                int(s, 16)
-                return True
+                int(s, 16); return True
             except ValueError:
                 return False
         try:
-            int(s, 10)
-            return True
+            int(s, 10); return True
         except ValueError:
             return False
 
@@ -808,39 +876,28 @@ def transform_retpoline_rewrite(instrs, safe_temps=None):
 
         target = op0[1:].strip()
 
-        # ----------------------------------------------------------
         # 1) Materializza il target in un registro (treg)
-        # ----------------------------------------------------------
         prep = []
         treg = None
 
-        # Caso A: *%reg (solo 64-bit regs del tuo tool)
         if target in ALL_GPRS:
             treg = target
-
-        # Se è un registro ma NON è tra ALL_GPRS (es. %eax): non tocchiamo (conservativo)
         elif target.startswith("%"):
             i += 1
             continue
-
-        # Caso B: *mem o *imm -> serve tmp "safe"
         else:
             if not safe_temps:
-                # Non abbiamo temp: non tocchiamo *mem (conservativo)
                 i += 1
                 continue
 
             tmp = safe_temps[0]
             treg = tmp
 
-            # *0x401000 / *1234 -> carica immediato in tmp
             if is_int_literal(target):
                 movabs = Instruction(f"    movabsq ${target}, {tmp}", "movabsq", [f"${target}", tmp])
                 movabs.structural_tag = True
                 prep.append(movabs)
             else:
-                # *foo(%rip), *(%rax), *8(%rdi,%rcx,4), *foo, *foo@GOTPCREL(%rip), ...
-                # Semantica: il branch legge da memoria il puntatore target.
                 mov = Instruction(f"    movq    {target}, {tmp}", "movq", [target, tmp])
                 mov.structural_tag = True
                 prep.append(mov)
@@ -849,99 +906,133 @@ def transform_retpoline_rewrite(instrs, safe_temps=None):
             i += 1
             continue
 
-        tag = fresh_tag()
-        cap   = f".Lgg_retpol_cap_{tag}"
-        setup = f".Lgg_retpol_setup_{tag}"
+        # 2) Sostituzione con call/jmp verso thunk condiviso
+        lab = _retpoline_ool_label_for_reg(treg)
+        _RETPOLINE_OOL_REGS.add(treg)
 
         seq = []
         seq.extend(prep)
 
-        # ----------------------------------------------------------
-        # 2) Retpoline vero e proprio
-        # ----------------------------------------------------------
         if m.startswith("jmp"):
-            # Retpoline per jmp *X:
-            #   call setup
-            # cap: pause; lfence; jmp cap
-            # setup: movq treg,(%rsp); ret
-            c = Instruction(f"    callq   {setup}", "callq", [setup]); c.structural_tag = True
+            j = Instruction(f"    jmp     {lab}", "jmp", [lab])
+            j.structural_tag = True
+            seq.append(j)
+        else:
+            c = Instruction(f"    callq   {lab}", "callq", [lab])
+            c.structural_tag = True
             seq.append(c)
 
-            lcap = Instruction(f"{cap}:", None); lcap.structural_tag = True
-            seq.append(lcap)
-
-            p = Instruction("    pause", "pause", []); p.structural_tag = True
-            seq.append(p)
-
-            f = Instruction("    lfence", "lfence", []); f.structural_tag = True
-            seq.append(f)
-
-            j = Instruction(f"    jmp     {cap}", "jmp", [cap]); j.structural_tag = True
-            seq.append(j)
-
-            lsetup = Instruction(f"{setup}:", None); lsetup.structural_tag = True
-            seq.append(lsetup)
-
-            mv = Instruction(f"    movq    {treg}, (%rsp)", "movq", [treg, "(%rsp)"]); mv.structural_tag = True
-            seq.append(mv)
-
-            r = Instruction("    ret", "ret", []); r.structural_tag = True
-            seq.append(r)
-
-        else:
-            # Retpoline per call *X (preserva RA originale):
-            #   call thunk
-            #   jmp after
-            # thunk:
-            #   call setup
-            # cap: pause; lfence; jmp cap
-            # setup: movq treg,(%rsp); ret
-            # after:
-            thunk = f".Lgg_retpol_thunk_{tag}"
-            after = f".Lgg_retpol_after_{tag}"
-
-            c1 = Instruction(f"    callq   {thunk}", "callq", [thunk]); c1.structural_tag = True
-            seq.append(c1)
-
-            jafter = Instruction(f"    jmp     {after}", "jmp", [after]); jafter.structural_tag = True
-            seq.append(jafter)
-
-            lth = Instruction(f"{thunk}:", None); lth.structural_tag = True
-            seq.append(lth)
-
-            c2 = Instruction(f"    callq   {setup}", "callq", [setup]); c2.structural_tag = True
-            seq.append(c2)
-
-            lcap = Instruction(f"{cap}:", None); lcap.structural_tag = True
-            seq.append(lcap)
-
-            p = Instruction("    pause", "pause", []); p.structural_tag = True
-            seq.append(p)
-
-            f = Instruction("    lfence", "lfence", []); f.structural_tag = True
-            seq.append(f)
-
-            j = Instruction(f"    jmp     {cap}", "jmp", [cap]); j.structural_tag = True
-            seq.append(j)
-
-            lsetup = Instruction(f"{setup}:", None); lsetup.structural_tag = True
-            seq.append(lsetup)
-
-            # sovrascrive il RA della call interna (c2) con il target => ret va al callee
-            mv = Instruction(f"    movq    {treg}, (%rsp)", "movq", [treg, "(%rsp)"]); mv.structural_tag = True
-            seq.append(mv)
-
-            r = Instruction("    ret", "ret", []); r.structural_tag = True
-            seq.append(r)
-
-            lafter = Instruction(f"{after}:", None); lafter.structural_tag = True
-            seq.append(lafter)
-
-        # sostituisce l'istruzione originale con la sequenza
-        out[i:i+1] = seq
+        out[i:i + 1] = seq
         i += len(seq)
 
     return out
+
+
+
+def transform_ssb_dependency_chain_barrier(instrs, safe_temps):
+    """
+    Spectre V4 / SSB: crea una dipendenza (data-dependent) dal base-reg
+    dello store e la inietta nel calcolo dell'indirizzo della prima load
+    successiva che può bypassarlo (euristica di alias).
+
+    Idea:
+      - dopo lo store:  movq <store_base>, <tmp>
+      - prima della load: pushfq; andq $0,<tmp>; popfq   (tmp diventa 0 ma dipende da store_base)
+      - riscrive il load: (%base) -> (%base,<tmp>)
+
+    NOTE:
+      - usa un registro temporaneo 'safe' (safe_temps)
+      - non applica se la finestra tocca %rsp (per sicurezza)
+      - non modifica i flags (li salva/ripristina)
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    if not safe_temps:
+        return out
+
+    # sicurezza: se la finestra tocca lo stack, evitiamo push/pop
+    if _window_touches_rsp(out):
+        return out
+
+    tmp = safe_temps[0]
+
+    # 1) trova il primo store (mov con dst memoria)
+    store_idx = None
+    store_dst = None
+    for i, ins in enumerate(out):
+        if ins.mnemonic is None or getattr(ins, 'directive', False):
+            continue
+        if getattr(ins, 'structural_tag', False):
+            continue
+        if _is_store_mov(ins):
+            store_idx = i
+            store_dst = (ins.operands or [])[-1]
+            break
+
+    if store_idx is None or not store_dst:
+        return out
+
+    # base reg dello store: riuso helper del detector se disponibile
+    anchor = ''
+    if _base_reg_of_memop is not None:
+        b = _base_reg_of_memop(store_dst)
+        anchor = b or ''
+    if not anchor:
+        regs = list(regs_in_operand(store_dst) - {'%rbp', '%rsp'})
+        anchor = regs[0] if regs else ''
+
+    if not anchor or anchor in ('%rbp', '%rsp', '%rip'):
+        return out
+
+    # 2) trova la prima load successiva che aliasa (euristica)
+    load_idx = None
+    load_src = None
+    for j in range(store_idx + 1, len(out)):
+        ins = out[j]
+        if ins.mnemonic is None or getattr(ins, 'directive', False):
+            continue
+        if _is_load_mov(ins):
+            cand_src = (ins.operands or [None])[0]
+            if cand_src and _alias_by_shared_regs(store_dst, cand_src) and ('%rip' not in cand_src):
+                load_idx = j
+                load_src = cand_src
+                break
+
+    if load_idx is None or not load_src:
+        return out
+
+    # 3) riscrive l'operando memoria aggiungendo (o sostituendo) l'index
+    new_load_src = _rewrite_mem_operand_index(load_src, tmp)
+    if new_load_src == load_src:
+        return out
+
+    # 4) inserisci mov anchor -> tmp subito dopo lo store
+    mv = Instruction(f'    movq    {anchor}, {tmp}', 'movq', [anchor, tmp])
+    mv.structural_tag = True
+    out.insert(store_idx + 1, mv)
+    load_idx += 1
+
+    # 5) prima della load: preserva flags e azzera tmp in modo data-dependent
+    pushf = Instruction('    pushfq', 'pushfq', [])
+    and0  = Instruction(f'    andq    $0, {tmp}', 'andq', ['$0', tmp])
+    popf  = Instruction('    popfq', 'popfq', [])
+    pushf.structural_tag = True
+    and0.structural_tag = True
+    popf.structural_tag = True
+
+    out.insert(load_idx, pushf)
+    out.insert(load_idx + 1, and0)
+    out.insert(load_idx + 2, popf)
+
+    # indice della load (spostata di +3)
+    load_ins_idx = load_idx + 3
+    li = out[load_ins_idx]
+    if not li.operands or len(li.operands) < 2:
+        return out
+    li.operands[0] = new_load_src
+    li.structural_tag = True
+    return out
+
 
 
 
@@ -999,10 +1090,13 @@ def generate_variants_for_results(functions, results,
     if transformations is None:
         transformations = [
             transform_nop,
-            transform_fence,
+            transform_fence_after_jcc,
             transform_lea_split,
+            transform_fence_between_store_load,
             transform_reorder_movs,
             transform_index_masking_light,
+            transform_retpoline_rewrite,
+            transform_ssb_dependency_chain_barrier,
         ]
 
     # Normalizzazione: almeno 1 trasformazione per variante
@@ -1120,7 +1214,8 @@ def generate_variants_for_results(functions, results,
                         t = pick_transform()
 
                         # Trasformazioni che richiedono registri temporanei "safe"
-                        if t is transform_lea_split or t is transform_index_masking_light or t is transform_retpoline_rewrite:
+                        if (t is transform_lea_split or t is transform_index_masking_light or
+                                t is transform_retpoline_rewrite or t is transform_ssb_dependency_chain_barrier):
                             current = t(current, safe_temps)
                         else:
                             current = t(current)
@@ -1264,5 +1359,7 @@ def generate_variants_for_results(functions, results,
                 )
 
             func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr] + suffix
+
+            functions = _emit_retpoline_ool_thunks(functions)
 
     return functions

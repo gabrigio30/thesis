@@ -3,12 +3,13 @@ from src.detector import annotate_transient_instructions, get_windows_text_repor
 from src.variant_generator2 import (
     generate_variants_for_results,
     transform_nop,
-    transform_fence,
+    transform_fence_after_jcc,
     transform_lea_split,
     transform_reorder_movs,
     transform_index_masking_light,
     transform_retpoline_rewrite,
     transform_fence_between_store_load,
+    transform_ssb_dependency_chain_barrier,
 )
 
 def main():
@@ -17,8 +18,6 @@ def main():
                                               enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
                                                                    'detect_store_then_load',
-                                                                   #'detect_early_load_after_store',
-                                                                   #'detect_unbalanced_ret',
                                                                    ])
 
     for r in results:
@@ -32,48 +31,27 @@ def main():
 
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
-        transform_index_masking_light: 0.10,
-        transform_nop: 0.3,
-        transform_lea_split: 0.3,
-        #transform_reorder_movs: 0.1,
-        #transform_fence: 0.15,
-        transform_fence_between_store_load: 0.3,
+        #transform_index_masking_light: 1,
+        transform_nop: 0.2,
+        transform_lea_split: 0.15,
+        #transform_reorder_movs: 1,
+        #transform_fence_after_jcc: 1,
+        transform_fence_between_store_load: 0.5,
+        transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=500,
+        num_variants=2500,
         same_variants=False,
         transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV4Tests/spectreAll500.s')
+    write_functions(out, 'SpectreV4Tests/spectreAll2500.s')
 
-'''
-def main():
-    funcs = load_functions("Ctests/SpectrePoC.s")
-    detections = annotate_transient_instructions(funcs)
-    for func in funcs:
-        for instr in func.instructions:
-            if instr.is_transient_window:
-                print(f" Func '{func.name}': {instr.to_asm()} --> score={instr.transient_score}")
-
-def main():
-    funcs = load_functions('Ctests/spectre.s')
-    results = annotate_transient_instructions(funcs, window_size=7)
-
-    #for r in results:
-    #    print(r)
-
-    #Per debug visuale di una funzione specifica:
-    #print(get_windows_text_report(funcs[0]))
-
-    out = generate_variants_for_results(funcs, results, 100)
-    res = write_functions(out, 'Ctests/spectreSame_100.s')
-'''
 
 if __name__ == "__main__":
     main()
