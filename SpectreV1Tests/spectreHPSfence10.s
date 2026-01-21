@@ -115,8 +115,10 @@ victim_function:
 .Lvictim_function_win0_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -126,8 +128,10 @@ victim_function:
 .Lvictim_function_win0_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -137,8 +141,10 @@ victim_function:
 .Lvictim_function_win0_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -148,8 +154,10 @@ victim_function:
 .Lvictim_function_win0_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -159,8 +167,10 @@ victim_function:
 .Lvictim_function_win0_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -170,8 +180,10 @@ victim_function:
 .Lvictim_function_win0_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -181,8 +193,10 @@ victim_function:
 .Lvictim_function_win0_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -192,8 +206,10 @@ victim_function:
 .Lvictim_function_win0_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -203,8 +219,10 @@ victim_function:
 .Lvictim_function_win0_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpq	%rax, -8(%rbp)
 	jnb	.L3
+	lfence
 	leaq	array1(%rip), %rdx
 	movq	-8(%rbp), %rax
 	addq	%rdx, %rax
@@ -307,72 +325,90 @@ readMemoryByte:
 .LreadMemoryByte_win11_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 2
 .LreadMemoryByte_win11_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 3
 .LreadMemoryByte_win11_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 4
 .LreadMemoryByte_win11_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 5
 .LreadMemoryByte_win11_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 6
 .LreadMemoryByte_win11_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 7
 .LreadMemoryByte_win11_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 8
 .LreadMemoryByte_win11_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 ## Variant 9
 .LreadMemoryByte_win11_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L6
+	lfence
 	movl	$1999, -100(%rbp)
 	jmp	.LreadMemoryByte_win11_continue
 .LreadMemoryByte_win11_continue:
@@ -439,8 +475,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -448,8 +486,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -457,8 +497,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -466,8 +508,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -475,8 +519,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -484,8 +530,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -493,8 +541,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -502,8 +552,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -511,8 +563,10 @@ readMemoryByte:
 .LreadMemoryByte_win10_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L9
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win10_continue
@@ -586,6 +640,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 2
@@ -594,6 +649,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 3
@@ -602,6 +658,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 4
@@ -610,6 +667,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 5
@@ -618,6 +676,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 6
@@ -626,6 +685,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 7
@@ -634,6 +694,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 8
@@ -642,6 +703,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 ## Variant 9
@@ -650,6 +712,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$999, %eax
 	jle	.L12
+	lfence
 	movl	-92(%rbp), %ecx
 	jmp	.LreadMemoryByte_win9_continue
 .LreadMemoryByte_win9_continue:
@@ -729,72 +792,90 @@ readMemoryByte:
 .LreadMemoryByte_win8_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 2
 .LreadMemoryByte_win8_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 3
 .LreadMemoryByte_win8_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 4
 .LreadMemoryByte_win8_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 5
 .LreadMemoryByte_win8_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 6
 .LreadMemoryByte_win8_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 7
 .LreadMemoryByte_win8_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 8
 .LreadMemoryByte_win8_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 ## Variant 9
 .LreadMemoryByte_win8_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	jns	.L13
+	lfence
 	movl	$0, -96(%rbp)
 	jmp	.LreadMemoryByte_win8_continue
 .LreadMemoryByte_win8_continue:
@@ -882,8 +963,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -891,8 +974,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -900,8 +985,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -909,8 +996,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -918,8 +1007,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -927,8 +1018,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -936,8 +1029,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -945,8 +1040,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -954,8 +1051,10 @@ readMemoryByte:
 .LreadMemoryByte_win7_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -116(%rbp)
 	jl	.L17
+	lfence
 	movl	-100(%rbp), %eax
 	movl	array1_size(%rip), %ecx
 	jmp	.LreadMemoryByte_win7_continue
@@ -1018,8 +1117,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1031,8 +1132,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1044,8 +1147,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1057,8 +1162,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1070,8 +1177,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1083,8 +1192,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1096,8 +1207,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1109,8 +1222,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1122,8 +1237,10 @@ readMemoryByte:
 .LreadMemoryByte_win6_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	%eax, -84(%rbp)
 	je	.L17
+	lfence
 	movl	-84(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1189,8 +1306,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1200,8 +1319,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1211,8 +1332,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1222,8 +1345,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1233,8 +1358,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1244,8 +1371,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1255,8 +1384,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1266,8 +1397,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1277,8 +1410,10 @@ readMemoryByte:
 .LreadMemoryByte_win5_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L18
+	lfence
 	movl	$-1, -88(%rbp)
 	movl	-88(%rbp), %eax
 	movl	%eax, -92(%rbp)
@@ -1338,8 +1473,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1351,8 +1488,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1364,8 +1503,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1377,8 +1518,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1390,8 +1533,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1403,8 +1548,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1416,8 +1563,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1429,8 +1578,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1442,8 +1593,10 @@ readMemoryByte:
 .LreadMemoryByte_win4_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -92(%rbp)
 	js	.L20
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1516,8 +1669,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1529,8 +1684,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1542,8 +1699,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1555,8 +1714,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1568,8 +1729,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1581,8 +1744,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1594,8 +1759,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1607,8 +1774,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1620,8 +1789,10 @@ readMemoryByte:
 .LreadMemoryByte_win3_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$0, -88(%rbp)
 	js	.L23
+	lfence
 	movl	-96(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1692,8 +1863,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1704,8 +1877,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1716,8 +1891,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1728,8 +1905,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1740,8 +1919,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1752,8 +1933,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1764,8 +1947,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1776,8 +1961,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1788,8 +1975,10 @@ readMemoryByte:
 .LreadMemoryByte_win2_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$255, -96(%rbp)
 	jle	.L24
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1856,6 +2045,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1868,6 +2058,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1880,6 +2071,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1892,6 +2084,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1904,6 +2097,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1916,6 +2110,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1928,6 +2123,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1940,6 +2136,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -1952,6 +2149,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	%eax, %ecx
 	jl	.L25
+	lfence
 	movl	-92(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2011,6 +2209,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2023,6 +2222,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2035,6 +2235,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2047,6 +2248,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2059,6 +2261,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2071,6 +2274,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2083,6 +2287,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2095,6 +2300,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2107,6 +2313,7 @@ readMemoryByte:
 	addq	$32, %rsp
 	cmpl	$2, %eax
 	jne	.L26
+	lfence
 	movl	-88(%rbp), %eax
 	cltq
 	leaq	0(,%rax,4), %rdx
@@ -2286,8 +2493,10 @@ main:
 .Lmain_win6_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2299,8 +2508,10 @@ main:
 .Lmain_win6_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2312,8 +2523,10 @@ main:
 .Lmain_win6_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2325,8 +2538,10 @@ main:
 .Lmain_win6_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2338,8 +2553,10 @@ main:
 .Lmain_win6_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2351,8 +2568,10 @@ main:
 .Lmain_win6_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2364,8 +2583,10 @@ main:
 .Lmain_win6_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2377,8 +2598,10 @@ main:
 .Lmain_win6_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2390,8 +2613,10 @@ main:
 .Lmain_win6_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$131071, -36(%rbp)
 	jle	.L31
+	lfence
 	cmpl	$1, -52(%rbp)
 	jle	.L32
 	movq	-64(%rbp), %rax
@@ -2456,8 +2681,10 @@ main:
 .Lmain_win5_var1:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2468,8 +2695,10 @@ main:
 .Lmain_win5_var2:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2480,8 +2709,10 @@ main:
 .Lmain_win5_var3:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2492,8 +2723,10 @@ main:
 .Lmain_win5_var4:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2504,8 +2737,10 @@ main:
 .Lmain_win5_var5:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2516,8 +2751,10 @@ main:
 .Lmain_win5_var6:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2528,8 +2765,10 @@ main:
 .Lmain_win5_var7:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2540,8 +2779,10 @@ main:
 .Lmain_win5_var8:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2552,8 +2793,10 @@ main:
 .Lmain_win5_var9:
 	popq	%rax
 	addq	$32, %rsp
+	lfence
 	cmpl	$3, -52(%rbp)
 	jle	.L33
+	lfence
 	movq	-64(%rbp), %rax
 	addq	$16, %rax
 	movq	(%rax), %rax
@@ -2684,6 +2927,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 2
@@ -2692,6 +2936,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 3
@@ -2700,6 +2945,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 4
@@ -2708,6 +2954,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 5
@@ -2716,6 +2963,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 6
@@ -2724,6 +2972,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 7
@@ -2732,6 +2981,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 8
@@ -2740,6 +2990,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 ## Variant 9
@@ -2748,6 +2999,7 @@ main:
 	addq	$32, %rsp
 	cmpl	%edx, %eax
 	jl	.L35
+	lfence
 	leaq	.LC12(%rip), %rax
 	jmp	.Lmain_win4_continue
 .Lmain_win4_continue:
@@ -2813,6 +3065,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2824,6 +3077,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2835,6 +3089,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2846,6 +3101,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2857,6 +3113,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2868,6 +3125,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2879,6 +3137,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2890,6 +3149,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2901,6 +3161,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$31, %al
 	jbe	.L37
+	lfence
 	movzbl	-10(%rbp), %eax
 	cmpb	$126, %al
 	ja	.L37
@@ -2973,6 +3234,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -2985,6 +3247,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -2997,6 +3260,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3009,6 +3273,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3021,6 +3286,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3033,6 +3299,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3045,6 +3312,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3057,6 +3325,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3069,6 +3338,7 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jle	.L39
+	lfence
 	movl	-16(%rbp), %edx
 	movzbl	-9(%rbp), %eax
 	cmpb	$31, %al
@@ -3124,6 +3394,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 2
@@ -3132,6 +3403,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 3
@@ -3140,6 +3412,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 4
@@ -3148,6 +3421,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 5
@@ -3156,6 +3430,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 6
@@ -3164,6 +3439,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 7
@@ -3172,6 +3448,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 8
@@ -3180,6 +3457,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 ## Variant 9
@@ -3188,6 +3466,7 @@ main:
 	addq	$32, %rsp
 	cmpb	$126, %al
 	ja	.L40
+	lfence
 	movzbl	-9(%rbp), %eax
 	jmp	.Lmain_win1_continue
 .Lmain_win1_continue:
@@ -3261,7 +3540,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 2
@@ -3270,7 +3551,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 3
@@ -3279,7 +3562,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 4
@@ -3288,7 +3573,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 5
@@ -3297,7 +3584,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 6
@@ -3306,7 +3595,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 7
@@ -3315,7 +3606,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 8
@@ -3324,7 +3617,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 ## Variant 9
@@ -3333,7 +3628,9 @@ main:
 	addq	$32, %rsp
 	testl	%eax, %eax
 	jns	.L42
+	lfence
 	movl	$0, %eax
+	lfence
 	movq	-8(%rbp), %rdx
 	jmp	.Lmain_win0_continue
 .Lmain_win0_continue:

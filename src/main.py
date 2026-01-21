@@ -36,7 +36,7 @@ def main():
         #transform_lea_split: 0.15,
         #transform_reorder_movs: 1,
         transform_fence_after_jcc: 1,
-        #transform_fence_between_store_load: 0.5,
+        #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
     }
@@ -45,12 +45,12 @@ def main():
         funcs,
         results,
         num_variants=10,
-        same_variants=True,
+        same_variants=False,
         transforms_per_variant=1,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV1Tests/spectreHPS10.s')
+    write_functions(out, 'SpectreV1Tests/spectreHPSfence10.s')
 
 
 if __name__ == "__main__":

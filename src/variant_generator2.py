@@ -1261,7 +1261,6 @@ def generate_variants_for_results(functions, results,
                                               [f"${num_variants}", "%ecx"]))
             selector_block.append(Instruction("    divl    %ecx", "divl", ["%ecx"]))
             selector_block.append(Instruction("    movl    %edx, %eax", "movl", ["%edx", "%eax"]))
-
             '''
             # VERSIONE CON RANDOM_SELECTOR SCELTO PRIMA DI OGNI FINESTRA
             # Random locale basato su rdtsc: niente stato globale
@@ -1306,6 +1305,7 @@ def generate_variants_for_results(functions, results,
             # ======================================================
             # 3. Costruzione dei blocchi di variante
             # ======================================================
+            needs_pad = _selector_needs_stack_padding(func) and not _window_touches_rsp(window_instrs)
             continue_label = make_continue_label(func.name, win_idx)
             variant_blocks = []
 
@@ -1318,6 +1318,11 @@ def generate_variants_for_results(functions, results,
 
                 # Ripristino di %rax prima dell'esecuzione della variante
                 variant_blocks.append(Instruction("    popq    %rax", "popq", ["%rax"]))
+
+                if needs_pad:
+                    variant_blocks.append(
+                        Instruction(f"    addq    ${_SELECTOR_STACK_PAD}, %rsp", "addq",
+                            [f"${_SELECTOR_STACK_PAD}", "%rsp"]))
 
                 # Corpo della variante
                 variant_blocks.extend(var_instrs)
@@ -1337,11 +1342,16 @@ def generate_variants_for_results(functions, results,
             #func.instructions[start:end + 1] = selector_block + variant_blocks + [continue_instr]
 
             # Se la funzione usa red-zone locals e NON alloca un frame, i push del selector
-            # possono clobberare -8(%rbp)/-16(%rbp). Inseriamo padding su %rsp.
+            # possono clobberare -8(%rbp)/-16(%rbp).
+            # Inseriamo padding su %rsp prima del selector e lo ripristiniamo
+            # all'inizio di ogni variante (subito dopo il popq %rax), così qualsiasi
+            # branch che esce dalla finestra non può saltare il ripristino e corrompere lo stack.
             prefix = []
-            suffix = []
 
-            if _selector_needs_stack_padding(func) and not _window_touches_rsp(window_instrs):
+            #suffix = []
+
+            #if _selector_needs_stack_padding(func) and not _window_touches_rsp(window_instrs):
+            if needs_pad:
                 prefix.append(
                     Instruction(
                         f"    subq    ${_SELECTOR_STACK_PAD}, %rsp",
@@ -1350,15 +1360,16 @@ def generate_variants_for_results(functions, results,
                     )
                 )
                 # addq subito dopo la continue label (cosi' %rsp e' ripristinato prima del resto della funzione)
-                suffix.append(
-                    Instruction(
-                        f"    addq    ${_SELECTOR_STACK_PAD}, %rsp",
-                        "addq",
-                        [f"${_SELECTOR_STACK_PAD}", "%rsp"],
-                    )
-                )
+                #suffix.append(
+                #    Instruction(
+                #        f"    addq    ${_SELECTOR_STACK_PAD}, %rsp",
+                #        "addq",
+                #        [f"${_SELECTOR_STACK_PAD}", "%rsp"],
+                #    )
+                #)
 
-            func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr] + suffix
+            #func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr] + suffix
+            func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr]
 
             functions = _emit_retpoline_ool_thunks(functions)
 
