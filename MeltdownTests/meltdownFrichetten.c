@@ -232,6 +232,10 @@ int main(int argc, char** argv)
     sigaction(SIGSEGV, &sa, NULL);
   #endif
 
+   static const unsigned char secret[] = "TOP_SECRET_123456789";
+   fprintf(stderr, "secret @ %p\n", (void*)secret);
+
+
    if (argc < 3 || argc > 4) {
       printf("usage: %s [start_addr (hex)] [len (dec)] [raw, optional]\n",
          argv[0]);
