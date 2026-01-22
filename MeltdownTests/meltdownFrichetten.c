@@ -13,6 +13,8 @@
 #define __USE_GNU
 
 #define NUM_PROBES 5
+#define TEST_IN_OWN_PROCESS 1
+#define TEST_PHRASE "Hmm, this does really work!"
 
 #ifndef _RTM_H
 #define _RTM_H 1
@@ -232,10 +234,12 @@ int main(int argc, char** argv)
     sigaction(SIGSEGV, &sa, NULL);
   #endif
 
-   static const unsigned char secret[] = "TOP_SECRET_123456789";
-   fprintf(stderr, "secret @ %p\n", (void*)secret);
+  #if TEST_IN_OWN_PROCESS
+   static char* test = TEST_PHRASE;
 
-
+   start_addr = (unsigned long)test;
+   len = strlen(test);
+  #else
    if (argc < 3 || argc > 4) {
       printf("usage: %s [start_addr (hex)] [len (dec)] [raw, optional]\n",
          argv[0]);
@@ -248,6 +252,7 @@ int main(int argc, char** argv)
    if (argc == 4) {
       raw_output = 1;
    }
+  #endif
 
    char* poke = (char*)mmap(
       NULL,
