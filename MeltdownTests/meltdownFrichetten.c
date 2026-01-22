@@ -13,7 +13,7 @@
 #define __USE_GNU
 
 #define NUM_PROBES 5
-#define TEST_IN_OWN_PROCESS 1
+#define TEST_IN_OWN_PROCESS 0
 #define TEST_PHRASE "Hmm, this does really work!"
 
 #ifndef _RTM_H
@@ -269,7 +269,7 @@ int main(int argc, char** argv)
    }
 
    printf ("poke buffer: %p, page size: %i\n", poke, page_size);
-   printf ("Start address: 0x%016lx | ", (unsigned long)start_addr);
+   printf ("Start address: 0x%016lx \n", (unsigned long)start_addr);
 
    for (t=0; t<len; t++) {
       if (!raw_output && t > 0 && 0 == t%16) {
