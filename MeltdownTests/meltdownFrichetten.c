@@ -269,6 +269,7 @@ int main(int argc, char** argv)
    }
 
    printf ("poke buffer: %p, page size: %i\n", poke, page_size);
+   printf ("Start address: 0x%016lx | ", (unsigned long)start_addr);
 
    for (t=0; t<len; t++) {
       if (!raw_output && t > 0 && 0 == t%16) {
