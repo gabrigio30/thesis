@@ -311,7 +311,7 @@ def normalized_weights_for_attack(db, attack_id, cfg):
     return {col: float(w_vec[i]) for i, col in enumerate(db.weight_cols)}
 
 
-
+'''
 # -------------------------
 # Usage example
 # -------------------------
@@ -361,3 +361,4 @@ if __name__ == "__main__":
     for a, p in res.per_attack.items():
         print(f"- {a}: \n\tprojected overhead={p.overhead_pct:.2f} \n\tprojected protection={p.protection_pct:.2f} "
               f"\n\tstolen_bytes_pct={p.bytes_stolen_pct:.2f} \n\tdist_pen={p.distance_penalty:.2f}")
+'''
