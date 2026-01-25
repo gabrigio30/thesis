@@ -13,7 +13,7 @@
 #define __USE_GNU
 
 #define NUM_PROBES 5
-#define TEST_IN_OWN_PROCESS 0
+#define TEST_IN_OWN_PROCESS 1
 #define TEST_PHRASE "Hmm, this does really work!"
 
 #ifndef _RTM_H
