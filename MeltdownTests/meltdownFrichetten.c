@@ -233,7 +233,7 @@ int main(int argc, char** argv)
     sa.sa_flags = SA_SIGINFO;
     sigaction(SIGSEGV, &sa, NULL);
   #endif
-
+// changed
   #if TEST_IN_OWN_PROCESS
    static char* test = TEST_PHRASE;
 
