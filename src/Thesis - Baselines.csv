@@ -1,0 +1,4 @@
+attack_id,bytes_stolen_unprotected_pct,cycles_unprotected,instr_retired_unprotected,branch_mispred_unprotected,l1_cache_misses_unprotected,total_bytes
+spectre_v1,"97,8",36812150319,39004064155,6441896,24515924,40
+spectre_v2,100,15345956,7337505,22842,31067,40
+spectre_v4,100,14757521074,2333924629,3540504,39501492,16
