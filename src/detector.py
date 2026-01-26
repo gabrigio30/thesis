@@ -18,10 +18,146 @@
 
 from typing import List, Dict, Optional, Callable
 from parser import Function, Instruction
+import re
 
 # ---------------------------------------------------------------------
 # Helper/utility
 # ---------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+# Meltdown helpers (minimi) — riusano già i tuoi helper per BB/CF/mem ops
+# ---------------------------------------------------------------------
+
+_MELTDOWN_GPR_ALIAS = {
+    # low 8-bit
+    '%al': '%rax', '%ah': '%rax', '%bl': '%rbx', '%bh': '%rbx', '%cl': '%rcx', '%ch': '%rcx', '%dl': '%rdx', '%dh': '%rdx',
+    # 16-bit
+    '%ax': '%rax', '%bx': '%rbx', '%cx': '%rcx', '%dx': '%rdx',
+    '%si': '%rsi', '%di': '%rdi', '%bp': '%rbp', '%sp': '%rsp',
+    # 32-bit legacy
+    '%eax': '%rax', '%ebx': '%rbx', '%ecx': '%rcx', '%edx': '%rdx',
+    '%esi': '%rsi', '%edi': '%rdi', '%ebp': '%rbp', '%esp': '%rsp',
+    # 8-bit special
+    '%sil': '%rsi', '%dil': '%rdi', '%bpl': '%rbp', '%spl': '%rsp',
+}
+
+_MELTDOWN_REG_RE = re.compile(r'%[A-Za-z0-9]+')
+
+
+def _meltdown_norm_gpr(reg: str) -> Optional[str]:
+    """
+    Normalizza registri GPR x86-64: %eax/%al -> %rax, %r8d -> %r8, ecc.
+    Ritorna None per non-GPR (xmm/ymm/zmm/segment/...).
+    """
+    if not reg or not reg.startswith('%'):
+        return None
+    r = reg.lower().strip()
+
+    # escludi non-GPR comuni
+    if r.startswith(('%xmm', '%ymm', '%zmm', '%mm', '%st')):
+        return None
+    if r in {'%cs', '%ds', '%es', '%fs', '%gs', '%ss'}:
+        return None
+
+    if r in _MELTDOWN_GPR_ALIAS:
+        return _MELTDOWN_GPR_ALIAS[r]
+
+    # r8..r15 and subregisters: r8, r8d, r8w, r8b
+    m = re.fullmatch(r'%r(1[0-5]|[8-9])([dwb])?', r)
+    if m:
+        return f"%r{m.group(1)}"
+
+    # already 64-bit GPRs
+    if r in {'%rax', '%rbx', '%rcx', '%rdx', '%rsi', '%rdi', '%rbp', '%rsp'}:
+        return r
+
+    return None
+
+
+def _meltdown_extract_gprs(text: str) -> List[str]:
+    """Estrae registri GPR (normalizzati) da una stringa (operando AT&T)."""
+    regs: List[str] = []
+    for tok in _MELTDOWN_REG_RE.findall(text or ''):
+        nr = _meltdown_norm_gpr(tok)
+        if nr:
+            regs.append(nr)
+    return regs
+
+
+def _meltdown_dst_gpr(instr: Instruction) -> Optional[str]:
+    """
+    Registro scritto (euristico AT&T):
+    - 2+ operandi: ultimo operando
+    - 1 operando: quello (RMW tipo inc/dec/not/neg)
+    """
+    if not instr.mnemonic or not instr.operands:
+        return None
+    op = instr.operands[-1] if len(instr.operands) >= 2 else instr.operands[0]
+    return _meltdown_norm_gpr(op) if op.startswith('%') else None
+
+
+def _meltdown_src_gprs(instr: Instruction, dst_norm: Optional[str]) -> set:
+    """Stima registri GPR letti (euristico, sufficiente per finestre corte)."""
+    ops = instr.operands or []
+    if not ops:
+        return set()
+
+    # AT&T: di solito src..., dst (ultimo è dst). Con 1 op è spesso RMW (src=dst).
+    src_ops = ops if len(ops) == 1 else ops[:-1]
+
+    src = set()
+    for op in src_ops:
+        src.update(_meltdown_extract_gprs(op))
+
+    mn = (instr.mnemonic or '').lower()
+
+    # read-modify-write: il dst viene anche letto
+    if dst_norm and mn.startswith((
+        'add', 'sub', 'adc', 'sbb', 'and', 'or', 'xor', 'shl', 'sal', 'shr', 'sar',
+        'rol', 'ror', 'rcl', 'rcr', 'inc', 'dec', 'neg', 'not', 'imul'
+    )):
+        src.add(dst_norm)
+
+    return src
+
+
+def _meltdown_taint_step(tainted: set, instr: Instruction) -> set:
+    """
+    Propagazione taint GPR semplice:
+    - se dst dipende da un registro tainted -> dst diventa tainted
+    - se mov/lea sovrascrive dst senza dipendere da tainted -> kill dst
+    - gestisce xor reg,reg come zeroing idiom -> kill reg
+    """
+    if not instr.mnemonic:
+        return tainted
+
+    mn = instr.mnemonic.lower()
+    dst = _meltdown_dst_gpr(instr)
+
+    # xor %rX, %rX  => zeroing
+    if mn.startswith('xor') and len(instr.operands or []) == 2:
+        r1 = _meltdown_norm_gpr(instr.operands[0]) if instr.operands[0].startswith('%') else None
+        r2 = _meltdown_norm_gpr(instr.operands[1]) if instr.operands[1].startswith('%') else None
+        if r1 and r2 and r1 == r2:
+            tainted.discard(r2)
+            return tainted
+
+    if not dst:
+        return tainted
+
+    srcs = _meltdown_src_gprs(instr, dst)
+    reads_tainted = bool(srcs & tainted)
+
+    # mov/lea che sovrascrivono dst senza dipendere da tainted => kill
+    if mn.startswith(('mov', 'lea')) and not reads_tainted:
+        tainted.discard(dst)
+        return tainted
+
+    if reads_tainted:
+        tainted.add(dst)
+
+    return tainted
+
 
 def _strip_inline_comment(raw: str) -> str:
     return raw.split('#', 1)[0].strip()
@@ -208,7 +344,7 @@ def mark_window(instrs: List[Instruction], start: int, end: int, score: float):
 
 
 # ---------------------------------------------------------------------
-# Detector: implementazione delle euristiche (plugin)
+# Detector: implementazione delle euristiche
 # ---------------------------------------------------------------------
 
 def detect_cmp_jcc_mem(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
@@ -372,57 +508,119 @@ def detect_store_then_load(instrs: List[Instruction], i: int, window_size: int, 
     return None
 
 
-def detect_unbalanced_ret(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
+def detect_meltdown_faulting_load(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
     """
-    Pattern semplice per individuare potenziali problemi RSB/Return (Spectre-RSB).
-    - Strategia: se troviamo un 'ret' e nelle vicinanze ci sono più 'call' non bilanciate,
-      o se la funzione ha molte chiamate con 'ret' distante, segnaliamo un possibile problema.
-    - Questo è un detector molto grezzo, ma serve come base per estensioni successive.
-    """
-    instr = instrs[i]
-    if not instr.mnemonic or instr.mnemonic.lower() != 'retq' and instr.mnemonic.lower() != 'ret':
-        return None
+    Pattern Meltdown-like (generico):
+      1) load da memoria potenzialmente faulting (non-stack, non-RIP)  [usa _is_load_from_nonstack_mem]
+      2) entro una breve finestra, accesso a memoria data-dependent (gadget di side-channel)
+         [usa _get_relevant_mem_operands + taint su registri]
 
-    # conteggiamo call nella finestra circostante
-    start = max(0, i - window_size)
-    end = min(n - 1, i + window_size)
-    calls = sum(1 for k in range(start, end + 1) if instrs[k].mnemonic and instrs[k].mnemonic.lower().startswith('call'))
-    # se ci sono molte call vicine a questo ret, assegniamo un punteggio (euristica)
-    if calls >= 3:
-        score = 0.5
-        mark_window(instrs, start, end, score)
-        return {"start_index": start, "end_index": end, "pattern": "rsb_like_ret_cluster", "score": score}
-    return None
-
-
-def detect_early_load_after_store(instrs: List[Instruction], i: int, window_size: int, n: int) -> Optional[Dict]:
-    """
-    Pattern che cerca load immediati dopo store (potenziale speculative store bypass).
-    Leggermente diverso da detect_store_then_load perché qui cerchiamo load che precede
-    un store su stesso indirizzo — possibile SSB (carichi speculativi che usano vecchi valori).
-    Questa è un'euristica semplice (inverse ordering).
+    NOTE:
+    - Staticamente non puoi sapere se il load faulta davvero: segnaliamo candidati.
+    - Non attraversiamo label (basic-block boundary) e non attraversiamo call/ret/jmp incondizionale.
+      Permettiamo jcc (molti PoC hanno loop/guard con branch condizionali).
     """
     instr = instrs[i]
     if not instr.mnemonic:
         return None
 
-    if instr.mnemonic.lower().startswith(('mov', 'movl', 'movq')) and has_memory_access(instr):
-        # cerchiamo uno store successivo che potrebbe essere sullo stesso indirizzo entro window_size
-        for j in range(i + 1, min(n, i + window_size)):
-            mn_j = instrs[j].mnemonic.lower() if instrs[j].mnemonic else ''
-            if (mn_j.startswith('mov') or 'store' in mn_j or mn_j.startswith('stos')) and has_memory_access(instrs[j]):
-                # semplificato: se condividono lo stesso registro base textually
-                mem_ops_load = [op for op in instr.operands if '(' in op]
-                mem_ops_store = [op for op in instrs[j].operands if '(' in op]
-                for lo in mem_ops_load:
-                    for so in mem_ops_store:
-                        for reg in ['%rax', '%rbx', '%rcx', '%rdx', '%rsi', '%rdi', '%rbp', '%rsp', '%r8', '%r9', '%r10', '%r11', '%r12', '%r13', '%r14', '%r15']:
-                            if reg in lo and reg in so:
-                                score = 0.55
-                                start = i
-                                end = j
-                                mark_window(instrs, start, end, score)
-                                return {"start_index": start, "end_index": end, "pattern": "early_load_before_store", "score": score}
+    # Greedy non-overlap
+    if getattr(instr, "is_transient_window", False):
+        return None
+
+    # anchor: load "interessante"
+    if not _is_load_from_nonstack_mem(instr):
+        return None
+
+    dst = _meltdown_dst_gpr(instr)
+    if not dst:
+        return None
+
+    tainted = {dst}
+
+    # hint (non obbligatori, alzano solo score)
+    saw_page_stride = False   # es. shl $12, reg o *4096
+    saw_cache_ops = False     # clflush / rdtsc / fences
+    saw_tsx = False           # xbegin/xend/xabort
+
+    # contesto TSX poco prima
+    for k in range(max(0, i - 10), i):
+        mk = (instrs[k].mnemonic or '').lower()
+        if mk.startswith('xbegin'):
+            saw_tsx = True
+            break
+
+    end_limit = min(n, i + window_size + 1)
+
+    for j in range(i + 1, end_limit):
+        nxt = instrs[j]
+
+        # non attraversiamo label "vere"
+        if _is_bb_boundary(nxt):
+            break
+
+        mn = (nxt.mnemonic or '').lower()
+
+        # non attraversiamo call/ret/jmp incondizionale (ma permettiamo jcc)
+        if is_unconditional_jump(nxt) or is_ret(nxt) or mn.startswith('call'):
+            break
+
+        # cache/tsx hints
+        if mn in {'clflush', 'clflushopt', 'clwb', 'rdtsc', 'rdtscp', 'mfence', 'lfence', 'sfence'}:
+            saw_cache_ops = True
+        if mn.startswith(('xend', 'xabort')):
+            saw_tsx = True
+
+        # stride hints (non obbligatori)
+        if mn.startswith('and') and len(nxt.operands or []) >= 2:
+            imm = nxt.operands[0]
+            d2 = _meltdown_dst_gpr(nxt)
+            if d2 in tainted and imm.startswith('$') and ('0xff' in imm.lower() or imm == '$255'):
+                saw_page_stride = True
+
+        if mn.startswith(('shl', 'sal')) and len(nxt.operands or []) >= 2:
+            imm = nxt.operands[0]
+            d2 = _meltdown_dst_gpr(nxt)
+            if d2 in tainted and imm.startswith('$'):
+                low = imm.lower()
+                if low in {'$0xc', '$12'} or '0xc' in low:
+                    saw_page_stride = True
+
+        if mn.startswith('imul') and any(('4096' in op) or ('0x1000' in op.lower()) for op in (nxt.operands or [])):
+            d2 = _meltdown_dst_gpr(nxt)
+            if d2 in tainted:
+                saw_page_stride = True
+
+        # taint propagation
+        tainted = _meltdown_taint_step(tainted, nxt)
+
+        # dependent memory access? (riusa helper già presente per filtrare stack/rip)
+        mem_ops = _get_relevant_mem_operands(nxt, include_rip=False)
+        if not mem_ops:
+            continue
+
+        regs_in_mem = set()
+        for mo in mem_ops:
+            regs_in_mem.update(_meltdown_extract_gprs(mo))
+
+        if regs_in_mem & tainted:
+            score = 0.55
+            if saw_page_stride:
+                score += 0.15
+            if saw_cache_ops:
+                score += 0.05
+            if saw_tsx:
+                score += 0.10
+            score = round(min(score, 1.0), 2)
+
+            mark_window(instrs, i, j, score)
+            return {
+                "start_index": i,
+                "end_index": j,
+                "pattern": "meltdown: faulting-load -> dependent-mem",
+                "score": score,
+            }
+
     return None
 
 
@@ -435,8 +633,7 @@ REGISTERED_DETECTORS: List[Callable[[List[Instruction], int, int, int], Optional
     detect_cmp_jcc_mem,
     detect_indirect_branch,
     detect_store_then_load,
-    #detect_early_load_after_store,
-    #detect_unbalanced_ret,
+    detect_meltdown_faulting_load,
 ]
 
 # ---------------------------------------------------------------------

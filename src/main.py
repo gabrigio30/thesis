@@ -32,7 +32,7 @@ ENABLED_DETECTORS = [
     "detect_cmp_jcc_mem",
     # "detect_indirect_branch",
     # "detect_store_then_load",
-
+    #"detect_meltdown_faulting_load"
 ]
 
 
@@ -167,11 +167,12 @@ from src.variant_generator2 import (
 )
 
 def main():
-    funcs = load_functions('SpectreV1Tests/spectreHPS.s')
-    results = annotate_transient_instructions(funcs, window_size=7,
-                                              enabled_detectors = ['detect_cmp_jcc_mem',
+    funcs = load_functions('MeltdownTests/meltdown.s')
+    results = annotate_transient_instructions(funcs, window_size=15,
+                                              enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
                                                                    #'detect_store_then_load',
+                                                                   'detect_meltdown_faulting_load',
                                                                    ])
 
     for r in results:
@@ -198,17 +199,13 @@ def main():
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=10,
-        same_variants=False,
-        transforms_per_variant=1,   # N trasformations per variant
+        num_variants=100,
+        same_variants=True,
+        transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'SpectreV1Tests/spectreHPSfence10.s')
-
-
-if __name__ == "__main__":
-    main()
+    #write_functions(out, 'MeltdownTests/meltdown100.s')
 
 
 if __name__ == "__main__":
