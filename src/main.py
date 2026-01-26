@@ -199,13 +199,13 @@ def main():
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=1000,
+        num_variants=10000,
         same_variants=True,
-        transforms_per_variant=6,   # N trasformations per variant
+        transforms_per_variant=2,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdown1000.s')
+    write_functions(out, 'MeltdownTests/meltdown10000.s')
 
 
 if __name__ == "__main__":
