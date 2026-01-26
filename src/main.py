@@ -168,7 +168,7 @@ from src.variant_generator2 import (
 
 def main():
     funcs = load_functions('MeltdownTests/meltdown.s')
-    results = annotate_transient_instructions(funcs, window_size=15,
+    results = annotate_transient_instructions(funcs, window_size=7,
                                               enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
                                                                    #'detect_store_then_load',
@@ -199,13 +199,13 @@ def main():
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=100,
+        num_variants=1000,
         same_variants=True,
         transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    #write_functions(out, 'MeltdownTests/meltdown100.s')
+    write_functions(out, 'MeltdownTests/meltdown1000.s')
 
 
 if __name__ == "__main__":
