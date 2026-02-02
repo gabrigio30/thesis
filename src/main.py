@@ -169,7 +169,7 @@ from src.variant_generator2 import (
 )
 
 def main():
-    funcs = load_functions('MeltdownTests/meltdown5.s')
+    funcs = load_functions('MeltdownTests/meltdownNew.s')
     results = annotate_transient_instructions(funcs, window_size=7,
                                               enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
@@ -189,27 +189,27 @@ def main():
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
         #transform_index_masking_light: 1,
-        #transform_nop: 0.2,
-        #transform_lea_split: 0.15,
+        #transform_nop: 1,
+        #transform_lea_split: 1,
         #transform_reorder_movs: 1,
         #transform_fence_after_jcc: 1,
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
-        #transform_meltdown_fence_cut: 1,
-        transform_pointer_sandboxing_b: 1,
+        transform_meltdown_fence_cut: 1,
+        #transform_pointer_sandboxing_b: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=20000,
-        same_variants=True,
-        transforms_per_variant=1,   # N trasformations per variant
+        num_variants=100,
+        same_variants=False,
+        transforms_per_variant=3,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdown20000.s')
+    write_functions(out, 'MeltdownTests/meltdownFenceCut100_New.s')
 
 
 if __name__ == "__main__":
