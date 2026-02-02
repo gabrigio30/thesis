@@ -97,7 +97,7 @@ def _meltdown_dst_gpr(instr: Instruction) -> Optional[str]:
 
 
 def _meltdown_src_gprs(instr: Instruction, dst_norm: Optional[str]) -> set:
-    """Stima registri GPR letti (euristico, sufficiente per finestre corte)."""
+    """Stima registri GPR letti"""
     ops = instr.operands or []
     if not ops:
         return set()
@@ -707,7 +707,7 @@ def annotate_transient_instructions(functions: List[Function],
 
 
 # ---------------------------------------------------------------------
-# HELPERS DI SVILUPPO / DEBUG (facoltativi)
+# HELPERS PER DEBUGGING
 # ---------------------------------------------------------------------
 
 def get_windows_text_report(function: Function) -> str:

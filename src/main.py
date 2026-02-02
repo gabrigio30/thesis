@@ -164,6 +164,8 @@ from src.variant_generator2 import (
     transform_retpoline_rewrite,
     transform_fence_between_store_load,
     transform_ssb_dependency_chain_barrier,
+    transform_meltdown_fence_cut,
+    transform_pointer_sandboxing_b,
 )
 
 def main():
@@ -190,22 +192,24 @@ def main():
         #transform_nop: 0.2,
         #transform_lea_split: 0.15,
         #transform_reorder_movs: 1,
-        transform_fence_after_jcc: 1,
+        #transform_fence_after_jcc: 1,
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
+        #transform_meltdown_fence_cut: 1,
+        transform_pointer_sandboxing_b: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=10000,
-        same_variants=True,
-        transforms_per_variant=2,   # N trasformations per variant
+        num_variants=5,
+        same_variants=False,
+        transforms_per_variant=1,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdown10000.s')
+    write_functions(out, 'MeltdownTests/meltdownSandbox5.s')
 
 
 if __name__ == "__main__":

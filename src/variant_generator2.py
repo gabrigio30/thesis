@@ -17,12 +17,15 @@
 import random
 from copy import deepcopy
 from parser import Instruction, Function
-from detector import _base_reg_of_memop
+from detector import (
+    _base_reg_of_memop,
+    _get_relevant_mem_operands,
+    _is_load_from_nonstack_mem,
+    _meltdown_dst_gpr,
+    _meltdown_extract_gprs,
+    _meltdown_taint_step,
+)
 import re
-
-# ==============================================================
-# FUNZIONI HELPER
-# ==============================================================
 
 
 # ==============================================================
@@ -81,6 +84,106 @@ def _emit_retpoline_ool_thunks(functions):
     _RETPOLINE_OOL_REGS = set()
     return functions
 
+
+# ===================================================================
+# Meltdown pointer sandboxing (data page emessa solo se necessario)
+# ===================================================================
+
+# Se almeno una variante applica pointer sandboxing, emettiamo una pagina sandbox
+# in .bss e la referenziamo via RIP-relative LEA.
+_SANDBOX_LABEL = "__gg_meltdown_sandbox"
+_NEEDS_SANDBOX_PAGE = False
+
+
+def _emit_meltdown_sandbox_page(functions):
+    """Emette una sola volta (in fondo al file) una pagina sandbox in .bss se richiesta."""
+    global _NEEDS_SANDBOX_PAGE
+
+    if not _NEEDS_SANDBOX_PAGE:
+        return functions
+
+    # Se già presente, non reinseriamo
+    for f in functions:
+        if getattr(f, "name", None) == _SANDBOX_LABEL:
+            _NEEDS_SANDBOX_PAGE = False
+            return functions
+
+    # Inseriamo prima delle trailing directives (se presenti) per non spostarle
+    insert_at = len(functions)
+    for idx, f in enumerate(functions):
+        if getattr(f, "name", None) == "__trailing_directives__":
+            insert_at = idx
+            break
+
+    sb = Function(_SANDBOX_LABEL)
+    sb.directives = ["\t.section\t.bss", "\t.p2align\t12"]
+    sb.instructions = [
+        Instruction("## Meltdown sandbox page (auto-generated)"),
+        Instruction("\t.skip\t4096"),
+        Instruction("\t.text"),
+    ]
+    for ins in sb.instructions:
+        ins.structural_tag = True
+
+    functions = functions[:insert_at] + [sb] + functions[insert_at:]
+    _NEEDS_SANDBOX_PAGE = False
+    return functions
+
+
+# --------------------------------------------------------------
+# Flags liveness helpers conservativi
+# --------------------------------------------------------------
+
+def _is_flags_use_mnemonic(m: str) -> bool:
+    """Istruzioni che consumano i flags (o dipendono da essi)."""
+    m = (m or "").lower()
+    if not m:
+        return False
+    if _is_conditional_jump_mnemonic(m):
+        return True
+    if m.startswith("cmov"):
+        return True
+    if m.startswith("set"):
+        return True
+    # ADC/SBB/RCR/RCL usano carry, quindi consumano flags
+    if m.startswith("adc") or m.startswith("sbb") or m.startswith("rcr") or m.startswith("rcl"):
+        return True
+    return False
+
+
+def _is_flags_def_mnemonic(m: str) -> bool:
+    """Istruzioni che definiscono i flags (lista conservativa)."""
+    m = (m or "").lower()
+    if not m:
+        return False
+    if m.startswith("cmp") or m.startswith("test"):
+        return True
+    for p in ("add", "sub", "imul", "mul", "and", "or", "xor", "inc", "dec", "neg", "not"):
+        if m.startswith(p):
+            return True
+    for p in ("shl", "sal", "shr", "sar", "rol", "ror"):
+        if m.startswith(p):
+            return True
+    if m.startswith("bt") or m.startswith("bts") or m.startswith("btr") or m.startswith("btc"):
+        return True
+    return False
+
+
+def _flags_safe_to_clobber_from(window_instrs, start_idx: int) -> bool:
+    """
+    Conservative check: safe to clobber flags before window_instrs[start_idx]
+    if, scanning from start_idx forward:
+      - every flags-use is preceded by some flags-def, and
+      - there is at least one flags-def (so pre-window flags are not live-out).
+    """
+    saw_def = False
+    for ins in window_instrs[start_idx:]:
+        m = (ins.mnemonic or "").lower()
+        if _is_flags_def_mnemonic(m):
+            saw_def = True
+        if _is_flags_use_mnemonic(m) and not saw_def:
+            return False
+    return saw_def
 
 
 # Tutti i registri generali a 64 bit che ci interessano
@@ -654,6 +757,106 @@ def transform_fence_between_store_load(instrs, fence_mnemonic="mfence"):
     return out
 
 
+def transform_meltdown_fence_cut(instrs, fence_mnemonic="lfence"):
+    """
+    Meltdown (faulting load -> dependent mem access): inserisce una fence
+    per "tagliare" la dipendenza transient tra il load potenzialmente faulting
+    e il primo accesso a memoria data-dependent.
+
+    Heuristica (in stile delle trasformazioni Spectre già presenti):
+      1) Trova il primo load "non-stack, non-RIP" (riuso _is_load_from_nonstack_mem).
+      2) Propaga una taint minima sui GPR (riuso _meltdown_taint_step).
+      3) Inserisce una fence:
+         - subito DOPO il load candidato
+         - e, se individuato, subito PRIMA del primo accesso a memoria
+           il cui addressing usa un registro tainted (riuso _get_relevant_mem_operands
+           + _meltdown_extract_gprs).
+
+    NOTE:
+      - Non modifica la semantica architetturale (solo performance).
+      - Se non trova un match robusto, non applica (ritorna invariato).
+      - Markiamo le fence come structural_tag per evitare ulteriori riscritture pericolose.
+    """
+    out = [deepcopy(i) for i in instrs]
+
+    # 1) Trova il primo load non-stack / non-RIP
+    load_idx = None
+    for i, ins in enumerate(out):
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            continue
+        if _is_load_from_nonstack_mem(ins):
+            load_idx = i
+            break
+
+    if load_idx is None:
+        return out
+
+    dst = _meltdown_dst_gpr(out[load_idx])
+    if not dst:
+        return out
+
+    tainted = {dst}
+
+    # 2) Scan in avanti per trovare il primo accesso memoria data-dependent
+    dep_mem_idx = None
+
+    for j in range(load_idx + 1, len(out)):
+        ins = out[j]
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            break
+
+        mn = (ins.mnemonic or "").lower()
+
+        # non attraversiamo call/ret/jmp incondizionale; permettiamo jcc
+        if mn.startswith("call") or mn.startswith("ret") or mn in ("jmp", "jmpq", "jmpl"):
+            break
+
+        # taint propagation
+        tainted = _meltdown_taint_step(tainted, ins)
+
+        mem_ops = _get_relevant_mem_operands(ins, include_rip=False)
+        if not mem_ops:
+            continue
+
+        regs_in_addr = set()
+        for mo in mem_ops:
+            regs_in_addr.update(_meltdown_extract_gprs(mo))
+
+        if regs_in_addr & tainted:
+            dep_mem_idx = j
+            break
+
+    # 3) Determina dove inserire le fence (evita duplicati banali)
+    insert_positions = []
+
+    # Fence dopo load
+    after_load = load_idx + 1
+    if after_load <= len(out):
+        insert_positions.append(after_load)
+
+    # Fence prima della prima mem data-dependent
+    if dep_mem_idx is not None and dep_mem_idx not in insert_positions:
+        insert_positions.append(dep_mem_idx)
+
+    if not insert_positions:
+        return out
+
+    # Inserimento (gestione offset)
+    offset = 0
+    for pos in sorted(insert_positions):
+        # evita inserimento ridondante se già c'è una fence uguale appena prima
+        if 0 <= (pos + offset - 1) < len(out):
+            prev = out[pos + offset - 1]
+            if (prev.mnemonic or "").lower() == fence_mnemonic.lower():
+                continue
+
+        fence = Instruction(f"    {fence_mnemonic}", fence_mnemonic, [])
+        fence.structural_tag = True
+        out.insert(pos + offset, fence)
+        offset += 1
+
+    return out
+
 
 def transform_lea_split(instrs, safe_temps):
     """
@@ -1034,6 +1237,125 @@ def transform_ssb_dependency_chain_barrier(instrs, safe_temps):
     return out
 
 
+def transform_pointer_sandboxing_b(instrs, safe_temps):
+    """
+    Pointer sandboxing: se la finestra è Meltdown-like (load non-stack/non-RIP
+    che alimenta un successivo accesso a memoria data-dependent), riscriviamo il base pointer
+    del load in modo che, se è un puntatore kernel-like (canonical negativo), venga sostituito
+    con l'indirizzo di una pagina sandbox mappata in .bss.
+
+    Implementazione conservativa:
+      - Si applica solo se la finestra matcha un pattern Meltdown-like (riuso taint helpers).
+      - Richiede almeno 1 registro temporaneo "safe" (safe_temps) per caricare &sandbox.
+      - Non usa push/pop (evita interazioni con red-zone/stack).
+      - Non preserva i flags: per sicurezza applica solo se i flags non risultano live
+        (entro la finestra, ogni flags-use è preceduto da un flags-def e c'è almeno un def).
+      - Se non applicabile, ritorna la finestra invariata (no-op).
+
+    Effetto:
+      - Se ptr è user-space: no-op (cmovs non scatta).
+      - Se ptr è kernel-space: ptr := &__gg_meltdown_sandbox (load non legge segreti kernel).
+    """
+    global _NEEDS_SANDBOX_PAGE
+    out = [deepcopy(i) for i in instrs]
+
+    if not safe_temps:
+        return out
+
+    # 1) Anchor: primo load non-stack/non-RIP
+    load_idx = None
+    for i, ins in enumerate(out):
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            continue
+        if getattr(ins, "structural_tag", False):
+            continue
+        if _is_load_from_nonstack_mem(ins):
+            load_idx = i
+            break
+    if load_idx is None:
+        return out
+
+    # 2) Conferma pattern Meltdown-like: load -> dependent mem access
+    dst = _meltdown_dst_gpr(out[load_idx])
+    if not dst:
+        return out
+
+    tainted = {dst}
+    dep_mem_idx = None
+
+    for j in range(load_idx + 1, len(out)):
+        ins = out[j]
+        if ins.mnemonic is None or getattr(ins, "directive", False):
+            break
+
+        mn = (ins.mnemonic or "").lower()
+        # non attraversiamo call/ret/jmp incondizionale; permettiamo jcc
+        if mn.startswith("call") or mn.startswith("ret") or mn in ("jmp", "jmpq", "jmpl"):
+            break
+
+        tainted = _meltdown_taint_step(tainted, ins)
+
+        mem_ops = _get_relevant_mem_operands(ins, include_rip=False)
+        if not mem_ops:
+            continue
+
+        regs_in_addr = set()
+        for mo in mem_ops:
+            regs_in_addr.update(_meltdown_extract_gprs(mo))
+
+        if regs_in_addr & tainted:
+            dep_mem_idx = j
+            break
+
+    if dep_mem_idx is None:
+        return out
+
+    # 3) Estrai base reg del load (puntatore da sandboxare)
+    mem_ops0 = _get_relevant_mem_operands(out[load_idx], include_rip=False)
+    if not mem_ops0:
+        return out
+
+    memop = mem_ops0[0]
+    ptr = ""
+
+    b = _base_reg_of_memop(memop) if _base_reg_of_memop is not None else ""
+    ptr = b or ""
+
+    if not ptr:
+        # fallback conservativo: prendi un qualsiasi reg usato nell'operand (escludi stack)
+        regs = list(regs_in_operand(memop) - {"%rbp", "%rsp"})
+        ptr = regs[0] if regs else ""
+
+    if not ptr or ptr in ("%rbp", "%rsp", "%rip"):
+        return out
+
+    # 4) Flags conservatism (non vogliamo rompere flags live-out)
+    if not _flags_safe_to_clobber_from(out, load_idx):
+        return out
+
+    # 5) Inserisci sequenza branchless: if (ptr < 0) ptr = &sandbox
+    tmp = safe_temps[0]
+    if tmp == ptr:
+        return out
+
+    # testq ptr, ptr sets SF based on sign bit; OF=0
+    # cmovs tmp, ptr triggers if SF!=OF => SF==1 => ptr negative
+    lea = Instruction(f"\tleaq\t{_SANDBOX_LABEL}(%rip), {tmp}", "leaq", [f"{_SANDBOX_LABEL}(%rip)", tmp])
+    tst = Instruction(f"\ttestq\t{ptr}, {ptr}", "testq", [ptr, ptr])
+    cmv = Instruction(f"\tcmovs\t{tmp}, {ptr}", "cmovs", [tmp, ptr])
+
+    lea.structural_tag = True
+    tst.structural_tag = True
+    cmv.structural_tag = True
+
+    out.insert(load_idx, lea)
+    out.insert(load_idx + 1, tst)
+    out.insert(load_idx + 2, cmv)
+
+    _NEEDS_SANDBOX_PAGE = True
+    return out
+
+
 
 
 # ==============================================================
@@ -1097,6 +1419,8 @@ def generate_variants_for_results(functions, results,
             transform_index_masking_light,
             transform_retpoline_rewrite,
             transform_ssb_dependency_chain_barrier,
+            transform_meltdown_fence_cut,
+            transform_pointer_sandboxing_b,
         ]
 
     # Normalizzazione: almeno 1 trasformazione per variante
@@ -1215,7 +1539,8 @@ def generate_variants_for_results(functions, results,
 
                         # Trasformazioni che richiedono registri temporanei "safe"
                         if (t is transform_lea_split or t is transform_index_masking_light or
-                                t is transform_retpoline_rewrite or t is transform_ssb_dependency_chain_barrier):
+                                t is transform_retpoline_rewrite or t is transform_ssb_dependency_chain_barrier or
+                                t is transform_pointer_sandboxing_b):
                             current = t(current, safe_temps)
                         else:
                             current = t(current)
@@ -1372,5 +1697,6 @@ def generate_variants_for_results(functions, results,
             func.instructions[start:end + 1] = prefix + selector_block + variant_blocks + [continue_instr]
 
             functions = _emit_retpoline_ool_thunks(functions)
+            functions = _emit_meltdown_sandbox_page(functions)
 
     return functions
