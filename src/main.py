@@ -196,20 +196,20 @@ def main():
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
-        #transform_meltdown_fence_cut: 1,
-        transform_pointer_sandboxing_b: 1,
+        transform_meltdown_fence_cut: 1,
+        #transform_pointer_sandboxing_b: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=5,
+        num_variants=500,
         same_variants=False,
         transforms_per_variant=1,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdownSandbox5.s')
+    write_functions(out, 'MeltdownTests/meltdownFence500.s')
 
 
 if __name__ == "__main__":
