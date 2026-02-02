@@ -169,7 +169,7 @@ from src.variant_generator2 import (
 )
 
 def main():
-    funcs = load_functions('MeltdownTests/meltdown.s')
+    funcs = load_functions('MeltdownTests/meltdownNew.s')
     results = annotate_transient_instructions(funcs, window_size=7,
                                               enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
@@ -196,20 +196,20 @@ def main():
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
-        transform_meltdown_fence_cut: 1,
-        #transform_pointer_sandboxing_b: 1,
+        #transform_meltdown_fence_cut: 1,
+        transform_pointer_sandboxing_b: 1,
     }
 
     out = generate_variants_for_results(
         funcs,
         results,
-        num_variants=500,
+        num_variants=250,
         same_variants=False,
         transforms_per_variant=1,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdownFence500.s')
+    write_functions(out, 'MeltdownTests/meltdownSandbox250_New.s')
 
 
 if __name__ == "__main__":

