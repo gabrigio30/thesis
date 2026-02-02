@@ -757,7 +757,7 @@ def transform_fence_between_store_load(instrs, fence_mnemonic="mfence"):
     return out
 
 
-def transform_meltdown_fence_cut(instrs, fence_mnemonic="lfence"):
+def transform_fence_cut(instrs, fence_mnemonic="lfence"):
     """
     Meltdown (faulting load -> dependent mem access): inserisce una fence
     per "tagliare" la dipendenza transient tra il load potenzialmente faulting
@@ -1237,7 +1237,7 @@ def transform_ssb_dependency_chain_barrier(instrs, safe_temps):
     return out
 
 
-def transform_pointer_sandboxing_b(instrs, safe_temps):
+def transform_pointer_sandboxing(instrs, safe_temps):
     """
     Pointer sandboxing: se la finestra è Meltdown-like (load non-stack/non-RIP
     che alimenta un successivo accesso a memoria data-dependent), riscriviamo il base pointer
@@ -1419,8 +1419,8 @@ def generate_variants_for_results(functions, results,
             transform_index_masking_light,
             transform_retpoline_rewrite,
             transform_ssb_dependency_chain_barrier,
-            transform_meltdown_fence_cut,
-            transform_pointer_sandboxing_b,
+            transform_fence_cut,
+            transform_pointer_sandboxing,
         ]
 
     # Normalizzazione: almeno 1 trasformazione per variante
@@ -1540,7 +1540,7 @@ def generate_variants_for_results(functions, results,
                         # Trasformazioni che richiedono registri temporanei "safe"
                         if (t is transform_lea_split or t is transform_index_masking_light or
                                 t is transform_retpoline_rewrite or t is transform_ssb_dependency_chain_barrier or
-                                t is transform_pointer_sandboxing_b):
+                                t is transform_pointer_sandboxing):
                             current = t(current, safe_temps)
                         else:
                             current = t(current)

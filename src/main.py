@@ -164,12 +164,12 @@ from src.variant_generator2 import (
     transform_retpoline_rewrite,
     transform_fence_between_store_load,
     transform_ssb_dependency_chain_barrier,
-    transform_meltdown_fence_cut,
-    transform_pointer_sandboxing_b,
+    transform_fence_cut,
+    transform_pointer_sandboxing,
 )
 
 def main():
-    funcs = load_functions('MeltdownTests/meltdownNew.s')
+    funcs = load_functions('MeltdownTests/meltdown.s')
     results = annotate_transient_instructions(funcs, window_size=7,
                                               enabled_detectors = [#'detect_cmp_jcc_mem',
                                                                    #'detect_indirect_branch',
@@ -189,15 +189,15 @@ def main():
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
         #transform_index_masking_light: 1,
-        #transform_nop: 1,
-        #transform_lea_split: 1,
+        transform_nop: 0.25,
+        transform_lea_split: 0.3,
         #transform_reorder_movs: 1,
         #transform_fence_after_jcc: 1,
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
-        transform_meltdown_fence_cut: 1,
-        #transform_pointer_sandboxing_b: 1,
+        transform_fence_cut: 0.15,
+        transform_pointer_sandboxing: 0.3,
     }
 
     out = generate_variants_for_results(
@@ -205,11 +205,11 @@ def main():
         results,
         num_variants=100,
         same_variants=False,
-        transforms_per_variant=3,   # N trasformations per variant
+        transforms_per_variant=6,   # N trasformations per variant
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdownFenceCut100_New.s')
+    write_functions(out, 'MeltdownTests/meltdownAll1_100.s')
 
 
 if __name__ == "__main__":

