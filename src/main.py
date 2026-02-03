@@ -189,15 +189,15 @@ def main():
     # Esempio: 20% nop, 30% fence, 40% lea_split, 10% reorder_movs
     transform_mix = {
         #transform_index_masking_light: 1,
-        transform_nop: 0.25,
-        transform_lea_split: 0.3,
+        transform_nop: 0.3,
+        transform_lea_split: 0.4,
         #transform_reorder_movs: 1,
         #transform_fence_after_jcc: 1,
         #transform_fence_between_store_load: 1,
         #transform_ssb_dependency_chain_barrier: 0.15,
         #transform_retpoline_rewrite: 1,
-        transform_fence_cut: 0.15,
-        transform_pointer_sandboxing: 0.3,
+        transform_fence_cut: 0.05,
+        transform_pointer_sandboxing: 0.25,
     }
 
     out = generate_variants_for_results(
@@ -209,7 +209,7 @@ def main():
         transform_weights=transform_mix,
     )
 
-    write_functions(out, 'MeltdownTests/meltdownAll1_100.s')
+    write_functions(out, 'MeltdownTests/meltdownAll2_100.s')
 
 
 if __name__ == "__main__":
