@@ -1,5 +1,3 @@
-'''
-# --- project imports (works both with and without the "src." package prefix) ---
 from src.parser import load_functions, write_functions
 from src.detector import annotate_transient_instructions
 import src.variant_generator2 as vg
@@ -10,28 +8,27 @@ from src.genetic_optimizer import GeneticOptimizer, normalized_weights_for_attac
 # ----------------------------
 # User-configurable parameters
 # ----------------------------
-INPUT_S  = "SpectreV1Tests/spectre.s"
-OUTPUT_S = "SpectreV1Tests/spectreFull.s"
+INPUT_S  = "SpectreV4Tests/spectre_v4_mac.s"
+OUTPUT_S = "SpectreV4Tests/spectre_v4_final_mac.s"
 
 RUNS_CSV = "src/Thesis - Runs.csv"
 BASELINES_CSV = "src/Thesis - Baselines.csv"
 MAPPING_CSV = "src/Thesis - Mapping.csv"
 
-# IMPORTANT: these must match your Runs.csv attack_id values (can choose from spectre_v1, spectre_v4 and meltdown)
-ATTACKS = ["spectre_v1"]
+# IMPORTANT: these must match Runs.csv attack_id values (can choose from spectre_v1, spectre_v4 and meltdown)
+ATTACKS = ["spectre_v1", "spectre_v4"] #, "meltdown"]
 
 # IMPORTANT: "min_overhead_under_protection" mode implies only min_global_protection is set
 #   while "max_protection_under_overhead" mode implies only overhead_budget is set
-GA_MODE = "max_protection_under_overhead"  # or "min_overhead_under_protection"
-OVERHEAD_BUDGET = 24.0                    # example constraint; set None to disable
-MIN_GLOBAL_PROTECTION = None
+GA_MODE =  "min_overhead_under_protection" # or "max_protection_under_overhead"
+OVERHEAD_BUDGET = None
+MIN_GLOBAL_PROTECTION = 95.0
 
 # Detector configuration
 WINDOW_SIZE = 7
 ENABLED_DETECTORS = [
     "detect_cmp_jcc_mem",
-    # "detect_indirect_branch",
-    # "detect_store_then_load",
+    "detect_store_then_load",
     #"detect_meltdown_faulting_load"
 ]
 
@@ -103,7 +100,7 @@ def main():
         attacks=ATTACKS,
         mode=GA_MODE,
         overhead_budget=OVERHEAD_BUDGET,
-        min_global_protection=None,
+        min_global_protection=MIN_GLOBAL_PROTECTION,
         overhead_weight=0.5,
         distance_weight=1.0,
         constraint_penalty=50.0,
@@ -118,10 +115,17 @@ def main():
 
     print("=== BEST CFG (raw genotype) ===")
     print(res.best_cfg)
-    print("=== FINAL RESULTS ===")
-    print(f"\nFitness: {res.fitness:.2f}")
+    print("\n=== FINAL RESULTS ===")
+    print(f"Fitness: {res.fitness:.2f}")
     print(f"Projected total overhead (sum over attacks): {res.overhead_total:.2f}")
     print(f"Projected minimum protection (worst-case): {res.protection_min:.2f}")
+
+    print("\n=== PER-ATTACK RESULTS ===")
+    # ordine stabile: segue ATTACKS se possibile
+    ordered = [a for a in ATTACKS if a in res.per_attack] + [a for a in res.per_attack if a not in ATTACKS]
+    for a in ordered:
+        p = res.per_attack[a]
+        print(f"- {a}: protection={p.protection_pct:.2f}%")
 
     # 3) Build transform mix from best cfg weights (Mapping.csv -> variant_generator2 functions)
     transform_mix = build_transform_mix_from_cfg(db, res.best_cfg, ATTACKS)
@@ -148,10 +152,12 @@ def main():
     )
 
     # 5) Write final .s
-    write_functions(out_funcs, OUTPUT_S)
-    print(f"\n[OK] Wrote diversified assembly to: {OUTPUT_S}")
-'''
+    #write_functions(out_funcs, OUTPUT_S)
+    #print(f"\n[OK] Wrote diversified assembly to: {OUTPUT_S}")
 
+
+
+'''
 from src.parser import load_functions, write_functions
 from src.detector import annotate_transient_instructions, get_windows_text_report
 from src.variant_generator2 import (
@@ -210,7 +216,7 @@ def main():
     )
 
     write_functions(out, 'MeltdownTests/meltdownAll2_100.s')
-
+'''
 
 if __name__ == "__main__":
     main()
