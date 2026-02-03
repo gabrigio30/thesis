@@ -422,5 +422,7 @@ class FitnessDB:
         Protections remain per-attack in the returned dict (as requested by your professor).
         """
         per_attack = self.predict_many(cfg, attacks)
-        overhead_total = float(sum(p.overhead_pct for p in per_attack.values()))
+        n_attacks = max(1, len(attacks))
+        overhead_total = float(sum(p.overhead_pct for p in per_attack.values())) / float(n_attacks)
         return overhead_total, per_attack
+

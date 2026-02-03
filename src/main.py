@@ -16,7 +16,7 @@ BASELINES_CSV = "src/Thesis - Baselines.csv"
 MAPPING_CSV = "src/Thesis - Mapping.csv"
 
 # IMPORTANT: these must match Runs.csv attack_id values (can choose from spectre_v1, spectre_v4 and meltdown)
-ATTACKS = ["spectre_v1", "spectre_v4"] #, "meltdown"]
+ATTACKS = ["spectre_v1", "spectre_v4", "meltdown"]
 
 # IMPORTANT: "min_overhead_under_protection" mode implies only min_global_protection is set
 #   while "max_protection_under_overhead" mode implies only overhead_budget is set
@@ -29,7 +29,7 @@ WINDOW_SIZE = 7
 ENABLED_DETECTORS = [
     "detect_cmp_jcc_mem",
     "detect_store_then_load",
-    #"detect_meltdown_faulting_load"
+    "detect_meltdown_faulting_load"
 ]
 
 
@@ -117,7 +117,8 @@ def main():
     print(res.best_cfg)
     print("\n=== FINAL RESULTS ===")
     print(f"Fitness: {res.fitness:.2f}")
-    print(f"Projected total overhead (sum over attacks): {res.overhead_total:.2f}")
+    print(f"Projected average overhead per attack: {res.overhead_total:.2f}")
+
     print(f"Projected minimum protection (worst-case): {res.protection_min:.2f}")
 
     print("\n=== PER-ATTACK RESULTS ===")

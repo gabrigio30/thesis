@@ -159,18 +159,22 @@ class GeneticOptimizer:
           overhead_total, protection_min, distance_penalty_total, per_attack_predictions
         """
         per_attack: Dict[str, Prediction] = {}
-        overhead_total = 0.0
+        overhead_sum = 0.0
         protections: List[float] = []
         distance_pen_total = 0.0
 
         for a in self.attacks:
             pred = self.db.predict(a, cfg)
             per_attack[a] = pred
-            overhead_total += pred.overhead_pct
+            overhead_sum += pred.overhead_pct
             protections.append(pred.protection_pct)
             distance_pen_total += pred.distance_penalty
 
         protection_min = min(protections) if protections else 0.0
+
+        n_attacks = max(1, len(self.attacks))
+        overhead_total = overhead_sum / float(n_attacks)
+
         return overhead_total, protection_min, distance_pen_total, per_attack
 
     def _constraint_violation_penalty(self, overhead_total: float, protection_min: float, per_attack: Dict[str, Prediction]) -> float:
